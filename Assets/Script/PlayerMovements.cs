@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState { 
+public enum PlayerState
+{
     idle,
     walk,
     attack,
@@ -15,14 +16,20 @@ public class PlayerMovements : MonoBehaviour
     private Animator animator;
     public PlayerState currentState;
     public float speed;
+
+
     public float health;
+    private float MaxHealth = 100;
+
+
     public Renderer rend;
     private Color colorToTurnTo;
 
+    public HealthBar healthbar;
     private Vector3 change;
 
     // Start is called before the first frame update
-    
+
     void Start()
     {
         currentState = PlayerState.walk;
@@ -31,6 +38,10 @@ public class PlayerMovements : MonoBehaviour
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
+
+        health = MaxHealth;
+        healthbar.SetMaxHealth(MaxHealth);
+
     }
 
     // Update is called once per frame
@@ -39,10 +50,10 @@ public class PlayerMovements : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-       
+
         if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
         {
-           
+
             StartCoroutine(waitAttack());
         }
 
@@ -62,7 +73,7 @@ public class PlayerMovements : MonoBehaviour
         }
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         Vector3 direction = change.normalized;
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
@@ -70,7 +81,7 @@ public class PlayerMovements : MonoBehaviour
 
     IEnumerator waitAttack()
     {
-        
+
 
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
@@ -79,19 +90,20 @@ public class PlayerMovements : MonoBehaviour
         yield return new WaitForSeconds(0.33f);
         currentState = PlayerState.walk;
     }
-   
+
 
     IEnumerator returnColor()
     {
         yield return new WaitForSeconds(0.2f);
         rend.material.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency
+    
     }
     public void Knock(Rigidbody2D rb2d, float knockTime)
     {
         StartCoroutine(KnockCo(rb2d, knockTime));
-        
+
         rend.material.color = colorToTurnTo;
-        
+
         StartCoroutine(returnColor());
     }
 
@@ -101,8 +113,22 @@ public class PlayerMovements : MonoBehaviour
         {
             yield return new WaitForSeconds(KnockTime);
             rb2d.velocity = Vector2.zero;
-           
+
             rb2d.velocity = Vector2.zero;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        healthbar.SetHealth(health);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            TakeDamage(10);
         }
     }
 }

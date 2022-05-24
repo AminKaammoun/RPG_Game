@@ -10,7 +10,8 @@ public class Slime : Enemy
     //public Transform homePosition;
     public Rigidbody2D player;
     public GameObject blood;
-
+    [SerializeField] SpriteRenderer spriteRenderer;
+    private bool faceLeft = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class Slime : Enemy
     void Update()
     {
         checkDistance();
-
+        checkDirection();
         if (health <= 0)
         {
             animator.SetBool("dead", true);
@@ -49,6 +50,25 @@ public class Slime : Enemy
             currentState = EnemyState.idle;
         }
     }
+
+    void checkDirection()
+    {
+        if(target.position.x > transform.position.x && faceLeft)
+        {
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+            faceLeft = false;
+        }
+        else if (target.position.x < transform.position.x && !faceLeft)
+        {
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+            faceLeft = true;
+        }
+    }
+
   
     IEnumerator waitAfterDead()
     {
