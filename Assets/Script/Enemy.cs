@@ -7,7 +7,8 @@ public enum EnemyState
     idle,
     walk,
     attack,
-    stagger
+    stagger,
+    dead
 }
 
 
@@ -26,18 +27,33 @@ public class Enemy : MonoBehaviour
     {
         health = maxHealth.initialValue;
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-   
-    
+
+
     public void TakeDamage(int damage)
     {
         health -= damage;
 
+    }
+
+    public void Knock(Rigidbody2D rb2d, float knockTime)
+    {
+        StartCoroutine(KnockCo(rb2d, knockTime));
+    }
+
+    private IEnumerator KnockCo(Rigidbody2D rb2d, float KnockTime)
+    {
+        if (rb2d != null) {
+            yield return new WaitForSeconds(KnockTime);
+            rb2d.velocity = Vector2.zero;
+            currentState = EnemyState.idle;
+            rb2d.velocity = Vector2.zero;
+        }
     }
 }

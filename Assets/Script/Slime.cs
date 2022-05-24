@@ -7,8 +7,9 @@ public class Slime : Enemy
     public Transform target;
     public float chaseRadius;
     public float attackRadius;
-    public Transform homePosition;
+    //public Transform homePosition;
     public Rigidbody2D player;
+    public GameObject blood;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class Slime : Enemy
         {
             animator.SetBool("attacking", true);
             StartCoroutine(waitAfterattack());
+            currentState = EnemyState.attack;
         }
     }
 
@@ -39,10 +41,12 @@ public class Slime : Enemy
         if(Vector3.Distance(target.position, transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position)> attackRadius) {
             transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
             animator.SetBool("moving", true);
+            currentState = EnemyState.walk;
         }
         else
         {
             animator.SetBool("moving", false);
+            currentState = EnemyState.idle;
         }
     }
   
@@ -59,12 +63,15 @@ public class Slime : Enemy
             TakeDamage(1);
             animator.SetBool("hurt", true);
             StartCoroutine(waitAfterHurt());
+            currentState = EnemyState.stagger;
+            Instantiate(blood, transform.position, Quaternion.identity);
         }     
     }
     IEnumerator waitAfterHurt()
     {
         yield return new WaitForSeconds(0.25f);
         animator.SetBool("hurt", false);
+
     }
 
     IEnumerator waitAfterattack()
