@@ -70,6 +70,7 @@ public class PlayerMovements : MonoBehaviour
     IEnumerator waitAttack()
     {
         
+
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
         yield return null;
@@ -90,7 +91,7 @@ public class PlayerMovements : MonoBehaviour
     IEnumerator returnColor()
     {
         yield return new WaitForSeconds(0.2f);
-        rend.material.color = new Color(1, 1, 1, 1);
+        rend.material.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency
     }
 
 }
