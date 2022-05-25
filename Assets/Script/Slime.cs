@@ -78,7 +78,7 @@ public class Slime : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("hitBox"))
+        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
             TakeDamage(1);
             animator.SetBool("hurt", true);

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 4172310720260582202}
   - component: {fileID: -8945799271570977964}
   - component: {fileID: -6454754270550626144}
+  - component: {fileID: 4526702159047615068}
+  - component: {fileID: -8657641381686076868}
   m_Layer: 0
   m_Name: arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4172310720260582204}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7939183, w: -0.60802454}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7939161, w: 0.6080274}
   m_LocalPosition: {x: 0.183, y: 0.015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 90.05}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 105.106}
 --- !u!212 &4172310720260582202
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -121,3 +123,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4526702159047615068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172310720260582204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
+  knockTime: 0.25
+  otherTag: Enemy
+--- !u!61 &-8657641381686076868
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172310720260582204}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.053408258, y: -0.023594717}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5805727, y: 0.04393008}
+  m_EdgeRadius: 0
