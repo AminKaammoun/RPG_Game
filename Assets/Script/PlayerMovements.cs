@@ -37,6 +37,7 @@ public class PlayerMovements : MonoBehaviour
     public HealthBar healthbar;
     private Vector3 change;
 
+    public GameObject Bow;
 
     // Start is called before the first frame update
 
@@ -72,8 +73,18 @@ public class PlayerMovements : MonoBehaviour
             }
         }
 
-       checkIfPlayerIsMoving(PosX, PosY);
-        
+        checkIfPlayerIsMoving(PosX, PosY);
+
+        if (Input.GetKeyDown("1"))
+        {
+            currentWeapon = PlayerWeapon.sword;
+            Bow.SetActive(false);
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            currentWeapon = PlayerWeapon.bow;
+            Bow.SetActive(true);
+        }
 
 
         if (currentState == PlayerState.walk)
