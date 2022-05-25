@@ -10,17 +10,26 @@ public enum PlayerState
     stagger
 }
 
+public enum PlayerWeapon
+{
+    sword,
+    bow
+}
+
 public class PlayerMovements : MonoBehaviour
 {
     private Rigidbody2D rb2D;
+    public Rigidbody2D bow;
     private Animator animator;
     public PlayerState currentState;
     public float speed = 5f;
-
+    public PlayerWeapon currentWeapon;
 
     public float health;
     private float MaxHealth = 100;
 
+    private float PosX;
+    private float PosY;
 
     public Renderer rend;
     private Color colorToTurnTo;
@@ -28,16 +37,18 @@ public class PlayerMovements : MonoBehaviour
     public HealthBar healthbar;
     private Vector3 change;
 
+
     // Start is called before the first frame update
 
     void Start()
     {
-        currentState = PlayerState.walk;
+        currentState = PlayerState.idle;
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
+        PosX = transform.position.x;
 
         health = MaxHealth;
         healthbar.SetMaxHealth(MaxHealth);
@@ -51,13 +62,19 @@ public class PlayerMovements : MonoBehaviour
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
-       
 
-        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
+        if (currentWeapon == PlayerWeapon.sword)
         {
+            if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
+            {
 
-            StartCoroutine(waitAttack());
+                StartCoroutine(waitAttack());
+            }
         }
+
+       checkIfPlayerIsMoving(PosX, PosY);
+        
+
 
         if (currentState == PlayerState.walk)
         {
@@ -70,15 +87,18 @@ public class PlayerMovements : MonoBehaviour
             }
             else
             {
+                currentState = PlayerState.idle;
                 animator.SetBool("moving", false);
             }
         }
+
     }
 
     void FixedUpdate()
     {
         Vector3 direction = change.normalized;
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
+
     }
 
     IEnumerator waitAttack()
@@ -98,7 +118,7 @@ public class PlayerMovements : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         rend.material.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency
-    
+
     }
     public void Knock(Rigidbody2D rb2d, float knockTime)
     {
@@ -115,7 +135,7 @@ public class PlayerMovements : MonoBehaviour
         {
             yield return new WaitForSeconds(KnockTime);
             rb2d.velocity = Vector2.zero;
-            
+
             rb2d.velocity = Vector2.zero;
         }
     }
@@ -133,4 +153,14 @@ public class PlayerMovements : MonoBehaviour
             TakeDamage(10);
         }
     }
+    void checkIfPlayerIsMoving(float PosX, float PosY)
+    {
+        if (PosX > transform.position.x || PosX < transform.position.x || PosY > transform.position.y || PosY < transform.position.y)
+        {
+            currentState = PlayerState.walk;
+            PosX = transform.position.x;
+            PosY = transform.position.y;
+        }
+    }
+
 }
