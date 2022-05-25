@@ -15,7 +15,7 @@ public class PlayerMovements : MonoBehaviour
     private Rigidbody2D rb2D;
     private Animator animator;
     public PlayerState currentState;
-    public float speed;
+    public float speed = 5f;
 
 
     public float health;
@@ -50,6 +50,8 @@ public class PlayerMovements : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
+
+       
 
         if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
         {
@@ -113,7 +115,7 @@ public class PlayerMovements : MonoBehaviour
         {
             yield return new WaitForSeconds(KnockTime);
             rb2d.velocity = Vector2.zero;
-
+            
             rb2d.velocity = Vector2.zero;
         }
     }
