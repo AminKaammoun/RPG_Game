@@ -24,7 +24,13 @@ public class Bow : MonoBehaviour
     void Update()
     {
         Hand = GameObject.FindWithTag("Hand");
-        bow.transform.position = Hand.transform.position;
+        try
+        {
+            bow.transform.position = Hand.transform.position;
+        }catch(System.Exception e)
+        {
+            Debug.Log(e);
+        }
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");

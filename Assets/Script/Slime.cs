@@ -23,11 +23,7 @@ public class Slime : Enemy
     {
         checkDistance();
         checkDirection();
-        if (health <= 0)
-        {
-            animator.SetBool("dead", true);
-            StartCoroutine(waitAfterDead());
-        }
+       
     
         if(Vector3.Distance(target.position, transform.position) <= 1f)
         {
@@ -80,12 +76,22 @@ public class Slime : Enemy
     {
         if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
-            TakeDamage(1);
-            animator.SetBool("hurt", true);
-            StartCoroutine(waitAfterHurt());
-            currentState = EnemyState.stagger;
+            if (health <= 1)
+            {
+                animator.SetBool("dead", true);
+                StartCoroutine(waitAfterDead());
+                currentState = EnemyState.dead;
+            }
+            else
+            {
+                TakeDamage(1);
+                animator.SetBool("hurt", true);
+                StartCoroutine(waitAfterHurt());
+                currentState = EnemyState.stagger;
+                
+            }
             Instantiate(blood, transform.position, Quaternion.identity);
-        }     
+        }
     }
     IEnumerator waitAfterHurt()
     {

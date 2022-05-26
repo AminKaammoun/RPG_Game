@@ -26,11 +26,7 @@ public class BringerOfDeath : Enemy
     {
         checkDistance();
         checkDirection();
-        if (health <= 0)
-        {
-            animator.SetBool("dead", true);
-           // StartCoroutine(waitAfterDead());
-        }
+     
         if (currentTime <= 0)
         {
             if (Vector3.Distance(target.position, transform.position) <= 3.2f)
@@ -92,10 +88,22 @@ public class BringerOfDeath : Enemy
     {
         if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
-            TakeDamage(1);
-            animator.SetBool("hurt", true);
-            StartCoroutine(waitAfterHurt());
-            currentState = EnemyState.stagger;
+
+            if (health <= 1)
+            {
+                animator.SetBool("dead", true);
+                StartCoroutine(waitAfterDead());
+                currentState = EnemyState.dead;
+            }
+            else
+            {
+
+                TakeDamage(1);
+                animator.SetBool("hurt", true);
+                StartCoroutine(waitAfterHurt());
+                currentState = EnemyState.stagger;
+                
+            }
             Instantiate(blood, transform.position, Quaternion.identity);
         }
     }

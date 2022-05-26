@@ -492,7 +492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -480.2, y: 290.7}
+  m_AnchoredPosition: {x: -461, y: 279}
   m_SizeDelta: {x: 217.1447, y: 68.9949}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132782996
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
+  thrust: 6
   knockTime: 0.25
   otherTag: BringerOfDeath
 --- !u!1 &189566605
@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
+  thrust: 6
   knockTime: 0.25
   otherTag: BringerOfDeath
 --- !u!1 &199887003
@@ -937,7 +937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -104.2, y: -308}
+  m_AnchoredPosition: {x: -104.2, y: -296.1}
   m_SizeDelta: {x: 28.4074, y: 27.3228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &439038397
@@ -1014,7 +1014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -454.1654, y: 312.2393}
+  m_AnchoredPosition: {x: -434.9654, y: 300.53928}
   m_SizeDelta: {x: -1099.0016, y: -669.1895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480466755
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
+  thrust: 6
   knockTime: 0.25
   otherTag: BringerOfDeath
 --- !u!1 &906133225
@@ -1637,7 +1637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -38.514}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49.8, y: -310.5}
+  m_AnchoredPosition: {x: -49.8, y: -298.6}
   m_SizeDelta: {x: 33.243, y: 31.9738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963272291
@@ -1834,7 +1834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -308}
+  m_AnchoredPosition: {x: 0, y: -296.1}
   m_SizeDelta: {x: 290.6906, y: 48.8337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423662279
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
+  thrust: 6
   knockTime: 0.25
   otherTag: BringerOfDeath
 --- !u!1 &1516230871
@@ -2039,7 +2039,7 @@ GameObject:
   - component: {fileID: 1520720738}
   m_Layer: 0
   m_Name: 'Bringer of Death '
-  m_TagString: Untagged
+  m_TagString: BringerOfDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2084,7 +2084,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 00e260f0bb6fae5419da29b5840089ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2132,7 +2132,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 07e23854f0b24ca4d95ec9fdefb22e18, type: 2}
   enemyName: Bringer Of Death
   health: 20
-  baseAttack: 50
+  baseAttack: 20
   moveSpeed: 3
   animator: {fileID: 1520720733}
   rb: {fileID: 1520720735}
@@ -2151,7 +2151,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520720730}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2163,7 +2163,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1520720736
 BoxCollider2D:
   m_ObjectHideFlags: 0
