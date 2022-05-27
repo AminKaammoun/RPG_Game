@@ -178,5 +178,8 @@ public class PlayerMovements : MonoBehaviour
             PosY = transform.position.y;
         }
     }
-
+    private void OnApplicationQuit()
+    {
+        inventory.Container.Clear();
+    }
 }

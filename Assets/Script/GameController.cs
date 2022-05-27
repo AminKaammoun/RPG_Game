@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject inventory;
-    
+    public InventoryObject Inv;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +18,16 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             inventory.SetActive(true);
+            Inv.load();
         }else if (Input.GetKeyUp(KeyCode.Tab))
         {
             inventory.SetActive(false);
+            Inv.save();
         }
+   
+       
+    
     }
+
+   
 }
