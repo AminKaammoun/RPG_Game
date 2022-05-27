@@ -19,15 +19,16 @@ public class GameController : MonoBehaviour
         {
             inventory.SetActive(true);
             Inv.load();
-        }else if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            inventory.SetActive(false);
-            Inv.save();
+            PlayerMovements.invIsOpen = true;
         }
    
-       
     
     }
-
+    public void closeInventory()
+    {
+        inventory.SetActive(false);
+        Inv.save();
+        PlayerMovements.invIsOpen = false;
+    }
    
 }

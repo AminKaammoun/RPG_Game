@@ -39,6 +39,7 @@ public class PlayerMovements : MonoBehaviour
     private Vector3 change;
 
     public GameObject Bow;
+    public static bool invIsOpen = false;
 
     
     // Start is called before the first frame update
@@ -61,24 +62,26 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
+        if (!invIsOpen)
         {
-            currentWeapon = PlayerWeapon.sword;
-            Bow.SetActive(false);
+            if (Input.GetKeyDown("1"))
+            {
+                currentWeapon = PlayerWeapon.sword;
+                Bow.SetActive(false);
+            }
+            else if (Input.GetKeyDown("2"))
+            {
+                currentWeapon = PlayerWeapon.bow;
+                Bow.SetActive(true);
+            }
+
+
+
+            change = Vector3.zero;
+            change.x = Input.GetAxisRaw("Horizontal");
+            change.y = Input.GetAxisRaw("Vertical");
+
         }
-        else if (Input.GetKeyDown("2"))
-        {
-            currentWeapon = PlayerWeapon.bow;
-            Bow.SetActive(true);
-        }
-       
-        
-
-        change = Vector3.zero;
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
-
-
         if (currentWeapon == PlayerWeapon.sword)
         {
             if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
