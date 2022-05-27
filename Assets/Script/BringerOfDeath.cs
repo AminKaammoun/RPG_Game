@@ -97,13 +97,12 @@ public class BringerOfDeath : Enemy
             }
             else
             {
-
                 TakeDamage(1);
                 animator.SetBool("hurt", true);
                 StartCoroutine(waitAfterHurt());
                 currentState = EnemyState.stagger;
-                
-            }
+             }
+            
             Instantiate(blood, transform.position, Quaternion.identity);
         }
     }

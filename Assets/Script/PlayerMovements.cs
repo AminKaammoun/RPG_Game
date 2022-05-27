@@ -24,6 +24,7 @@ public class PlayerMovements : MonoBehaviour
     public PlayerState currentState;
     public float speed = 5f;
     public PlayerWeapon currentWeapon;
+    public InventoryObject inventory;
 
     public float health;
     private float MaxHealth = 100;
@@ -39,6 +40,7 @@ public class PlayerMovements : MonoBehaviour
 
     public GameObject Bow;
 
+    public GameObject other;
     // Start is called before the first frame update
 
     void Start()
@@ -59,6 +61,23 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            currentWeapon = PlayerWeapon.sword;
+            Bow.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            currentWeapon = PlayerWeapon.bow;
+            Bow.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            var item = other.GetComponent<Item>();
+            inventory.AddItem(item.item, 1);
+        }
+        
+
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -75,17 +94,7 @@ public class PlayerMovements : MonoBehaviour
 
         checkIfPlayerIsMoving(PosX, PosY);
 
-        if (Input.GetKeyDown("1"))
-        {
-            currentWeapon = PlayerWeapon.sword;
-            Bow.SetActive(false);
-        }
-        else if (Input.GetKeyDown("2"))
-        {
-            currentWeapon = PlayerWeapon.bow;
-            Bow.SetActive(true);
-        }
-
+        
 
         if (currentState == PlayerState.walk)
         {
