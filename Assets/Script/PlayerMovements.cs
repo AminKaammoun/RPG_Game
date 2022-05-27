@@ -40,7 +40,7 @@ public class PlayerMovements : MonoBehaviour
 
     public GameObject Bow;
 
-    public GameObject other;
+    
     // Start is called before the first frame update
 
     void Start()
@@ -61,21 +61,17 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown("1"))
         {
             currentWeapon = PlayerWeapon.sword;
             Bow.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        else if (Input.GetKeyDown("2"))
         {
             currentWeapon = PlayerWeapon.bow;
             Bow.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            var item = other.GetComponent<Item>();
-            inventory.AddItem(item.item, 1);
-        }
+       
         
 
         change = Vector3.zero;
