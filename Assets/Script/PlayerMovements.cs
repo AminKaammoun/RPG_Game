@@ -43,14 +43,15 @@ public class PlayerMovements : MonoBehaviour
 
     public static bool invIsOpen = false;
     public static bool isHealed = false;
+    public static bool healthIsMax = true;
 
 
-    
+
     // Start is called before the first frame update
 
     void Start()
     {
-        
+
         currentState = PlayerState.idle;
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -58,7 +59,7 @@ public class PlayerMovements : MonoBehaviour
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
-         
+
         health = MaxHealth;
         healthbar.SetMaxHealth(MaxHealth);
 
@@ -67,6 +68,16 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health >= 100)
+        {
+            health = 100;
+            healthIsMax = true;
+        }
+        else
+        {
+            healthIsMax = false;
+        }
+        
 
         if (isHealed)
         {
@@ -109,7 +120,7 @@ public class PlayerMovements : MonoBehaviour
 
         checkIfPlayerIsMoving(PosX, PosY);
 
-        
+
 
         if (currentState == PlayerState.walk)
         {
@@ -187,7 +198,8 @@ public class PlayerMovements : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             TakeDamage(10);
-        }else if (collision.CompareTag("BringerOfDeath"))
+        }
+        else if (collision.CompareTag("BringerOfDeath"))
         {
             TakeDamage(20);
         }

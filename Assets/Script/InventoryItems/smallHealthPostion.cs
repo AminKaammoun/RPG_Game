@@ -11,30 +11,46 @@ public class smallHealthPostion : MonoBehaviour
     public InventoryObject inventory;
     public TextMeshProUGUI text;
     public GameObject item;
+    public GameObject[] panels;
+    public string description ;
 
     public void showPanel()
     {
+        panels = GameObject.FindGameObjectsWithTag("panel");
+        foreach (GameObject r in panels)
+        {
+            r.SetActive(false);
+        }
+
         panel.SetActive(true);
-     
+        Inventory.description = "Magic potion used to restore 20 health.";
     }
     public void useButton()
     {
-        PlayerMovements.invIsOpen = false;
-        PlayerMovements.isHealed = true;
-
-      
-        panel.SetActive(false);
-        PlayerMovements.health += 20;
-        inventory.RemoveItem(smallHealthPotion);
-        inventory.save();
-        
-        if (text.text == "X1")
+        if (!PlayerMovements.healthIsMax)
         {
-            
-            Destroy(item);
-        }
-        inventory.save();
 
+            PlayerMovements.invIsOpen = false;
+            PlayerMovements.isHealed = true;
+
+           
+            panel.SetActive(false);
+            PlayerMovements.health += 20;
+            inventory.RemoveItem(smallHealthPotion);
+            inventory.save();
+
+            if (text.text == "X1")
+            {
+
+                Destroy(item);
+            }
+            inventory.save();
+        }
+        else
+        {
+            panel.SetActive(false);
+            GameController.showAlert = true;
+        }
 
     }
     
