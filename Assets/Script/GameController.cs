@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,8 +21,11 @@ public class GameController : MonoBehaviour
             Inv.load();
             PlayerMovements.invIsOpen = true;
         }
-   
-    
+        if (PlayerMovements.invIsOpen == false)
+        {
+            inventory.SetActive(false);
+        }
+
     }
     public void closeInventory()
     {
@@ -30,5 +33,5 @@ public class GameController : MonoBehaviour
         Inv.save();
         PlayerMovements.invIsOpen = false;
     }
-   
+
 }

@@ -26,7 +26,7 @@ public class PlayerMovements : MonoBehaviour
     public PlayerWeapon currentWeapon;
     public InventoryObject inventory;
 
-    public float health;
+    public static float health;
     private float MaxHealth = 100;
 
     private float PosX;
@@ -41,11 +41,13 @@ public class PlayerMovements : MonoBehaviour
     public GameObject Bow;
     public static bool invIsOpen = false;
 
+
     
     // Start is called before the first frame update
 
     void Start()
     {
+        
         currentState = PlayerState.idle;
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -53,7 +55,7 @@ public class PlayerMovements : MonoBehaviour
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
-
+         
         health = MaxHealth;
         healthbar.SetMaxHealth(MaxHealth);
 
@@ -62,6 +64,8 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        healthbar.SetHealth(health);
         if (!invIsOpen)
         {
             if (Input.GetKeyDown("1"))
@@ -81,13 +85,14 @@ public class PlayerMovements : MonoBehaviour
             change.x = Input.GetAxisRaw("Horizontal");
             change.y = Input.GetAxisRaw("Vertical");
 
-        }
-        if (currentWeapon == PlayerWeapon.sword)
-        {
-            if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
-            {
 
-                StartCoroutine(waitAttack());
+            if (currentWeapon == PlayerWeapon.sword)
+            {
+                if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
+                {
+
+                    StartCoroutine(waitAttack());
+                }
             }
         }
 
@@ -170,6 +175,9 @@ public class PlayerMovements : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             TakeDamage(10);
+        }else if (collision.CompareTag("BringerOfDeath"))
+        {
+            TakeDamage(20);
         }
     }
     void checkIfPlayerIsMoving(float PosX, float PosY)

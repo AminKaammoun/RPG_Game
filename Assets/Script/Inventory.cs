@@ -30,6 +30,8 @@ public class Inventory : MonoBehaviour
     {
         for(int i =0; i<inventory.Container.Count; i++)
         {
+           
+            
             if (itemsDisplayed.ContainsKey(inventory.Container[i]))
             {
                 itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
@@ -59,4 +61,6 @@ public void CreateDisplay()
     {
         return new Vector3(Xstart +(XspaceBtwItem * (i% NumberOfColumns)), Ystart+(-YspaceBtwItems * (i/NumberOfColumns)), 0f);
     }
+
+
 }

@@ -14,6 +14,9 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public List<InventorySlot> Container = new List<InventorySlot>();
 
 
+
+  
+
     private void OnEnable()
     {
 #if UNITY_EDITOR
@@ -37,6 +40,24 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         
             Container.Add(new InventorySlot(database.GetId[_item],_item, _amount));
        
+    }
+
+    public void RemoveItem(ItemObject _item)
+    {
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                Container[i].amount -= 1;
+                if (Container[i].amount == 0)
+                {
+
+                    Container.Remove(Container[i]);
+                    
+                }
+            }
+        }
+        
     }
 
     public void save()
