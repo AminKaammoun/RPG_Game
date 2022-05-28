@@ -94,6 +94,7 @@ public class BringerOfDeath : Enemy
                 animator.SetBool("dead", true);
                 StartCoroutine(waitAfterDead());
                 currentState = EnemyState.dead;
+                Destroy(gameObject, 5f);
             }
             else
             {
@@ -103,7 +104,8 @@ public class BringerOfDeath : Enemy
                 currentState = EnemyState.stagger;
              }
             
-            Instantiate(blood, transform.position, Quaternion.identity);
+           GameObject Blood = Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(Blood, 5f);
         }
     }
     IEnumerator waitAfterHurt()

@@ -81,6 +81,7 @@ public class Slime : Enemy
                 animator.SetBool("dead", true);
                 StartCoroutine(waitAfterDead());
                 currentState = EnemyState.dead;
+                Destroy(gameObject, 5f);
             }
             else
             {
@@ -90,7 +91,9 @@ public class Slime : Enemy
                 currentState = EnemyState.stagger;
                 
             }
-            Instantiate(blood, transform.position, Quaternion.identity);
+            GameObject Blood = Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(Blood, 5f);
+
         }
     }
     IEnumerator waitAfterHurt()

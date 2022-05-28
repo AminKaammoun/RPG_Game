@@ -19,7 +19,7 @@ public class ArrowSpawn : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (currentTime <= 0)
+        if (currentTime <= 0 && PlayerMovements.invIsOpen == false)
         {
             if (Input.GetMouseButton(0))
             {

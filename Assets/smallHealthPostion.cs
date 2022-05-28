@@ -17,10 +17,13 @@ public class smallHealthPostion : MonoBehaviour
     public void useButton()
     {
         PlayerMovements.invIsOpen = false;
+        PlayerMovements.isHealed = true;
+
         panel.SetActive(false);
         PlayerMovements.health += 20;
         inventory.RemoveItem(smallHealthPotion);
         inventory.save();
+
     }
     
    

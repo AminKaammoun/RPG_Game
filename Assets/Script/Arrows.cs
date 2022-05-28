@@ -18,5 +18,6 @@ public class Arrows : MonoBehaviour
     void Update()
     {
         rb.transform.Translate(Vector2.right * bulletForce * Time.deltaTime);
+        Destroy(gameObject,5f);
     }
 }

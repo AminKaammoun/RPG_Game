@@ -39,7 +39,10 @@ public class PlayerMovements : MonoBehaviour
     private Vector3 change;
 
     public GameObject Bow;
+    public GameObject HealEffect;
+
     public static bool invIsOpen = false;
+    public static bool isHealed = false;
 
 
     
@@ -64,6 +67,14 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isHealed)
+        {
+            GameObject healEff = Instantiate(HealEffect, transform.position, Quaternion.identity);
+            isHealed = false;
+            Destroy(healEff, 5f);
+        }
+
 
         healthbar.SetHealth(health);
         if (!invIsOpen)
@@ -163,6 +174,7 @@ public class PlayerMovements : MonoBehaviour
             rb2d.velocity = Vector2.zero;
         }
     }
+
 
     public void TakeDamage(float damage)
     {
