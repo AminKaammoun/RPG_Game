@@ -202,6 +202,9 @@ public class PlayerMovements : MonoBehaviour
         else if (collision.CompareTag("BringerOfDeath"))
         {
             TakeDamage(20);
+        }else if (collision.CompareTag("log"))
+        {
+            TakeDamage(10);
         }
     }
     void checkIfPlayerIsMoving(float PosX, float PosY)

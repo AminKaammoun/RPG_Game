@@ -8,7 +8,7 @@ public class KnockBack : MonoBehaviour
     [SerializeField] private float thrust;
     [SerializeField] private float knockTime;
     [SerializeField] private string otherTag;
-   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(otherTag))
@@ -18,9 +18,9 @@ public class KnockBack : MonoBehaviour
             {
                 Vector2 forceDirection = hit.transform.position - transform.position;
                 Vector2 force = forceDirection.normalized * thrust;
-                
-               
-                if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("BringerOfDeath")) && collision.isTrigger)
+
+
+                if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("BringerOfDeath")) || collision.gameObject.CompareTag("log")   && collision.isTrigger)
                 {
                     hit.velocity = force;
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
@@ -32,11 +32,12 @@ public class KnockBack : MonoBehaviour
                     hit.GetComponent<PlayerMovements>().currentState = PlayerState.stagger;
                     collision.GetComponent<PlayerMovements>().Knock(hit, knockTime);
                 }
+                
 
             }
         }
-       
+
     }
 
-   
+
 }
