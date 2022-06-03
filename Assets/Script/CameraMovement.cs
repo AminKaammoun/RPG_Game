@@ -7,8 +7,8 @@ public class CameraMovement : MonoBehaviour
 
     public Transform target;
     public float smoothing;
-    public Vector2 maxPosition;
-    public Vector2 minPosition;
+    public static Vector2 maxPosition;
+    public static Vector2 minPosition;
     
   
 

@@ -5,7 +5,8 @@ using UnityEngine;
 public enum PlayerMap
 {
     Village,
-    forrest
+    forrest, 
+    forrestDungeon
 }
 
 public class GameController : MonoBehaviour
@@ -22,7 +23,7 @@ public class GameController : MonoBehaviour
     public GameObject[] panel;
     public GameObject leaf;
 
-    public PlayerMap currentMap;
+    public static PlayerMap currentMap;
 
     public static bool showAlert = false;
 
@@ -30,13 +31,13 @@ public class GameController : MonoBehaviour
     void Start()
     {
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
+        currentMap = PlayerMap.forrest;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-       
+
         
         panel = GameObject.FindGameObjectsWithTag("panel");
 
@@ -57,10 +58,12 @@ public class GameController : MonoBehaviour
 
         if(currentMap == PlayerMap.forrest)
         {
+            CameraMovement.maxPosition = new Vector2(159.63f,30f);
+            CameraMovement.minPosition = new Vector2(56.74f, -2f);
+
             if (TimeBtwLeafSpawn <= 0)
             {
                 int rand = Random.Range(0, 27);
-
                 Instantiate(leaf, leafSpawner[rand].transform.position, Quaternion.identity);
                 TimeBtwLeafSpawn = StartTime;
             }
@@ -69,6 +72,12 @@ public class GameController : MonoBehaviour
                 TimeBtwLeafSpawn -= Time.deltaTime;
             }
 
+        }
+
+        if(currentMap == PlayerMap.forrestDungeon)
+        {
+            CameraMovement.maxPosition = new Vector2(100f, 46.32f);
+            CameraMovement.minPosition = new Vector2(0f, 45.36f);
         }
     }
     public void closeInventory()

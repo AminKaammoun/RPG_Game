@@ -89,7 +89,7 @@ public class log : Enemy
 
     IEnumerator waitAfterDead()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         this.gameObject.SetActive(false);
     }
 
