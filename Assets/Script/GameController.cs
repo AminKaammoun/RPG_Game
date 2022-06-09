@@ -5,17 +5,20 @@ using UnityEngine;
 public enum PlayerMap
 {
     Village,
-    forrest, 
-    forrestDungeon
+    forrest,
+    forrestDungeon,
+    forrestDungeon2,
+    forrestDungeon3,
+    forrestDungeon4
 }
 
 public class GameController : MonoBehaviour
 {
-   
+
     public InventoryObject Inv;
-    
+
     public float TimeBtwLeafSpawn;
-    public float StartTime = 0.25f ;
+    public float StartTime = 0.25f;
 
     public GameObject inventory;
     public GameObject[] leafSpawner;
@@ -38,7 +41,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
-        
+
         panel = GameObject.FindGameObjectsWithTag("panel");
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -56,9 +59,9 @@ public class GameController : MonoBehaviour
             alert.SetActive(true);
         }
 
-        if(currentMap == PlayerMap.forrest)
+        if (currentMap == PlayerMap.forrest)
         {
-            CameraMovement.maxPosition = new Vector2(159.63f,30f);
+            CameraMovement.maxPosition = new Vector2(159.63f, 30f);
             CameraMovement.minPosition = new Vector2(56.74f, -2f);
 
             if (TimeBtwLeafSpawn <= 0)
@@ -74,12 +77,28 @@ public class GameController : MonoBehaviour
 
         }
 
-        if(currentMap == PlayerMap.forrestDungeon)
+        if (currentMap == PlayerMap.forrestDungeon)
         {
             CameraMovement.maxPosition = new Vector2(100f, 46.32f);
             CameraMovement.minPosition = new Vector2(0f, 45.36f);
         }
-    }
+        else if (currentMap == PlayerMap.forrestDungeon2)
+        {
+            CameraMovement.maxPosition = new Vector2(200f, 59.73f);
+            CameraMovement.minPosition = new Vector2(0f, 58.55f);
+        }
+        else if (currentMap == PlayerMap.forrestDungeon3)
+        {
+            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
+            CameraMovement.minPosition = new Vector2(0f, 71.64f);
+        }
+        else if (currentMap == PlayerMap.forrestDungeon4)
+        {
+            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
+            CameraMovement.minPosition = new Vector2(0f, 71.64f);
+        }
+
+        }
     public void closeInventory()
     {
         Inventory.description = "";

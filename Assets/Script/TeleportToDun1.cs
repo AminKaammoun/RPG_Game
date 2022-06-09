@@ -8,7 +8,7 @@ public class TeleportToDun1 : MonoBehaviour
     public GameObject player;
 
 
-   
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
