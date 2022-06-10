@@ -40,6 +40,8 @@ public class PlayerMovements : MonoBehaviour
 
     public GameObject Bow;
     public GameObject HealEffect;
+    public GameObject silverKeyCanvas;
+    public GameObject goldKeyCanvas;
 
     public static bool invIsOpen = false;
     public static bool isHealed = false;
@@ -205,6 +207,19 @@ public class PlayerMovements : MonoBehaviour
         }else if (collision.CompareTag("log"))
         {
             TakeDamage(10);
+        }
+
+        if (collision.CompareTag("silverKey"))
+        {
+            silverKeyCanvas.SetActive(true);
+            Destroy(GameObject.FindGameObjectWithTag("silverKey"));
+            Door1.silverKeyObtained = true;
+        }
+        if (collision.CompareTag("goldKey"))
+        {
+            goldKeyCanvas.SetActive(true);
+            Destroy(GameObject.FindGameObjectWithTag("goldKey"));
+            Door2.goldKeyObtained = true;
         }
     }
     void checkIfPlayerIsMoving(float PosX, float PosY)
