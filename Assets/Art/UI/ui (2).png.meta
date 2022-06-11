@@ -112,7 +112,7 @@ TextureImporter:
         width: 100
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,7 +133,7 @@ TextureImporter:
         width: 51
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
         width: 51
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,7 +175,7 @@ TextureImporter:
         width: 51
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,7 +196,7 @@ TextureImporter:
         width: 140
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,6 +204,27 @@ TextureImporter:
       bones: []
       spriteID: 32d482d6125885b49b17c961f5ca464d
       internalID: 203381620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui (2)_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 8
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53579074}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a720af7f6d58f4418119487d85f15f2
+      internalID: 1948277355
       vertices: []
       indices: 
       edges: []
@@ -222,6 +243,7 @@ TextureImporter:
       ui (2)_3: -1460793040
       ui (2)_0: 1569077530
       ui (2)_2: -1990512136
+      ui (2)_5: 1948277355
       ui (2)_4: 203381620
       ui (2)_1: -1998941459
   spritePackingTag: 

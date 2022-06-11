@@ -18,6 +18,9 @@ public enum PlayerWeapon
 
 public class PlayerMovements : MonoBehaviour
 {
+    [SerializeField] private LayerMask dashLayerMask;
+    [SerializeField] private TrailRenderer tr;
+
     private Rigidbody2D rb2D;
     public Rigidbody2D bow;
     private Animator animator;
@@ -46,6 +49,8 @@ public class PlayerMovements : MonoBehaviour
     public static bool invIsOpen = false;
     public static bool isHealed = false;
     public static bool healthIsMax = true;
+    public static bool isDashButtonDown;
+    public static bool canDash  = true;
 
 
 
@@ -140,13 +145,33 @@ public class PlayerMovements : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.R) && canDash)
+        {
+            isDashButtonDown = true;
+            GameController.dashed = true;
+            
+        }
     }
 
     void FixedUpdate()
     {
         Vector3 direction = change.normalized;
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
+       
+        if (isDashButtonDown)
+        {
+            float dashAmount = 5f;
+            Vector3 dashPosition = transform.position + direction * dashAmount;
 
+            RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, direction, dashAmount, dashLayerMask);
+            if(raycastHit2d.collider != null){
+                dashPosition = raycastHit2d.point;
+            }
+            rb2D.MovePosition(dashPosition);
+            isDashButtonDown = false;
+            tr.emitting = true;
+            StartCoroutine(waitdash());
+        }
     }
 
     IEnumerator waitAttack()
@@ -161,8 +186,12 @@ public class PlayerMovements : MonoBehaviour
         currentState = PlayerState.walk;
     }
 
-
-    IEnumerator returnColor()
+    IEnumerator waitdash()
+    {
+        yield return new WaitForSeconds(0.25f);
+        tr.emitting = false;
+    }
+        IEnumerator returnColor()
     {
         yield return new WaitForSeconds(0.2f);
         rend.material.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency

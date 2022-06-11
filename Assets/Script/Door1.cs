@@ -28,6 +28,7 @@ public class Door1 : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 silverKeyCanvas.SetActive(false);
+                
             }
         }
         else

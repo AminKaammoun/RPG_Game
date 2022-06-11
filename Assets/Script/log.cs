@@ -27,36 +27,33 @@ public class log : Enemy
     {
         checkDistance();
 
-
-
-
-        void checkDistance()
-        {
-            if (Vector3.Distance(target.position, transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
-            {
-                if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
-                {
-
-
-                    transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-
-                    changeAnim(Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime) - transform.position);
-                    rb2D.MovePosition(Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime));
-                    animator.SetBool("wakeUp", true);
-
-                    currentState = EnemyState.walk;
-                }
-            }
-            else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
-            {
-                animator.SetBool("wakeUp", false);
-                currentState = EnemyState.idle;
-            }
-        }
-
     }
 
-   private void setAnimFloat(Vector2 setVector)
+    void checkDistance()
+    {
+        if (Vector3.Distance(target.position, transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
+        {
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+            {
+
+
+                transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+
+                changeAnim(Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime) - transform.position);
+                rb2D.MovePosition(Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime));
+                animator.SetBool("wakeUp", true);
+
+                currentState = EnemyState.walk;
+            }
+        }
+        else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
+        {
+            animator.SetBool("wakeUp", false);
+            currentState = EnemyState.idle;
+        }
+    }
+
+    private void setAnimFloat(Vector2 setVector)
     {
         animator.SetFloat("moveX", setVector.x);
         animator.SetFloat("moveY", setVector.y);
@@ -97,12 +94,15 @@ public class log : Enemy
     {
         if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
-            if (health <= 1)
+            if (health <= 0)
             {
+               
                 Log.material.color = new Color(1, 0.5f, 0.5f, 1);
                 StartCoroutine(waitAfterDead());
                 currentState = EnemyState.dead;
+               
                 Destroy(gameObject, 5f);
+               
             }
             else
             {

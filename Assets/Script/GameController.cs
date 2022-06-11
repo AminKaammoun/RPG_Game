@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PlayerMap
 {
@@ -25,14 +26,23 @@ public class GameController : MonoBehaviour
     public GameObject alert;
     public GameObject[] panel;
     public GameObject leaf;
+    public GameObject dashUi;
+   
+    private float currentTime;
+    private float startTime = 10f;
+    public static bool dashed = false;
+
+    public Text dashTimer;
 
     public static PlayerMap currentMap;
 
+    
     public static bool showAlert = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentTime = startTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         currentMap = PlayerMap.forrest;
     }
@@ -41,6 +51,22 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
+        dashTimer.text = ((int)currentTime).ToString();
+        if (dashed)
+        {
+            if (currentTime >= 0)
+            {
+                currentTime -= 1 * Time.deltaTime;
+                PlayerMovements.canDash = false;
+            }
+            else
+            {
+                currentTime = startTime;
+                dashed = false;
+                PlayerMovements.canDash = true;
+                dashUi.SetActive(false);
+            }
+        }
 
         panel = GameObject.FindGameObjectsWithTag("panel");
 
@@ -98,7 +124,12 @@ public class GameController : MonoBehaviour
             CameraMovement.minPosition = new Vector2(0f, 71.64f);
         }
 
-        }
+        if (PlayerMovements.isDashButtonDown)
+        {
+            dashUi.SetActive(true);
+           
+        }    
+    }
     public void closeInventory()
     {
         Inventory.description = "";

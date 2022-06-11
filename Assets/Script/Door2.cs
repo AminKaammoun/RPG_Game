@@ -27,6 +27,7 @@ public class Door2 : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 goldKeyCanvas.SetActive(false);
+                
             }
         }
         else
