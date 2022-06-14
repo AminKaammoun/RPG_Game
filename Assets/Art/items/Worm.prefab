@@ -182,11 +182,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6f0ef5b1d88f74b9ac587e3cd3e4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  maxHealth: {fileID: 0}
+  enemyName: 
+  health: 0
+  baseAttack: 0
+  moveSpeed: 0
+  animator: {fileID: 8404898323405198681}
+  rb: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
   speed: 1.5
   worm: {fileID: 8404898323405198680}
   startTime: 3
-  animator: {fileID: 8404898323405198681}
+  anim: {fileID: 8404898323405198681}
   fireBall: {fileID: 2685738038055556948, guid: 5fbb83703fff98842a874a01fe88c2bd, type: 3}
   wormEnemy: {fileID: 8404898323405198662}
   spawn1: {fileID: 8404898322201854450}

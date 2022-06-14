@@ -29,5 +29,10 @@ public class FireBall : MonoBehaviour
             animator.SetBool("explode", true);
             Destroy(this.gameObject, 0.5f);
         }
+        if (collision.CompareTag("Player"))
+        {
+            animator.SetBool("explode", true);
+            Destroy(this.gameObject, 0.5f);
+        }
     }
 }

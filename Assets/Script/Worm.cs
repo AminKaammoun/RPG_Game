@@ -2,18 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Worm : MonoBehaviour
 {
+   
+    
     public Vector3 target;
     public float speed = 2f;
     public SpriteRenderer worm;
     private float TimeBtwAttack;
     public float startTime = 3f;
-    public Animator animator;
+    public Animator anim;
     public GameObject fireBall;
     public GameObject wormEnemy;
     public GameObject spawn1;
     public GameObject spawn2;
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +32,7 @@ public class Worm : MonoBehaviour
     {
         if (TimeBtwAttack <= 0)
         {
-            animator.SetBool("attack", true);
+            anim.SetBool("attack", true);
             if (worm.flipX)
             {
                 StartCoroutine(waitBeforeShooting(spawn2));
@@ -60,11 +65,12 @@ public class Worm : MonoBehaviour
     IEnumerator backToWalk()
     {
         yield return new WaitForSeconds(1f);
-        animator.SetBool("attack", false);
+        anim.SetBool("attack", false);
     }
     IEnumerator waitBeforeShooting(GameObject spawn)
     {
         yield return new WaitForSeconds(1f);
         Instantiate(fireBall, spawn.transform.position, Quaternion.identity);
     }
+   
 }

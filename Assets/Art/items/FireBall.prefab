@@ -48,9 +48,10 @@ GameObject:
   - component: {fileID: 2685738038694633217}
   - component: {fileID: 3907198221699073852}
   - component: {fileID: 1248651414956812552}
+  - component: {fileID: 4650677425423355531}
   m_Layer: 0
   m_Name: FireBall1
-  m_TagString: Untagged
+  m_TagString: fireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +158,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &3907198221699073852
 Animator:
   serializedVersion: 4
@@ -204,6 +205,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52968556, y: 0.5205952}
   m_EdgeRadius: 0
+--- !u!114 &4650677425423355531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2685738038694633220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 0.25
+  knockTime: 50
+  otherTag: Player
 --- !u!1 &2685738039630044424
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,9 +234,10 @@ GameObject:
   - component: {fileID: 2685738039630044533}
   - component: {fileID: 4537986321195095358}
   - component: {fileID: 3352805714169999812}
+  - component: {fileID: 6213652132594823723}
   m_Layer: 0
   m_Name: FireBall3
-  m_TagString: Untagged
+  m_TagString: fireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,7 +344,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &4537986321195095358
 Animator:
   serializedVersion: 4
@@ -374,6 +391,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37735215, y: 0.5822119}
   m_EdgeRadius: 0
+--- !u!114 &6213652132594823723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2685738039630044424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 0.25
+  knockTime: 50
+  otherTag: Player
 --- !u!1 &2685738039669639013
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,9 +420,10 @@ GameObject:
   - component: {fileID: 2685738039669639010}
   - component: {fileID: 3408180163258080877}
   - component: {fileID: 6136962585751678300}
+  - component: {fileID: 6541983425611867359}
   m_Layer: 0
   m_Name: FireBall2
-  m_TagString: Untagged
+  m_TagString: fireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,7 +530,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &3408180163258080877
 Animator:
   serializedVersion: 4
@@ -544,3 +577,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5978577, y: 0.5210417}
   m_EdgeRadius: 0
+--- !u!114 &6541983425611867359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2685738039669639013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 0.25
+  knockTime: 50
+  otherTag: Player

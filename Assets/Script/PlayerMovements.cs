@@ -236,6 +236,9 @@ public class PlayerMovements : MonoBehaviour
         }else if (collision.CompareTag("log"))
         {
             TakeDamage(10);
+        }else if (collision.CompareTag("fireBall"))
+        {
+            TakeDamage(10);
         }
 
         if (collision.CompareTag("silverKey"))
