@@ -74,9 +74,10 @@ GameObject:
   - component: {fileID: 8404898323405198680}
   - component: {fileID: 8404898323405198681}
   - component: {fileID: 8404898323405198682}
+  - component: {fileID: 8143562383526908248}
   m_Layer: 0
   m_Name: Worm
-  m_TagString: Untagged
+  m_TagString: worm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,20 +183,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6f0ef5b1d88f74b9ac587e3cd3e4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  maxHealth: {fileID: 0}
-  enemyName: 
-  health: 0
-  baseAttack: 0
-  moveSpeed: 0
-  animator: {fileID: 8404898323405198681}
-  rb: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
   speed: 1.5
   worm: {fileID: 8404898323405198680}
-  startTime: 3
+  startTime: 2
   anim: {fileID: 8404898323405198681}
   fireBall: {fileID: 2685738038055556948, guid: 5fbb83703fff98842a874a01fe88c2bd, type: 3}
   wormEnemy: {fileID: 8404898323405198662}
   spawn1: {fileID: 8404898322201854450}
   spawn2: {fileID: 8404898322800854892}
+  counter: 0
+  health: 100
+  currentState: 0
+--- !u!61 &8143562383526908248
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404898323405198662}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.3576355, y: 0.447052}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.625, y: 5.625}
+    newSize: {x: 3.1875, y: 2.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8186951, y: 2.3296204}
+  m_EdgeRadius: 0
