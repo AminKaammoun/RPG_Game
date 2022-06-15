@@ -8,7 +8,8 @@ public class KnockBack : MonoBehaviour
     [SerializeField] private float thrust;
     [SerializeField] private float knockTime;
     [SerializeField] private string otherTag;
-
+    private Rigidbody2D hit;
+    private Vector2 force;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(otherTag))
@@ -26,21 +27,23 @@ public class KnockBack : MonoBehaviour
                     hit.velocity = force;
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     collision.GetComponent<Enemy>().Knock(hit, knockTime);
+                    
                 }
                 
                 if (collision.gameObject.CompareTag("Player") && collision.isTrigger)
                 {
                     CameraMovement.shake = true;
                     hit.transform.Translate(force * 10f * Time.deltaTime);
+                   
                     hit.GetComponent<PlayerMovements>().currentState = PlayerState.stagger;
                     collision.GetComponent<PlayerMovements>().Knock(hit, knockTime);
-                }
                 
-
+                }
+          
             }
         }
 
     }
-
+    
 
 }

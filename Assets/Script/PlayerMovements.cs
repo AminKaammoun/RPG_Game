@@ -157,7 +157,8 @@ public class PlayerMovements : MonoBehaviour
     {
         Vector3 direction = change.normalized;
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
-       
+
+        
         if (isDashButtonDown)
         {
             float dashAmount = 5f;
@@ -172,6 +173,7 @@ public class PlayerMovements : MonoBehaviour
             tr.emitting = true;
             StartCoroutine(waitdash());
         }
+
     }
 
     IEnumerator waitAttack()
@@ -210,6 +212,7 @@ public class PlayerMovements : MonoBehaviour
     {
         if (rb2d != null)
         {
+           
             yield return new WaitForSeconds(KnockTime);
             rb2d.velocity = Vector2.zero;
 
