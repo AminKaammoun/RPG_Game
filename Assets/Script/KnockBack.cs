@@ -22,6 +22,7 @@ public class KnockBack : MonoBehaviour
 
                 if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("BringerOfDeath")) || collision.gameObject.CompareTag("log") && collision.isTrigger)
                 {
+                    CameraMovement.shake = true;
                     hit.velocity = force;
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     collision.GetComponent<Enemy>().Knock(hit, knockTime);
@@ -29,7 +30,7 @@ public class KnockBack : MonoBehaviour
                 
                 if (collision.gameObject.CompareTag("Player") && collision.isTrigger)
                 {
-                    
+                    CameraMovement.shake = true;
                     hit.transform.Translate(force * 10f * Time.deltaTime);
                     hit.GetComponent<PlayerMovements>().currentState = PlayerState.stagger;
                     collision.GetComponent<PlayerMovements>().Knock(hit, knockTime);

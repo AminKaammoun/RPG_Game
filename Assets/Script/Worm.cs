@@ -24,9 +24,14 @@ public class Worm : MonoBehaviour
     public GameObject wormEnemy;
     public GameObject spawn1;
     public GameObject spawn2;
+    public GameObject chest;
+   
+
     public int counter = 0;
     public float health = 100f;
     public WormState currentState;
+
+    public bool chestIsInstantiated;
 
 
     // Start is called before the first frame update
@@ -35,6 +40,7 @@ public class Worm : MonoBehaviour
         currentState = WormState.walk;
         target = new Vector3(112.9f, 75.77f, 0f);
         TimeBtwAttack = startTime;
+        chestIsInstantiated = true;
     }
 
     // Update is called once per frame
@@ -44,6 +50,13 @@ public class Worm : MonoBehaviour
         {
             anim.SetBool("die", true);
             currentState = WormState.dead;
+            CameraMovement.bigShake = true;
+            Time.timeScale = 0.5f;
+            Destroy(this.gameObject,1.5f);
+            Instantiate(chest, transform.position, Quaternion.identity);
+            StartCoroutine(backFromSlowMo());
+            health = 1;
+            
         }
         if (counter >= 5)
         {
@@ -93,6 +106,12 @@ public class Worm : MonoBehaviour
             
         }
     }
+
+   IEnumerator backFromSlowMo()
+    {
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 1f;
+    }
     IEnumerator backToWalk()
     {
         yield return new WaitForSeconds(1f);
@@ -121,6 +140,7 @@ public class Worm : MonoBehaviour
     {
         if (collision.CompareTag("hitBox") && currentState == WormState.stun)
         {
+            CameraMovement.shake = true;
             health -= 5f;
             StartCoroutine(backFromStagger());
             currentState = WormState.stagger;
