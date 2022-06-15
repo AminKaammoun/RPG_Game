@@ -27,16 +27,23 @@ public class GameController : MonoBehaviour
     public GameObject[] panel;
     public GameObject leaf;
     public GameObject dashUi;
-   
+    public GameObject player;
+    public GameObject loadingPanel;
+    public GameObject tpPanel;
+
     private float currentTime;
     private float startTime = 10f;
     public static bool dashed = false;
+    public static bool wantTp = false;
 
     public Text dashTimer;
+    public Text loading;
 
     public static PlayerMap currentMap;
 
-    
+    private float startLoadingTime = 0.35f;
+    public float TimeBtwLoading;
+
     public static bool showAlert = false;
 
     // Start is called before the first frame update
@@ -50,6 +57,25 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (loadingPanel.activeSelf)
+        {
+            if (TimeBtwLoading <= 0)
+            {
+                loading.text = loading.text + ".";
+                TimeBtwLoading = startLoadingTime;
+            }
+            else
+            {
+                TimeBtwLoading -= Time.deltaTime;
+            }
+        }
+        
+        if (wantTp)
+        {
+            tpPanel.SetActive(true);
+
+        }
+
 
         dashTimer.text = ((int)currentTime).ToString();
         if (dashed)
@@ -123,12 +149,17 @@ public class GameController : MonoBehaviour
             CameraMovement.maxPosition = new Vector2(200f, 72.56f);
             CameraMovement.minPosition = new Vector2(0f, 71.64f);
         }
-
+        else if (currentMap == PlayerMap.Village)
+        {
+            CameraMovement.maxPosition = new Vector2(12.31f, 2.2f);
+            CameraMovement.minPosition = new Vector2(-29.19f, -0.12f);
+        }
+     
         if (PlayerMovements.isDashButtonDown)
         {
             dashUi.SetActive(true);
-           
-        }    
+
+        }
     }
     public void closeInventory()
     {
@@ -146,5 +177,36 @@ public class GameController : MonoBehaviour
     {
         alert.SetActive(false);
         showAlert = false;
+    }
+
+    public void closeTpPanel()
+    {
+        tpPanel.SetActive(false);
+        wantTp = false;
+    }
+
+    public void VillageTpButton()
+    {
+        tpPanel.SetActive(false);
+        wantTp = false;
+        player.transform.position = new Vector3(21.36f, 0.56f, 0f);
+        currentMap = PlayerMap.Village;
+        loadingPanel.SetActive(true);
+        StartCoroutine(removeLoadingPanel());
+    }
+    public void ForrestTpButton()
+    {
+        tpPanel.SetActive(false);
+        wantTp = false;
+        player.transform.position = new Vector3(47.66f, 3.1f, 0f);
+        currentMap = PlayerMap.forrest;
+        loadingPanel.SetActive(true);
+        StartCoroutine(removeLoadingPanel());
+    }
+    IEnumerator removeLoadingPanel()
+    {
+        yield return new WaitForSeconds(1f);
+        loading.text = "LOADING";
+        loadingPanel.SetActive(false);
     }
 }

@@ -280,7 +280,7 @@ TextureImporter:
         width: 120
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,6 +288,69 @@ TextureImporter:
       bones: []
       spriteID: 2bc06cbcbe059c34cb40662f2ef106f6
       internalID: 873974399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_split_9
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 362
+        width: 78
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 11, y: 8, z: 10, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df4d915164a12f4bb2e3ce169fa9522
+      internalID: -873027880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_split_10
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 7
+        width: 71
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6ca25ba057d15479f0f5d72cf397e4
+      internalID: 1684068571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_split_11
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 249
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecec14cb572f6c140b2aa97ce253844a
+      internalID: 828901765
       vertices: []
       indices: 
       edges: []
@@ -308,8 +371,11 @@ TextureImporter:
       ui_split_0: -1624509022
       ui_split_5: 1459950403
       ui_split_1: -988877863
+      ui_split_11: 828901765
       ui_split_2: -113476029
+      ui_split_9: -873027880
       ui_split_8: 873974399
+      ui_split_10: 1684068571
       ui_split_6: 1054081302
       ui_split_4: 1342281168
   spritePackingTag: 

@@ -95,7 +95,7 @@ public class PlayerMovements : MonoBehaviour
 
 
         healthbar.SetHealth(health);
-        if (!invIsOpen)
+        if (!invIsOpen || !GameController.wantTp) 
         {
             if (Input.GetKeyDown("1"))
             {
@@ -158,8 +158,8 @@ public class PlayerMovements : MonoBehaviour
         Vector3 direction = change.normalized;
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
 
-        
-        if (isDashButtonDown)
+
+        if (isDashButtonDown )
         {
             float dashAmount = 5f;
             Vector3 dashPosition = transform.position + direction * dashAmount;
@@ -178,8 +178,6 @@ public class PlayerMovements : MonoBehaviour
 
     IEnumerator waitAttack()
     {
-
-
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
         yield return null;
@@ -244,6 +242,11 @@ public class PlayerMovements : MonoBehaviour
             TakeDamage(10);
         }
 
+        if (collision.CompareTag("teleporter"))
+        {
+            GameController.wantTp = true;
+        }
+
         if (collision.CompareTag("silverKey"))
         {
             silverKeyCanvas.SetActive(true);
@@ -268,6 +271,6 @@ public class PlayerMovements : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
+        //inventory.Container.Clear();
     }
 }

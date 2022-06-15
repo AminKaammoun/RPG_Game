@@ -134,9 +134,12 @@ public class Worm : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         anim.SetBool("stun", false);
-        currentState = WormState.walk;
         counter = 0;
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.3624f, 75.54301f, 0f), 10 * Time.deltaTime);
+        if (currentState != WormState.dead)
+        {
+            currentState = WormState.walk;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.3624f, 75.54301f, 0f), 10 * Time.deltaTime);
+        }
     }
     IEnumerator backFromStagger()
     {
