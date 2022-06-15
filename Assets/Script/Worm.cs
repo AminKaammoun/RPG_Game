@@ -20,40 +20,48 @@ public class Worm : MonoBehaviour
     private float TimeBtwAttack;
     public float startTime = 1f;
     public Animator anim;
+    
     public GameObject fireBall;
     public GameObject wormEnemy;
     public GameObject spawn1;
     public GameObject spawn2;
     public GameObject chest;
-   
+    public GameObject board;
+
+    public HealthBar healthbar;
 
     public int counter = 0;
     public float health = 100f;
     public WormState currentState;
 
     public bool chestIsInstantiated;
-
+    public static bool isdead = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        board.SetActive(true);
         currentState = WormState.walk;
         target = new Vector3(112.9f, 75.77f, 0f);
         TimeBtwAttack = startTime;
         chestIsInstantiated = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(health <= 0)
+        healthbar.SetHealth(health);
+        if (health <= 0)
         {
+            isdead = true;
             anim.SetBool("die", true);
             currentState = WormState.dead;
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
             Destroy(this.gameObject,1.5f);
             Instantiate(chest, transform.position, Quaternion.identity);
+            TeleportToDunLvl4.isclosed = false;
             StartCoroutine(backFromSlowMo());
             health = 1;
             
