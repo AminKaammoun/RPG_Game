@@ -8,24 +8,14 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
-
+    
     public string savePath;
-    private ItemDataBaseObject database;
+    public ItemDataBaseObject database;
+   
     public List<InventorySlot> Container = new List<InventorySlot>();
-
-
 
   
 
-    private void OnEnable()
-    {
-#if UNITY_EDITOR
-
-        database = (ItemDataBaseObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/DataBase.Assets", typeof(ItemDataBaseObject));
-#else
-        database = Resources.Load<ItemDataBaseObject>("DataBase");     
-#endif
-    }
     public void AddItem(ItemObject _item,int _amount)
     {
 
