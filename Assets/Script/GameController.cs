@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour
     public GameObject loadingPanel;
     public GameObject tpPanel;
     public GameObject PotionShopPanel;
+    public GameObject theVillage;
+    public GameObject theForrest;
 
     private float currentTime;
     private float startTime = 10f;
@@ -51,6 +53,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         currentTime = startTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         currentMap = PlayerMap.forrest;
@@ -59,8 +62,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
         if (loadingPanel.activeSelf)
         {
             if (TimeBtwLoading <= 0)
@@ -73,7 +76,7 @@ public class GameController : MonoBehaviour
                 TimeBtwLoading -= Time.deltaTime;
             }
         }
-        
+
         if (wantTp)
         {
             tpPanel.SetActive(true);
@@ -123,6 +126,7 @@ public class GameController : MonoBehaviour
             if (TimeBtwLeafSpawn <= 0)
             {
                 int rand = Random.Range(0, 27);
+                
                 Instantiate(leaf, leafSpawner[rand].transform.position, Quaternion.identity);
                 TimeBtwLeafSpawn = StartTime;
             }
@@ -158,7 +162,7 @@ public class GameController : MonoBehaviour
             CameraMovement.maxPosition = new Vector2(12.31f, 2.2f);
             CameraMovement.minPosition = new Vector2(-29.19f, -0.12f);
         }
-     
+
         if (PlayerMovements.isDashButtonDown)
         {
             dashUi.SetActive(true);
@@ -221,5 +225,21 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         loading.text = "LOADING";
         loadingPanel.SetActive(false);
+        if(currentMap == PlayerMap.Village)
+        {
+            theVillage.SetActive(true);
+            StartCoroutine(removeText());
+            
+        }else if(currentMap == PlayerMap.forrest)
+        {
+            theForrest.SetActive(true);
+            StartCoroutine(removeText());
+        }
+    }
+    IEnumerator removeText()
+    {
+        yield return new WaitForSeconds(2f);
+        theVillage.SetActive(false);
+        theForrest.SetActive(false);
     }
 }
