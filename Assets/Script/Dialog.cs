@@ -12,8 +12,8 @@ public class Dialog : MonoBehaviour
     public string dialog;
     public GameObject key;
     public bool keyPressed;
-
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -69,4 +69,6 @@ public class Dialog : MonoBehaviour
             playerInRange = false;
         }
     }
+
+
 }

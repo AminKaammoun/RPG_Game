@@ -30,11 +30,13 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject loadingPanel;
     public GameObject tpPanel;
+    public GameObject PotionShopPanel;
 
     private float currentTime;
     private float startTime = 10f;
     public static bool dashed = false;
     public static bool wantTp = false;
+    //public static bool showPotionShop = false;
 
     public Text dashTimer;
     public Text loading;
@@ -57,6 +59,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
         if (loadingPanel.activeSelf)
         {
             if (TimeBtwLoading <= 0)
@@ -202,6 +206,15 @@ public class GameController : MonoBehaviour
         currentMap = PlayerMap.forrest;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());
+    }
+
+    public void potionShop()
+    {
+        PotionShopPanel.SetActive(true);
+    }
+    public void closePanels()
+    {
+        PotionShopPanel.SetActive(false);
     }
     IEnumerator removeLoadingPanel()
     {
