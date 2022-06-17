@@ -47,8 +47,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject SpeedEffect;
     public GameObject silverKeyCanvas;
     public GameObject goldKeyCanvas;
-    
-
+   
+   
     public static bool invIsOpen = false;
     
     public static bool isHealed = false;
@@ -67,7 +67,7 @@ public class PlayerMovements : MonoBehaviour
 
     void Start()
     {
-       
+        
         currentState = PlayerState.idle;
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -75,7 +75,7 @@ public class PlayerMovements : MonoBehaviour
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
-
+        
         health = MaxHealth;
         healthbar.SetMaxHealth(MaxHealth);
 
@@ -186,6 +186,8 @@ public class PlayerMovements : MonoBehaviour
         if (currentState == PlayerState.walk)
         {
 
+           
+
             if (change != Vector3.zero)
             {
                 animator.SetFloat("moveX", change.x);
@@ -198,6 +200,7 @@ public class PlayerMovements : MonoBehaviour
                 animator.SetBool("moving", false);
             }
         }
+        
 
         if (Input.GetKeyDown(KeyCode.R) && canDash)
         {

@@ -43,14 +43,10 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < inventory.Container.Count; i++)
         {
 
-
             if (itemsDisplayed.ContainsKey(inventory.Container[i]))
             {
-
                 itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
-
             }
-
 
             else
             {
@@ -58,7 +54,6 @@ public class Inventory : MonoBehaviour
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i], obj);
-
 
             }
 
