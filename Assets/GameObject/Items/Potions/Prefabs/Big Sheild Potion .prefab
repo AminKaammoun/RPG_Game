@@ -122,8 +122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823349988677964261}
-        m_TargetAssemblyTypeName: bigHealthPotion, Assembly-CSharp
+      - m_Target: {fileID: 1467394014790150275}
+        m_TargetAssemblyTypeName: bigSheildPotion, Assembly-CSharp
         m_MethodName: useButton
         m_Mode: 1
         m_Arguments:
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 4510774209808308837}
   - component: {fileID: 6556726544744140723}
   - component: {fileID: 6475234650775405559}
-  - component: {fileID: 7823349988677964261}
+  - component: {fileID: 1467394014790150275}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -429,8 +429,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823349988677964261}
-        m_TargetAssemblyTypeName: bigHealthPotion, Assembly-CSharp
+      - m_Target: {fileID: 1467394014790150275}
+        m_TargetAssemblyTypeName: bigSheildPotion, Assembly-CSharp
         m_MethodName: showPanel
         m_Mode: 1
         m_Arguments:
@@ -441,7 +441,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7823349988677964261
+--- !u!114 &1467394014790150275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,11 +450,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2842502427385220324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48dd26f1e4e63a47ab6e46cad17f9d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9131f765ff4243d4fa8f21b3cc3b96c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 9038698606481004383}
-  BigHealthPotion: {fileID: 11400000, guid: 7b1e68c8e557bab4987aed53cfe8e19a, type: 2}
+  BigSheildPotion: {fileID: 11400000, guid: b9f75cb2844559949918f0d7fa57db9c, type: 2}
   inventory: {fileID: 11400000, guid: a944100d4232c3e4f8bbfc497ff8c70c, type: 2}
   text: {fileID: 5225802666424696561}
   item: {fileID: 1243758412187448383}

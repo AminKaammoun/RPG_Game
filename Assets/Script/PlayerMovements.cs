@@ -43,22 +43,31 @@ public class PlayerMovements : MonoBehaviour
 
     public GameObject Bow;
     public GameObject HealEffect;
+    public GameObject SheildEffect;
+    public GameObject SpeedEffect;
     public GameObject silverKeyCanvas;
     public GameObject goldKeyCanvas;
+    
 
     public static bool invIsOpen = false;
+    
     public static bool isHealed = false;
-    public static bool healthIsMax = true;
+    public static bool isSmallSheilded = false;
+    public static bool isBigSheilded = false;
+    public static bool isSmallSpeeded = false;
+    public static bool isBigSpeeded = false;
+    
+    public static bool healthIsMax = false;
     public static bool isDashButtonDown;
-    public static bool canDash  = true;
-
+    public static bool canDash = true;
+    public static bool canBeDamaged = true;
 
 
     // Start is called before the first frame update
 
     void Start()
     {
-
+       
         currentState = PlayerState.idle;
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -75,6 +84,7 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (health >= 100)
         {
             health = 100;
@@ -85,17 +95,65 @@ public class PlayerMovements : MonoBehaviour
             healthIsMax = false;
         }
         
-
         if (isHealed)
         {
-            GameObject healEff = Instantiate(HealEffect, transform.position, Quaternion.identity);
+            
+            GameObject healEff = Instantiate(HealEffect) as GameObject;
+            healEff.transform.parent = this.gameObject.transform;
+            healEff.transform.position = transform.position;
             isHealed = false;
-            Destroy(healEff, 5f);
+            Destroy(healEff, 2f);
+        }
+        if (isSmallSheilded)
+        {
+            GameObject shieldEff = Instantiate(SheildEffect) as GameObject;
+            shieldEff.transform.parent = this.gameObject.transform;
+            shieldEff.transform.position = transform.position;
+            canBeDamaged = false;
+            StartCoroutine(backToNormalFromSheild());
+            isSmallSheilded = false;
+            Destroy(shieldEff, 5f);
+        }
+   
+        if (isBigSheilded)
+        {
+            GameObject shieldEff = Instantiate(SheildEffect) as GameObject;
+            shieldEff.transform.parent = this.gameObject.transform;
+            shieldEff.transform.position = transform.position;
+            canBeDamaged = false;
+            StartCoroutine(backToNormalFromSheild());
+            isBigSheilded = false;
+            Destroy(shieldEff, 10f);
+
+        }
+       
+      
+        if (isSmallSpeeded)
+        {
+            speed = speed*1.5f;
+            GameObject speedEff = Instantiate(SpeedEffect) as GameObject;
+            speedEff.transform.parent = this.gameObject.transform;
+            speedEff.transform.position = transform.position;
+            StartCoroutine(backToNormalSpeed());
+            isSmallSpeeded = false;
+            Destroy(speedEff, 10f);
+           
         }
 
+        if (isBigSpeeded)
+        {
+            speed = speed * 1.5f;
+            GameObject speedEff = Instantiate(SpeedEffect) as GameObject;
+            speedEff.transform.parent = this.gameObject.transform;
+            speedEff.transform.position = transform.position;
+            StartCoroutine(backToNormalSpeed());
+            isBigSpeeded = false;
+            Destroy(speedEff, 20f);
+
+        }
 
         healthbar.SetHealth(health);
-        if (!invIsOpen || !GameController.wantTp) 
+        if (!invIsOpen || !GameController.wantTp)
         {
             if (Input.GetKeyDown("1"))
             {
@@ -107,8 +165,6 @@ public class PlayerMovements : MonoBehaviour
                 currentWeapon = PlayerWeapon.bow;
                 Bow.SetActive(true);
             }
-
-
 
             change = Vector3.zero;
             change.x = Input.GetAxisRaw("Horizontal");
@@ -126,8 +182,6 @@ public class PlayerMovements : MonoBehaviour
         }
 
         checkIfPlayerIsMoving(PosX, PosY);
-
-
 
         if (currentState == PlayerState.walk)
         {
@@ -149,7 +203,7 @@ public class PlayerMovements : MonoBehaviour
         {
             isDashButtonDown = true;
             GameController.dashed = true;
-            
+
         }
     }
 
@@ -159,13 +213,14 @@ public class PlayerMovements : MonoBehaviour
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
 
 
-        if (isDashButtonDown )
+        if (isDashButtonDown)
         {
             float dashAmount = 5f;
             Vector3 dashPosition = transform.position + direction * dashAmount;
 
             RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, direction, dashAmount, dashLayerMask);
-            if(raycastHit2d.collider != null){
+            if (raycastHit2d.collider != null)
+            {
                 dashPosition = raycastHit2d.point;
             }
             rb2D.MovePosition(dashPosition);
@@ -191,13 +246,38 @@ public class PlayerMovements : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         tr.emitting = false;
     }
-        IEnumerator returnColor()
+    IEnumerator returnColor()
     {
         yield return new WaitForSeconds(0.2f);
         rend.material.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency
 
     }
-    public void Knock(Rigidbody2D rb2d, float knockTime)
+    IEnumerator backToNormalSpeed()
+    {
+        if (isSmallSpeeded)
+        {
+            yield return new WaitForSeconds(10f);
+            speed = speed / 1.5f;
+        }else if (isBigSpeeded)
+        {
+            yield return new WaitForSeconds(20f);
+            speed = speed / 1.5f;
+        }
+    }
+    IEnumerator backToNormalFromSheild()
+    {
+        if (isSmallSheilded)
+        {
+            yield return new WaitForSeconds(5f);
+            canBeDamaged = true;
+        }
+        else if (isBigSheilded)
+        {
+            yield return new WaitForSeconds(10f);
+            canBeDamaged = true;
+        }
+    }
+        public void Knock(Rigidbody2D rb2d, float knockTime)
     {
         StartCoroutine(KnockCo(rb2d, knockTime));
 
@@ -210,7 +290,7 @@ public class PlayerMovements : MonoBehaviour
     {
         if (rb2d != null)
         {
-           
+
             yield return new WaitForSeconds(KnockTime);
             rb2d.velocity = Vector2.zero;
 
@@ -227,19 +307,24 @@ public class PlayerMovements : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (canBeDamaged)
         {
-            TakeDamage(10);
-        }
-        else if (collision.CompareTag("BringerOfDeath"))
-        {
-            TakeDamage(20);
-        }else if (collision.CompareTag("log"))
-        {
-            TakeDamage(10);
-        }else if (collision.CompareTag("fireBall"))
-        {
-            TakeDamage(10);
+            if (collision.CompareTag("Enemy"))
+            {
+                TakeDamage(10);
+            }
+            else if (collision.CompareTag("BringerOfDeath"))
+            {
+                TakeDamage(20);
+            }
+            else if (collision.CompareTag("log"))
+            {
+                TakeDamage(10);
+            }
+            else if (collision.CompareTag("fireBall"))
+            {
+                TakeDamage(10);
+            }
         }
 
         if (collision.CompareTag("teleporter"))
@@ -269,5 +354,5 @@ public class PlayerMovements : MonoBehaviour
             PosY = transform.position.y;
         }
     }
-   
+
 }

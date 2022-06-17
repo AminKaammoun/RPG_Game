@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 2545563655764028173}
   - component: {fileID: 3375290622223980214}
   - component: {fileID: 3023861611889201645}
-  - component: {fileID: 4630718637540661111}
+  - component: {fileID: 9034051960186631624}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -402,8 +402,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4630718637540661111}
-        m_TargetAssemblyTypeName: smallHealthPostion, Assembly-CSharp
+      - m_Target: {fileID: 9034051960186631624}
+        m_TargetAssemblyTypeName: smallSpeedPotion, Assembly-CSharp
         m_MethodName: showPanel
         m_Mode: 1
         m_Arguments:
@@ -414,7 +414,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4630718637540661111
+--- !u!114 &9034051960186631624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,11 +423,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5843359708807361571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d7d61fb8a3bce4b931cc313ec2de61, type: 3}
+  m_Script: {fileID: 11500000, guid: da38f4433a83d714e97dd3da62605939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 3421124908800902537}
-  smallHealthPotion: {fileID: 11400000, guid: c9e1b1913201ddf4f980c007987d3356, type: 2}
+  SmallSpeedPotion: {fileID: 11400000, guid: 300999fea6e3c0c44a31b7ab9da540ae, type: 2}
   inventory: {fileID: 11400000, guid: a944100d4232c3e4f8bbfc497ff8c70c, type: 2}
   text: {fileID: 240862355408732057}
   item: {fileID: 6455217366957585995}
@@ -648,8 +648,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4630718637540661111}
-        m_TargetAssemblyTypeName: smallHealthPostion, Assembly-CSharp
+      - m_Target: {fileID: 9034051960186631624}
+        m_TargetAssemblyTypeName: smallSpeedPotion, Assembly-CSharp
         m_MethodName: useButton
         m_Mode: 1
         m_Arguments:

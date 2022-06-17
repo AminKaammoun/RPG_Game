@@ -21,28 +21,28 @@ public class smallSheildPotion : MonoBehaviour
             r.SetActive(false);
         }
         panel.SetActive(true);
-        Inventory.description = "small sheild potion";
+        Inventory.description = "Magic potion used to not receive damage for 5 seconds.";
     }
     public void useButton()
     {
-       
-            PlayerMovements.invIsOpen = false;
-            //PlayerMovements.isHealed = true;
+
+        PlayerMovements.invIsOpen = false;
+        PlayerMovements.isSmallSheilded = true;
 
 
-            panel.SetActive(false);
-            //PlayerMovements.health += 50;
-            inventory.RemoveItem(SmallSheildPotion);
-            inventory.save();
+        panel.SetActive(false);
+        //PlayerMovements.health += 50;
+        inventory.RemoveItem(SmallSheildPotion);
+        inventory.save();
 
-            if (text.text == "X1")
-            {
+        if (text.text == "X1")
+        {
 
-                Destroy(item);
-            }
-            inventory.save();
-        
-      
+            Destroy(item);
+        }
+        inventory.save();
+
+
 
     }
 }
