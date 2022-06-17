@@ -242,4 +242,8 @@ public class GameController : MonoBehaviour
         theVillage.SetActive(false);
         theForrest.SetActive(false);
     }
+    private void OnApplicationQuit()
+    {
+        //Inv.save();
+    }
 }

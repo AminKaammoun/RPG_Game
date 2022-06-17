@@ -14,12 +14,17 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
    
     public List<InventorySlot> Container = new List<InventorySlot>();
 
-  
 
+    public void OnEnable()
+    {
+        load();
+        database = Resources.Load<ItemDataBaseObject>("DataBase");
+        save();
+    }
     public void AddItem(ItemObject _item,int _amount)
     {
-
-        for(int i=0; i < Container.Count; i++)
+       
+        for (int i=0; i < Container.Count; i++)
         {
             if(Container[i].item == _item)
             {
@@ -29,7 +34,6 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         }
         
             Container.Add(new InventorySlot(database.GetId[_item],_item, _amount));
-       
     }
 
     public void RemoveItem(ItemObject _item)
@@ -42,8 +46,9 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
                 if (Container[i].amount == 0)
                 {
 
-                    Container.Remove(Container[i]);
-                    
+                    Container.Remove(Container[i]); 
+                  
+                    //Inventory.refreshInv = true;
                 }
             }
         }
@@ -65,8 +70,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
             file.Close();
-
-        }
+      }
     }
        
 
@@ -99,4 +103,5 @@ public void AddAmount(int value)
     {
         amount += value;
     }
+   
 }

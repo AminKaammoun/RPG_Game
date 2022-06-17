@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   savePath: /Inventory.save
-  database: {fileID: 11400000, guid: 89832b23f75f0df4d88d18477efc6e16, type: 2}
+  database: {fileID: 0}
   Container:
   - ID: 0
     item: {fileID: 11400000, guid: c9e1b1913201ddf4f980c007987d3356, type: 2}
-    amount: 6
+    amount: 1
   - ID: 1
     item: {fileID: 11400000, guid: 7b1e68c8e557bab4987aed53cfe8e19a, type: 2}
-    amount: 4
+    amount: 1
+  - ID: 4
+    item: {fileID: 11400000, guid: 300999fea6e3c0c44a31b7ab9da540ae, type: 2}
+    amount: 1
+  - ID: 5
+    item: {fileID: 11400000, guid: 3cb6026bba8c27044b0ad1d98a0f3591, type: 2}
+    amount: 1
+  - ID: 3
+    item: {fileID: 11400000, guid: b9f75cb2844559949918f0d7fa57db9c, type: 2}
+    amount: 1

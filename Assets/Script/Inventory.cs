@@ -16,6 +16,9 @@ public class Inventory : MonoBehaviour
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     public static string description;
     public TextMeshProUGUI text;
+    
+
+    public static bool refreshInv = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,11 @@ public class Inventory : MonoBehaviour
     {
         text.text = description;
         UpdateDisplay();
-       
+        if (refreshInv)
+        {
+            CreateDisplay();
+            refreshInv = false;
+        }
     }
 
     public void UpdateDisplay()
