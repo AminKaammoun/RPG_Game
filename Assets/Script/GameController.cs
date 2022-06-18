@@ -15,9 +15,11 @@ public enum PlayerMap
 
 public class GameController : MonoBehaviour
 {
+    public Text levelText;
 
     public InventoryObject Inv;
 
+     
     public float TimeBtwLeafSpawn;
     public float StartTime = 0.25f;
 
@@ -34,14 +36,19 @@ public class GameController : MonoBehaviour
     public GameObject theVillage;
     public GameObject theForrest;
 
+    public LevelSystem level;
+
     private float currentTime;
     private float startTime = 10f;
     public static bool dashed = false;
     public static bool wantTp = false;
+
+    public int xp;
     //public static bool showPotionShop = false;
 
     public Text dashTimer;
     public Text loading;
+    public Text lvl;
 
     public static PlayerMap currentMap;
 
@@ -53,7 +60,10 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //PlayerPrefs.SetInt("XP", 0);
+        //PlayerPrefs.SetInt("LEVEL", 1);
+        level = new LevelSystem(PlayerPrefs.GetInt("LEVEL"), OnLevelUp);
+        level.experience = PlayerPrefs.GetInt("XP");
         currentTime = startTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         currentMap = PlayerMap.forrest;
@@ -62,7 +72,22 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lvl.text = "Lv. " + level.currentLevel;
+        xp = level.experience;
+        //Debug.Log(level.GetLevelForXP(PlayerPrefs.GetInt("XP")));
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            level.AddExp(100);
+        }
+        if (level.experience > PlayerPrefs.GetInt("XP"))
+        {
+            PlayerPrefs.SetInt("XP", level.experience);
+        }
 
+        if (level.currentLevel > PlayerPrefs.GetInt("LEVEL"))
+        {
+            PlayerPrefs.SetInt("LEVEL", level.currentLevel);
+        }
 
         if (loadingPanel.activeSelf)
         {
@@ -220,6 +245,10 @@ public class GameController : MonoBehaviour
     {
         PotionShopPanel.SetActive(false);
     }
+    public void OnLevelUp()
+    {
+        print("Leveled Up!");
+    }
     IEnumerator removeLoadingPanel()
     {
         yield return new WaitForSeconds(1f);
@@ -242,6 +271,7 @@ public class GameController : MonoBehaviour
         theVillage.SetActive(false);
         theForrest.SetActive(false);
     }
+    
     private void OnApplicationQuit()
     {
         //Inv.save();

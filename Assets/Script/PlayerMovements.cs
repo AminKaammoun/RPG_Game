@@ -27,7 +27,9 @@ public class PlayerMovements : MonoBehaviour
     public PlayerState currentState;
     public float speed = 5f;
     public PlayerWeapon currentWeapon;
+    
     public InventoryObject inventory;
+    
 
     public static float health;
     private float MaxHealth = 100;
@@ -62,7 +64,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool canDash = true;
     public static bool canBeDamaged = true;
 
-
+    
     // Start is called before the first frame update
 
     void Start()
@@ -81,10 +83,11 @@ public class PlayerMovements : MonoBehaviour
 
     }
 
+  
     // Update is called once per frame
     void Update()
     {
-        
+      
         if (health >= 100)
         {
             health = 100;
