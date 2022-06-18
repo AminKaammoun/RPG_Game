@@ -186,8 +186,6 @@ public class PlayerMovements : MonoBehaviour
         if (currentState == PlayerState.walk)
         {
 
-           
-
             if (change != Vector3.zero)
             {
                 animator.SetFloat("moveX", change.x);

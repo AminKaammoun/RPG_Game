@@ -4,24 +4,27 @@ using UnityEngine;
 
 public enum WormState
 {
-    
+
     walk,
     attack,
     stagger,
     dead,
-    stun
+    stun,
+    rage,
+    rage2
 }
 public class Worm : MonoBehaviour
 {
     public Vector3 target;
-    public float speed = 2f;
-   
+    public float speed = 1.5f;
+
     public SpriteRenderer worm;
     private float TimeBtwAttack;
     public float startTime = 1f;
     public Animator anim;
-    
+
     public GameObject fireBall;
+    public GameObject RageFireBall;
     public GameObject wormEnemy;
     public GameObject spawn1;
     public GameObject spawn2;
@@ -45,12 +48,20 @@ public class Worm : MonoBehaviour
         target = new Vector3(112.9f, 75.77f, 0f);
         TimeBtwAttack = startTime;
         chestIsInstantiated = true;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health <= 50 && currentState == WormState.walk)
+        {
+            currentState = WormState.rage;
+        }
+        if (health <= 25 && currentState == WormState.rage)
+        {
+            currentState = WormState.rage2;
+        }
         healthbar.SetHealth(health);
         if (health <= 0)
         {
@@ -59,26 +70,26 @@ public class Worm : MonoBehaviour
             currentState = WormState.dead;
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
-            Destroy(this.gameObject,1.5f);
+            Destroy(this.gameObject, 1.5f);
             Instantiate(chest, transform.position, Quaternion.identity);
             TeleportToDunLvl4.isclosed = false;
             StartCoroutine(backFromSlowMo());
             health = 1;
-            
+
         }
         if (counter >= 5)
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.3624f, 69.12473f, 0f), 10 * Time.deltaTime);
             anim.SetBool("stun", true);
-           
+
             currentState = WormState.stun;
             StartCoroutine(backFromStun());
-           
+
         }
-       
+
         if (currentState == WormState.walk)
         {
-            
+            speed = 1.5f;
             if (TimeBtwAttack <= 0)
             {
                 anim.SetBool("attack", true);
@@ -100,7 +111,7 @@ public class Worm : MonoBehaviour
                 TimeBtwAttack -= Time.deltaTime;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, target,  speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             if (transform.position.x == 101.15f)
             {
                 worm.flipX = false;
@@ -111,11 +122,73 @@ public class Worm : MonoBehaviour
                 worm.flipX = true;
                 target = new Vector3(101.15f, 75.77f, 0f);
             }
-            
+
+        }
+        if (currentState == WormState.rage)
+        {
+            speed = 4f;
+            if (TimeBtwAttack <= 0)
+            {
+                anim.SetBool("attack", true);
+                if (worm.flipX)
+                {
+                    StartCoroutine(waitBeforeShooting(spawn2));
+                    counter++;
+                }
+                else
+                {
+                    StartCoroutine(waitBeforeShooting(spawn1));
+                    counter++;
+                }
+                TimeBtwAttack = Random.Range(1, 3);
+                StartCoroutine(backToWalk());
+            }
+            else
+            {
+                TimeBtwAttack -= Time.deltaTime;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            if (transform.position.x == 101.15f)
+            {
+                worm.flipX = false;
+                target = new Vector3(112.9f, 75.77f, 0f);
+            }
+            else if (transform.position.x == 112.9f)
+            {
+                worm.flipX = true;
+                target = new Vector3(101.15f, 75.77f, 0f);
+            }
+
+        }
+        if (currentState == WormState.rage2)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.35f, 73.2f, 0f), speed * Time.deltaTime);
+            if (TimeBtwAttack <= 0)
+            {
+                int r = Random.Range(0, 2);
+                switch (r)
+                {
+                    case 0:
+                        StartCoroutine(waitBeforeShootingRage(spawn1));
+                        counter++;
+                        break;
+                    case 1:
+                        StartCoroutine(waitBeforeShootingRage(spawn2));
+                        counter++;
+                        break;
+                }
+             
+                TimeBtwAttack = Random.Range(1, 3);
+            }
+            else
+            {
+                TimeBtwAttack -= Time.deltaTime;
+            }
         }
     }
 
-   IEnumerator backFromSlowMo()
+    IEnumerator backFromSlowMo()
     {
         yield return new WaitForSeconds(1f);
         Time.timeScale = 1f;
@@ -129,6 +202,11 @@ public class Worm : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Instantiate(fireBall, spawn.transform.position, Quaternion.identity);
+    }
+    IEnumerator waitBeforeShootingRage(GameObject spawn)
+    {
+        yield return new WaitForSeconds(1f);
+        Instantiate(RageFireBall, spawn.transform.position, Quaternion.identity);
     }
     IEnumerator backFromStun()
     {
@@ -147,7 +225,7 @@ public class Worm : MonoBehaviour
         anim.SetBool("stagger", false);
     }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("hitBox") && currentState == WormState.stun)
         {
