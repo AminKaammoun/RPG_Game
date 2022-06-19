@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour
 
     public InventoryObject Inv;
 
-     
     public float TimeBtwLeafSpawn;
     public float StartTime = 0.25f;
 
@@ -36,19 +35,18 @@ public class GameController : MonoBehaviour
     public GameObject theVillage;
     public GameObject theForrest;
 
-    public LevelSystem level;
+    public static LevelSystem level;
+    public XpBar xpBar;
 
     private float currentTime;
     private float startTime = 10f;
     public static bool dashed = false;
     public static bool wantTp = false;
 
-    public int xp;
-    //public static bool showPotionShop = false;
-
     public Text dashTimer;
     public Text loading;
     public Text lvl;
+    public Text XP;
 
     public static PlayerMap currentMap;
 
@@ -66,133 +64,25 @@ public class GameController : MonoBehaviour
         level.experience = PlayerPrefs.GetInt("XP");
         currentTime = startTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
-        currentMap = PlayerMap.forrest;
+        currentMap = PlayerMap.Village;
     }
 
     // Update is called once per frame
     void Update()
     {
-        lvl.text = "Lv. " + level.currentLevel;
-        xp = level.experience;
-        //Debug.Log(level.GetLevelForXP(PlayerPrefs.GetInt("XP")));
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            level.AddExp(100);
-        }
-        if (level.experience > PlayerPrefs.GetInt("XP"))
-        {
-            PlayerPrefs.SetInt("XP", level.experience);
-        }
 
-        if (level.currentLevel > PlayerPrefs.GetInt("LEVEL"))
-        {
-            PlayerPrefs.SetInt("LEVEL", level.currentLevel);
-        }
-
-        if (loadingPanel.activeSelf)
-        {
-            if (TimeBtwLoading <= 0)
-            {
-                loading.text = loading.text + ".";
-                TimeBtwLoading = startLoadingTime;
-            }
-            else
-            {
-                TimeBtwLoading -= Time.deltaTime;
-            }
-        }
-
+        updateLevelStats();
+        checkIfCanDash();
+        ControlLoadingPageIfExist();
         if (wantTp)
         {
             tpPanel.SetActive(true);
 
         }
-
-
-        dashTimer.text = ((int)currentTime).ToString();
-        if (dashed)
-        {
-            if (currentTime >= 0)
-            {
-                currentTime -= 1 * Time.deltaTime;
-                PlayerMovements.canDash = false;
-            }
-            else
-            {
-                currentTime = startTime;
-                dashed = false;
-                PlayerMovements.canDash = true;
-                dashUi.SetActive(false);
-            }
-        }
-
+ 
         panel = GameObject.FindGameObjectsWithTag("panel");
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            inventory.SetActive(true);
-            Inv.load();
-            PlayerMovements.invIsOpen = true;
-        }
-        if (PlayerMovements.invIsOpen == false)
-        {
-            inventory.SetActive(false);
-        }
-        if (showAlert)
-        {
-            alert.SetActive(true);
-        }
-
-        if (currentMap == PlayerMap.forrest)
-        {
-            CameraMovement.maxPosition = new Vector2(159.63f, 30f);
-            CameraMovement.minPosition = new Vector2(56.74f, -2f);
-
-            if (TimeBtwLeafSpawn <= 0)
-            {
-                int rand = Random.Range(0, 27);
-                
-                Instantiate(leaf, leafSpawner[rand].transform.position, Quaternion.identity);
-                TimeBtwLeafSpawn = StartTime;
-            }
-            else
-            {
-                TimeBtwLeafSpawn -= Time.deltaTime;
-            }
-
-        }
-
-        if (currentMap == PlayerMap.forrestDungeon)
-        {
-            CameraMovement.maxPosition = new Vector2(100f, 46.32f);
-            CameraMovement.minPosition = new Vector2(0f, 45.36f);
-        }
-        else if (currentMap == PlayerMap.forrestDungeon2)
-        {
-            CameraMovement.maxPosition = new Vector2(200f, 59.73f);
-            CameraMovement.minPosition = new Vector2(0f, 58.55f);
-        }
-        else if (currentMap == PlayerMap.forrestDungeon3)
-        {
-            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
-            CameraMovement.minPosition = new Vector2(0f, 71.64f);
-        }
-        else if (currentMap == PlayerMap.forrestDungeon4)
-        {
-            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
-            CameraMovement.minPosition = new Vector2(0f, 71.64f);
-        }
-        else if (currentMap == PlayerMap.Village)
-        {
-            CameraMovement.maxPosition = new Vector2(12.31f, 2.2f);
-            CameraMovement.minPosition = new Vector2(-29.19f, -0.12f);
-        }
-
-        if (PlayerMovements.isDashButtonDown)
-        {
-            dashUi.SetActive(true);
-
-        }
+        InventoryControl();
+        checkCurrentMap();
     }
     public void closeInventory()
     {
@@ -271,9 +161,131 @@ public class GameController : MonoBehaviour
         theVillage.SetActive(false);
         theForrest.SetActive(false);
     }
-    
-    private void OnApplicationQuit()
+   
+
+    public void updateLevelStats()
     {
-        //Inv.save();
+        lvl.text = "Lv. " + level.currentLevel;
+
+        if (level.experience > PlayerPrefs.GetInt("XP"))
+        {
+            PlayerPrefs.SetInt("XP", level.experience);
+        }
+
+        if (level.currentLevel > PlayerPrefs.GetInt("LEVEL"))
+        {
+            PlayerPrefs.SetInt("LEVEL", level.currentLevel);
+        }
+        int currentXp = level.experience - level.GetXPforLevel(level.currentLevel);
+        int xpToNextLevel = (level.GetXPforLevel(level.currentLevel + 1) - level.GetXPforLevel(level.currentLevel));
+        float levelFinishPercentage = (float)currentXp / xpToNextLevel;
+        xpBar.SetXp(levelFinishPercentage);
+        XP.text = currentXp + "/"+ xpToNextLevel+"("+ (int)(levelFinishPercentage * 100)+ "%)";
+        
+    }
+    public void checkIfCanDash()
+    {
+        dashTimer.text = ((int)currentTime).ToString();
+        if (dashed)
+        {
+            if (currentTime >= 0)
+            {
+                currentTime -= 1 * Time.deltaTime;
+                PlayerMovements.canDash = false;
+            }
+            else
+            {
+                currentTime = startTime;
+                dashed = false;
+                PlayerMovements.canDash = true;
+                dashUi.SetActive(false);
+            }
+        }
+        if (PlayerMovements.isDashButtonDown)
+        {
+            dashUi.SetActive(true);
+
+        }
+
+    }
+    public void ControlLoadingPageIfExist()
+    {
+        if (loadingPanel.activeSelf)
+        {
+            if (TimeBtwLoading <= 0)
+            {
+                loading.text = loading.text + ".";
+                TimeBtwLoading = startLoadingTime;
+            }
+            else
+            {
+                TimeBtwLoading -= Time.deltaTime;
+            }
+        }
+
+    }
+    public void InventoryControl()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventory.SetActive(true);
+            Inv.load();
+            PlayerMovements.invIsOpen = true;
+        }
+        if (PlayerMovements.invIsOpen == false)
+        {
+            inventory.SetActive(false);
+        }
+        if (showAlert)
+        {
+            alert.SetActive(true);
+        }
+    }
+    public void checkCurrentMap()
+    {
+        if (currentMap == PlayerMap.forrest)
+        {
+            CameraMovement.maxPosition = new Vector2(159.63f, 30f);
+            CameraMovement.minPosition = new Vector2(56.74f, -2f);
+
+            if (TimeBtwLeafSpawn <= 0)
+            {
+                int rand = Random.Range(0, 27);
+
+                Instantiate(leaf, leafSpawner[rand].transform.position, Quaternion.identity);
+                TimeBtwLeafSpawn = StartTime;
+            }
+            else
+            {
+                TimeBtwLeafSpawn -= Time.deltaTime;
+            }
+
+        }
+
+        if (currentMap == PlayerMap.forrestDungeon)
+        {
+            CameraMovement.maxPosition = new Vector2(100f, 46.32f);
+            CameraMovement.minPosition = new Vector2(0f, 45.36f);
+        }
+        else if (currentMap == PlayerMap.forrestDungeon2)
+        {
+            CameraMovement.maxPosition = new Vector2(200f, 59.73f);
+            CameraMovement.minPosition = new Vector2(0f, 58.55f);
+        }
+        else if (currentMap == PlayerMap.forrestDungeon3)
+        {
+            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
+            CameraMovement.minPosition = new Vector2(0f, 71.64f);
+        }
+        else if (currentMap == PlayerMap.forrestDungeon4)
+        {
+            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
+            CameraMovement.minPosition = new Vector2(0f, 71.64f);
+        }
+        else if (currentMap == PlayerMap.Village)
+        {
+            CameraMovement.maxPosition = new Vector2(12.31f, 2.2f);
+            CameraMovement.minPosition = new Vector2(-29.19f, -0.12f);
+        }
     }
 }

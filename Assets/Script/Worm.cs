@@ -170,10 +170,14 @@ public class Worm : MonoBehaviour
                 switch (r)
                 {
                     case 0:
+                        worm.flipX = false;
+                        anim.SetBool("attack", true);
                         StartCoroutine(waitBeforeShootingRage(spawn1));
                         counter++;
                         break;
                     case 1:
+                        worm.flipX = true;
+                        anim.SetBool("attack", true);
                         StartCoroutine(waitBeforeShootingRage(spawn2));
                         counter++;
                         break;
@@ -186,6 +190,7 @@ public class Worm : MonoBehaviour
                 TimeBtwAttack -= Time.deltaTime;
             }
         }
+        StartCoroutine(backToWalk());
     }
 
     IEnumerator backFromSlowMo()

@@ -330,6 +330,11 @@ public class PlayerMovements : MonoBehaviour
                 TakeDamage(10);
             }
         }
+        if (collision.CompareTag("xp"))
+        {
+            GameController.level.AddExp(50);
+            Destroy(collision.gameObject);
+        }
 
         if (collision.CompareTag("teleporter"))
         {
