@@ -34,6 +34,8 @@ public class GameController : MonoBehaviour
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
+    
+    
 
     public static LevelSystem level;
     public XpBar xpBar;
@@ -65,6 +67,7 @@ public class GameController : MonoBehaviour
         currentTime = startTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         currentMap = PlayerMap.Village;
+        
     }
 
     // Update is called once per frame
@@ -137,7 +140,7 @@ public class GameController : MonoBehaviour
     }
     public void OnLevelUp()
     {
-        print("Leveled Up!");
+        PlayerMovements.isLevelUp = true;
     }
     IEnumerator removeLoadingPanel()
     {

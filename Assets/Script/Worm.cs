@@ -166,6 +166,7 @@ public class Worm : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.35f, 73.2f, 0f), speed * Time.deltaTime);
             if (TimeBtwAttack <= 0)
             {
+                anim.SetBool("attack", true);
                 int r = Random.Range(0, 2);
                 switch (r)
                 {
@@ -184,13 +185,15 @@ public class Worm : MonoBehaviour
                 }
              
                 TimeBtwAttack = Random.Range(1, 3);
+                StartCoroutine(backToWalk());
             }
             else
             {
                 TimeBtwAttack -= Time.deltaTime;
             }
+            
         }
-        StartCoroutine(backToWalk());
+       
     }
 
     IEnumerator backFromSlowMo()

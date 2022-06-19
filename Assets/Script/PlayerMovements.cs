@@ -49,8 +49,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject SpeedEffect;
     public GameObject silverKeyCanvas;
     public GameObject goldKeyCanvas;
-   
-   
+    public GameObject LevelUp;
+
     public static bool invIsOpen = false;
     
     public static bool isHealed = false;
@@ -63,7 +63,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool isDashButtonDown;
     public static bool canDash = true;
     public static bool canBeDamaged = true;
-
+    public static bool isLevelUp = false;
     
     // Start is called before the first frame update
 
@@ -97,7 +97,15 @@ public class PlayerMovements : MonoBehaviour
         {
             healthIsMax = false;
         }
-        
+        if (isLevelUp)
+        {
+            GameObject levelUp = Instantiate(LevelUp) as GameObject;
+            levelUp.transform.parent = this.gameObject.transform;
+            levelUp.transform.position = transform.position;
+            isLevelUp = false;
+            Destroy(levelUp, 1f);
+        }
+
         if (isHealed)
         {
             
@@ -330,9 +338,9 @@ public class PlayerMovements : MonoBehaviour
                 TakeDamage(10);
             }
         }
-        if (collision.CompareTag("xp"))
+        if (collision.CompareTag("xpLvl1"))
         {
-            GameController.level.AddExp(50);
+            GameController.level.AddExp(10);
             Destroy(collision.gameObject);
         }
 

@@ -101,7 +101,7 @@ public class log : Enemy
                 StartCoroutine(waitAfterDead());
                 currentState = EnemyState.dead;
                 Instantiate(xp, transform.position, Quaternion.identity);
-                health++;
+                health = 100;
                 Destroy(gameObject, 5f);
                
             }
