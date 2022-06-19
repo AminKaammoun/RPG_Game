@@ -12,6 +12,7 @@ public class log : Enemy
     //public Transform homePosition;
     public Renderer Log;
     public GameObject blood;
+    public GameObject xp;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,7 +100,8 @@ public class log : Enemy
                 Log.material.color = new Color(1, 0.5f, 0.5f, 1);
                 StartCoroutine(waitAfterDead());
                 currentState = EnemyState.dead;
-               
+                Instantiate(xp, transform.position, Quaternion.identity);
+                health++;
                 Destroy(gameObject, 5f);
                
             }
@@ -107,8 +109,6 @@ public class log : Enemy
             {
                 TakeDamage(1);
                 Log.material.color = new Color (1,0.5f,0.5f,1);
-              
-               
                 StartCoroutine(waitAfterHurt());
                 currentState = EnemyState.stagger;
 
