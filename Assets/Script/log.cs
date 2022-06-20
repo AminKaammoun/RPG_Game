@@ -6,13 +6,15 @@ public class log : Enemy
 {
     private Rigidbody2D rb2D;
 
-    public Transform target;
+    private Transform target;
     public float chaseRadius;
     public float attackRadius;
     //public Transform homePosition;
     public Renderer Log;
     public GameObject blood;
     public GameObject xp;
+    public GameObject coin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,11 +98,17 @@ public class log : Enemy
         {
             if (health <= 0)
             {
-               
+                int rand = Random.Range(0, 2);
                 Log.material.color = new Color(1, 0.5f, 0.5f, 1);
                 StartCoroutine(waitAfterDead());
                 currentState = EnemyState.dead;
                 Instantiate(xp, transform.position, Quaternion.identity);
+                switch (rand)
+                {
+                    case 0:
+                        Instantiate(coin, transform.position, Quaternion.identity);
+                        break; 
+                }
                 health = 100;
                 Destroy(gameObject, 5f);
                

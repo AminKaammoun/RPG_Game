@@ -343,6 +343,11 @@ public class PlayerMovements : MonoBehaviour
             GameController.level.AddExp(10);
             Destroy(collision.gameObject);
         }
+        if (collision.CompareTag("coin"))
+        {
+            
+            Destroy(collision.gameObject);
+        }
 
         if (collision.CompareTag("teleporter"))
         {
