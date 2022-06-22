@@ -17,6 +17,7 @@ public class Worm : MonoBehaviour
 {
     public Vector3 target;
     public float speed = 1.5f;
+    private Transform player;
 
     public SpriteRenderer worm;
     private float TimeBtwAttack;
@@ -30,6 +31,7 @@ public class Worm : MonoBehaviour
     public GameObject spawn2;
     public GameObject chest;
     public GameObject board;
+    public GameObject slashEff;
 
     public HealthBar healthbar;
 
@@ -40,9 +42,11 @@ public class Worm : MonoBehaviour
     public bool chestIsInstantiated;
     public static bool isdead = false;
 
+    public bool isHurt;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         board.SetActive(true);
         currentState = WormState.walk;
         target = new Vector3(112.9f, 75.77f, 0f);
@@ -54,6 +58,20 @@ public class Worm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isHurt)
+        {
+            GameObject slashEffect = Instantiate(slashEff) as GameObject;
+            SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
+            if (player.position.x > transform.position.x)
+            {
+                rend.flipX = true;
+            }
+            slashEffect.transform.parent = this.gameObject.transform;
+            slashEffect.transform.position = transform.position;
+            isHurt = false;
+            Destroy(slashEffect, 0.5f);
+        }
+        
         if (health <= 50 && currentState == WormState.walk)
         {
             currentState = WormState.rage;
@@ -238,6 +256,7 @@ public class Worm : MonoBehaviour
     {
         if (collision.CompareTag("hitBox") && currentState == WormState.stun)
         {
+            isHurt = true;
             CameraMovement.shake = true;
             health -= 5f;
             StartCoroutine(backFromStagger());

@@ -14,6 +14,10 @@ public class log : Enemy
     public GameObject blood;
     public GameObject xp;
     public GameObject coin;
+    public GameObject slashEff;
+    
+    
+    public bool isHurt;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,20 @@ public class log : Enemy
     void Update()
     {
         checkDistance();
+        if (isHurt)
+        {
+            
+            GameObject slashEffect = Instantiate(slashEff) as GameObject;
+            SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
+            if (target.position.x > transform.position.x)
+            {
+                rend.flipX = true;
+            }
+            slashEffect.transform.parent = this.gameObject.transform;
+            slashEffect.transform.position = transform.position;
+            isHurt = false;
+            Destroy(slashEffect, 0.5f);
+        }
 
     }
     void checkDistance()
@@ -117,6 +135,7 @@ public class log : Enemy
             {
                 TakeDamage(1);
                 Log.material.color = new Color (1,0.5f,0.5f,1);
+                isHurt = true;
                 StartCoroutine(waitAfterHurt());
                 currentState = EnemyState.stagger;
 

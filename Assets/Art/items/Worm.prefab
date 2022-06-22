@@ -539,11 +539,13 @@ MonoBehaviour:
   spawn2: {fileID: 8404898322800854892}
   chest: {fileID: 5880341284437039482, guid: 80a6ac3a3890a374b92a6c9b7baa492e, type: 3}
   board: {fileID: 8815767011043057432}
+  slashEff: {fileID: 6777610186682167999, guid: 418875bd5dcbc604685e50c5a17d20c0, type: 3}
   healthbar: {fileID: 113105031841741945}
   counter: 0
   health: 100
   currentState: 0
   chestIsInstantiated: 0
+  isHurt: 0
 --- !u!61 &8143562383526908248
 BoxCollider2D:
   m_ObjectHideFlags: 0

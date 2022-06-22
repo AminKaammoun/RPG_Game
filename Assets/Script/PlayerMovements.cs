@@ -50,6 +50,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject silverKeyCanvas;
     public GameObject goldKeyCanvas;
     public GameObject LevelUp;
+    public GameObject plantEffect;
+    public GameObject fireEffect;
 
     public static bool invIsOpen = false;
     
@@ -64,7 +66,9 @@ public class PlayerMovements : MonoBehaviour
     public static bool canDash = true;
     public static bool canBeDamaged = true;
     public static bool isLevelUp = false;
-    
+
+    private bool islogDamaged = false;
+    private bool isFireBallDamaged = false;
     // Start is called before the first frame update
 
     void Start()
@@ -161,6 +165,22 @@ public class PlayerMovements : MonoBehaviour
             isBigSpeeded = false;
             Destroy(speedEff, 20f);
 
+        }
+        if (islogDamaged)
+        {
+            GameObject plantEff = Instantiate(plantEffect) as GameObject;
+            plantEff.transform.parent = this.gameObject.transform;
+            plantEff.transform.position = transform.position;
+            islogDamaged = false;
+            Destroy(plantEff, 0.3f);
+        }
+        if (isFireBallDamaged)
+        {
+            GameObject fireEff = Instantiate(fireEffect) as GameObject;
+            fireEff.transform.parent = this.gameObject.transform;
+            fireEff.transform.position = transform.position;
+            isFireBallDamaged = false;
+            Destroy(fireEff, 0.3f);
         }
 
         healthbar.SetHealth(health);
@@ -331,10 +351,12 @@ public class PlayerMovements : MonoBehaviour
             }
             else if (collision.CompareTag("log"))
             {
+                islogDamaged = true;
                 TakeDamage(10);
             }
             else if (collision.CompareTag("fireBall"))
             {
+                isFireBallDamaged = true;
                 TakeDamage(10);
             }
         }
