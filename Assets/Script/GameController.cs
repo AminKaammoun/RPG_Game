@@ -35,8 +35,6 @@ public class GameController : MonoBehaviour
     public GameObject theVillage;
     public GameObject theForrest;
     
-    
-
     public static LevelSystem level;
     public XpBar xpBar;
 
@@ -49,17 +47,22 @@ public class GameController : MonoBehaviour
     public Text loading;
     public Text lvl;
     public Text XP;
+    public Text coinText;
+    public Text coinTextPotionShop;
 
     public static PlayerMap currentMap;
 
     private float startLoadingTime = 0.35f;
     public float TimeBtwLoading;
 
+    public static int coins;
     public static bool showAlert = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.SetInt("coins", 0);
+        coins = PlayerPrefs.GetInt("coins");
         //PlayerPrefs.SetInt("XP", 0);
         //PlayerPrefs.SetInt("LEVEL", 1);
         level = new LevelSystem(PlayerPrefs.GetInt("LEVEL"), OnLevelUp);
@@ -73,14 +76,21 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        coinTextPotionShop.text = coins.ToString();
+        if (coins > PlayerPrefs.GetInt("coins"))
+        {
+            PlayerPrefs.SetInt("coins",coins);
+            
+        }
+       
+        coinText.text = coins.ToString();
+        
         updateLevelStats();
         checkIfCanDash();
         ControlLoadingPageIfExist();
         if (wantTp)
         {
             tpPanel.SetActive(true);
-
         }
  
         panel = GameObject.FindGameObjectsWithTag("panel");

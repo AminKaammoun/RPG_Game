@@ -7063,7 +7063,7 @@ TextureImporter:
         width: 14
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7084,7 +7084,7 @@ TextureImporter:
         width: 14
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7117,6 +7117,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: objects_334
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 52
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e73313489301584a8881271593cb649
+      internalID: 1454289791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -7128,12 +7149,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      objects_127: -1224353613
       objects_118: 257652268
       objects_98: 230295957
       objects_44: 839592141
       objects_78: 1202469250
       objects_145: -399188068
+      objects_20: 322103470
       objects_156: -1963968633
       objects_83: 1646598434
       objects_116: 41839505
@@ -7294,11 +7315,11 @@ TextureImporter:
       objects_209: 1956321641
       objects_84: 1580940043
       objects_45: -225953542
-      objects_134: 2079615636
       objects_333: -174652682
-      objects_113: 549112922
+      objects_134: 2079615636
       objects_122: -2072860615
       objects_268: 91048001
+      objects_113: 549112922
       objects_225: -1665801166
       objects_92: -800600609
       objects_151: 1641342349
@@ -7393,6 +7414,7 @@ TextureImporter:
       objects_266: 1395220388
       objects_199: 420730539
       objects_290: -438246805
+      objects_334: 1454289791
       objects_63: 580894947
       objects_298: 2136714113
       objects_74: 1188346687
@@ -7460,7 +7482,7 @@ TextureImporter:
       objects_88: -371232952
       objects_178: 908728046
       objects_4: 295910731
-      objects_20: 322103470
+      objects_127: -1224353613
       objects_128: 566904036
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -70,6 +70,7 @@ public class Worm : MonoBehaviour
             currentState = WormState.dead;
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
+            FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             Destroy(this.gameObject, 1.5f);
             Instantiate(chest, transform.position, Quaternion.identity);
             TeleportToDunLvl4.isclosed = false;
