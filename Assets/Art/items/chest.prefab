@@ -188,7 +188,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 1}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.9375, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f58f4ca581c663479dbffa99b91547b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   E: {fileID: 5880341284197746914}
+  xpBall: {fileID: 5964302756265914259, guid: 51a432cacbe72ad40a0cbdae99fbdac5, type: 3}
+  coin: {fileID: 4560482814482915117, guid: 189120fa65b509e418342c839fbf9f21, type: 3}
   playerInRange: 0

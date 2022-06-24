@@ -247,7 +247,7 @@ public class PlayerMovements : MonoBehaviour
 
         if (isDashButtonDown)
         {
-            float dashAmount = 5f;
+            float dashAmount = 4f;
             Vector3 dashPosition = transform.position + direction * dashAmount;
 
             RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, direction, dashAmount, dashLayerMask);

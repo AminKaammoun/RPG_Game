@@ -8,7 +8,7 @@ public class coin : MonoBehaviour
     private float speed2 = 20f;
     private Rigidbody2D rb;
     private float timer = 2f;
-    public Transform target;
+    private Transform target;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,8 @@ public class coin : MonoBehaviour
     }
     IEnumerator removeGravity()
     {
-        yield return new WaitForSeconds(0.25f);
+        float rand = Random.Range(0.2f, 0.3f);
+        yield return new WaitForSeconds(rand);
         rb.gravityScale = 0f;
     }
 }

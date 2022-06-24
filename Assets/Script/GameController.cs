@@ -10,7 +10,11 @@ public enum PlayerMap
     forrestDungeon,
     forrestDungeon2,
     forrestDungeon3,
-    forrestDungeon4
+    forrestDungeon4,
+    forrestDungeon2nd,
+    forrestDungeon2nd1,
+    forrestDungeon2nd2
+    
 }
 
 public class GameController : MonoBehaviour
@@ -39,7 +43,7 @@ public class GameController : MonoBehaviour
     public XpBar xpBar;
 
     private float currentTime;
-    private float startTime = 10f;
+    private float startTime = 5f;
     public static bool dashed = false;
     public static bool wantTp = false;
 
@@ -69,7 +73,7 @@ public class GameController : MonoBehaviour
         level.experience = PlayerPrefs.GetInt("XP");
         currentTime = startTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
-        currentMap = PlayerMap.Village;
+        currentMap = PlayerMap.forrest;
         
     }
 
@@ -299,6 +303,20 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.maxPosition = new Vector2(12.31f, 2.2f);
             CameraMovement.minPosition = new Vector2(-29.19f, -0.12f);
+        }else if (currentMap == PlayerMap.forrestDungeon2nd)
+        {
+            CameraMovement.maxPosition = new Vector2(167.38f, 56.29f);
+            CameraMovement.minPosition = new Vector2(140f, 55.41f);
+        }
+        else if (currentMap == PlayerMap.forrestDungeon2nd1)
+        {
+            CameraMovement.maxPosition = new Vector2(167.38f, 69.41f);
+            CameraMovement.minPosition = new Vector2(140f, 68.32f);
+        }
+        else if (currentMap == PlayerMap.forrestDungeon2nd2)
+        {
+            CameraMovement.maxPosition = new Vector2(167.38f, 82.42f);
+            CameraMovement.minPosition = new Vector2(140f, 81.24f);
         }
     }
 }

@@ -6,10 +6,14 @@ public class chest : MonoBehaviour
 {
     private GameObject player;
     public GameObject E;
+    public GameObject xpBall;
+    public GameObject coin;
+
     public bool playerInRange;
     // Start is called before the first frame update
     void Start()
     {
+        
         playerInRange = false;
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -22,6 +26,16 @@ public class chest : MonoBehaviour
             E.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                int rand1 = Random.Range(1, 5);
+                int rand2 = Random.Range(1, 5);
+                for(int i = 0; i< rand1; i++)
+                {
+                    Instantiate(xpBall, transform.position, Quaternion.identity);
+                }
+                for (int j = 0; j < rand2; j++)
+                {
+                    Instantiate(coin, transform.position, Quaternion.identity);
+                }
                 Destroy(this.gameObject);
             }
         }

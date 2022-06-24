@@ -44,7 +44,8 @@ public class xpBall : MonoBehaviour
     }
     IEnumerator removeGravity()
     {
-        yield return new WaitForSeconds(0.25f);
+        float rand = Random.Range(0.2f, 0.3f);
+        yield return new WaitForSeconds(rand);
         rb.gravityScale = 0f;
     }
 }
