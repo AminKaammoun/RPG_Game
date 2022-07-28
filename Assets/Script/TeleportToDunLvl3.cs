@@ -6,7 +6,7 @@ public class TeleportToDunLvl3 : MonoBehaviour
 {
     public GameObject player;
     public GameObject log;
-    public bool DunLvl3Clear = false;
+    public static bool DunLvl3Clear = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (GameController.currentMap == PlayerMap.forrestDungeon2)
