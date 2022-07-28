@@ -52,6 +52,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject LevelUp;
     public GameObject plantEffect;
     public GameObject fireEffect;
+    public GameObject plant1Effect;
 
     public static bool invIsOpen = false;
     
@@ -69,6 +70,7 @@ public class PlayerMovements : MonoBehaviour
 
     private bool islogDamaged = false;
     private bool isFireBallDamaged = false;
+    private bool isTreantDamaged = false;
     // Start is called before the first frame update
 
     void Start()
@@ -181,6 +183,14 @@ public class PlayerMovements : MonoBehaviour
             fireEff.transform.position = transform.position;
             isFireBallDamaged = false;
             Destroy(fireEff, 0.3f);
+        }
+        if (isTreantDamaged)
+        {
+            GameObject plant1Eff = Instantiate(plant1Effect) as GameObject;
+            plant1Eff.transform.parent = this.gameObject.transform;
+            plant1Eff.transform.position = transform.position;
+            isTreantDamaged = false;
+            Destroy(plant1Eff, 0.3f);
         }
 
         healthbar.SetHealth(health);
@@ -358,6 +368,9 @@ public class PlayerMovements : MonoBehaviour
             {
                 isFireBallDamaged = true;
                 TakeDamage(10);
+            }else if (collision.CompareTag("treant"))
+            {
+                isTreantDamaged = true;
             }
         }
         if (collision.CompareTag("xpLvl1"))

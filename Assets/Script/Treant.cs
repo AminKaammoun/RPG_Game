@@ -8,7 +8,13 @@ public class Treant : Enemy
     public float chaseRadius;
     public float attackRadius;
     private Rigidbody2D rb2D;
+    public Renderer treant;
+    public GameObject blood;
+    public GameObject xp;
+    public GameObject coin;
+    public GameObject slashEff;
 
+    private bool isHurt;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +26,20 @@ public class Treant : Enemy
     void Update()
     {
         checkDistance();
+        if (isHurt)
+        {
+
+            GameObject slashEffect = Instantiate(slashEff) as GameObject;
+            SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
+            if (target.position.x > transform.position.x)
+            {
+                rend.flipX = true;
+            }
+            slashEffect.transform.parent = this.gameObject.transform;
+            slashEffect.transform.position = transform.position;
+            isHurt = false;
+            Destroy(slashEffect, 0.5f);
+        }
     }
     void checkDistance()
     {
@@ -74,6 +94,51 @@ public class Treant : Enemy
                 setAnimFloat(Vector2.down);
             }
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
+        {
+            if (health <= 0)
+            {
+                int rand = Random.Range(0, 2);
+                treant.material.color = new Color(1, 0.5f, 0.5f, 1);
+                StartCoroutine(waitAfterDead());
+                currentState = EnemyState.dead;
+                Instantiate(xp, transform.position, Quaternion.identity);
+                switch (rand)
+                {
+                    case 0:
+                        Instantiate(coin, transform.position, Quaternion.identity);
+                        break;
+                }
+                health = 100;
+                Destroy(gameObject, 5f);
+
+            }
+            else
+            {
+                TakeDamage(1);
+                treant.material.color = new Color(1, 0.5f, 0.5f, 1);
+                isHurt = true;
+                StartCoroutine(waitAfterHurt());
+                currentState = EnemyState.stagger;
+
+            }
+            GameObject Blood = Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(Blood, 5f);
+        }
+    }
+    IEnumerator waitAfterHurt()
+    {
+        yield return new WaitForSeconds(0.25f);
+        treant.material.color = new Color(1, 1f, 1f, 1);
+
+    }
+    IEnumerator waitAfterDead()
+    {
+        yield return new WaitForSeconds(0.25f);
+        this.gameObject.SetActive(false);
     }
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyInstantiate : MonoBehaviour
 {
     public GameObject[] log;
+    public GameObject[] treant;
     public GameObject silverKey;
     public GameObject goldKey;
 
@@ -20,27 +21,48 @@ public class KeyInstantiate : MonoBehaviour
         if (GameController.currentMap == PlayerMap.forrestDungeon2)
         {
             log = GameObject.FindGameObjectsWithTag("log");
-            len = log.Length;
-            if (log.Length == 1)
+            treant = GameObject.FindGameObjectsWithTag("treant");
+            len = log.Length + treant.Length;
+
+            if (len == 1)
             {
-                lastLog = log[0];
+                if (log.Length >= 1)
+                {
+                    lastLog = log[0];
+                }
+                else
+                {
+                    lastLog = treant[0];
+                }
             }
 
-            if (log.Length == 0 && silverkeyNumbers < 1)
+
+            if (len == 0 && silverkeyNumbers < 1)
             {
                 Instantiate(silverKey, lastLog.transform.position, lastLog.transform.rotation);
                 silverkeyNumbers++;
             }
-        }else if(GameController.currentMap == PlayerMap.forrestDungeon3)
+        }else if(GameController.currentMap == PlayerMap.forrestDungeon3 || GameController.currentMap == PlayerMap.forrestDungeon2nd1)
         {
             log = GameObject.FindGameObjectsWithTag("log");
-            len = log.Length;
-            if (log.Length == 1)
+            treant = GameObject.FindGameObjectsWithTag("treant");
+            
+
+            len = log.Length + treant.Length;
+
+            if (len == 1)
             {
-                lastLog = log[0];
+                if (log.Length >= 1)
+                {
+                    lastLog = log[0];
+                }
+                else
+                {
+                    lastLog = treant[0];
+                }
             }
 
-            if (log.Length == 0 && goldkeyNumbers < 1)
+            if (len == 0 && goldkeyNumbers < 1)
             {
                 Instantiate(goldKey, lastLog.transform.position, lastLog.transform.rotation);
                 goldkeyNumbers++;

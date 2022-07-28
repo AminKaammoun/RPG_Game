@@ -5,7 +5,8 @@ using UnityEngine;
 public class TeleportTodun2Lvl1 : MonoBehaviour
 {
     public GameObject player;
-    //public GameObject log;
+    public GameObject log;
+    public GameObject treant;
     public bool DunLvl2Clear = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,12 +18,14 @@ public class TeleportTodun2Lvl1 : MonoBehaviour
                 GameController.currentMap = PlayerMap.forrestDungeon2nd1;
                 if (DunLvl2Clear == false)
                 {
-                    //Instantiate(log, new Vector3(85.04036f, 62.34778f, 0), Quaternion.identity);
-                    //Instantiate(log, new Vector3(94.29f, 61.68f, 0), Quaternion.identity);
-                    //Instantiate(log, new Vector3(85.56f, 56.54f, 0), Quaternion.identity);
-                    //Instantiate(log, new Vector3(102.49f, 62.18f, 0), Quaternion.identity);
-                    //Instantiate(log, new Vector3(111.16f, 61.85f, 0), Quaternion.identity);
-                    //Instantiate(log, new Vector3(106.99f, 55.66f, 0), Quaternion.identity);
+                    Instantiate(log, new Vector3(159.02f, 72.16f, 0), Quaternion.identity);
+                    Instantiate(log, new Vector3(141.06f, 72.03f, 0), Quaternion.identity);
+                    Instantiate(log, new Vector3(136.93f, 65.78f, 0), Quaternion.identity);
+                    Instantiate(log, new Vector3(167.41f, 71.88f, 0), Quaternion.identity);
+                    Instantiate(log, new Vector3(171.79f, 65.43f, 0), Quaternion.identity);
+                    Instantiate(treant, new Vector3(148.6f, 72.24f, 0), Quaternion.identity);
+                    Instantiate(treant, new Vector3(132.86f, 71.52f, 0), Quaternion.identity);
+                    Instantiate(treant, new Vector3(175.55f, 71.61f, 0), Quaternion.identity);
                     DunLvl2Clear = true;
                 }
             }
