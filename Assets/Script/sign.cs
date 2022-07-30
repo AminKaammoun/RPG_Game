@@ -9,7 +9,7 @@ public class sign : MonoBehaviour
     public bool playerInRange; 
     public GameObject key;
     public bool keyPressed;
-
+    public GameObject panel;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class sign : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //
+                panel.SetActive(true);
             }
             {
 

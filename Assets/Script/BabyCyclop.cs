@@ -83,10 +83,11 @@ public class BabyCyclop : Enemy
         {
             currentState = EnemyState.stagger;
             isHurt = true;
-            Instantiate(blood, transform.position, Quaternion.identity);
+            var bloods = Instantiate(blood, transform.position, Quaternion.identity);
             baby.material.color = new Color(1, 0.5f, 0.5f, 1);
             StartCoroutine(waitAfterHurt());
             //this.gameObject.SetActive(false);
+            Destroy(bloods, 3f);
             TakeDamage(2);
         }
     }

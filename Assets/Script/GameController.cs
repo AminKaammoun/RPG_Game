@@ -35,9 +35,12 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject loadingPanel;
     public GameObject tpPanel;
+    public GameObject Dun1Panel;
+    public GameObject Dun2Panel;
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
+   
     
     public GameObject forestDoor1;
     public GameObject forestDoor2;
@@ -148,6 +151,14 @@ public class GameController : MonoBehaviour
         wantTp = false;
     }
 
+    public void closeDun1Pnanel()
+    {
+        Dun1Panel.SetActive(false);
+    }
+    public void closeDun2Panel()
+    {
+        Dun2Panel.SetActive(false);
+    }
     public void VillageTpButton()
     {
         tpPanel.SetActive(false);

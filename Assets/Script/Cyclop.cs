@@ -60,7 +60,7 @@ public class Cyclop : MonoBehaviour
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
             FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-            Destroy(this.gameObject, 1.5f);
+            Destroy(this.gameObject, 5f);
             Instantiate(chest, transform.position, Quaternion.identity);
             ForrestDungeon1.isclosed = false;
             StartCoroutine(backFromSlowMo());
@@ -77,7 +77,7 @@ public class Cyclop : MonoBehaviour
         healthbar.SetHealth(health);
         if (isHurt)
         {
-            Instantiate(blood, transform.position, Quaternion.identity);
+            var bloods = Instantiate(blood, transform.position, Quaternion.identity);
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (player.position.x > transform.position.x)
@@ -88,6 +88,7 @@ public class Cyclop : MonoBehaviour
             slashEffect.transform.position = transform.position;
             isHurt = false;
             Destroy(slashEffect, 0.5f);
+            Destroy(bloods, 3f);
         }
 
         if (numberOfProjectiles >= 10)
