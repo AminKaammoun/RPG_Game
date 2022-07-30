@@ -29,14 +29,16 @@ public class Cyclop : MonoBehaviour
 
     public GameObject Projectile;
     public GameObject slashEff;
-    
+    public GameObject chest;
+    public GameObject blood;
+
 
     public HealthBar healthbar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
         player = GameObject.FindWithTag("Player").transform;
         currentState = CyclopState.walk;
         target = new Vector3(160.22f, 85.26f, 0f);
@@ -49,9 +51,32 @@ public class Cyclop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            //isdead = true;
+            statue.isRaged = false;
+            anim.SetBool("dead", true);
+            currentState = CyclopState.dead;
+            CameraMovement.bigShake = true;
+            Time.timeScale = 0.5f;
+            FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+            Destroy(this.gameObject, 1.5f);
+            Instantiate(chest, transform.position, Quaternion.identity);
+            ForrestDungeon1.isclosed = false;
+            StartCoroutine(backFromSlowMo());
+            ForrestDungeon2.inFight = false;
+            health = 1;
+
+        }
+        if (health <= 50 && currentState == CyclopState.walk && health > 1)
+        {
+            currentState = CyclopState.rage;
+        }
+
         healthbar.SetHealth(health);
         if (isHurt)
         {
+            Instantiate(blood, transform.position, Quaternion.identity);
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (player.position.x > transform.position.x)
@@ -68,11 +93,11 @@ public class Cyclop : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 79f, 0f), 5 * Time.deltaTime);
             currentState = CyclopState.stun;
-          if(transform.position.y == 79f)
+            if (transform.position.y == 79f)
             {
                 anim.SetBool("walk", false);
             }
-            
+
         }
 
         if (currentState == CyclopState.walk)
@@ -104,12 +129,42 @@ public class Cyclop : MonoBehaviour
         {
             StartCoroutine(backToWalk());
         }
+        else if (currentState == CyclopState.rage && health > 1)
+        {
+            statue.isRaged = true;
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * 1.25f * Time.deltaTime);
+            anim.SetBool("walk", true);
+            if (transform.position.x == 160.22f)
+            {
+                target = new Vector3(147.15f, 85.26f, 0f);
+            }
+            else if (transform.position.x == 147.15f)
+            {
+                target = new Vector3(160.22f, 85.26f, 0f);
+            }
+
+            if (TimeBtwShoot <= 0)
+            {
+                Instantiate(Projectile, transform.position, Quaternion.identity);
+                numberOfProjectiles++;
+                StartTime = Random.Range(0, 2);
+                TimeBtwShoot = StartTime;
+            }
+            else
+            {
+                TimeBtwShoot -= Time.deltaTime;
+            }
+        }
+        else if (currentState == CyclopState.dead)
+        {
+            statue.isRaged = false;
+        }
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("hitBox") && currentState == CyclopState.stun)
+        if (collision.CompareTag("hitBox") && currentState == CyclopState.stun)
         {
             isHurt = true;
             CameraMovement.shake = true;
@@ -131,5 +186,10 @@ public class Cyclop : MonoBehaviour
         numberOfProjectiles = 0;
         currentState = CyclopState.walk;
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(153.02f, 85.26f, 0f), 5 * Time.deltaTime);
+    }
+    IEnumerator backFromSlowMo()
+    {
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 1f;
     }
 }

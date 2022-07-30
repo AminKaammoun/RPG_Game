@@ -6,19 +6,47 @@ public class ForrestDungeon2 : MonoBehaviour
 {
     public GameObject player;
     public GameObject log;
+    public GameObject[] logs;
+    public GameObject[] treants;
     public GameObject treant;
     public GameObject Cyclop;
-    private bool DunLvl2Clear = false;
+    public GameObject wall;
 
+    public static bool DunLvl2Clear = false;
+    public static bool inFight;
+
+    void Update()
+    {
+        if (inFight)
+        {
+            wall.SetActive(true);
+        }
+        else
+        {
+            wall.SetActive(false);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Teleport back to forest from Dun 2
         if (GameController.currentMap == PlayerMap.forrest)
         {
-            if (collision.CompareTag("Player"))
+            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp1")
             {
+                logs = GameObject.FindGameObjectsWithTag("log");
+                foreach (GameObject log in logs)
+                {
+                    Destroy(log);
+                }
+                treants = GameObject.FindGameObjectsWithTag("treant");
+                foreach(GameObject treant in treants)
+                {
+                    Destroy(treant);
+                }
+                ForrestDungeon2.DunLvl2Clear = false;
                 player.transform.position = new Vector3(153.47f, 50.91f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd;
+                
             }
         }
 
@@ -75,7 +103,7 @@ public class ForrestDungeon2 : MonoBehaviour
                 if (DunLvl2Clear == false)
                 {
                     Instantiate(Cyclop, new Vector3(153.02f, 85.26f, 0), Quaternion.identity);
-                    
+                    inFight = true;
                     DunLvl2Clear = true;
                 }
             }

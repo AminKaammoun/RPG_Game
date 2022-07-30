@@ -39,6 +39,13 @@ public class GameController : MonoBehaviour
     public GameObject theVillage;
     public GameObject theForrest;
     
+    public GameObject forestDoor1;
+    public GameObject forestDoor2;
+    public GameObject forestDoor3;
+
+    public static bool silverKeyDoorReset = false;
+    public static bool goldKeyDoorReset = false;
+
     public static LevelSystem level;
     public XpBar xpBar;
 
@@ -80,6 +87,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        resetForestDoors();
         coinTextPotionShop.text = coins.ToString();
         if (coins > PlayerPrefs.GetInt("coins"))
         {
@@ -100,6 +108,21 @@ public class GameController : MonoBehaviour
         panel = GameObject.FindGameObjectsWithTag("panel");
         InventoryControl();
         checkCurrentMap();
+    }
+    public void resetForestDoors()
+    {
+        if (silverKeyDoorReset)
+        {
+            forestDoor1.SetActive(true);
+            silverKeyDoorReset = false;
+        }
+
+        if (goldKeyDoorReset)
+        {
+            forestDoor2.SetActive(true);
+            forestDoor3.SetActive(true);
+            goldKeyDoorReset = false;
+        }
     }
     public void closeInventory()
     {

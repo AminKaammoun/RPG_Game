@@ -72,6 +72,7 @@ public class PlayerMovements : MonoBehaviour
     private bool isFireBallDamaged = false;
     private bool isTreantDamaged = false;
     private bool isCyclopDamaged = false;
+   
 
     // Start is called before the first frame update
 
@@ -394,6 +395,10 @@ public class PlayerMovements : MonoBehaviour
                 rend.material.color = colorToTurnTo;
                 StartCoroutine(backAfterHit());
                 StartCoroutine(returnColor());
+            }else if (collision.CompareTag("babyCyclop"))
+            {
+               
+                TakeDamage(10);
             }
         }
         if (collision.CompareTag("xpLvl1"))

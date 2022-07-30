@@ -10,6 +10,7 @@ public class Door2 : MonoBehaviour
     public GameObject key;
     public GameObject player;
     public GameObject goldKeyCanvas;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +21,20 @@ public class Door2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!goldKeyObtained)
+        {
+            goldKeyCanvas.SetActive(false);
+        }
+       
         if (playerInRange && goldKeyObtained)
         {
             key.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Destroy(this.gameObject);
-                goldKeyCanvas.SetActive(false);
+                this.gameObject.SetActive(false);
                 
+                goldKeyObtained = false;
+
             }
         }
         else

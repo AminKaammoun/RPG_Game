@@ -11,7 +11,7 @@ public class Door1 : MonoBehaviour
     public GameObject key;
     public GameObject player;
     public GameObject silverKeyCanvas;
-    public static bool doorReset = false;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,11 @@ public class Door1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (doorReset)
+        if (!silverKeyObtained)
         {
-            this.gameObject.SetActive(true);
-            doorReset = false;
+            silverKeyCanvas.SetActive(false);
         }
+       
         if (playerInRange && silverKeyObtained)
         {
             key.SetActive(true);
@@ -34,8 +34,7 @@ public class Door1 : MonoBehaviour
             {
                 //Destroy(this.gameObject);
                 this.gameObject.SetActive(false);
-                silverKeyCanvas.SetActive(false);
-
+                silverKeyObtained = false;
             }
         }
         else

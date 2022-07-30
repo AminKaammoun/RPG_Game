@@ -14,11 +14,19 @@ public class ForrestDungeon1 : MonoBehaviour
     public static bool isclosed = false;
     public static bool DunLvl2Clear = false;
     public static bool DunLvl3Clear = false;
+    private bool wormIsBeaten = false;
+    
     void Update()
     {
+        
         if (Worm.isdead)
         {
+            wormIsBeaten = true;
             closer.SetActive(false);
+        }
+        else
+        {
+            wormIsBeaten = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,9 +56,8 @@ public class ForrestDungeon1 : MonoBehaviour
                 }
                 player.transform.position = new Vector3(89.67f, 20.43f, 0f);
                 GameController.currentMap = PlayerMap.forrest;
-                ForrestDungeon1.DunLvl2Clear = false;
-                ForrestDungeon1.DunLvl3Clear = false;
-                Door1.doorReset = true;
+
+                resetDun1();
             }
         }
         //Teleport from dun 1 first floor to floor 2
@@ -115,7 +122,11 @@ public class ForrestDungeon1 : MonoBehaviour
                 isclosed = true;
                 player.transform.position = new Vector3(106.66f, 66.82f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon4;
-                Instantiate(worm, new Vector3(106.21f, 75.64f, 0), Quaternion.identity);
+                if (!wormIsBeaten)
+                {
+                    Instantiate(worm, new Vector3(106.21f, 75.64f, 0), Quaternion.identity);
+                    
+                }
             }
         }
         else if (GameController.currentMap == PlayerMap.forrestDungeon4)
@@ -128,5 +139,17 @@ public class ForrestDungeon1 : MonoBehaviour
 
         }
 
+    }
+    public void resetDun1()
+    {
+        ForrestDungeon1.DunLvl2Clear = false;
+        ForrestDungeon1.DunLvl3Clear = false;
+        GameController.silverKeyDoorReset = true;
+        GameController.goldKeyDoorReset = true;
+        KeyInstantiate.silverkeyNumbers = 0;
+        KeyInstantiate.goldkeyNumbers = 0;
+        Worm.isdead = false;
+        Door1.silverKeyObtained = false;
+        Door2.goldKeyObtained = false;
     }
 }

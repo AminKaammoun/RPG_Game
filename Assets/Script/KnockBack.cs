@@ -20,8 +20,9 @@ public class KnockBack : MonoBehaviour
                 Vector3 force = forceDirection.normalized * thrust;
 
 
-                if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("BringerOfDeath")) || collision.gameObject.CompareTag("log") || collision.gameObject.CompareTag("treant") && collision.isTrigger)
+                if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("BringerOfDeath")) || collision.gameObject.CompareTag("log") || collision.gameObject.CompareTag("treant")  && collision.isTrigger)
                 {
+                    
                     CameraMovement.shake = true;
                     hit.velocity = force;
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
@@ -37,6 +38,14 @@ public class KnockBack : MonoBehaviour
                     hit.GetComponent<PlayerMovements>().currentState = PlayerState.stagger;
                     collision.GetComponent<PlayerMovements>().Knock(hit, knockTime);
                 
+                }
+                if (collision.gameObject.CompareTag("babyCyclop") && collision.isTrigger)
+                {
+                    CameraMovement.shake = true;
+
+                    hit.transform.Translate(force * Time.deltaTime * 10f);
+                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
+                    collision.GetComponent<Enemy>().Knock(hit, knockTime);
                 }
           
             }
