@@ -371,6 +371,7 @@ public class PlayerMovements : MonoBehaviour
             }else if (collision.CompareTag("treant"))
             {
                 isTreantDamaged = true;
+                TakeDamage(10);
             }
         }
         if (collision.CompareTag("xpLvl1"))
