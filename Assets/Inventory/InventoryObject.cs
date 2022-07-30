@@ -17,6 +17,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnEnable()
     {
+        
         load();
         database = Resources.Load<ItemDataBaseObject>("DataBase");
         save();

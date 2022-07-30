@@ -71,6 +71,8 @@ public class PlayerMovements : MonoBehaviour
     private bool islogDamaged = false;
     private bool isFireBallDamaged = false;
     private bool isTreantDamaged = false;
+    private bool isCyclopDamaged = false;
+
     // Start is called before the first frame update
 
     void Start()
@@ -168,12 +170,13 @@ public class PlayerMovements : MonoBehaviour
             Destroy(speedEff, 20f);
 
         }
-        if (islogDamaged)
+        if (islogDamaged || isCyclopDamaged)
         {
             GameObject plantEff = Instantiate(plantEffect) as GameObject;
             plantEff.transform.parent = this.gameObject.transform;
             plantEff.transform.position = transform.position;
             islogDamaged = false;
+            isCyclopDamaged = false;
             Destroy(plantEff, 0.3f);
         }
         if (isFireBallDamaged)
@@ -192,6 +195,8 @@ public class PlayerMovements : MonoBehaviour
             isTreantDamaged = false;
             Destroy(plant1Eff, 0.3f);
         }
+        
+       
 
         healthbar.SetHealth(health);
         if (!invIsOpen || !GameController.wantTp)
@@ -339,7 +344,11 @@ public class PlayerMovements : MonoBehaviour
             rb2d.velocity = Vector2.zero;
         }
     }
-
+    private IEnumerator backAfterHit()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canBeDamaged = true;
+    }
 
     public void TakeDamage(float damage)
     {
@@ -367,11 +376,24 @@ public class PlayerMovements : MonoBehaviour
             else if (collision.CompareTag("fireBall"))
             {
                 isFireBallDamaged = true;
+                canBeDamaged = false;
                 TakeDamage(10);
-            }else if (collision.CompareTag("treant"))
+                rend.material.color = colorToTurnTo;
+                StartCoroutine(backAfterHit());
+                StartCoroutine(returnColor());
+            }
+            else if (collision.CompareTag("treant"))
             {
                 isTreantDamaged = true;
                 TakeDamage(10);
+            }else if (collision.CompareTag("cyclopProjectile"))
+            {
+                isCyclopDamaged = true;
+                canBeDamaged = false;
+                TakeDamage(10);
+                rend.material.color = colorToTurnTo;
+                StartCoroutine(backAfterHit());
+                StartCoroutine(returnColor());
             }
         }
         if (collision.CompareTag("xpLvl1"))

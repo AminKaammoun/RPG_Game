@@ -1,0 +1,135 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum CyclopState
+{
+
+    walk,
+    attack,
+    stagger,
+    dead,
+    stun,
+    rage,
+    rage2
+}
+public class Cyclop : MonoBehaviour
+{
+    private CyclopState currentState;
+    private float speed = 3f;
+    public Animator anim;
+    private Vector3 target;
+    private Transform player;
+
+    private float TimeBtwShoot;
+    private float StartTime;
+    private float health = 100f;
+    private int numberOfProjectiles = 0;
+    private bool isHurt = false;
+
+    public GameObject Projectile;
+    public GameObject slashEff;
+    
+
+    public HealthBar healthbar;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+        player = GameObject.FindWithTag("Player").transform;
+        currentState = CyclopState.walk;
+        target = new Vector3(160.22f, 85.26f, 0f);
+        float rand = Random.Range(0, 3);
+        StartTime = rand;
+        TimeBtwShoot = StartTime;
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        healthbar.SetHealth(health);
+        if (isHurt)
+        {
+            GameObject slashEffect = Instantiate(slashEff) as GameObject;
+            SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
+            if (player.position.x > transform.position.x)
+            {
+                rend.flipX = true;
+            }
+            slashEffect.transform.parent = this.gameObject.transform;
+            slashEffect.transform.position = transform.position;
+            isHurt = false;
+            Destroy(slashEffect, 0.5f);
+        }
+
+        if (numberOfProjectiles >= 10)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 79f, 0f), 5 * Time.deltaTime);
+            currentState = CyclopState.stun;
+          if(transform.position.y == 79f)
+            {
+                anim.SetBool("walk", false);
+            }
+            
+        }
+
+        if (currentState == CyclopState.walk)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            anim.SetBool("walk", true);
+            if (transform.position.x == 160.22f)
+            {
+                target = new Vector3(147.15f, 85.26f, 0f);
+            }
+            else if (transform.position.x == 147.15f)
+            {
+                target = new Vector3(160.22f, 85.26f, 0f);
+            }
+
+            if (TimeBtwShoot <= 0)
+            {
+                Instantiate(Projectile, transform.position, Quaternion.identity);
+                numberOfProjectiles++;
+                StartTime = Random.Range(0, 3);
+                TimeBtwShoot = StartTime;
+            }
+            else
+            {
+                TimeBtwShoot -= Time.deltaTime;
+            }
+        }
+        else if (currentState == CyclopState.stun)
+        {
+            StartCoroutine(backToWalk());
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("hitBox") && currentState == CyclopState.stun)
+        {
+            isHurt = true;
+            CameraMovement.shake = true;
+            health -= 5f;
+            StartCoroutine(backFromStagger());
+            currentState = CyclopState.stagger;
+            anim.SetBool("hurt", true);
+        }
+    }
+    IEnumerator backFromStagger()
+    {
+        yield return new WaitForSeconds(0.3f);
+        currentState = CyclopState.stun;
+        anim.SetBool("hurt", false);
+    }
+    IEnumerator backToWalk()
+    {
+        yield return new WaitForSeconds(5f);
+        numberOfProjectiles = 0;
+        currentState = CyclopState.walk;
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(153.02f, 85.26f, 0f), 5 * Time.deltaTime);
+    }
+}
