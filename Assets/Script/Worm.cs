@@ -91,7 +91,7 @@ public class Worm : MonoBehaviour
             FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             Destroy(this.gameObject, 1.5f);
             Instantiate(chest, transform.position, Quaternion.identity);
-            TeleportToDunLvl4.isclosed = false;
+            ForrestDungeon1.isclosed = false;
             StartCoroutine(backFromSlowMo());
             health = 1;
 
