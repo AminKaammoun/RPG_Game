@@ -14,6 +14,8 @@ public class ForrestDungeon2 : MonoBehaviour
 
     public static bool DunLvl2Clear = false;
     public static bool inFight;
+    public static bool cyclopIsBeaten = false;
+
 
     void Update()
     {
@@ -28,8 +30,23 @@ public class ForrestDungeon2 : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Teleport back to forest from Dun 2
+        
+
+        //Teleport to dun 2
         if (GameController.currentMap == PlayerMap.forrest)
+        {
+            if (collision.CompareTag("Player") )
+            {
+                
+                
+                player.transform.position = new Vector3(153.47f, 50.91f, 0f);
+                GameController.currentMap = PlayerMap.forrestDungeon2nd;
+                
+            }
+        }
+
+        //Teleport back to forest from Dun 2
+        if (GameController.currentMap == PlayerMap.forrestDungeon2nd)
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp1")
             {
@@ -39,24 +56,13 @@ public class ForrestDungeon2 : MonoBehaviour
                     Destroy(log);
                 }
                 treants = GameObject.FindGameObjectsWithTag("treant");
-                foreach(GameObject treant in treants)
+                foreach (GameObject treant in treants)
                 {
                     Destroy(treant);
                 }
-                ForrestDungeon2.DunLvl2Clear = false;
-                player.transform.position = new Vector3(153.47f, 50.91f, 0f);
-                GameController.currentMap = PlayerMap.forrestDungeon2nd;
-                
-            }
-        }
-
-        //Teleport to dun 2
-        if (GameController.currentMap == PlayerMap.forrestDungeon2nd)
-        {
-            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp1")
-            {
                 player.transform.position = new Vector3(153.47f, 25.71f, 0f);
                 GameController.currentMap = PlayerMap.forrest;
+                resetDun2();
             }
         }
 
@@ -100,12 +106,12 @@ public class ForrestDungeon2 : MonoBehaviour
             {
                 player.transform.position = new Vector3(153.63f, 76.9f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd2;
-                if (DunLvl2Clear == false)
+                if (!cyclopIsBeaten)
                 {
                     Instantiate(Cyclop, new Vector3(153.02f, 85.26f, 0), Quaternion.identity);
                     inFight = true;
-                    DunLvl2Clear = true;
                 }
+                
             }
         }
         else if (GameController.currentMap == PlayerMap.forrestDungeon2nd2)
@@ -117,5 +123,16 @@ public class ForrestDungeon2 : MonoBehaviour
             }
 
         }
+    }
+    public void resetDun2()
+    {
+        ForrestDungeon2.DunLvl2Clear = false;
+        GameController.silverKeyDoorReset = true;
+        GameController.goldKeyDoorReset = true;
+        KeyInstantiate.silverkeyNumbers = 0;
+        KeyInstantiate.goldkeyNumbers = 0;
+        cyclopIsBeaten = false;
+        Door1.silverKeyObtained = false;
+        Door2.goldKeyObtained = false;
     }
 }

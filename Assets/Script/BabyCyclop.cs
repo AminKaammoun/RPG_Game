@@ -24,7 +24,7 @@ public class BabyCyclop : Enemy
     {
         if(health <= 0)
         {
-            Destroy(this.gameObject, 0.2f);
+            Destroy(this.gameObject, 0.1f);
         }
         if (isHurt)
         {

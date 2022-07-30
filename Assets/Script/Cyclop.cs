@@ -65,6 +65,7 @@ public class Cyclop : MonoBehaviour
             ForrestDungeon1.isclosed = false;
             StartCoroutine(backFromSlowMo());
             ForrestDungeon2.inFight = false;
+            ForrestDungeon2.cyclopIsBeaten = true;
             health = 1;
 
         }
