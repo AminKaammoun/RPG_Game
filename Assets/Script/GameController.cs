@@ -14,7 +14,7 @@ public enum PlayerMap
     forrestDungeon2nd,
     forrestDungeon2nd1,
     forrestDungeon2nd2
-    
+
 }
 
 public class GameController : MonoBehaviour
@@ -40,8 +40,13 @@ public class GameController : MonoBehaviour
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
-   
-    
+
+    public AudioSource audioSource;
+    public AudioSource musicSource;
+    public AudioClip forestAudio;
+    public AudioClip villageSound;
+    public AudioClip villageMusic;
+
     public GameObject forestDoor1;
     public GameObject forestDoor2;
     public GameObject forestDoor3;
@@ -71,6 +76,7 @@ public class GameController : MonoBehaviour
 
     public static int coins;
     public static bool showAlert = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -84,7 +90,7 @@ public class GameController : MonoBehaviour
         currentTime = startTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         currentMap = PlayerMap.forrest;
-        
+
     }
 
     // Update is called once per frame
@@ -94,12 +100,12 @@ public class GameController : MonoBehaviour
         coinTextPotionShop.text = coins.ToString();
         if (coins > PlayerPrefs.GetInt("coins"))
         {
-            PlayerPrefs.SetInt("coins",coins);
-            
+            PlayerPrefs.SetInt("coins", coins);
+
         }
-       
+
         coinText.text = coins.ToString();
-        
+
         updateLevelStats();
         checkIfCanDash();
         ControlLoadingPageIfExist();
@@ -107,7 +113,7 @@ public class GameController : MonoBehaviour
         {
             tpPanel.SetActive(true);
         }
- 
+
         panel = GameObject.FindGameObjectsWithTag("panel");
         InventoryControl();
         checkCurrentMap();
@@ -161,6 +167,8 @@ public class GameController : MonoBehaviour
     }
     public void VillageTpButton()
     {
+        changeBGM(villageMusic);
+        changeBGS(villageSound);
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(21.36f, 0.56f, 0f);
@@ -170,6 +178,7 @@ public class GameController : MonoBehaviour
     }
     public void ForrestTpButton()
     {
+        changeBGS(forestAudio);
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(47.66f, 3.1f, 0f);
@@ -195,12 +204,13 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         loading.text = "LOADING";
         loadingPanel.SetActive(false);
-        if(currentMap == PlayerMap.Village)
+        if (currentMap == PlayerMap.Village)
         {
             theVillage.SetActive(true);
             StartCoroutine(removeText());
-            
-        }else if(currentMap == PlayerMap.forrest)
+
+        }
+        else if (currentMap == PlayerMap.forrest)
         {
             theForrest.SetActive(true);
             StartCoroutine(removeText());
@@ -212,7 +222,7 @@ public class GameController : MonoBehaviour
         theVillage.SetActive(false);
         theForrest.SetActive(false);
     }
-   
+
 
     public void updateLevelStats()
     {
@@ -231,8 +241,8 @@ public class GameController : MonoBehaviour
         int xpToNextLevel = (level.GetXPforLevel(level.currentLevel + 1) - level.GetXPforLevel(level.currentLevel));
         float levelFinishPercentage = (float)currentXp / xpToNextLevel;
         xpBar.SetXp(levelFinishPercentage);
-        XP.text = currentXp + "/"+ xpToNextLevel+"("+ (int)(levelFinishPercentage * 100)+ "%)";
-        
+        XP.text = currentXp + "/" + xpToNextLevel + "(" + (int)(levelFinishPercentage * 100) + "%)";
+
     }
     public void checkIfCanDash()
     {
@@ -296,6 +306,7 @@ public class GameController : MonoBehaviour
     {
         if (currentMap == PlayerMap.forrest)
         {
+            musicSource.Stop();
             CameraMovement.maxPosition = new Vector2(159.63f, 30f);
             CameraMovement.minPosition = new Vector2(56.74f, -2f);
 
@@ -337,7 +348,10 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.maxPosition = new Vector2(12.31f, 2.2f);
             CameraMovement.minPosition = new Vector2(-29.19f, -0.12f);
-        }else if (currentMap == PlayerMap.forrestDungeon2nd)
+
+
+        }
+        else if (currentMap == PlayerMap.forrestDungeon2nd)
         {
             CameraMovement.maxPosition = new Vector2(167.38f, 56.29f);
             CameraMovement.minPosition = new Vector2(140f, 55.41f);
@@ -353,4 +367,19 @@ public class GameController : MonoBehaviour
             CameraMovement.minPosition = new Vector2(140f, 81.24f);
         }
     }
+    public void changeBGS(AudioClip music)
+    {
+        audioSource.Stop();
+        audioSource.clip = music;
+        audioSource.Play();
+
+    }
+    public void changeBGM(AudioClip music)
+    {
+        musicSource.Stop();
+        musicSource.clip = music;
+        musicSource.Play();
+
+    }
+
 }

@@ -12,7 +12,7 @@ public class Dialog : MonoBehaviour
     public string dialog;
     public GameObject key;
     public bool keyPressed;
-    
+    public AudioSource Audio;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class Dialog : MonoBehaviour
             {
                 text.text = dialog;
                 dialogBox.SetActive(true);
+                Audio.Play();
                 keyPressed = true;
                 key.SetActive(false);
             }
