@@ -11,6 +11,8 @@ public class BabyCyclop : Enemy
 
     private bool isHurt = false;
     public GameObject slashEff;
+
+    public AudioSource hurtAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class BabyCyclop : Enemy
         }
         if (isHurt)
         {
-
+            hurtAudio.Play();
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (target.position.x > transform.position.x)

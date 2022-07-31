@@ -46,6 +46,9 @@ public class GameController : MonoBehaviour
     public AudioClip forestAudio;
     public AudioClip villageSound;
     public AudioClip villageMusic;
+    public AudioClip forestMusic;
+    public AudioClip dunMusic;
+    public AudioSource chestAudio;
 
     public GameObject forestDoor1;
     public GameObject forestDoor2;
@@ -76,7 +79,7 @@ public class GameController : MonoBehaviour
 
     public static int coins;
     public static bool showAlert = false;
-    
+    public static bool returnDunMusic = false;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +120,17 @@ public class GameController : MonoBehaviour
         panel = GameObject.FindGameObjectsWithTag("panel");
         InventoryControl();
         checkCurrentMap();
+
+        if (returnDunMusic)
+        {
+            changeBGM(dunMusic, musicSource);
+            returnDunMusic = false;
+        }
+        if (chest.playChestAudio)
+        {
+            chestAudio.Play();
+            chest.playChestAudio = false;
+        }
     }
     public void resetForestDoors()
     {
@@ -167,8 +181,8 @@ public class GameController : MonoBehaviour
     }
     public void VillageTpButton()
     {
-        changeBGM(villageMusic);
-        changeBGS(villageSound);
+        changeBGM(villageMusic, musicSource);
+        changeBGS(villageSound , audioSource);
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(21.36f, 0.56f, 0f);
@@ -178,7 +192,8 @@ public class GameController : MonoBehaviour
     }
     public void ForrestTpButton()
     {
-        changeBGS(forestAudio);
+        changeBGM(forestMusic, musicSource);
+        changeBGS(forestAudio, audioSource);
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(47.66f, 3.1f, 0f);
@@ -306,7 +321,7 @@ public class GameController : MonoBehaviour
     {
         if (currentMap == PlayerMap.forrest)
         {
-            musicSource.Stop();
+            
             CameraMovement.maxPosition = new Vector2(159.63f, 30f);
             CameraMovement.minPosition = new Vector2(56.74f, -2f);
 
@@ -326,6 +341,7 @@ public class GameController : MonoBehaviour
 
         if (currentMap == PlayerMap.forrestDungeon)
         {
+            
             CameraMovement.maxPosition = new Vector2(100f, 46.32f);
             CameraMovement.minPosition = new Vector2(0f, 45.36f);
         }
@@ -367,18 +383,18 @@ public class GameController : MonoBehaviour
             CameraMovement.minPosition = new Vector2(140f, 81.24f);
         }
     }
-    public void changeBGS(AudioClip music)
+    public static void changeBGS(AudioClip music , AudioSource source)
     {
-        audioSource.Stop();
-        audioSource.clip = music;
-        audioSource.Play();
+        source.Stop();
+        source.clip = music;
+        source.Play();
 
     }
-    public void changeBGM(AudioClip music)
+    public static void changeBGM(AudioClip music, AudioSource source)
     {
-        musicSource.Stop();
-        musicSource.clip = music;
-        musicSource.Play();
+        source.Stop();
+        source.clip = music;
+        source.Play();
 
     }
 

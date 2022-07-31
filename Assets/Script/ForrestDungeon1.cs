@@ -15,7 +15,16 @@ public class ForrestDungeon1 : MonoBehaviour
     public static bool DunLvl2Clear = false;
     public static bool DunLvl3Clear = false;
     private bool wormIsBeaten = false;
-    
+
+
+    public AudioSource audioSource;
+    public AudioSource musicSource;
+    public AudioClip dunSound;
+    public AudioClip forestSound;
+    public AudioClip dunMusic;
+    public AudioClip forestMusic;
+    public AudioClip fightMusic;
+
     void Update()
     {
         
@@ -35,8 +44,11 @@ public class ForrestDungeon1 : MonoBehaviour
        
         if (GameController.currentMap == PlayerMap.forrest)
         {
+           
             if (collision.CompareTag("Player"))
             {
+                GameController.changeBGS(dunSound, audioSource);
+                GameController.changeBGM(dunMusic, musicSource);
                 player.transform.position = new Vector3(89.67f, 41.06f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon;
             }
@@ -45,7 +57,7 @@ public class ForrestDungeon1 : MonoBehaviour
         //Teleport back to forest from dun 1
         if (GameController.currentMap == PlayerMap.forrestDungeon)
         {
-
+            
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp1")
             {
                 logs = GameObject.FindGameObjectsWithTag("log");
@@ -54,6 +66,8 @@ public class ForrestDungeon1 : MonoBehaviour
                 {
                     Destroy(log);
                 }
+                GameController.changeBGS(forestSound, audioSource);
+                GameController.changeBGM(forestMusic, musicSource);
                 player.transform.position = new Vector3(89.67f, 20.43f, 0f);
                 GameController.currentMap = PlayerMap.forrest;
 
@@ -65,6 +79,7 @@ public class ForrestDungeon1 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp2")
             {
+                GameController.changeBGM(fightMusic, musicSource);
                 player.transform.position = new Vector3(89.67f, 53.78f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2;
                 if (DunLvl2Clear == false)
@@ -118,6 +133,7 @@ public class ForrestDungeon1 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp4")
             {
+                
                 closer.SetActive(true);
                 isclosed = true;
                 player.transform.position = new Vector3(106.66f, 66.82f, 0f);

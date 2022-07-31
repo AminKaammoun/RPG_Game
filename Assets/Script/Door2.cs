@@ -10,7 +10,8 @@ public class Door2 : MonoBehaviour
     public GameObject key;
     public GameObject player;
     public GameObject goldKeyCanvas;
-    
+
+    public AudioSource doorAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class Door2 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 this.gameObject.SetActive(false);
-                
+                doorAudio.Play();
                 goldKeyObtained = false;
 
             }

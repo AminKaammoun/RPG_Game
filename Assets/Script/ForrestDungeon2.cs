@@ -16,6 +16,13 @@ public class ForrestDungeon2 : MonoBehaviour
     public static bool inFight;
     public static bool cyclopIsBeaten = false;
 
+    public AudioSource audioSource;
+    public AudioSource musicSource;
+    public AudioClip dunSound;
+    public AudioClip forestSound;
+    public AudioClip dunMusic;
+    public AudioClip forestMusic;
+    public AudioClip fightMusic;
 
     void Update()
     {
@@ -37,8 +44,9 @@ public class ForrestDungeon2 : MonoBehaviour
         {
             if (collision.CompareTag("Player") )
             {
-                
-                
+                GameController.changeBGS(dunSound, audioSource);
+                GameController.changeBGM(dunMusic, musicSource);
+
                 player.transform.position = new Vector3(153.47f, 50.91f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd;
                 
@@ -50,6 +58,8 @@ public class ForrestDungeon2 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp1")
             {
+                GameController.changeBGS(forestSound, audioSource);
+                GameController.changeBGM(forestMusic, musicSource);
                 logs = GameObject.FindGameObjectsWithTag("log");
                 foreach (GameObject log in logs)
                 {
@@ -71,6 +81,7 @@ public class ForrestDungeon2 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp2")
             {
+                GameController.changeBGM(fightMusic, musicSource);
                 player.transform.position = new Vector3(153.63f, 63.83f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd1;
                 if (DunLvl2Clear == false)
@@ -104,6 +115,7 @@ public class ForrestDungeon2 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp3")
             {
+                
                 player.transform.position = new Vector3(153.63f, 76.9f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd2;
                 if (!cyclopIsBeaten)

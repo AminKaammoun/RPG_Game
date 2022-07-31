@@ -54,6 +54,15 @@ public class PlayerMovements : MonoBehaviour
     public GameObject fireEffect;
     public GameObject plant1Effect;
 
+    public AudioSource dashAudio;
+    public AudioSource swingAudio;
+    public AudioSource hurtAudio;
+    public AudioSource silverKeyAudio;
+    public AudioSource goldKeyAudio;
+    public AudioSource collectCoinAudio;
+    public AudioSource collectXpAudio;
+    public AudioSource levelUpAudio;
+
     public static bool invIsOpen = false;
     
     public static bool isHealed = false;
@@ -111,6 +120,7 @@ public class PlayerMovements : MonoBehaviour
             GameObject levelUp = Instantiate(LevelUp) as GameObject;
             levelUp.transform.parent = this.gameObject.transform;
             levelUp.transform.position = transform.position;
+            levelUpAudio.Play();
             isLevelUp = false;
             Destroy(levelUp, 1f);
         }
@@ -222,7 +232,7 @@ public class PlayerMovements : MonoBehaviour
             {
                 if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
                 {
-
+                    swingAudio.Play();
                     StartCoroutine(waitAttack());
                 }
             }
@@ -251,6 +261,7 @@ public class PlayerMovements : MonoBehaviour
         {
             isDashButtonDown = true;
             GameController.dashed = true;
+            dashAudio.Play();
 
         }
     }
@@ -363,19 +374,23 @@ public class PlayerMovements : MonoBehaviour
         {
             if (collision.CompareTag("Enemy"))
             {
+                hurtAudio.Play();
                 TakeDamage(10);
             }
             else if (collision.CompareTag("BringerOfDeath"))
             {
+                hurtAudio.Play();
                 TakeDamage(20);
             }
             else if (collision.CompareTag("log"))
             {
+                hurtAudio.Play();
                 islogDamaged = true;
                 TakeDamage(10);
             }
             else if (collision.CompareTag("fireBall"))
             {
+                hurtAudio.Play();
                 isFireBallDamaged = true;
                 canBeDamaged = false;
                 TakeDamage(10);
@@ -385,10 +400,12 @@ public class PlayerMovements : MonoBehaviour
             }
             else if (collision.CompareTag("treant"))
             {
+                hurtAudio.Play();
                 isTreantDamaged = true;
                 TakeDamage(10);
             }else if (collision.CompareTag("cyclopProjectile"))
             {
+                hurtAudio.Play();
                 isCyclopDamaged = true;
                 canBeDamaged = false;
                 TakeDamage(10);
@@ -397,17 +414,19 @@ public class PlayerMovements : MonoBehaviour
                 StartCoroutine(returnColor());
             }else if (collision.CompareTag("babyCyclop"))
             {
-               
+                hurtAudio.Play();
                 TakeDamage(10);
             }
         }
         if (collision.CompareTag("xpLvl1"))
         {
             GameController.level.AddExp(10);
+            collectXpAudio.Play();
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("coin"))
         {
+            collectCoinAudio.Play();
             GameController.coins++;
             Destroy(collision.gameObject);
         }
@@ -422,9 +441,11 @@ public class PlayerMovements : MonoBehaviour
             silverKeyCanvas.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("silverKey"));
             Door1.silverKeyObtained = true;
+            silverKeyAudio.Play();
         }
         if (collision.CompareTag("goldKey"))
         {
+            goldKeyAudio.Play();
             goldKeyCanvas.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("goldKey"));
             Door2.goldKeyObtained = true;

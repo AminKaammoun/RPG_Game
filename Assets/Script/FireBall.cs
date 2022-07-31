@@ -8,6 +8,8 @@ public class FireBall : MonoBehaviour
     public float bulletForce = 10f;
     public Animator animator;
 
+    public AudioSource fireBallShutDownAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +29,13 @@ public class FireBall : MonoBehaviour
         if (collision.CompareTag("dungeon"))
         {
             animator.SetBool("explode", true);
+            fireBallShutDownAudio.Play();
             Destroy(this.gameObject, 0.5f);
         }
         if (collision.CompareTag("Player"))
         {
             animator.SetBool("explode", true);
+            fireBallShutDownAudio.Play();
             Destroy(this.gameObject, 0.5f);
         }
     }

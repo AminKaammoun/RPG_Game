@@ -33,6 +33,15 @@ public class Worm : MonoBehaviour
     public GameObject board;
     public GameObject slashEff;
 
+    public AudioSource hurtAudio;
+    public AudioSource rageAudio;
+    public AudioSource rage1Audio;
+    public AudioSource slideAudio;
+    public AudioSource dieAudio;
+    public AudioSource audioSource;
+
+    public AudioClip dunSound;
+
     public HealthBar healthbar;
 
     public int counter = 0;
@@ -41,6 +50,10 @@ public class Worm : MonoBehaviour
 
     public bool chestIsInstantiated;
     public static bool isdead = false;
+    private bool playRageAudio = true;
+    private bool playRage1Audio = true;
+    private bool playSlideAudio = true;
+    private bool playDieAudio = true;
 
     public bool isHurt;
     // Start is called before the first frame update
@@ -58,8 +71,11 @@ public class Worm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         if (isHurt)
         {
+            hurtAudio.Play();
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (player.position.x > transform.position.x)
@@ -71,7 +87,7 @@ public class Worm : MonoBehaviour
             isHurt = false;
             Destroy(slashEffect, 0.5f);
         }
-        
+
         if (health <= 50 && currentState == WormState.walk)
         {
             currentState = WormState.rage;
@@ -83,6 +99,13 @@ public class Worm : MonoBehaviour
         healthbar.SetHealth(health);
         if (health <= 0)
         {
+            if (playDieAudio)
+            {
+                dieAudio.Play();
+                GameController.returnDunMusic = true;
+                playDieAudio = false;
+            }
+           
             isdead = true;
             anim.SetBool("die", true);
             currentState = WormState.dead;
@@ -103,11 +126,20 @@ public class Worm : MonoBehaviour
 
             currentState = WormState.stun;
             StartCoroutine(backFromStun());
+            
 
         }
-
+        if(currentState == WormState.stun)
+        {
+            if (playSlideAudio)
+            {
+                slideAudio.Play();
+                playSlideAudio = false;
+            }
+        }
         if (currentState == WormState.walk)
         {
+            playSlideAudio = true;
             speed = 1.5f;
             if (TimeBtwAttack <= 0)
             {
@@ -146,6 +178,12 @@ public class Worm : MonoBehaviour
         if (currentState == WormState.rage)
         {
             speed = 4f;
+            if (playRageAudio)
+            {
+                rageAudio.Play();
+                playRageAudio = false;
+            }
+
             if (TimeBtwAttack <= 0)
             {
                 anim.SetBool("attack", true);
@@ -182,7 +220,13 @@ public class Worm : MonoBehaviour
         }
         if (currentState == WormState.rage2)
         {
+            if (playRage1Audio)
+            {
+                rage1Audio.Play();
+                playRage1Audio = false;
+            }
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.35f, 73.2f, 0f), speed * Time.deltaTime);
+            
             if (TimeBtwAttack <= 0)
             {
                 anim.SetBool("attack", true);
@@ -202,7 +246,7 @@ public class Worm : MonoBehaviour
                         counter++;
                         break;
                 }
-             
+
                 TimeBtwAttack = Random.Range(1, 3);
                 StartCoroutine(backToWalk());
             }
@@ -210,9 +254,9 @@ public class Worm : MonoBehaviour
             {
                 TimeBtwAttack -= Time.deltaTime;
             }
-            
+
         }
-       
+
     }
 
     IEnumerator backFromSlowMo()

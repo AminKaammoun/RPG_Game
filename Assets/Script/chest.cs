@@ -9,7 +9,9 @@ public class chest : MonoBehaviour
     public GameObject xpBall;
     public GameObject coin;
 
+
     public bool playerInRange;
+    public static bool playChestAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class chest : MonoBehaviour
             E.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                playChestAudio = true;
                 int rand1 = Random.Range(1, 5);
                 int rand2 = Random.Range(1, 5);
                 for(int i = 0; i< rand1; i++)

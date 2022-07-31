@@ -14,6 +14,8 @@ public class Treant : Enemy
     public GameObject coin;
     public GameObject slashEff;
 
+    public AudioSource hurtAudio;
+
     private bool isHurt;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class Treant : Enemy
         checkDistance();
         if (isHurt)
         {
-
+            hurtAudio.Play();
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (target.position.x > transform.position.x)

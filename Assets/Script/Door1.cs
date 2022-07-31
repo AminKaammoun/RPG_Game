@@ -11,7 +11,8 @@ public class Door1 : MonoBehaviour
     public GameObject key;
     public GameObject player;
     public GameObject silverKeyCanvas;
-   
+
+    public AudioSource doorAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,9 @@ public class Door1 : MonoBehaviour
             key.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                silverKeyCanvas.SetActive(false);
                 //Destroy(this.gameObject);
+                doorAudio.Play();
                 this.gameObject.SetActive(false);
                 silverKeyObtained = false;
             }

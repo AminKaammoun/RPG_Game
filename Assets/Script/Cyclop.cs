@@ -32,8 +32,14 @@ public class Cyclop : MonoBehaviour
     public GameObject chest;
     public GameObject blood;
 
+    public AudioSource hurtAudio;
+    public AudioSource dieAudio;
+    public AudioSource rageAudio;
 
     public HealthBar healthbar;
+
+    private bool playRageAudio = true;
+    private bool playDieAudio = true;
 
     // Start is called before the first frame update
     void Start()
@@ -53,14 +59,22 @@ public class Cyclop : MonoBehaviour
     {
         if (health <= 0)
         {
+            if (playDieAudio)
+            {
+                dieAudio.Play();
+                GameController.returnDunMusic = true;
+                playDieAudio = false;
+            }
             //isdead = true;
+            
             statue.isRaged = false;
+           
             anim.SetBool("dead", true);
             currentState = CyclopState.dead;
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
             FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 2f);
             Instantiate(chest, transform.position, Quaternion.identity);
             ForrestDungeon1.isclosed = false;
             StartCoroutine(backFromSlowMo());
@@ -77,6 +91,7 @@ public class Cyclop : MonoBehaviour
         healthbar.SetHealth(health);
         if (isHurt)
         {
+            hurtAudio.Play();
             var bloods = Instantiate(blood, transform.position, Quaternion.identity);
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
@@ -134,6 +149,12 @@ public class Cyclop : MonoBehaviour
         else if (currentState == CyclopState.rage && health > 1)
         {
             statue.isRaged = true;
+            if (playRageAudio)
+            {
+                rageAudio.Play();
+                playRageAudio = false;
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, target, speed * 1.25f * Time.deltaTime);
             anim.SetBool("walk", true);
             if (transform.position.x == 160.22f)

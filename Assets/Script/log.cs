@@ -16,6 +16,7 @@ public class log : Enemy
     public GameObject coin;
     public GameObject slashEff;
     
+    public AudioSource hurtAudio;
     
     public bool isHurt;
 
@@ -35,7 +36,7 @@ public class log : Enemy
         checkDistance();
         if (isHurt)
         {
-            
+            hurtAudio.Play();
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (target.position.x > transform.position.x)
