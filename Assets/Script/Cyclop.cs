@@ -74,7 +74,7 @@ public class Cyclop : MonoBehaviour
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
             FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-            Destroy(this.gameObject, 2f);
+            Destroy(this.gameObject, 1.5f);
             Instantiate(chest, transform.position, Quaternion.identity);
             ForrestDungeon1.isclosed = false;
             StartCoroutine(backFromSlowMo());

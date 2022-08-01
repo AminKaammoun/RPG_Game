@@ -11,6 +11,8 @@ public class sign : MonoBehaviour
     public bool keyPressed;
     public GameObject panel;
 
+    public AudioSource signAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class sign : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 panel.SetActive(true);
+                signAudio.Play();
             }
             {
 
