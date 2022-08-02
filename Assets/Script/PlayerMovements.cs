@@ -418,6 +418,11 @@ public class PlayerMovements : MonoBehaviour
                 hurtAudio.Play();
                 TakeDamage(10);
             }
+            else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
+            {
+                hurtAudio.Play();
+                TakeDamage(10);
+            }
         }
         else
         {
@@ -446,6 +451,9 @@ public class PlayerMovements : MonoBehaviour
                 hurtWithShieldAudio.Play();
             }
             else if (collision.CompareTag("babyCyclop"))
+            {
+                hurtWithShieldAudio.Play();
+            }else if (collision.CompareTag("spikeRight")|| collision.CompareTag("spikeLeft"))
             {
                 hurtWithShieldAudio.Play();
             }

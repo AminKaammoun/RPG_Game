@@ -5,7 +5,8 @@ using UnityEngine;
 public class beachDungeon1 : MonoBehaviour
 {
     public GameObject player;
-    
+    public GameObject traps;
+
     public AudioClip dunSound;
     public AudioClip beachSound;
     public AudioSource audioSource;
@@ -44,5 +45,28 @@ public class beachDungeon1 : MonoBehaviour
                 GameController.currentMap = PlayerMap.beach;
             }
         }
+        //Teleport from main to level 1
+        if (GameController.currentMap == PlayerMap.beachDun)
+        {
+            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp3")
+            {
+                // GameController.changeBGS(beachSound, audioSource);
+                traps.SetActive(true);
+                player.transform.position = new Vector3(105.43f, 180.8f, 0f);
+                GameController.currentMap = PlayerMap.beachDun1;
+            }
+        }
+        else if (GameController.currentMap == PlayerMap.beachDun1)
+        {
+
+            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp3")
+            {
+                traps.SetActive(false);
+                player.transform.position = new Vector3(105.44f, 178.19f, 0f);
+                GameController.currentMap = PlayerMap.beachDun;
+            }
+        }
+   
+
     }
 }
