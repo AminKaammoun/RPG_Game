@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,7 @@ public enum PlayerMap
 {
     Village,
     forrest,
+    beach,
     forrestDungeon,
     forrestDungeon2,
     forrestDungeon3,
@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
+    public GameObject theBeach;
 
     public AudioSource audioSource;
     public AudioSource musicSource;
@@ -49,6 +50,8 @@ public class GameController : MonoBehaviour
     public AudioClip forestMusic;
     public AudioClip dunMusic;
     public AudioSource chestAudio;
+    public AudioClip beachMusic;
+    public AudioClip beachAudio;
 
     public GameObject forestDoor1;
     public GameObject forestDoor2;
@@ -183,6 +186,7 @@ public class GameController : MonoBehaviour
     {
         changeBGM(villageMusic, musicSource);
         changeBGS(villageSound , audioSource);
+        musicSource.loop = true;
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(21.36f, 0.56f, 0f);
@@ -194,10 +198,23 @@ public class GameController : MonoBehaviour
     {
         changeBGM(forestMusic, musicSource);
         changeBGS(forestAudio, audioSource);
+        musicSource.loop = true;
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(47.66f, 3.1f, 0f);
         currentMap = PlayerMap.forrest;
+        loadingPanel.SetActive(true);
+        StartCoroutine(removeLoadingPanel());
+    }
+    public void BeachTpButton()
+    {
+        changeBGM(beachMusic, musicSource);
+        changeBGS(beachAudio, audioSource);
+        musicSource.loop = false;
+        tpPanel.SetActive(false);
+        wantTp = false;
+        player.transform.position = new Vector3(68.16f, 129.6f, 0f);
+        currentMap = PlayerMap.beach;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());
     }
@@ -229,6 +246,10 @@ public class GameController : MonoBehaviour
         {
             theForrest.SetActive(true);
             StartCoroutine(removeText());
+        }else if (currentMap == PlayerMap.beach)
+        {
+            theBeach.SetActive(true);
+            StartCoroutine(removeText());
         }
     }
     IEnumerator removeText()
@@ -236,10 +257,11 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         theVillage.SetActive(false);
         theForrest.SetActive(false);
+        theBeach.SetActive(false);
     }
 
 
-    public void updateLevelStats()
+        public void updateLevelStats()
     {
         lvl.text = "Lv. " + level.currentLevel;
 
@@ -381,6 +403,10 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.maxPosition = new Vector2(167.38f, 82.42f);
             CameraMovement.minPosition = new Vector2(140f, 81.24f);
+        }else if (currentMap == PlayerMap.beach)
+        {
+            CameraMovement.minPosition = new Vector2(76.55f, 100f);
+            CameraMovement.maxPosition = new Vector2(160f, 160f);
         }
     }
     public static void changeBGS(AudioClip music , AudioSource source)

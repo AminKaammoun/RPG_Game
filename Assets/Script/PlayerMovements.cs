@@ -62,6 +62,7 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource collectCoinAudio;
     public AudioSource collectXpAudio;
     public AudioSource levelUpAudio;
+    public AudioSource hurtWithShieldAudio;
 
     public static bool invIsOpen = false;
     
@@ -416,6 +417,37 @@ public class PlayerMovements : MonoBehaviour
             {
                 hurtAudio.Play();
                 TakeDamage(10);
+            }
+        }
+        else
+        {
+            if (collision.CompareTag("Enemy"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("BringerOfDeath"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("log"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("fireBall"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("treant"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("cyclopProjectile"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("babyCyclop"))
+            {
+                hurtWithShieldAudio.Play();
             }
         }
         if (collision.CompareTag("xpLvl1"))
