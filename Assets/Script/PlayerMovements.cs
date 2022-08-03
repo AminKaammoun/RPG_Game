@@ -422,6 +422,12 @@ public class PlayerMovements : MonoBehaviour
             {
                 hurtAudio.Play();
                 TakeDamage(10);
+            }else if (collision.CompareTag("pusher"))
+            {
+                hurtAudio.Play();
+                TakeDamage(10);
+                rend.material.color = colorToTurnTo;
+                StartCoroutine(returnColor());
             }
         }
         else
@@ -454,6 +460,9 @@ public class PlayerMovements : MonoBehaviour
             {
                 hurtWithShieldAudio.Play();
             }else if (collision.CompareTag("spikeRight")|| collision.CompareTag("spikeLeft"))
+            {
+                hurtWithShieldAudio.Play();
+            }else if (collision.CompareTag("pusher"))
             {
                 hurtWithShieldAudio.Play();
             }
