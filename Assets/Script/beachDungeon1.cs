@@ -66,7 +66,23 @@ public class beachDungeon1 : MonoBehaviour
                 GameController.currentMap = PlayerMap.beachDun;
             }
         }
-   
-
+        //Teleport from Floor 1 to Floor 2
+        if (GameController.currentMap == PlayerMap.beachDun1)
+        {
+            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp4")
+            {
+                traps.SetActive(false);
+                player.transform.position = new Vector3(86.9f, 192.55f, 0f);
+                GameController.currentMap = PlayerMap.beachDun2;
+            }
+        }else if (GameController.currentMap == PlayerMap.beachDun2)
+        {
+            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp4")
+            {
+                traps.SetActive(true);
+                player.transform.position = new Vector3(86.9f, 190.13f, 0f);
+                GameController.currentMap = PlayerMap.beachDun1;
+            }
+        }
     }
 }
