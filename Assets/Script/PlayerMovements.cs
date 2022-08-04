@@ -26,7 +26,7 @@ public class PlayerMovements : MonoBehaviour
     private Animator animator;
     public PlayerState currentState;
     public float speed = 5f;
-    public PlayerWeapon currentWeapon;
+    public static PlayerWeapon currentWeapon;
     
     public InventoryObject inventory;
     
@@ -53,6 +53,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject plantEffect;
     public GameObject fireEffect;
     public GameObject plant1Effect;
+    public GameObject smallSlashEffect;
 
     public AudioSource dashAudio;
     public AudioSource swingAudio;
@@ -63,6 +64,7 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource collectXpAudio;
     public AudioSource levelUpAudio;
     public AudioSource hurtWithShieldAudio;
+    
 
     public static bool invIsOpen = false;
     
@@ -82,7 +84,7 @@ public class PlayerMovements : MonoBehaviour
     private bool isFireBallDamaged = false;
     private bool isTreantDamaged = false;
     private bool isCyclopDamaged = false;
-   
+    private bool isCrabDamaged = false;
 
     // Start is called before the first frame update
 
@@ -206,6 +208,14 @@ public class PlayerMovements : MonoBehaviour
             plant1Eff.transform.position = transform.position;
             isTreantDamaged = false;
             Destroy(plant1Eff, 0.3f);
+        }
+        if (isCrabDamaged)
+        {
+            GameObject slashEff = Instantiate(smallSlashEffect) as GameObject;
+            slashEff.transform.parent = this.gameObject.transform;
+            slashEff.transform.position = transform.position;
+            isCrabDamaged = false;
+            Destroy(slashEff, 0.3f);
         }
         
        
@@ -428,6 +438,11 @@ public class PlayerMovements : MonoBehaviour
                 TakeDamage(10);
                 rend.material.color = colorToTurnTo;
                 StartCoroutine(returnColor());
+            }else if (collision.CompareTag("crab"))
+            {
+                hurtAudio.Play();
+                TakeDamage(10);
+                isCrabDamaged = true;
             }
         }
         else

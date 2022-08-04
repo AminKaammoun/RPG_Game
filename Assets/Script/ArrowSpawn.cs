@@ -9,6 +9,8 @@ public class ArrowSpawn : MonoBehaviour
     private float TimeBtwSpawn = 0.5f;
     public float currentTime;
 
+    public AudioSource BowAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class ArrowSpawn : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-
+                BowAudio.Play();
                 Instantiate(arrows, bow.transform.position, bow.transform.rotation);
                 currentTime = TimeBtwSpawn;
             }

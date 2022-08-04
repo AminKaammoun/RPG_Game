@@ -12,6 +12,10 @@ public class Slime : Enemy
     public GameObject blood;
     [SerializeField] SpriteRenderer spriteRenderer;
     private bool faceLeft = true;
+    public GameObject slashEff;
+    public AudioSource hurtAudio;
+    private bool isHurt = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +27,20 @@ public class Slime : Enemy
     {
         checkDistance();
         checkDirection();
-       
+        if (isHurt && PlayerMovements.currentWeapon == PlayerWeapon.sword)
+        {
+           
+            GameObject slashEffect = Instantiate(slashEff) as GameObject;
+            SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
+            if (target.position.x > transform.position.x)
+            {
+                rend.flipX = true;
+            }
+            slashEffect.transform.parent = this.gameObject.transform;
+            slashEffect.transform.position = transform.position;
+            isHurt = false;
+            Destroy(slashEffect, 0.5f);
+        }
     
         if(Vector3.Distance(target.position, transform.position) <= 1f)
         {
@@ -76,6 +93,8 @@ public class Slime : Enemy
     {
         if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
+            hurtAudio.Play();
+            isHurt = true;
             if (health <= 1)
             {
                 animator.SetBool("dead", true);
@@ -86,6 +105,7 @@ public class Slime : Enemy
             else
             {
                 TakeDamage(1);
+                
                 animator.SetBool("hurt", true);
                 StartCoroutine(waitAfterHurt());
                 currentState = EnemyState.stagger;
