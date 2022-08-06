@@ -7,7 +7,7 @@ public class AttackGears : MonoBehaviour
 
     private string attackGear;
 
-
+    public static bool isPlaced;
     public GameObject atkLevel1Gear;
     public GameObject atkLevel10Gear;
 
@@ -38,10 +38,11 @@ public class AttackGears : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (InvDraggableComponent.isPlaced)
+        
+        if (isPlaced)
         {
-            InvDraggableComponent.isPlaced = false;
+            
+            isPlaced = false;
             attackGear = PlayerPrefs.GetString("AttackGear");
             Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
             switch (attackGear)
