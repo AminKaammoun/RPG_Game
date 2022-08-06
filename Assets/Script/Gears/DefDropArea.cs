@@ -9,7 +9,7 @@ public class DefDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
-
+    private string defGear;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -17,8 +17,26 @@ public class DefDropArea : MonoBehaviour, IDropHandler
 
         if (eventData.pointerDrag != null)
         {
+            
+
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("def"))
             {
+                foreach (Transform child in transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+
+                defGear = PlayerPrefs.GetString("DefGear");
+                if (defGear == "lvl 1 def (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[0], 1);
+                    inventory.save();
+                }
+                else if (defGear == "lvl 10 def (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[1], 1);
+                    inventory.save();
+                }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 def inventory(Clone)")
                 {
                     num = 0;

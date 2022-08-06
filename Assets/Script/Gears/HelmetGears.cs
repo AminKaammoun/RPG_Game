@@ -8,7 +8,7 @@ public class HelmetGears : MonoBehaviour
 
     public static bool isPlaced;
     public GameObject helLevel1Gear;
-
+    public GameObject helLevel10Gear;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +19,11 @@ public class HelmetGears : MonoBehaviour
             case "lvl 1 helmet (equipmentObject)":
                 var hel1gear = Instantiate(helLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                 hel1gear.transform.SetParent(GameObject.FindGameObjectWithTag("helGearSlot").transform, false);
+
+                break;
+            case "lvl 10 helmet (equipmentObject)":
+                var hel10gear = Instantiate(helLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                hel10gear.transform.SetParent(GameObject.FindGameObjectWithTag("helGearSlot").transform, false);
 
                 break;
 
@@ -42,7 +47,11 @@ public class HelmetGears : MonoBehaviour
                     hel1gear.transform.SetParent(GameObject.FindGameObjectWithTag("helGearSlot").transform, false);
 
                     break;
+                case "lvl 10 helmet (equipmentObject)":
+                    var hel10gear = Instantiate(helLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    hel10gear.transform.SetParent(GameObject.FindGameObjectWithTag("helGearSlot").transform, false);
 
+                    break;
                 case "":
                     break;
             }

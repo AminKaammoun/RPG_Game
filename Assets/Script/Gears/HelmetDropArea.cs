@@ -10,15 +10,32 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
-
+    private string helmetGear;
     public void OnDrop(PointerEventData eventData)
     {
 
 
         if (eventData.pointerDrag != null)
         {
+           
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("helmet"))
             {
+                foreach (Transform child in transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+
+                helmetGear = PlayerPrefs.GetString("HelmetGear");
+                if (helmetGear == "lvl 1 helmet (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[0], 1);
+                    inventory.save();
+                }
+                else if (helmetGear == "lvl 10 helmet (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[1], 1);
+                    inventory.save();
+                }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 helmet inventory(Clone)")
                 {
                     num = 0;

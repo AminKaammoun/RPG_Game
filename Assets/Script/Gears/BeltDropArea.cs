@@ -8,13 +8,31 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
+    private string beltGear;
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
         {
+            
+
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("belt"))
             {
+                foreach (Transform child in transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
 
+                beltGear = PlayerPrefs.GetString("BeltGear");
+                if (beltGear == "lvl 1 belt (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[0], 1);
+                    inventory.save();
+                }
+                else if (beltGear == "lvl 10 belt (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[1], 1);
+                    inventory.save();
+                }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 belt inventory(Clone)")
                 {
                     num = 0;

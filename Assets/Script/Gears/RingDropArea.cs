@@ -8,15 +8,32 @@ public class RingDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
-
+    private string ringGear;
     public void OnDrop(PointerEventData eventData)
     {
 
 
         if (eventData.pointerDrag != null)
         {
+           
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("ring"))
             {
+                foreach (Transform child in transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+
+                ringGear = PlayerPrefs.GetString("RingGear");
+                if (ringGear == "lvl 1 ring (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[0], 1);
+                    inventory.save();
+                }
+                else if (ringGear == "lvl 10 ring (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[1], 1);
+                    inventory.save();
+                }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 ring inventory(Clone)")
                 {
                     num = 0;

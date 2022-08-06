@@ -8,7 +8,8 @@ public class DefGears : MonoBehaviour
 
     public static bool isPlaced;
     public GameObject defLevel1Gear;
-    //public GameObject atkLevel10Gear;
+
+    public GameObject defLevel10Gear;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,11 @@ public class DefGears : MonoBehaviour
                 def1gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
 
                 break;
+            case "lvl 10 def (equipmentObject)":
+                var def10gear = Instantiate(defLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                def10gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
 
+                break;
             case "":
                 break;
         }
@@ -42,6 +47,11 @@ public class DefGears : MonoBehaviour
                 case "lvl 1 def (equipmentObject)":
                     var def1gear = Instantiate(defLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                     def1gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
+
+                    break;
+                case "lvl 10 def (equipmentObject)":
+                    var def10gear = Instantiate(defLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    def10gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
 
                     break;
 

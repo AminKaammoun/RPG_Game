@@ -9,7 +9,9 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
     public InventoryObject inventory;
     public ItemObject[] itemObject;
 
+   // public GameObject Gear;
     public static int num;
+    private string attackGear;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -17,8 +19,28 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
 
         if (eventData.pointerDrag != null)
         {
+
+            
+           
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("attack"))
             {
+                foreach (Transform child in transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+
+                attackGear = PlayerPrefs.GetString("AttackGear");
+                if (attackGear == "lvl 1 attack (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[0], 1);
+                    inventory.save();
+                }
+                else if (attackGear == "lvl 10 attack (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[1], 1);
+                    inventory.save();
+                }
+
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 attack inventory(Clone)")
                 {
                     num = 0;
@@ -39,14 +61,10 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         break;
 
                 }
-                //Debug.Log(PlayerPrefs.GetString("AttackGear"));
-                //Debug.Log(itemObject.ToString());
-                //AtkLevel1.destoryItem = true;
+               
                 inventory.RemoveItem(itemObject[num]);
                 inventory.save();
 
-                //Inventory.refreshInv = true;
-                //InvDraggableComponent.isPlaced = true;
                 AttackGears.isPlaced = true;
                 Vector2 add = new Vector2(-192, -16);
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + add;

@@ -8,7 +8,7 @@ public class RingGears : MonoBehaviour
 
     public static bool isPlaced;
     public GameObject ringLevel1Gear;
-
+    public GameObject ringLevel10Gear;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +19,11 @@ public class RingGears : MonoBehaviour
             case "lvl 1 ring (equipmentObject)":
                 var ring1gear = Instantiate(ringLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                 ring1gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
+
+                break;
+            case "lvl 10 ring (equipmentObject)":
+                var ring10gear = Instantiate(ringLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                ring10gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
 
                 break;
 
@@ -42,7 +47,11 @@ public class RingGears : MonoBehaviour
                     ring1gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
 
                     break;
+                case "lvl 10 ring (equipmentObject)":
+                    var ring10gear = Instantiate(ringLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    ring10gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
 
+                    break;
                 case "":
                     break;
             }

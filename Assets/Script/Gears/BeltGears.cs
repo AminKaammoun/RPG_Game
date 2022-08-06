@@ -8,7 +8,7 @@ public class BeltGears : MonoBehaviour
 
     public static bool isPlaced;
     public GameObject beltLevel1Gear;
-
+    public GameObject beltLevel10Gear;
     void Start()
     {
         beltGear = PlayerPrefs.GetString("BeltGear");
@@ -18,6 +18,11 @@ public class BeltGears : MonoBehaviour
             case "lvl 1 belt (equipmentObject)":
                 var belt1gear = Instantiate(beltLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                 belt1gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
+
+                break;
+            case "lvl 10 belt (equipmentObject)":
+                var belt10gear = Instantiate(beltLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                belt10gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
 
                 break;
 
@@ -37,6 +42,11 @@ public class BeltGears : MonoBehaviour
                 case "lvl 1 belt (equipmentObject)":
                     var hel1gear = Instantiate(beltLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                     hel1gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
+
+                    break;
+                case "lvl 10 belt (equipmentObject)":
+                    var belt10gear = Instantiate(beltLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    belt10gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
 
                     break;
 
