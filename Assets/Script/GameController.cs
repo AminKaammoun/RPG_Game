@@ -427,7 +427,7 @@ public class GameController : MonoBehaviour
         }else if (currentMap == PlayerMap.beachDun3)
         {
             CameraMovement.minPosition = new Vector2(78.14f, 210.04f);
-            CameraMovement.maxPosition = new Vector2(97.38f, 211.46f);
+            CameraMovement.maxPosition = new Vector2(117.71f, 211.46f);
         }
     }
     public static void changeBGS(AudioClip music , AudioSource source)

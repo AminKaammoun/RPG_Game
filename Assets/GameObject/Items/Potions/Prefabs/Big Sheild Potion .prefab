@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 7754159688494090851}
   m_Layer: 5
   m_Name: 'Big Sheild Potion '
-  m_TagString: Untagged
+  m_TagString: potionIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +174,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 31.375, y: 31.375}
+  m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1052058581076476820
 CanvasRenderer:
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 9038698606481004383}
   BigSheildPotion: {fileID: 11400000, guid: b9f75cb2844559949918f0d7fa57db9c, type: 2}
-  inventory: {fileID: 11400000, guid: a944100d4232c3e4f8bbfc497ff8c70c, type: 2}
+  inventory: {fileID: 11400000, guid: 30527436e5087b44c9834c97be56e6c7, type: 2}
   text: {fileID: 5225802666424696561}
   item: {fileID: 1243758412187448383}
   panels: []

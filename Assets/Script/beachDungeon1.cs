@@ -7,6 +7,8 @@ public class beachDungeon1 : MonoBehaviour
     public GameObject player;
     public GameObject traps;
     public GameObject Slime;
+    public GameObject crab;
+
     public GameObject WaterFallSound;
 
     public AudioClip dunSound;
@@ -104,6 +106,15 @@ public class beachDungeon1 : MonoBehaviour
             {
                 WaterFallSound.SetActive(false);
                 player.transform.position = new Vector3(87.5f, 205.63f, 0f);
+                Instantiate(Slime, new Vector3(111.4789f, 213.8602f, 0), Quaternion.identity);
+                Instantiate(Slime, new Vector3(110.5343f, 207.5034f, 0), Quaternion.identity);
+                Instantiate(Slime, new Vector3(92.76656f, 208.0395f, 0), Quaternion.identity);
+                Instantiate(Slime, new Vector3(82.70934f, 213.4076f, 0), Quaternion.identity);
+                Instantiate(Slime, new Vector3(81.70198f, 209.7529f, 0), Quaternion.identity);
+
+                Instantiate(crab, new Vector3(103.75f, 214.3708f, 0), Quaternion.identity);
+                Instantiate(crab, new Vector3(92.35809f, 214.1154f, 0), Quaternion.identity);
+                Instantiate(crab, new Vector3(104.8214f, 207.1184f, 0), Quaternion.identity);
                 GameController.currentMap = PlayerMap.beachDun3;
             }
         }else if (GameController.currentMap == PlayerMap.beachDun3)

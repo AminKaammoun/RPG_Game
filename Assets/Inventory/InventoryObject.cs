@@ -37,6 +37,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             Container.Add(new InventorySlot(database.GetId[_item],_item, _amount));
     }
 
+    
     public void RemoveItem(ItemObject _item)
     {
         for (int i = 0; i < Container.Count; i++)
@@ -49,7 +50,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
                     Container.Remove(Container[i]); 
                   
-                    //Inventory.refreshInv = true;
+                    Inventory.refreshInv = true;
                 }
             }
         }

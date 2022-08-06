@@ -5,7 +5,7 @@ using UnityEngine;
 public class crab : Enemy
 {
     public Transform target;
-    private float chaseRadius = 7f;
+    private float chaseRadius = 5f;
     private float attackRadius = 1f;
     private bool faceLeft = true;
     private Rigidbody2D rb2D;

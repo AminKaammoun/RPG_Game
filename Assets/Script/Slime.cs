@@ -13,6 +13,9 @@ public class Slime : Enemy
     [SerializeField] SpriteRenderer spriteRenderer;
     private bool faceLeft = true;
     public GameObject slashEff;
+    public GameObject xp;
+    public GameObject coin;
+
     public AudioSource hurtAudio;
     private bool isHurt = false;
 
@@ -97,15 +100,24 @@ public class Slime : Enemy
             isHurt = true;
             if (health <= 1)
             {
+                int rand = Random.Range(0, 2);
                 animator.SetBool("dead", true);
                 StartCoroutine(waitAfterDead());
                 currentState = EnemyState.dead;
+                Instantiate(xp, transform.position, Quaternion.identity);
+                switch (rand)
+                {
+                    case 0:
+                        Instantiate(coin, transform.position, Quaternion.identity);
+                        break;
+                }
                 Destroy(gameObject, 5f);
             }
             else
             {
                 TakeDamage(1);
-                
+               
+                isHurt = true;
                 animator.SetBool("hurt", true);
                 StartCoroutine(waitAfterHurt());
                 currentState = EnemyState.stagger;
