@@ -21,24 +21,31 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private LayerMask dashLayerMask;
     [SerializeField] private TrailRenderer tr;
 
-    public static float attack = 100;
-    public static float defence = 50;
-    public static float agility = 30;
-    public static float hp = 100;
-    public static float Sp = 50;
-    
+    public static int BonusAttack;
+    public static int BonusDefence;
+    public static int BonusAgility;
+    public static int BonusHp;
+    public static int BonusSp;
+
+    public static float attack;
+    public static float defence;
+    public static float agility;
+    public static float hp;
+    public static float Sp;
+
     private Rigidbody2D rb2D;
     public Rigidbody2D bow;
     private Animator animator;
     public PlayerState currentState;
     public float speed = 5f;
     public static PlayerWeapon currentWeapon;
-    
+
     public InventoryObject inventory;
-    
+
+
 
     public static float health;
-    private float MaxHealth = 100;
+    public static float MaxHealth;
 
     private float PosX;
     private float PosY;
@@ -60,6 +67,9 @@ public class PlayerMovements : MonoBehaviour
     public GameObject fireEffect;
     public GameObject plant1Effect;
     public GameObject smallSlashEffect;
+    public GameObject xpText;
+    public GameObject xpText1;
+    public GameObject damageText;
 
     public AudioSource dashAudio;
     public AudioSource swingAudio;
@@ -70,16 +80,16 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource collectXpAudio;
     public AudioSource levelUpAudio;
     public AudioSource hurtWithShieldAudio;
-    
+
 
     public static bool invIsOpen = false;
-    
+
     public static bool isHealed = false;
     public static bool isSmallSheilded = false;
     public static bool isBigSheilded = false;
     public static bool isSmallSpeeded = false;
     public static bool isBigSpeeded = false;
-    
+
     public static bool healthIsMax = false;
     public static bool isDashButtonDown;
     public static bool canDash = true;
@@ -91,12 +101,13 @@ public class PlayerMovements : MonoBehaviour
     private bool isTreantDamaged = false;
     private bool isCyclopDamaged = false;
     private bool isCrabDamaged = false;
+    private bool damagePlayer = true;
 
     // Start is called before the first frame update
 
     void Start()
     {
-        
+
         currentState = PlayerState.idle;
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -104,20 +115,24 @@ public class PlayerMovements : MonoBehaviour
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
-        
-        health = MaxHealth;
-        healthbar.SetMaxHealth(MaxHealth);
+
+        health = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
+        healthbar.SetMaxHealth(100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp);
 
     }
 
-  
+
     // Update is called once per frame
     void Update()
     {
-      
-        if (health >= 100)
+        healthbar.SetMaxHealth(100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp);
+        getStats();
+        
+        Vector3 add = new Vector3(0f, 2f, 0f);
+        xpText.transform.position = transform.position + add;
+        if (health >= 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp)
         {
-            health = 100;
+            health = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
             healthIsMax = true;
         }
         else
@@ -136,7 +151,7 @@ public class PlayerMovements : MonoBehaviour
 
         if (isHealed)
         {
-            
+
             GameObject healEff = Instantiate(HealEffect) as GameObject;
             healEff.transform.parent = this.gameObject.transform;
             healEff.transform.position = transform.position;
@@ -153,7 +168,7 @@ public class PlayerMovements : MonoBehaviour
             isSmallSheilded = false;
             Destroy(shieldEff, 5f);
         }
-   
+
         if (isBigSheilded)
         {
             GameObject shieldEff = Instantiate(SheildEffect) as GameObject;
@@ -165,18 +180,18 @@ public class PlayerMovements : MonoBehaviour
             Destroy(shieldEff, 10f);
 
         }
-       
-      
+
+
         if (isSmallSpeeded)
         {
-            speed = speed*1.5f;
+            speed = speed * 1.5f;
             GameObject speedEff = Instantiate(SpeedEffect) as GameObject;
             speedEff.transform.parent = this.gameObject.transform;
             speedEff.transform.position = transform.position;
             StartCoroutine(backToNormalSpeed());
             isSmallSpeeded = false;
             Destroy(speedEff, 10f);
-           
+
         }
 
         if (isBigSpeeded)
@@ -223,8 +238,8 @@ public class PlayerMovements : MonoBehaviour
             isCrabDamaged = false;
             Destroy(slashEff, 0.3f);
         }
-        
-       
+
+
 
         healthbar.SetHealth(health);
         if (!invIsOpen || !GameController.wantTp)
@@ -272,7 +287,7 @@ public class PlayerMovements : MonoBehaviour
                 animator.SetBool("moving", false);
             }
         }
-        
+
 
         if (Input.GetKeyDown(KeyCode.R) && canDash)
         {
@@ -334,7 +349,8 @@ public class PlayerMovements : MonoBehaviour
         {
             yield return new WaitForSeconds(10f);
             speed = speed / 1.5f;
-        }else if (isBigSpeeded)
+        }
+        else if (isBigSpeeded)
         {
             yield return new WaitForSeconds(20f);
             speed = speed / 1.5f;
@@ -353,7 +369,7 @@ public class PlayerMovements : MonoBehaviour
             canBeDamaged = true;
         }
     }
-        public void Knock(Rigidbody2D rb2d, float knockTime)
+    public void Knock(Rigidbody2D rb2d, float knockTime)
     {
         StartCoroutine(KnockCo(rb2d, knockTime));
 
@@ -377,6 +393,7 @@ public class PlayerMovements : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         canBeDamaged = true;
+        damagePlayer = true;
     }
 
     public void TakeDamage(float damage)
@@ -401,35 +418,72 @@ public class PlayerMovements : MonoBehaviour
             }
             else if (collision.CompareTag("log"))
             {
-                hurtAudio.Play();
-                islogDamaged = true;
-                TakeDamage(10);
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    Enemy.attack = 30;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    damagePlayer = false;
+                    StartCoroutine(backAfterHit());
+                    hurtAudio.Play();
+                    islogDamaged = true;
+                    float attack = Enemy.attack;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
             }
             else if (collision.CompareTag("fireBall"))
             {
-                hurtAudio.Play();
-                isFireBallDamaged = true;
-                canBeDamaged = false;
-                TakeDamage(10);
-                rend.material.color = colorToTurnTo;
-                StartCoroutine(backAfterHit());
-                StartCoroutine(returnColor());
+                if (damagePlayer)
+                {
+                    damagePlayer = false;
+                    PlayerDamage.num = 1;
+                    hurtAudio.Play();
+                    isFireBallDamaged = true;
+                    canBeDamaged = false;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = Worm.attack;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                    rend.material.color = colorToTurnTo;
+                    StartCoroutine(backAfterHit());
+                    StartCoroutine(returnColor());
+                }
             }
             else if (collision.CompareTag("treant"))
             {
-                hurtAudio.Play();
-                isTreantDamaged = true;
-                TakeDamage(10);
-            }else if (collision.CompareTag("cyclopProjectile"))
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    Enemy.attack = 60;
+                    damagePlayer = false;
+                    StartCoroutine(backAfterHit());
+                    hurtAudio.Play();
+                    isTreantDamaged = true;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = Enemy.attack;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
+            }
+            else if (collision.CompareTag("cyclopProjectile"))
             {
-                hurtAudio.Play();
-                isCyclopDamaged = true;
-                canBeDamaged = false;
-                TakeDamage(10);
-                rend.material.color = colorToTurnTo;
-                StartCoroutine(backAfterHit());
-                StartCoroutine(returnColor());
-            }else if (collision.CompareTag("babyCyclop"))
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 2;
+                    hurtAudio.Play();
+                    isCyclopDamaged = true;
+                    canBeDamaged = false;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = Cyclop.attack;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                    rend.material.color = colorToTurnTo;
+                    StartCoroutine(backAfterHit());
+                    StartCoroutine(returnColor());
+                }
+            }
+            else if (collision.CompareTag("babyCyclop"))
             {
                 hurtAudio.Play();
                 TakeDamage(10);
@@ -438,13 +492,15 @@ public class PlayerMovements : MonoBehaviour
             {
                 hurtAudio.Play();
                 TakeDamage(10);
-            }else if (collision.CompareTag("pusher"))
+            }
+            else if (collision.CompareTag("pusher"))
             {
                 hurtAudio.Play();
                 TakeDamage(10);
                 rend.material.color = colorToTurnTo;
                 StartCoroutine(returnColor());
-            }else if (collision.CompareTag("crab"))
+            }
+            else if (collision.CompareTag("crab"))
             {
                 hurtAudio.Play();
                 TakeDamage(10);
@@ -480,17 +536,29 @@ public class PlayerMovements : MonoBehaviour
             else if (collision.CompareTag("babyCyclop"))
             {
                 hurtWithShieldAudio.Play();
-            }else if (collision.CompareTag("spikeRight")|| collision.CompareTag("spikeLeft"))
+            }
+            else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
             {
                 hurtWithShieldAudio.Play();
-            }else if (collision.CompareTag("pusher"))
+            }
+            else if (collision.CompareTag("pusher"))
             {
                 hurtWithShieldAudio.Play();
             }
         }
         if (collision.CompareTag("xpLvl1"))
         {
+            GameController.level.AddExp(5);
+
+            var xpTxt = Instantiate(xpText, transform.position, Quaternion.identity);
+            collectXpAudio.Play();
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("xpLvl2"))
+        {
             GameController.level.AddExp(10);
+
+            var xpTxt = Instantiate(xpText1, transform.position, Quaternion.identity);
             collectXpAudio.Play();
             Destroy(collision.gameObject);
         }
@@ -530,5 +598,14 @@ public class PlayerMovements : MonoBehaviour
             PosY = transform.position.y;
         }
     }
+    public void getStats()
+    {
 
+        attack = 100 + (PlayerPrefs.GetInt("LEVEL") * 5) + BonusAttack;
+        defence = 50 + (PlayerPrefs.GetInt("LEVEL") * 4) + BonusDefence;
+        agility = 30 + (PlayerPrefs.GetInt("LEVEL") * 2) + BonusAgility;
+        hp = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
+        Sp = 50 + (PlayerPrefs.GetInt("LEVEL") * 2) + BonusSp;
+
+    }
 }

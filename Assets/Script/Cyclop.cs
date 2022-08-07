@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public enum CyclopState
 {
 
@@ -23,7 +23,7 @@ public class Cyclop : MonoBehaviour
 
     private float TimeBtwShoot;
     private float StartTime;
-    private float health = 100f;
+    private float health = 300f;
     private int numberOfProjectiles = 0;
     private bool isHurt = false;
 
@@ -31,6 +31,7 @@ public class Cyclop : MonoBehaviour
     public GameObject slashEff;
     public GameObject chest;
     public GameObject blood;
+    public GameObject damage;
 
     public AudioSource hurtAudio;
     public AudioSource dieAudio;
@@ -38,9 +39,13 @@ public class Cyclop : MonoBehaviour
 
     public HealthBar healthbar;
 
+    public Text healthText;
+
     private bool playRageAudio = true;
     private bool playDieAudio = true;
-
+    public static float defence = 4000;
+    public static float attack = 140;
+    public bool canBeDamaged = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +62,7 @@ public class Cyclop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthText.text = health.ToString() + " / 300";
         if (health <= 0)
         {
             if (playDieAudio)
@@ -83,7 +89,7 @@ public class Cyclop : MonoBehaviour
             health = 1;
 
         }
-        if (health <= 50 && currentState == CyclopState.walk && health > 1)
+        if (health <= 150 && currentState == CyclopState.walk && health > 1)
         {
             currentState = CyclopState.rage;
         }
@@ -191,10 +197,15 @@ public class Cyclop : MonoBehaviour
         {
             isHurt = true;
             CameraMovement.shake = true;
-            health -= 5f;
+            Vector3 add = new Vector3(1.5f, 0.1f, 0f);
+            Instantiate(damage, transform.position + add, Quaternion.identity);
+            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+            float damages = attack * (100 / (100 + defence));
+            health -= (int)damages;
             StartCoroutine(backFromStagger());
             currentState = CyclopState.stagger;
             anim.SetBool("hurt", true);
+            damageText.num = 2;
         }
     }
     IEnumerator backFromStagger()

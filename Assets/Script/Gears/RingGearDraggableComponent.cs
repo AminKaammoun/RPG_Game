@@ -15,6 +15,7 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
     public Vector3 StartPosition;
 
     public static bool isPlaced;
+    private string ringGear;
     private void Awake()
     {
 
@@ -46,8 +47,21 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
         {
             inventory.AddItem(gear, 1);
             inventory.save();
-            PlayerPrefs.SetString("RingGear", "");
+            ringGear = PlayerPrefs.GetString("RingGear");
+            
+            switch (ringGear)
+            {
+                case "lvl 1 ring (equipmentObject)":
+                    
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 2;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 4;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 2;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 3;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 50;
+                    break;
+            }
             //AtkLevel1.destoryItem = false;
+            PlayerPrefs.SetString("RingGear", "");
             Destroy(this.gameObject);
         }
 

@@ -8,6 +8,7 @@ public class BabyCyclop : Enemy
     private Transform target;
     public Renderer baby;
     public GameObject blood;
+    public GameObject damage;
 
     private bool isHurt = false;
     public GameObject slashEff;
@@ -83,6 +84,9 @@ public class BabyCyclop : Enemy
     {
         if (collision.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
+            Vector3 add = new Vector3(0.1f, 0.1f, 0f);
+            Instantiate(damage, transform.position + add, Quaternion.identity);
+            defence = 50;
             currentState = EnemyState.stagger;
             isHurt = true;
             var bloods = Instantiate(blood, transform.position, Quaternion.identity);
@@ -90,7 +94,10 @@ public class BabyCyclop : Enemy
             StartCoroutine(waitAfterHurt());
             //this.gameObject.SetActive(false);
             Destroy(bloods, 3f);
-            TakeDamage(2);
+            CameraMovement.shake = true;
+            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+            float damages = attack * (100 / (100 + defence));
+            TakeDamage((int)damages);
         }
     }
     IEnumerator waitAfterHurt()

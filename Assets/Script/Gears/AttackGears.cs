@@ -30,18 +30,17 @@ public class AttackGears : MonoBehaviour
 
                 break;
 
-            case "":
-                break;
+
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (isPlaced)
         {
-            
+
             isPlaced = false;
             attackGear = PlayerPrefs.GetString("AttackGear");
             Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
@@ -50,15 +49,18 @@ public class AttackGears : MonoBehaviour
                 case "lvl 1 attack (equipmentObject)":
                     var atkgear = Instantiate(atkLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                     atkgear.transform.SetParent(GameObject.FindGameObjectWithTag("atkGearSlot").transform, false);
-
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 10;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 3;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 2;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 5;
                     break;
                 case "lvl 10 attack (equipmentObject)":
                     var atk10gear = Instantiate(atkLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                     atk10gear.transform.SetParent(GameObject.FindGameObjectWithTag("atkGearSlot").transform, false);
+                    PlayerMovements.BonusAttack = 50;
+                    break;
 
-                    break;
-                case "":
-                    break;
             }
         }
     }

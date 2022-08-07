@@ -36,7 +36,7 @@ public class DefGears : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (isPlaced)
         {
             isPlaced = false;
@@ -47,7 +47,11 @@ public class DefGears : MonoBehaviour
                 case "lvl 1 def (equipmentObject)":
                     var def1gear = Instantiate(defLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                     def1gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
-
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 2;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 10;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 2;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 2;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 10;
                     break;
                 case "lvl 10 def (equipmentObject)":
                     var def10gear = Instantiate(defLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;

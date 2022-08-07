@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class toolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private bool Show;
+    public GameObject toolTip;
     public void OnPointerEnter(PointerEventData eventData)
     {
         Show = true;
@@ -13,7 +14,7 @@ public class toolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        toolTipSystem.hide();
+        toolTip.SetActive(false);
         Show = false;
     }
 
@@ -22,7 +23,7 @@ public class toolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         yield return new WaitForSeconds(0.5f);
         if (Show)
         {
-            toolTipSystem.show();
+            toolTip.SetActive(true);
         }
     }
 

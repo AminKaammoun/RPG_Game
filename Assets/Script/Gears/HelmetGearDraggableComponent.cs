@@ -17,6 +17,7 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
     public Vector3 StartPosition;
 
     public static bool isPlaced;
+    private string helmetGear;
 
     private void Awake()
     {
@@ -49,6 +50,20 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
         {
             inventory.AddItem(gear, 1);
             inventory.save();
+            
+            helmetGear = PlayerPrefs.GetString("HelmetGear");
+            PlayerPrefs.SetString("HelmetGear", "");
+            switch (helmetGear)
+            {
+                case "lvl 1 helmet (equipmentObject)":
+                    
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 3;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 4;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 8;
+                    break;
+            }
             PlayerPrefs.SetString("HelmetGear", "");
             //AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);

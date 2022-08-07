@@ -16,6 +16,7 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
     public Vector3 StartPosition;
 
     public static bool isPlaced;
+    private string defGear;
 
     private void Awake()
     {
@@ -48,8 +49,25 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
         {
             inventory.AddItem(gear, 1);
             inventory.save();
-            PlayerPrefs.SetString("DefGear", "");
+            
+            defGear = PlayerPrefs.GetString("DefGear");
+            switch (defGear)
+            {
+                case "lvl 1 def (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 2;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 10;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 2;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 10;
+                    break;
+                case "lvl 10 def (equipmentObject)":
+
+
+                    break;
+            }
             DefLevel1.destoryItem = false;
+            PlayerPrefs.SetString("DefGear", "");
             Destroy(this.gameObject);
         }
 

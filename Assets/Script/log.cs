@@ -27,7 +27,7 @@ public class log : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        defence = 180;
+        
         rb2D = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
         Log = GetComponent<SpriteRenderer>();
@@ -123,9 +123,12 @@ public class log : Enemy
         {
             if (canBeDamaged)
             {
+                defence = 300;
+                
                 float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
                 float damage = attack * (100 / (100 + defence));
-                TakeDamage(damage);
+                TakeDamage((int)damage);
+                
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);
                 Instantiate(damageText, transform.position + add, Quaternion.identity);
 

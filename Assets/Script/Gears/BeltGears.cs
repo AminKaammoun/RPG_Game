@@ -42,7 +42,11 @@ public class BeltGears : MonoBehaviour
                 case "lvl 1 belt (equipmentObject)":
                     var hel1gear = Instantiate(beltLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
                     hel1gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
-
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 3;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 6;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 3;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 7;
                     break;
                 case "lvl 10 belt (equipmentObject)":
                     var belt10gear = Instantiate(beltLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;

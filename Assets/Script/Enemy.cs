@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     public static float defence;
+    public static float attack;
 
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class Enemy : MonoBehaviour
 
 
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         damageText.num = 0;

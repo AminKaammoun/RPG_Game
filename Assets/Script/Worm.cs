@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public enum WormState
 {
 
@@ -45,8 +45,10 @@ public class Worm : MonoBehaviour
 
     public HealthBar healthbar;
 
+    public Text healthText;
+
     public int counter = 0;
-    public float health = 100f;
+    private float health = 200f;
     public WormState currentState;
 
     public bool chestIsInstantiated;
@@ -58,10 +60,13 @@ public class Worm : MonoBehaviour
 
     public bool isHurt;
     public static float defence = 2000;
+    public static float attack = 80;
+    public bool canBeDamaged = true; 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
         player = GameObject.FindWithTag("Player").transform;
         board.SetActive(true);
         currentState = WormState.walk;
@@ -74,8 +79,8 @@ public class Worm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
+        healthText.text = health.ToString()+" / 200";
         if (isHurt)
         {
             hurtAudio.Play();
@@ -91,11 +96,11 @@ public class Worm : MonoBehaviour
             Destroy(slashEffect, 0.5f);
         }
 
-        if (health <= 50 && currentState == WormState.walk)
+        if (health <= 100 && currentState == WormState.walk)
         {
             currentState = WormState.rage;
         }
-        if (health <= 25 && currentState == WormState.rage)
+        if (health <= 50 && currentState == WormState.rage)
         {
             currentState = WormState.rage2;
         }
@@ -108,7 +113,7 @@ public class Worm : MonoBehaviour
                 GameController.returnDunMusic = true;
                 playDieAudio = false;
             }
-           
+
             isdead = true;
             anim.SetBool("die", true);
             currentState = WormState.dead;
@@ -129,10 +134,10 @@ public class Worm : MonoBehaviour
 
             currentState = WormState.stun;
             StartCoroutine(backFromStun());
-            
+
 
         }
-        if(currentState == WormState.stun)
+        if (currentState == WormState.stun)
         {
             if (playSlideAudio)
             {
@@ -229,7 +234,7 @@ public class Worm : MonoBehaviour
                 playRage1Audio = false;
             }
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.35f, 73.2f, 0f), speed * Time.deltaTime);
-            
+
             if (TimeBtwAttack <= 0)
             {
                 anim.SetBool("attack", true);
@@ -297,23 +302,28 @@ public class Worm : MonoBehaviour
     {
         yield return new WaitForSeconds(0.18f);
         anim.SetBool("stagger", false);
+        canBeDamaged = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("hitBox") && currentState == WormState.stun)
         {
-            Vector3 add = new Vector3(0.1f, 0.1f, 0f);
-            Instantiate(damage, transform.position + add, Quaternion.identity);
-            isHurt = true;
-            CameraMovement.shake = true;
-            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-            float damages = attack * (100 / (100 + defence));
-            health -= damages;
-            StartCoroutine(backFromStagger());
-            currentState = WormState.stagger;
-            anim.SetBool("stagger", true);
-            damageText.num = 1;
+            if (canBeDamaged)
+            {
+                canBeDamaged = false;
+                Vector3 add = new Vector3(0.1f, 0.1f, 0f);
+                Instantiate(damage, transform.position + add, Quaternion.identity);
+                isHurt = true;
+                CameraMovement.shake = true;
+                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                float damages = attack * (100 / (100 + defence));
+                health -= (int)damages;
+                StartCoroutine(backFromStagger());
+                currentState = WormState.stagger;
+                anim.SetBool("stagger", true);
+                damageText.num = 1;
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ public enum PlayerMap
     beachDun1,
     beachDun2,
     beachDun3
-        
+
 
 }
 
@@ -80,6 +80,19 @@ public class GameController : MonoBehaviour
     public Text coinText;
     public Text coinTextPotionShop;
 
+    public Text attackValue;
+    public Text defValue;
+    public Text agilityValue;
+    public Text SpValue;
+    public Text HpValue;
+
+    public Text attackBonus;
+    public Text defBonus;
+    public Text agilityBonus;
+    public Text SpBonus;
+    public Text HpBonus;
+    public Text Hp;
+
     public static PlayerMap currentMap;
 
     private float startLoadingTime = 0.35f;
@@ -89,9 +102,105 @@ public class GameController : MonoBehaviour
     public static bool showAlert = false;
     public static bool returnDunMusic = false;
 
+    private string attackGear;
+    private string defGear;
+    private string beltGear;
+    private string helmetGear;
+    private string ringGear;
+
     // Start is called before the first frame update
     void Start()
     {
+        attackGear = PlayerPrefs.GetString("AttackGear");
+        defGear = PlayerPrefs.GetString("DefGear");
+        beltGear = PlayerPrefs.GetString("BeltGear");
+        helmetGear = PlayerPrefs.GetString("HelmetGear");
+        ringGear = PlayerPrefs.GetString("RingGear");
+
+        switch (attackGear)
+        {
+            case "lvl 1 attack (equipmentObject)":
+
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 10;
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 3;
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 2;
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 5;
+
+
+                break;
+            case "lvl 10 attack (equipmentObject)":
+
+                PlayerMovements.BonusAttack = 50;
+                break;
+
+            case "":
+                PlayerMovements.BonusAttack = 0;
+                break;
+        }
+
+
+        switch (defGear)
+        {
+            case "lvl 1 def (equipmentObject)":
+
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 2;
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 10;
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 2;
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 2;
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 10;
+                break;
+            case "lvl 10 def (equipmentObject)":
+
+
+                break;
+        }
+        switch (beltGear)
+        {
+            case "lvl 1 belt (equipmentObject)":
+
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 3;
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 6;
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 3;
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 7;
+                break;
+            case "lvl 10 belt (equipmentObject)":
+
+
+                break;
+        }
+        switch (helmetGear)
+        {
+            case "lvl 1 helmet (equipmentObject)":
+
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 3;
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 4;
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 10;
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 2;
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 8;
+                break;
+            case "lvl 10 helmet (equipmentObject)":
+
+
+                break;
+        }
+        switch (ringGear)
+        {
+            case "lvl 1 ring (equipmentObject)":
+
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 2;
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 4;
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 2;
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 3;
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 50;
+                break;
+            case "lvl 10 ring (equipmentObject)":
+
+
+                break;
+        }
+
         //PlayerPrefs.SetInt("coins", 0);
         coins = PlayerPrefs.GetInt("coins");
         //PlayerPrefs.SetInt("XP", 0);
@@ -107,6 +216,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetStats();
+        Hp.text = PlayerMovements.health.ToString() + "/" + (100 + (PlayerPrefs.GetInt("LEVEL") * 10) + PlayerMovements.BonusHp).ToString();
         resetForestDoors();
         coinTextPotionShop.text = coins.ToString();
         if (coins > PlayerPrefs.GetInt("coins"))
@@ -190,7 +301,7 @@ public class GameController : MonoBehaviour
     public void VillageTpButton()
     {
         changeBGM(villageMusic, musicSource);
-        changeBGS(villageSound , audioSource);
+        changeBGS(villageSound, audioSource);
         musicSource.loop = true;
         tpPanel.SetActive(false);
         wantTp = false;
@@ -251,7 +362,8 @@ public class GameController : MonoBehaviour
         {
             theForrest.SetActive(true);
             StartCoroutine(removeText());
-        }else if (currentMap == PlayerMap.beach)
+        }
+        else if (currentMap == PlayerMap.beach)
         {
             theBeach.SetActive(true);
             StartCoroutine(removeText());
@@ -266,7 +378,7 @@ public class GameController : MonoBehaviour
     }
 
 
-        public void updateLevelStats()
+    public void updateLevelStats()
     {
         lvl.text = "Lv. " + level.currentLevel;
 
@@ -348,7 +460,7 @@ public class GameController : MonoBehaviour
     {
         if (currentMap == PlayerMap.forrest)
         {
-            
+
             CameraMovement.maxPosition = new Vector2(159.63f, 30f);
             CameraMovement.minPosition = new Vector2(56.74f, -2f);
 
@@ -368,7 +480,7 @@ public class GameController : MonoBehaviour
 
         if (currentMap == PlayerMap.forrestDungeon)
         {
-            
+
             CameraMovement.maxPosition = new Vector2(100f, 46.32f);
             CameraMovement.minPosition = new Vector2(0f, 45.36f);
         }
@@ -408,29 +520,34 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.maxPosition = new Vector2(167.38f, 82.42f);
             CameraMovement.minPosition = new Vector2(140f, 81.24f);
-        }else if (currentMap == PlayerMap.beach)
+        }
+        else if (currentMap == PlayerMap.beach)
         {
             CameraMovement.minPosition = new Vector2(76.55f, 100f);
             CameraMovement.maxPosition = new Vector2(160f, 146.94f);
-        }else if (currentMap == PlayerMap.beachDun)
+        }
+        else if (currentMap == PlayerMap.beachDun)
         {
             CameraMovement.minPosition = new Vector2(94f, 172.13f);
             CameraMovement.maxPosition = new Vector2(117.22f, 173.57f);
-        }else if(currentMap == PlayerMap.beachDun1)
+        }
+        else if (currentMap == PlayerMap.beachDun1)
         {
-            CameraMovement.minPosition = new Vector2(96.55f, 178.81f); 
+            CameraMovement.minPosition = new Vector2(96.55f, 178.81f);
             CameraMovement.maxPosition = new Vector2(97.38f, 184.59f);
-        }else if(currentMap == PlayerMap.beachDun2)
+        }
+        else if (currentMap == PlayerMap.beachDun2)
         {
             CameraMovement.minPosition = new Vector2(76f, 197.07f);
             CameraMovement.maxPosition = new Vector2(99f, 198.57f);
-        }else if (currentMap == PlayerMap.beachDun3)
+        }
+        else if (currentMap == PlayerMap.beachDun3)
         {
             CameraMovement.minPosition = new Vector2(78.14f, 210.04f);
             CameraMovement.maxPosition = new Vector2(117.71f, 211.46f);
         }
     }
-    public static void changeBGS(AudioClip music , AudioSource source)
+    public static void changeBGS(AudioClip music, AudioSource source)
     {
         source.Stop();
         source.clip = music;
@@ -443,6 +560,21 @@ public class GameController : MonoBehaviour
         source.clip = music;
         source.Play();
 
+    }
+    public void SetStats()
+    {
+        attackValue.text = PlayerMovements.attack.ToString();
+        defValue.text = PlayerMovements.defence.ToString();
+        agilityValue.text = PlayerMovements.agility.ToString();
+        SpValue.text = PlayerMovements.Sp.ToString();
+        HpValue.text = PlayerMovements.hp.ToString();
+
+
+        attackBonus.text = "+(" + PlayerMovements.BonusAttack.ToString() + ")";
+        defBonus.text = "+(" + PlayerMovements.BonusDefence.ToString() + ")";
+        agilityBonus.text = "+(" + PlayerMovements.BonusAgility.ToString() + ")";
+        SpBonus.text = "+(" + PlayerMovements.BonusSp.ToString() + ")";
+        HpBonus.text = "+(" + PlayerMovements.BonusHp.ToString() + ")";
     }
 
 }

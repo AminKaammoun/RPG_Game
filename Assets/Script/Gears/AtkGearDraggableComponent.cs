@@ -18,6 +18,7 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
 
     public static bool isPlaced;
 
+    private string attackGear;
     private void Awake()
     {
 
@@ -38,7 +39,7 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        
+
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
     }
@@ -49,11 +50,31 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
         {
             inventory.AddItem(gear, 1);
             inventory.save();
+            
+           
+            attackGear = PlayerPrefs.GetString("AttackGear");
+            switch (attackGear)
+            {
+                case "lvl 1 attack (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
+
+
+                    break;
+                case "lvl 10 attack (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = 50;
+                    break;
+            }
             PlayerPrefs.SetString("AttackGear", "");
             AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);
         }
-        
+
 
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
@@ -62,7 +83,7 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
         eventData.useDragThreshold = false;
-        
+
         StartPosition = transform.position;
     }
 }
