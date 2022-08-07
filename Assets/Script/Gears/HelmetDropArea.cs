@@ -21,7 +21,7 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("helmet"))
             {
 
-                PlayerPrefs.SetString("HelmetGear", "");
+                helmetGear = PlayerPrefs.GetString("HelmetGear");
                 switch (helmetGear)
                 {
                     case "lvl 1 helmet (equipmentObject)":
@@ -47,7 +47,7 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                     GameObject.Destroy(child.gameObject);
                 }
 
-                helmetGear = PlayerPrefs.GetString("HelmetGear");
+                
                 if (helmetGear == "lvl 1 helmet (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[0], 1);
