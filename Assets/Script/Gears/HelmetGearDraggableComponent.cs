@@ -63,6 +63,14 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 8;
                     break;
+                case "lvl 10 helmet (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 20;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 50;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
+                    break;
             }
             PlayerPrefs.SetString("HelmetGear", "");
             //AtkLevel1.destoryItem = false;

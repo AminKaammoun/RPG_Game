@@ -58,7 +58,11 @@ public class AttackGears : MonoBehaviour
                 case "lvl 10 attack (equipmentObject)":
                     var atk10gear = Instantiate(atkLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                     atk10gear.transform.SetParent(GameObject.FindGameObjectWithTag("atkGearSlot").transform, false);
-                    PlayerMovements.BonusAttack = 50;
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 50;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 25;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 15;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
                     break;
 
             }

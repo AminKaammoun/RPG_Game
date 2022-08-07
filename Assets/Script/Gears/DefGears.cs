@@ -56,7 +56,11 @@ public class DefGears : MonoBehaviour
                 case "lvl 10 def (equipmentObject)":
                     var def10gear = Instantiate(defLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                     def10gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
-
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 10;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 50;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 10;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 50;
                     break;
 
                 case "":

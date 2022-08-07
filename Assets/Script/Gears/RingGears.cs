@@ -54,7 +54,11 @@ public class RingGears : MonoBehaviour
                 case "lvl 10 ring (equipmentObject)":
                     var ring10gear = Instantiate(ringLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                     ring10gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
-
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 10;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 20;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 10;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 15;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 250;
                     break;
                 case "":
                     break;

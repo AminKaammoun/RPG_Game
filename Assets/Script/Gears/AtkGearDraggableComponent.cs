@@ -66,8 +66,11 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
 
                     break;
                 case "lvl 10 attack (equipmentObject)":
-
-                    PlayerMovements.BonusAttack = 50;
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 25;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
                     break;
             }
             PlayerPrefs.SetString("AttackGear", "");

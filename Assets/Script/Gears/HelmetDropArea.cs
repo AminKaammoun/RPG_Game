@@ -20,6 +20,28 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
            
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("helmet"))
             {
+
+                PlayerPrefs.SetString("HelmetGear", "");
+                switch (helmetGear)
+                {
+                    case "lvl 1 helmet (equipmentObject)":
+
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 3;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 4;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 8;
+                        break;
+                    case "lvl 10 helmet (equipmentObject)":
+
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 20;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 50;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
+                        break;
+                }
+
                 foreach (Transform child in transform)
                 {
                     GameObject.Destroy(child.gameObject);

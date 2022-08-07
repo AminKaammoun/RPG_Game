@@ -61,6 +61,14 @@ public class BeltGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 7;
                     break;
+                case "lvl 10 belt (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 30;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
+                    break;
             }
             PlayerPrefs.SetString("BeltGear", "");
             //AtkLevel1.destoryItem = false;

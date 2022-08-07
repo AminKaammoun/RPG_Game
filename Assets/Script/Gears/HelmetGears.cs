@@ -54,7 +54,11 @@ public class HelmetGears : MonoBehaviour
                 case "lvl 10 helmet (equipmentObject)":
                     var hel10gear = Instantiate(helLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                     hel10gear.transform.SetParent(GameObject.FindGameObjectWithTag("helGearSlot").transform, false);
-
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 15;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 20;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 50;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 40;
                     break;
                 case "":
                     break;

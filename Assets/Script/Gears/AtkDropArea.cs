@@ -24,6 +24,24 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
            
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("attack"))
             {
+                attackGear = PlayerPrefs.GetString("AttackGear");
+                if (attackGear == "lvl 1 attack (equipmentObject)")
+                {
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
+                }
+                else if (attackGear == "lvl 10 attack (equipmentObject)")
+                {
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 25;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
+                }
+
                 foreach (Transform child in transform)
                 {
                     GameObject.Destroy(child.gameObject);

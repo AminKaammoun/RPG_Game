@@ -62,7 +62,11 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 10;
                     break;
                 case "lvl 10 def (equipmentObject)":
-
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 50;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 50;
 
                     break;
             }

@@ -17,6 +17,28 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
 
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("belt"))
             {
+                beltGear = PlayerPrefs.GetString("BeltGear");
+
+                switch (beltGear)
+                {
+                    case "lvl 1 belt (equipmentObject)":
+
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 3;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 6;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 7;
+                        break;
+                    case "lvl 10 belt (equipmentObject)":
+
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 30;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
+                        break;
+                }
+
                 foreach (Transform child in transform)
                 {
                     GameObject.Destroy(child.gameObject);
