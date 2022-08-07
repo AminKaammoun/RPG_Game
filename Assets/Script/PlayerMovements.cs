@@ -21,6 +21,12 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private LayerMask dashLayerMask;
     [SerializeField] private TrailRenderer tr;
 
+    public static float attack = 100;
+    public static float defence = 50;
+    public static float agility = 30;
+    public static float hp = 100;
+    public static float Sp = 50;
+    
     private Rigidbody2D rb2D;
     public Rigidbody2D bow;
     private Animator animator;

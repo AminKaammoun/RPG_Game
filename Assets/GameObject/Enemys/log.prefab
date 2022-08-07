@@ -254,7 +254,7 @@ MonoBehaviour:
   currentState: 0
   maxHealth: {fileID: 11400000, guid: f44a291f8a9d2994cabfa632af6658bc, type: 2}
   enemyName: Log
-  health: 2
+  health: 100
   baseAttack: 5
   moveSpeed: 2
   animator: {fileID: 8298759950315142958}
@@ -266,6 +266,7 @@ MonoBehaviour:
   xp: {fileID: 5964302756265914259, guid: 51a432cacbe72ad40a0cbdae99fbdac5, type: 3}
   coin: {fileID: 4560482814482915117, guid: 189120fa65b509e418342c839fbf9f21, type: 3}
   slashEff: {fileID: 6777610186682167999, guid: 418875bd5dcbc604685e50c5a17d20c0, type: 3}
+  damageText: {fileID: 8507777954230303028, guid: 5a7ad8475ccfd4e40bacda9cb3e1554f, type: 3}
   hurtAudio: {fileID: 2292795247777850286}
   isHurt: 0
 --- !u!61 &8298759950315142944

@@ -17,11 +17,12 @@ public class Enemy : MonoBehaviour
     public EnemyState currentState;
     public FloatValue maxHealth;
     public string enemyName;
-    public float health;
+    public float health = 100f;
     public int baseAttack;
     public float moveSpeed;
     public Animator animator;
     public Rigidbody2D rb;
+    public static float defence;
 
     private void Awake()
     {
@@ -36,10 +37,10 @@ public class Enemy : MonoBehaviour
 
 
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
-
+        damageText.num = 0;
     }
 
     public void Knock(Rigidbody2D rb2d, float knockTime)

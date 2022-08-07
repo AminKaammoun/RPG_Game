@@ -9,24 +9,29 @@ public class log : Enemy
     private Transform target;
     public float chaseRadius;
     public float attackRadius;
+
     //public Transform homePosition;
     public Renderer Log;
     public GameObject blood;
     public GameObject xp;
     public GameObject coin;
     public GameObject slashEff;
-    
+    public GameObject damageText;
+
     public AudioSource hurtAudio;
-    
+
     public bool isHurt;
+    private bool canBeDamaged = true;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        defence = 180;
         rb2D = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
         Log = GetComponent<SpriteRenderer>();
-        
+
         currentState = EnemyState.idle;
     }
 
@@ -79,22 +84,23 @@ public class log : Enemy
         animator.SetFloat("moveX", setVector.x);
         animator.SetFloat("moveY", setVector.y);
     }
-    
+
     private void changeAnim(Vector2 direction)
     {
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            if(direction.x > 0)
+            if (direction.x > 0)
             {
                 setAnimFloat(Vector2.right);
-            }else if (direction.x < 0)
+            }
+            else if (direction.x < 0)
             {
                 setAnimFloat(Vector2.left);
             }
         }
         else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
         {
-            if(direction.y > 0)
+            if (direction.y > 0)
             {
                 setAnimFloat(Vector2.up);
             }
@@ -115,41 +121,53 @@ public class log : Enemy
     {
         if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
-            if (health <= 0)
+            if (canBeDamaged)
             {
-                int rand = Random.Range(0, 2);
-                Log.material.color = new Color(1, 0.5f, 0.5f, 1);
-                StartCoroutine(waitAfterDead());
-                currentState = EnemyState.dead;
-                Instantiate(xp, transform.position, Quaternion.identity);
-                switch (rand)
-                {
-                    case 0:
-                        Instantiate(coin, transform.position, Quaternion.identity);
-                        break; 
-                }
-                health = 100;
-                Destroy(gameObject, 5f);
-               
-            }
-            else
-            {
-                TakeDamage(1);
-                Log.material.color = new Color (1,0.5f,0.5f,1);
-                isHurt = true;
-                StartCoroutine(waitAfterHurt());
-                currentState = EnemyState.stagger;
+                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                float damage = attack * (100 / (100 + defence));
+                TakeDamage(damage);
+                Vector3 add = new Vector3(0.1f, 0.1f, 0f);
+                Instantiate(damageText, transform.position + add, Quaternion.identity);
 
+                canBeDamaged = false;
+                if (health <= 0)
+                {
+                    canBeDamaged = false;
+                    isHurt = true;
+                    int rand = Random.Range(0, 2);
+                    Log.material.color = new Color(1, 0.5f, 0.5f, 1);
+                    StartCoroutine(waitAfterDead());
+                    currentState = EnemyState.dead;
+                    Instantiate(xp, transform.position, Quaternion.identity);
+                    switch (rand)
+                    {
+                        case 0:
+                            Instantiate(coin, transform.position, Quaternion.identity);
+                            break;
+                    }
+
+                    Destroy(gameObject, 5f);
+
+                }
+                else
+                {
+
+                    Log.material.color = new Color(1, 0.5f, 0.5f, 1);
+                    isHurt = true;
+                    StartCoroutine(waitAfterHurt());
+                    currentState = EnemyState.stagger;
+
+                }
+                GameObject Blood = Instantiate(blood, transform.position, Quaternion.identity);
+                Destroy(Blood, 5f);
             }
-            GameObject Blood = Instantiate(blood, transform.position, Quaternion.identity);
-            Destroy(Blood, 5f);
         }
     }
     IEnumerator waitAfterHurt()
     {
         yield return new WaitForSeconds(0.25f);
         Log.material.color = new Color(1, 1f, 1f, 1);
-
+        canBeDamaged = true;
     }
 
 }

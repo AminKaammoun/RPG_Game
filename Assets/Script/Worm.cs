@@ -32,6 +32,7 @@ public class Worm : MonoBehaviour
     public GameObject chest;
     public GameObject board;
     public GameObject slashEff;
+    public GameObject damage;
 
     public AudioSource hurtAudio;
     public AudioSource rageAudio;
@@ -56,9 +57,11 @@ public class Worm : MonoBehaviour
     private bool playDieAudio = true;
 
     public bool isHurt;
+    public static float defence = 2000;
     // Start is called before the first frame update
     void Start()
     {
+        
         player = GameObject.FindWithTag("Player").transform;
         board.SetActive(true);
         currentState = WormState.walk;
@@ -300,12 +303,17 @@ public class Worm : MonoBehaviour
     {
         if (collision.CompareTag("hitBox") && currentState == WormState.stun)
         {
+            Vector3 add = new Vector3(0.1f, 0.1f, 0f);
+            Instantiate(damage, transform.position + add, Quaternion.identity);
             isHurt = true;
             CameraMovement.shake = true;
-            health -= 5f;
+            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+            float damages = attack * (100 / (100 + defence));
+            health -= damages;
             StartCoroutine(backFromStagger());
             currentState = WormState.stagger;
             anim.SetBool("stagger", true);
+            damageText.num = 1;
         }
     }
 }
