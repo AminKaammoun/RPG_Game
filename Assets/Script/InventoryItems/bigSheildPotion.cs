@@ -25,24 +25,26 @@ public class bigSheildPotion : MonoBehaviour
     }
     public void useButton()
     {
-
-        PlayerMovements.invIsOpen = false;
-        PlayerMovements.isBigSheilded = true;
-
-
-        panel.SetActive(false);
-        //PlayerMovements.health += 50;
-        inventory.RemoveItem(BigSheildPotion);
-        inventory.save();
-
-        if (text.text == "X1")
+        if (!PlayerMovements.PotionInUse)
         {
 
-            Destroy(item);
+            PlayerMovements.invIsOpen = false;
+            PlayerMovements.isBigSheilded = true;
+            PlayerMovements.PotionInUse = true;
+
+            panel.SetActive(false);
+            //PlayerMovements.health += 50;
+            inventory.RemoveItem(BigSheildPotion);
+            inventory.save();
+
+            if (text.text == "X1")
+            {
+
+                Destroy(item);
+            }
+            inventory.save();
+
         }
-        inventory.save();
-
-
 
     }
 }

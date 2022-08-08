@@ -24,23 +24,25 @@ public class smallSpeedPotion : MonoBehaviour
     }
     public void useButton()
     {
-
-        PlayerMovements.invIsOpen = false;
-        PlayerMovements.isSmallSpeeded = true;
-
-
-        panel.SetActive(false);
-        //PlayerMovements.health += 50;
-        inventory.RemoveItem(SmallSpeedPotion);
-        inventory.save();
-
-        if (text.text == "X1")
+        if (!PlayerMovements.PotionInUse)
         {
 
-            Destroy(item);
-        }
-        inventory.save();
+            PlayerMovements.invIsOpen = false;
+            PlayerMovements.isSmallSpeeded = true;
+            PlayerMovements.PotionInUse = true;
 
+            panel.SetActive(false);
+            //PlayerMovements.health += 50;
+            inventory.RemoveItem(SmallSpeedPotion);
+            inventory.save();
+
+            if (text.text == "X1")
+            {
+
+                Destroy(item);
+            }
+            inventory.save();
+        }
     }
     
 }

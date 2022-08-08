@@ -25,24 +25,26 @@ public class bigSpeedPotion : MonoBehaviour
     }
     public void useButton()
     {
-
-        PlayerMovements.invIsOpen = false;
-        PlayerMovements.isBigSpeeded = true;
-
-
-        panel.SetActive(false);
-        //PlayerMovements.health += 50;
-        inventory.RemoveItem(BigSpeedPotion);
-        inventory.save();
-
-        if (text.text == "X1")
+        if (!PlayerMovements.PotionInUse)
         {
 
-            Destroy(item);
+            PlayerMovements.invIsOpen = false;
+            PlayerMovements.isBigSpeeded = true;
+            PlayerMovements.PotionInUse = true;
+
+            panel.SetActive(false);
+            //PlayerMovements.health += 50;
+            inventory.RemoveItem(BigSpeedPotion);
+            inventory.save();
+
+            if (text.text == "X1")
+            {
+
+                Destroy(item);
+            }
+            inventory.save();
+
         }
-        inventory.save();
-
-
 
     }
 }

@@ -25,24 +25,25 @@ public class smallSheildPotion : MonoBehaviour
     }
     public void useButton()
     {
-
-        PlayerMovements.invIsOpen = false;
-        PlayerMovements.isSmallSheilded = true;
-
-
-        panel.SetActive(false);
-        //PlayerMovements.health += 50;
-        inventory.RemoveItem(SmallSheildPotion);
-        inventory.save();
-
-        if (text.text == "X1")
+        if (!PlayerMovements.PotionInUse)
         {
+            PlayerMovements.invIsOpen = false;
+            PlayerMovements.isSmallSheilded = true;
+            PlayerMovements.PotionInUse = true;
 
-            Destroy(item);
+            panel.SetActive(false);
+            //PlayerMovements.health += 50;
+            inventory.RemoveItem(SmallSheildPotion);
+            inventory.save();
+
+            if (text.text == "X1")
+            {
+
+                Destroy(item);
+            }
+            inventory.save();
+
         }
-        inventory.save();
-
-
 
     }
 }

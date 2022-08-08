@@ -95,6 +95,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool canDash = true;
     public static bool canBeDamaged = true;
     public static bool isLevelUp = false;
+    public static bool PotionInUse = false;
 
     private bool islogDamaged = false;
     private bool isFireBallDamaged = false;
@@ -349,11 +350,13 @@ public class PlayerMovements : MonoBehaviour
         {
             yield return new WaitForSeconds(10f);
             speed = speed / 1.5f;
+            PlayerMovements.PotionInUse = false;
         }
         else if (isBigSpeeded)
         {
             yield return new WaitForSeconds(20f);
             speed = speed / 1.5f;
+            PlayerMovements.PotionInUse = false;
         }
     }
     IEnumerator backToNormalFromSheild()
@@ -362,11 +365,13 @@ public class PlayerMovements : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
             canBeDamaged = true;
+            PlayerMovements.PotionInUse = false;
         }
         else if (isBigSheilded)
         {
             yield return new WaitForSeconds(10f);
             canBeDamaged = true;
+            PlayerMovements.PotionInUse = false;
         }
     }
     public void Knock(Rigidbody2D rb2d, float knockTime)
