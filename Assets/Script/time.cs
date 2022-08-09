@@ -5,11 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
 public class time : MonoBehaviour
 {
-    private int min;
-    private int hour;
+    public static int min;
+    public static int hour;
 
     private float timeBtwSecs;
-    private float startTime = 0.1f;
+    private float startTime = 0.01f;
     public Light2D globalLight;
 
 
@@ -18,27 +18,33 @@ public class time : MonoBehaviour
     private float intensity;
     private float newIntensity;
 
-    private GameObject[] Lights;
+    private GameObject[] ForrestLights;
+    private GameObject[] VillageLights;
     private GameObject[] LightEffects;
     public GameObject playerLight;
-
+   
     // Start is called before the first frame update
     void Start()
     {
-        Lights = GameObject.FindGameObjectsWithTag("Light");
+        ForrestLights = GameObject.FindGameObjectsWithTag("Light");
         LightEffects = GameObject.FindGameObjectsWithTag("lightEffect");
+        VillageLights = GameObject.FindGameObjectsWithTag("VillageLight");
         min = 0;
         hour = 16;
         intensity = 1;
         newIntensity = 1;
         timeBtwSecs = startTime;
-        foreach (GameObject Light in Lights)
+        foreach (GameObject Light in ForrestLights)
         {
             Light.SetActive(false);
         }
         foreach (GameObject LightEffect in LightEffects)
         {
             LightEffect.SetActive(false);
+        }
+        foreach (GameObject VillageLight in VillageLights)
+        {
+            VillageLight.SetActive(false);
         }
         playerLight.SetActive(false);
 
@@ -64,21 +70,40 @@ public class time : MonoBehaviour
                 break;
             case 20:
                 playerLight.SetActive(true);
-                foreach (GameObject Light in Lights)
+
+                foreach (GameObject Light in ForrestLights)
                 {
                     Light.SetActive(true);
+
                     Light.GetComponent<Light2D>().intensity = 0.5f;
                 }
+                foreach (GameObject VillageLight in VillageLights)
+                {
+                    VillageLight.SetActive(true);
+
+                    VillageLight.GetComponent<Light2D>().intensity = 0.15f;
+                }
+
                 foreach (GameObject LightEffect in LightEffects)
                 {
                     LightEffect.SetActive(true);
                 }
                 break;
             case 22:
-                foreach (GameObject Light in Lights)
+
+
+                foreach (GameObject Light in ForrestLights)
                 {
+                    Light.SetActive(true);
                     Light.GetComponent<Light2D>().intensity = 1f;
                 }
+                foreach (GameObject VillageLight in VillageLights)
+                {
+                    VillageLight.SetActive(true);
+
+                    VillageLight.GetComponent<Light2D>().intensity = 0.3f;
+                }
+
                 break;
             case 3:
                 globalLight.color = new Color32(255, 255, 255, 255);
@@ -89,19 +114,25 @@ public class time : MonoBehaviour
             case 4:
                 globalLight.color = new Color32(255, 223, 179, 255);
                 playerLight.SetActive(false);
-                foreach (GameObject Light in Lights)
+
+                foreach (GameObject Light in ForrestLights)
                 {
+                    Light.SetActive(true);
+
                     Light.GetComponent<Light2D>().intensity = 0.5f;
+                }
+                foreach (GameObject VillageLight in VillageLights)
+                {
+                    VillageLight.SetActive(true);
+
+                    VillageLight.GetComponent<Light2D>().intensity = 0.15f;
                 }
                 break;
 
             case 5:
                 globalLight.color = new Color32(255, 238, 215, 255);
-                foreach (GameObject Light in Lights)
-                {
-                    Light.GetComponent<Light2D>().intensity = 1f;
-                    Light.SetActive(false);
-                }
+
+                
                 foreach (GameObject LightEffect in LightEffects)
                 {
                     LightEffect.SetActive(false);
@@ -109,6 +140,15 @@ public class time : MonoBehaviour
                 break;
 
             case 7:
+                foreach (GameObject Light in ForrestLights)
+                {
+                    Light.SetActive(false);
+                }
+               
+                foreach (GameObject VillageLight in VillageLights)
+                {
+                    VillageLight.SetActive(false);
+                }
                 globalLight.color = new Color32(255, 255, 255, 255);
                 break;
 

@@ -46,10 +46,12 @@ public class GameController : MonoBehaviour
     public GameObject theVillage;
     public GameObject theForrest;
     public GameObject theBeach;
+    public GameObject cockAudio;
 
     public AudioSource audioSource;
     public AudioSource musicSource;
     public AudioClip forestAudio;
+    public AudioClip forestNightAudio;
     public AudioClip villageSound;
     public AudioClip villageMusic;
     public AudioClip forestMusic;
@@ -57,6 +59,7 @@ public class GameController : MonoBehaviour
     public AudioSource chestAudio;
     public AudioClip beachMusic;
     public AudioClip beachAudio;
+    
 
     public GameObject forestDoor1;
     public GameObject forestDoor2;
@@ -101,12 +104,14 @@ public class GameController : MonoBehaviour
     public static int coins;
     public static bool showAlert = false;
     public static bool returnDunMusic = false;
+   
 
     private string attackGear;
     private string defGear;
     private string beltGear;
     private string helmetGear;
     private string ringGear;
+
 
     // Start is called before the first frame update
     void Start()
@@ -236,6 +241,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        checkForCockSound();
         SetStats();
         Hp.text = PlayerMovements.health.ToString() + "/" + (100 + (PlayerPrefs.GetInt("LEVEL") * 10) + PlayerMovements.BonusHp).ToString();
         resetForestDoors();
@@ -333,7 +340,15 @@ public class GameController : MonoBehaviour
     public void ForrestTpButton()
     {
         changeBGM(forestMusic, musicSource);
-        changeBGS(forestAudio, audioSource);
+        if (time.hour >= 5 && time.hour <= 20)
+        {
+            changeBGS(forestAudio, audioSource);
+        }
+        else
+        {
+            changeBGS(forestNightAudio, audioSource);
+        }
+
         musicSource.loop = true;
         tpPanel.SetActive(false);
         wantTp = false;
@@ -596,5 +611,17 @@ public class GameController : MonoBehaviour
         SpBonus.text = "+(" + PlayerMovements.BonusSp.ToString() + ")";
         HpBonus.text = "+(" + PlayerMovements.BonusHp.ToString() + ")";
     }
-
+    IEnumerator removeCock()
+    {
+        yield return new WaitForSeconds(2f);
+        cockAudio.SetActive(false);
+    }
+    public void checkForCockSound()
+    {
+        if (time.hour == 6)
+        {
+            cockAudio.SetActive(true);
+            StartCoroutine(removeCock());
+        }
+    }
 }
