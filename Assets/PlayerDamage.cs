@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerDamage : MonoBehaviour
     void Start()
     {
         Target = GameObject.FindWithTag("Player").transform;
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 0.5f);
     }
 
     // Update is called once per frame
@@ -24,19 +25,19 @@ public class PlayerDamage : MonoBehaviour
         {
             float attack = Enemy.attack;
             float damage = attack * (100 / (100 + PlayerMovements.defence));
-            textMesh.GetComponent<TextMesh>().text = "-" + ((int)damage).ToString();
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
         else if (num == 1)
         {
             float attack = Worm.attack;
             float damage = attack * (100 / (100 + PlayerMovements.defence));
-            textMesh.GetComponent<TextMesh>().text = "-" + ((int)damage).ToString();
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
         else if (num == 2)
         {
             float attack = Cyclop.attack;
             float damage = attack * (100 / (100 + PlayerMovements.defence));
-            textMesh.GetComponent<TextMesh>().text = "-" + ((int)damage).ToString();
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
 
     }

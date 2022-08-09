@@ -8,7 +8,7 @@ public class Treant : Enemy
     public float chaseRadius;
     public float attackRadius;
     private Rigidbody2D rb2D;
-    public Renderer treant;
+    public SpriteRenderer treant;
     public GameObject blood;
     public GameObject xp;
     public GameObject coin;
@@ -120,7 +120,7 @@ public class Treant : Enemy
                     canBeDamaged = false;
                     isHurt = true;
                     int rand = Random.Range(0, 2);
-                    treant.material.color = new Color(1, 0.5f, 0.5f, 1);
+                    treant.color = new Color(1, 0.5f, 0.5f, 1);
                     StartCoroutine(waitAfterDead());
                     currentState = EnemyState.dead;
                     Instantiate(xp, transform.position, Quaternion.identity);
@@ -151,7 +151,7 @@ public class Treant : Enemy
     IEnumerator waitAfterHurt()
     {
         yield return new WaitForSeconds(0.25f);
-        treant.material.color = new Color(1, 1f, 1f, 1);
+        treant.color = new Color(1, 1f, 1f, 1);
         canBeDamaged = true;
     }
     IEnumerator waitAfterDead()

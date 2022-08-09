@@ -13,7 +13,7 @@ public class damageText : MonoBehaviour
     void Start()
     {
         
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 0.5f);
     }
     private void Update()
     {
@@ -21,18 +21,18 @@ public class damageText : MonoBehaviour
         {
             float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
             float damage = attack * (100 / (100 + Enemy.defence));
-            textMesh.GetComponent<TextMesh>().text = "-" + ((int)damage).ToString();
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
         else if (num == 1)
         {
             float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
             float damage = attack * (100 / (100 + Worm.defence));
-            textMesh.GetComponent<TextMesh>().text = "-" + ((int)damage).ToString();
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }else if (num == 2)
         {
             float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
             float damage = attack * (100 / (100 + Cyclop.defence));
-            textMesh.GetComponent<TextMesh>().text = "-" + ((int)damage).ToString();
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
     }
 }

@@ -31,6 +31,7 @@ public class CyclopProjectile : MonoBehaviour
         }else if (collision.CompareTag("Player"))
         {
             CameraMovement.shake = true;
+            this.gameObject.SetActive(false);
         }
     }
 }

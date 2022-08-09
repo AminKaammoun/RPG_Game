@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 839359984659950593, guid: 2eec5d6f80d523746bfc7fc4a2f57973, type: 3}
       propertyPath: m_Name
-      value: SmallSmoke
+      value: SmallSmoke Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3365989807891265154, guid: 2eec5d6f80d523746bfc7fc4a2f57973, type: 3}
       propertyPath: m_RootOrder
@@ -63,5 +63,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4316597167579329625, guid: 2eec5d6f80d523746bfc7fc4a2f57973, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00ad721fb745b284da3d4581072097bb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eec5d6f80d523746bfc7fc4a2f57973, type: 3}

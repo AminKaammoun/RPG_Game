@@ -50,7 +50,7 @@ public class PlayerMovements : MonoBehaviour
     private float PosX;
     private float PosY;
 
-    public Renderer rend;
+    public SpriteRenderer rend;
     private Color colorToTurnTo;
 
     public HealthBar healthbar;
@@ -119,7 +119,7 @@ public class PlayerMovements : MonoBehaviour
 
         health = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
         healthbar.SetMaxHealth(100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp);
-
+        
     }
 
 
@@ -341,7 +341,7 @@ public class PlayerMovements : MonoBehaviour
     IEnumerator returnColor()
     {
         yield return new WaitForSeconds(0.2f);
-        rend.material.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency
+        rend.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency
 
     }
     IEnumerator backToNormalSpeed()
@@ -396,7 +396,7 @@ public class PlayerMovements : MonoBehaviour
     }
     private IEnumerator backAfterHit()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         canBeDamaged = true;
         damagePlayer = true;
     }
@@ -429,12 +429,16 @@ public class PlayerMovements : MonoBehaviour
                     Enemy.attack = 30;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     damagePlayer = false;
-                    StartCoroutine(backAfterHit());
+                    
                     hurtAudio.Play();
                     islogDamaged = true;
                     float attack = Enemy.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(backAfterHit());
+                    StartCoroutine(returnColor());
+
                 }
             }
             else if (collision.CompareTag("fireBall"))
@@ -450,7 +454,7 @@ public class PlayerMovements : MonoBehaviour
                     float attack = Worm.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
-                    rend.material.color = colorToTurnTo;
+                    rend.color = colorToTurnTo;
                     StartCoroutine(backAfterHit());
                     StartCoroutine(returnColor());
                 }
@@ -462,13 +466,16 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 0;
                     Enemy.attack = 60;
                     damagePlayer = false;
-                    StartCoroutine(backAfterHit());
+                    
                     hurtAudio.Play();
                     isTreantDamaged = true;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Enemy.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(backAfterHit());
+                    StartCoroutine(returnColor());
                 }
             }
             else if (collision.CompareTag("cyclopProjectile"))
@@ -483,7 +490,7 @@ public class PlayerMovements : MonoBehaviour
                     float attack = Cyclop.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
-                    rend.material.color = colorToTurnTo;
+                    rend.color = colorToTurnTo;
                     StartCoroutine(backAfterHit());
                     StartCoroutine(returnColor());
                 }
@@ -502,7 +509,7 @@ public class PlayerMovements : MonoBehaviour
             {
                 hurtAudio.Play();
                 TakeDamage(10);
-                rend.material.color = colorToTurnTo;
+                rend.color = colorToTurnTo;
                 StartCoroutine(returnColor());
             }
             else if (collision.CompareTag("crab"))

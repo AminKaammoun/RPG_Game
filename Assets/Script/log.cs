@@ -11,7 +11,7 @@ public class log : Enemy
     public float attackRadius;
 
     //public Transform homePosition;
-    public Renderer Log;
+    public SpriteRenderer Log;
     public GameObject blood;
     public GameObject xp;
     public GameObject coin;
@@ -138,7 +138,7 @@ public class log : Enemy
                     canBeDamaged = false;
                     isHurt = true;
                     int rand = Random.Range(0, 2);
-                    Log.material.color = new Color(1, 0.5f, 0.5f, 1);
+                    Log.color = new Color(255f, 0f, 0f, 255f);
                     StartCoroutine(waitAfterDead());
                     currentState = EnemyState.dead;
                     Instantiate(xp, transform.position, Quaternion.identity);
@@ -155,7 +155,7 @@ public class log : Enemy
                 else
                 {
 
-                    Log.material.color = new Color(1, 0.5f, 0.5f, 1);
+                    Log.color = new Color(255f, 0f, 0f, 255f);
                     isHurt = true;
                     StartCoroutine(waitAfterHurt());
                     currentState = EnemyState.stagger;
@@ -169,7 +169,7 @@ public class log : Enemy
     IEnumerator waitAfterHurt()
     {
         yield return new WaitForSeconds(0.25f);
-        Log.material.color = new Color(1, 1f, 1f, 1);
+        Log.color = new Color(255f, 255f, 255f, 255f);
         canBeDamaged = true;
     }
 
