@@ -486,6 +486,7 @@ public class PlayerMovements : MonoBehaviour
                     hurtAudio.Play();
                     isCyclopDamaged = true;
                     canBeDamaged = false;
+                    damagePlayer = false;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Cyclop.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
@@ -497,8 +498,21 @@ public class PlayerMovements : MonoBehaviour
             }
             else if (collision.CompareTag("babyCyclop"))
             {
-                hurtAudio.Play();
-                TakeDamage(10);
+                if (damagePlayer)
+                {
+                    damagePlayer = false;
+                    canBeDamaged = false;
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    PlayerDamage.num = 0;
+                    Enemy.attack = 30;
+                    hurtAudio.Play();
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = Cyclop.attack;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
             }
             else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
             {

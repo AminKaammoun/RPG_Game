@@ -13,11 +13,15 @@ public class Dialog : MonoBehaviour
     public GameObject key;
     public bool keyPressed;
     public AudioSource Audio;
+    private Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
-
+        if (this.gameObject.tag == "blacksmith")
+        {
+            animator = GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -60,6 +64,10 @@ public class Dialog : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
+            if(this.gameObject.tag == "blacksmith")
+            {
+                animator.SetBool("dialog", true);
+            }
         }
     }
 
@@ -68,6 +76,10 @@ public class Dialog : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
+            if (this.gameObject.tag == "blacksmith")
+            {
+                animator.SetBool("dialog", false);
+            }
         }
     }
 

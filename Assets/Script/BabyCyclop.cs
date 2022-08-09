@@ -87,6 +87,7 @@ public class BabyCyclop : Enemy
             Vector3 add = new Vector3(0.1f, 0.1f, 0f);
             Instantiate(damage, transform.position + add, Quaternion.identity);
             defence = 50;
+             
             currentState = EnemyState.stagger;
             isHurt = true;
             var bloods = Instantiate(blood, transform.position, Quaternion.identity);
