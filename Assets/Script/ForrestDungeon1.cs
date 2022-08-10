@@ -24,6 +24,7 @@ public class ForrestDungeon1 : MonoBehaviour
     public AudioClip dunMusic;
     public AudioClip forestMusic;
     public AudioClip fightMusic;
+    public AudioClip forestNightAudio;
 
     void Update()
     {
@@ -66,8 +67,15 @@ public class ForrestDungeon1 : MonoBehaviour
                 {
                     Destroy(log);
                 }
-                GameController.changeBGS(forestSound, audioSource);
                 GameController.changeBGM(forestMusic, musicSource);
+                if (time.hour >= 5 && time.hour <= 20)
+                {
+                    GameController.changeBGS(forestSound, audioSource);
+                }
+                else
+                {
+                    GameController.changeBGS(forestNightAudio, audioSource);
+                }
                 player.transform.position = new Vector3(89.67f, 20.43f, 0f);
                 GameController.currentMap = PlayerMap.forrest;
 
