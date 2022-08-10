@@ -58,7 +58,7 @@ public class InvDraggableComponent : MonoBehaviour, IInitializePotentialDragHand
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
         eventData.useDragThreshold = false;
-        Vector3 add = new Vector3(-533.33f,-238.87f, 0f) ;
+        Vector3 add = new Vector3(-533.33f,-262.16752f, 0f) ;
         Vector3 Position = transform.position/ (canvas.scaleFactor - canvas.scaleFactor / 4)+ add;
         
         StartPosition = Position;

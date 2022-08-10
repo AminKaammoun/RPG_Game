@@ -39,6 +39,7 @@ public class Inventory : MonoBehaviour
             itemsDisplayed.Clear();
             GameObject[] potions = GameObject.FindGameObjectsWithTag("potionIcon");
             GameObject[] equipments = GameObject.FindGameObjectsWithTag("equipIcon");
+            GameObject[] materials = GameObject.FindGameObjectsWithTag("materialIcon");
 
             foreach (GameObject potion in potions)
             {
@@ -48,7 +49,11 @@ public class Inventory : MonoBehaviour
             {
                 Destroy(equipment);
             }
-            
+            foreach (GameObject material in materials)
+            {
+                Destroy(material);
+            }
+
             CreateDisplay();
             refreshInv = false;
 
@@ -62,7 +67,7 @@ public class Inventory : MonoBehaviour
 
             if (itemsDisplayed.ContainsKey(inventory.Container[i]))
             {
-                if (inventory.Container[i].item.type == ItemType.Potion && inventory.Container[i] != null)
+                if ((inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel) && inventory.Container[i] != null)
                 {
                     itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
                 }
@@ -72,7 +77,7 @@ public class Inventory : MonoBehaviour
             {
                 var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                if (inventory.Container[i].item.type == ItemType.Potion)
+                if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel)
                 {
                     obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
                 }

@@ -8,6 +8,7 @@ public enum ItemType
     Food,
     Equipment,
     Potion,
+    Materiel,
     Default
 }
 public abstract class ItemObject : ScriptableObject
