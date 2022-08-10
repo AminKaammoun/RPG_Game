@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
     public GameObject theForrest;
     public GameObject theBeach;
     public GameObject cockAudio;
+    public GameObject BlackSmithPanel;
 
     public AudioSource audioSource;
     public AudioSource musicSource;
@@ -321,6 +322,11 @@ public class GameController : MonoBehaviour
     {
         Dun1Panel.SetActive(false);
     }
+
+    public void closeForestBlackSmithPanel()
+    {
+        BlackSmithPanel.SetActive(false);
+    }
     public void closeDun2Panel()
     {
         Dun2Panel.SetActive(false);
@@ -373,6 +379,10 @@ public class GameController : MonoBehaviour
     public void potionShop()
     {
         PotionShopPanel.SetActive(true);
+    }
+    public void ForestBlackSmithPanel()
+    {
+        BlackSmithPanel.SetActive(true);
     }
     public void closePanels()
     {
@@ -496,8 +506,8 @@ public class GameController : MonoBehaviour
         if (currentMap == PlayerMap.forrest)
         {
 
-            CameraMovement.maxPosition = new Vector2(159.63f, 30f);
-            CameraMovement.minPosition = new Vector2(56.74f, -2f);
+            CameraMovement.maxPosition = new Vector2(157.79f, 30f);
+            CameraMovement.minPosition = new Vector2(58.54f, -2f);
 
             if (TimeBtwLeafSpawn <= 0)
             {
@@ -516,45 +526,45 @@ public class GameController : MonoBehaviour
         if (currentMap == PlayerMap.forrestDungeon)
         {
 
-            CameraMovement.maxPosition = new Vector2(100f, 46.32f);
-            CameraMovement.minPosition = new Vector2(0f, 45.36f);
+            CameraMovement.maxPosition = new Vector2(100f, 45.61f);
+            CameraMovement.minPosition = new Vector2(0f, 45.6f);
         }
         else if (currentMap == PlayerMap.forrestDungeon2)
         {
-            CameraMovement.maxPosition = new Vector2(200f, 59.73f);
+            CameraMovement.maxPosition = new Vector2(200f, 58.58f);
             CameraMovement.minPosition = new Vector2(0f, 58.55f);
         }
         else if (currentMap == PlayerMap.forrestDungeon3)
         {
-            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
-            CameraMovement.minPosition = new Vector2(0f, 71.64f);
+            CameraMovement.maxPosition = new Vector2(200f, 72.04f);
+            CameraMovement.minPosition = new Vector2(0f, 72f);
         }
         else if (currentMap == PlayerMap.forrestDungeon4)
         {
-            CameraMovement.maxPosition = new Vector2(200f, 72.56f);
-            CameraMovement.minPosition = new Vector2(0f, 71.64f);
+            CameraMovement.maxPosition = new Vector2(200f, 72.04f);
+            CameraMovement.minPosition = new Vector2(0f, 72f);
         }
         else if (currentMap == PlayerMap.Village)
         {
-            CameraMovement.maxPosition = new Vector2(12.31f, 2.2f);
-            CameraMovement.minPosition = new Vector2(-29.19f, -0.12f);
+            CameraMovement.maxPosition = new Vector2(10.79f, 2.2f);
+            CameraMovement.minPosition = new Vector2(-27.64f, -0.12f);
 
 
         }
         else if (currentMap == PlayerMap.forrestDungeon2nd)
         {
-            CameraMovement.maxPosition = new Vector2(167.38f, 56.29f);
+            CameraMovement.maxPosition = new Vector2(167.38f, 55.65f);
             CameraMovement.minPosition = new Vector2(140f, 55.41f);
         }
         else if (currentMap == PlayerMap.forrestDungeon2nd1)
         {
-            CameraMovement.maxPosition = new Vector2(167.38f, 69.41f);
+            CameraMovement.maxPosition = new Vector2(167.38f, 68.54f);
             CameraMovement.minPosition = new Vector2(140f, 68.32f);
         }
         else if (currentMap == PlayerMap.forrestDungeon2nd2)
         {
             CameraMovement.maxPosition = new Vector2(167.38f, 82.42f);
-            CameraMovement.minPosition = new Vector2(140f, 81.24f);
+            CameraMovement.minPosition = new Vector2(140f, 82.21f);
         }
         else if (currentMap == PlayerMap.beach)
         {
