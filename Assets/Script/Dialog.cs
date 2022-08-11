@@ -14,7 +14,10 @@ public class Dialog : MonoBehaviour
     public bool keyPressed;
     public AudioSource Audio;
     private Animator animator;
-    
+
+    [SerializeField] private Texture2D NormalCursor;
+    private Vector2 cursorHotspot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +79,8 @@ public class Dialog : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
+            cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+            Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
             if (this.gameObject.tag == "blacksmith")
             {
                 animator.SetBool("dialog", false);
