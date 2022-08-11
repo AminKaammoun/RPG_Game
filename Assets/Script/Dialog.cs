@@ -79,7 +79,7 @@ public class Dialog : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
-            cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+            cursorHotspot = new Vector2(0, -1);
             Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
             if (this.gameObject.tag == "blacksmith")
             {

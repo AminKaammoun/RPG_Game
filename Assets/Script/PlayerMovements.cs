@@ -56,6 +56,8 @@ public class PlayerMovements : MonoBehaviour
     public HealthBar healthbar;
     private Vector3 change;
 
+    
+
     public GameObject Bow;
     public GameObject HealEffect;
     public GameObject SheildEffect;
@@ -103,6 +105,12 @@ public class PlayerMovements : MonoBehaviour
     private bool isCyclopDamaged = false;
     private bool isCrabDamaged = false;
     private bool damagePlayer = true;
+
+    public ItemObject AutumnLeaf;
+    public ItemObject IceLeaf;
+    public ItemObject FireLeaf;
+    public ItemObject PlantLeaf;
+    public ItemObject SakuraLeaf;
 
     // Start is called before the first frame update
 
@@ -613,6 +621,35 @@ public class PlayerMovements : MonoBehaviour
             goldKeyCanvas.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("goldKey"));
             Door2.goldKeyObtained = true;
+        }
+        if (collision.CompareTag("Leaf"))
+        {
+            if(collision.gameObject.name == "AutumnLeaf(Clone)")
+            {
+                inventory.AddItem(AutumnLeaf,1);
+                inventory.save();
+            }
+            if (collision.gameObject.name == "IceLeaf(Clone)")
+            {
+                inventory.AddItem(IceLeaf, 1);
+                inventory.save();
+            }
+            if (collision.gameObject.name == "FireLeaf(Clone)")
+            {
+                inventory.AddItem(FireLeaf, 1);
+                inventory.save();
+            }
+            if (collision.gameObject.name == "PlantLeaf(Clone)")
+            {
+                inventory.AddItem(PlantLeaf, 1);
+                inventory.save();
+            }
+            if (collision.gameObject.name == "SakuraLeaf(Clone)")
+            {
+                inventory.AddItem(SakuraLeaf, 1);
+                inventory.save();
+            }
+            Destroy(collision.gameObject);
         }
     }
     void checkIfPlayerIsMoving(float PosX, float PosY)

@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
     public AudioSource chestAudio;
     public AudioClip beachMusic;
     public AudioClip beachAudio;
-    
+
 
     public GameObject forestDoor1;
     public GameObject forestDoor2;
@@ -307,7 +307,7 @@ public class GameController : MonoBehaviour
         {
             r.SetActive(false);
         }
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
 
     }
@@ -315,7 +315,7 @@ public class GameController : MonoBehaviour
     {
         alert.SetActive(false);
         showAlert = false;
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
@@ -323,27 +323,27 @@ public class GameController : MonoBehaviour
     {
         tpPanel.SetActive(false);
         wantTp = false;
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
     public void closeDun1Pnanel()
     {
         Dun1Panel.SetActive(false);
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
     public void closeForestBlackSmithPanel()
     {
         BlackSmithPanel.SetActive(false);
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
     public void closeDun2Panel()
     {
         Dun2Panel.SetActive(false);
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
     public void VillageTpButton()
@@ -357,7 +357,7 @@ public class GameController : MonoBehaviour
         currentMap = PlayerMap.Village;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
     public void ForrestTpButton()
@@ -379,7 +379,7 @@ public class GameController : MonoBehaviour
         currentMap = PlayerMap.forrest;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
     public void BeachTpButton()
@@ -393,7 +393,7 @@ public class GameController : MonoBehaviour
         currentMap = PlayerMap.beach;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
@@ -408,7 +408,7 @@ public class GameController : MonoBehaviour
     public void closePanels()
     {
         PotionShopPanel.SetActive(false);
-        cursorHotspot = new Vector2(NormalCursor.width / 2, NormalCursor.height / 2);
+        cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
     public void OnLevelUp()

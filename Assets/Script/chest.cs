@@ -8,14 +8,14 @@ public class chest : MonoBehaviour
     public GameObject E;
     public GameObject xpBall;
     public GameObject coin;
-
+    public GameObject[] ForgeItems;
 
     public bool playerInRange;
     public static bool playChestAudio;
     // Start is called before the first frame update
     void Start()
     {
-        
+
         playerInRange = false;
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -31,7 +31,8 @@ public class chest : MonoBehaviour
                 playChestAudio = true;
                 int rand1 = Random.Range(1, 5);
                 int rand2 = Random.Range(1, 5);
-                for(int i = 0; i< rand1; i++)
+                int rand3 = Random.Range(0, 5);
+                for (int i = 0; i < rand1; i++)
                 {
                     Instantiate(xpBall, transform.position, Quaternion.identity);
                 }
@@ -39,6 +40,9 @@ public class chest : MonoBehaviour
                 {
                     Instantiate(coin, transform.position, Quaternion.identity);
                 }
+
+                Instantiate(ForgeItems[rand3], transform.position, Quaternion.identity);
+
                 Destroy(this.gameObject);
             }
         }
@@ -46,7 +50,7 @@ public class chest : MonoBehaviour
         {
             E.SetActive(false);
         }
-            float dist = Vector3.Distance(transform.position, player.transform.position);
+        float dist = Vector3.Distance(transform.position, player.transform.position);
 
         if (dist <= 1)
         {
