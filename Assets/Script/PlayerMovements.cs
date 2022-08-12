@@ -612,7 +612,7 @@ public class PlayerMovements : MonoBehaviour
         {
             silverKeyCanvas.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("silverKey"));
-            Door1.silverKeyObtained = true;
+            //Door1.silverKeyObtained = true;
             silverKeyAudio.Play();
         }
         if (collision.CompareTag("goldKey"))

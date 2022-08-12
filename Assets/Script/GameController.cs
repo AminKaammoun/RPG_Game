@@ -65,7 +65,6 @@ public class GameController : MonoBehaviour
 
 
     public GameObject forestDoor1;
-    public GameObject forestDoor2;
     public GameObject forestDoor3;
 
     public static bool silverKeyDoorReset = false;
@@ -292,7 +291,7 @@ public class GameController : MonoBehaviour
 
         if (goldKeyDoorReset)
         {
-            forestDoor2.SetActive(true);
+            
             forestDoor3.SetActive(true);
             goldKeyDoorReset = false;
         }
@@ -554,19 +553,15 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.forrestDungeon2)
         {
-            CameraMovement.maxPosition = new Vector2(200f, 58.58f);
-            CameraMovement.minPosition = new Vector2(0f, 58.55f);
+            CameraMovement.maxPosition = new Vector2(200f, 66.66f);
+            CameraMovement.minPosition = new Vector2(0f, 59.27f);
         }
         else if (currentMap == PlayerMap.forrestDungeon3)
         {
-            CameraMovement.maxPosition = new Vector2(200f, 72.04f);
-            CameraMovement.minPosition = new Vector2(0f, 72f);
+            CameraMovement.maxPosition = new Vector2(200f, 80.28f);
+            CameraMovement.minPosition = new Vector2(0f, 80.21f);
         }
-        else if (currentMap == PlayerMap.forrestDungeon4)
-        {
-            CameraMovement.maxPosition = new Vector2(200f, 72.04f);
-            CameraMovement.minPosition = new Vector2(0f, 72f);
-        }
+       
         else if (currentMap == PlayerMap.Village)
         {
             CameraMovement.maxPosition = new Vector2(10.79f, 2.2f);

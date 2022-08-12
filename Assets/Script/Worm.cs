@@ -61,7 +61,7 @@ public class Worm : MonoBehaviour
     public bool isHurt;
     public static float defence = 2000;
     public static float attack = 80;
-    public bool canBeDamaged = true; 
+    public bool canBeDamaged = true;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +70,7 @@ public class Worm : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         board.SetActive(true);
         currentState = WormState.walk;
-        target = new Vector3(112.9f, 75.77f, 0f);
+        target = new Vector3(96.04f, 83.68695f, 0f);
         TimeBtwAttack = startTime;
         chestIsInstantiated = true;
 
@@ -80,7 +80,7 @@ public class Worm : MonoBehaviour
     void Update()
     {
 
-        healthText.text = health.ToString()+" / 200";
+        healthText.text = health.ToString() + " / 200";
         if (isHurt)
         {
             hurtAudio.Play();
@@ -129,7 +129,7 @@ public class Worm : MonoBehaviour
         }
         if (counter >= 5)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.3624f, 69.12473f, 0f), 10 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(89.92f, 77.02f, 0f), 10 * Time.deltaTime);
             anim.SetBool("stun", true);
 
             currentState = WormState.stun;
@@ -171,15 +171,15 @@ public class Worm : MonoBehaviour
             }
 
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            if (transform.position.x == 101.15f)
+            if (transform.position.x == 83.83f)
             {
                 worm.flipX = false;
-                target = new Vector3(112.9f, 75.77f, 0f);
+                target = new Vector3(96.04f, 83.68695f, 0f);
             }
-            else if (transform.position.x == 112.9f)
+            else if (transform.position.x == 96.04f)
             {
                 worm.flipX = true;
-                target = new Vector3(101.15f, 75.77f, 0f);
+                target = new Vector3(83.83f, 83.68695f, 0f);
             }
 
         }
@@ -214,15 +214,15 @@ public class Worm : MonoBehaviour
             }
 
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            if (transform.position.x == 101.15f)
+            if (transform.position.x == 83.83f)
             {
                 worm.flipX = false;
-                target = new Vector3(112.9f, 75.77f, 0f);
+                target = new Vector3(96.04f, 83.68695f, 0f);
             }
-            else if (transform.position.x == 112.9f)
+            else if (transform.position.x == 96.04f)
             {
                 worm.flipX = true;
-                target = new Vector3(101.15f, 75.77f, 0f);
+                target = new Vector3(83.83f, 83.68695f, 0f); 
             }
 
         }
@@ -233,7 +233,7 @@ public class Worm : MonoBehaviour
                 rage1Audio.Play();
                 playRage1Audio = false;
             }
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.35f, 73.2f, 0f), speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(89.61f, 80.85f, 0f), speed * Time.deltaTime);
 
             if (TimeBtwAttack <= 0)
             {
@@ -295,7 +295,7 @@ public class Worm : MonoBehaviour
         if (currentState != WormState.dead)
         {
             currentState = WormState.walk;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(106.3624f, 75.54301f, 0f), 10 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(89.12503f, 83.63966f, 0), 10 * Time.deltaTime);
         }
     }
     IEnumerator backFromStagger()

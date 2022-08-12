@@ -6,7 +6,7 @@ public class KeyInstantiate : MonoBehaviour
 {
     public GameObject[] log;
     public GameObject[] treant;
-    public GameObject silverKey;
+    //public GameObject silverKey;
     public GameObject goldKey;
 
     private GameObject lastLog;
@@ -39,10 +39,10 @@ public class KeyInstantiate : MonoBehaviour
 
             if (len == 0 && silverkeyNumbers < 1)
             {
-                Instantiate(silverKey, lastLog.transform.position, lastLog.transform.rotation);
+               // Instantiate(silverKey, lastLog.transform.position, lastLog.transform.rotation);
                 silverkeyNumbers++;
             }
-        }else if(GameController.currentMap == PlayerMap.forrestDungeon3 || GameController.currentMap == PlayerMap.forrestDungeon2nd1)
+        }else if(GameController.currentMap == PlayerMap.forrestDungeon3 || GameController.currentMap == PlayerMap.forrestDungeon2nd1 || GameController.currentMap == PlayerMap.forrestDungeon2)
         {
             log = GameObject.FindGameObjectsWithTag("log");
             treant = GameObject.FindGameObjectsWithTag("treant");

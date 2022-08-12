@@ -144,7 +144,7 @@ public class ForrestDungeon2 : MonoBehaviour
         KeyInstantiate.silverkeyNumbers = 0;
         KeyInstantiate.goldkeyNumbers = 0;
         cyclopIsBeaten = false;
-        Door1.silverKeyObtained = false;
+        //Door1.silverKeyObtained = false;
         Door2.goldKeyObtained = false;
     }
 }
