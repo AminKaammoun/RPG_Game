@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,19 @@ public class ForestBlacksmith : MonoBehaviour
     public Image craft2;
     public Sprite[] sprites;
     public Sprite[] firstItem;
+    private Canvas canvas;
 
     public ItemObject MagicalAutumnLeaf;
     public ItemObject MagicalIceLeaf;
     public ItemObject MagicalFireLeaf;
     public ItemObject MagicalPlantLeaf;
     public ItemObject MagicalSakuraLeaf;
+
+    public ItemObject AtkGearLevel1;
+    public ItemObject DefGearLevel1;
+    public ItemObject HelmetGearLevel1;
+    public ItemObject BeltGearLevel1;
+    public ItemObject RingGearLevel1;
 
     public InventoryObject inventory;
 
@@ -26,13 +34,32 @@ public class ForestBlacksmith : MonoBehaviour
     private bool item1Found = false;
     private bool item2Found = false;
 
+
     public GameObject SwordForgeButton;
     public GameObject DefForgeButton;
     public GameObject HelmetForgeButton;
     public GameObject BeltForgeButton;
     public GameObject RingForgeButton;
+    public GameObject notEnoughMatierlsText;
+    public GameObject secondCanvas;
+
+    public GameObject forgeEffect;
+    public GameObject forgeEffectPosition;
+
+    public GameObject forgedItem;
+    public GameObject forgedItemPosition;
+
+    public AudioSource forgeSound;
+    public AudioSource ErrorAudio;
+
+
 
     // Start is called before the first frame update
+    public void Start()
+    {
+        canvas = GetComponentInParent<Canvas>();
+    }
+
     void Awake()
     {
         SwordForgeButton.SetActive(true);
@@ -40,7 +67,7 @@ public class ForestBlacksmith : MonoBehaviour
         HelmetForgeButton.SetActive(false);
         BeltForgeButton.SetActive(false);
         RingForgeButton.SetActive(false);
-        
+
         image.sprite = sprites[0];
         craft1.sprite = firstItem[0];
         craft2.sprite = firstItem[1];
@@ -94,7 +121,7 @@ public class ForestBlacksmith : MonoBehaviour
         HelmetForgeButton.SetActive(false);
         BeltForgeButton.SetActive(false);
         RingForgeButton.SetActive(false);
-        
+
         image.sprite = sprites[0];
         craft1.sprite = firstItem[0];
         craft2.sprite = firstItem[1];
@@ -142,7 +169,7 @@ public class ForestBlacksmith : MonoBehaviour
         HelmetForgeButton.SetActive(false);
         BeltForgeButton.SetActive(false);
         RingForgeButton.SetActive(false);
-        
+
         image.sprite = sprites[1];
         craft1.sprite = firstItem[1];
         craft2.sprite = firstItem[4];
@@ -189,7 +216,7 @@ public class ForestBlacksmith : MonoBehaviour
         HelmetForgeButton.SetActive(true);
         BeltForgeButton.SetActive(false);
         RingForgeButton.SetActive(false);
-        
+
         image.sprite = sprites[2];
         craft1.sprite = firstItem[2];
         craft2.sprite = firstItem[0];
@@ -252,7 +279,7 @@ public class ForestBlacksmith : MonoBehaviour
                 {
                     item1.color = Color.green;
                 }
-               
+
             }
             if (inventory.Container[i].item.name == "MagicalFireLeaf")
             {
@@ -262,7 +289,7 @@ public class ForestBlacksmith : MonoBehaviour
                 {
                     item2.color = Color.green;
                 }
-               
+
             }
         }
         if (!item1Found)
@@ -327,51 +354,108 @@ public class ForestBlacksmith : MonoBehaviour
     }
     public void ForgeSword()
     {
-        inventory.RemoveItem(MagicalAutumnLeaf);
-        inventory.RemoveItem(MagicalIceLeaf);
-        inventory.save();
+
         item1Found = false;
         item2Found = false;
+
         for (int i = 0; i < inventory.Container.Count; i++)
         {
             if (inventory.Container[i].item.name == "MagicalAutumnLeaf")
             {
+
                 item1Found = true;
-                item1.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item1.color = Color.green;
+                }
+                else
+                {
+                    item1.color = Color.white;
                 }
             }
             if (inventory.Container[i].item.name == "MagicalIceLeaf")
             {
                 item2Found = true;
-                item2.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item2.color = Color.green;
                 }
+                else
+                {
+                    item2.color = Color.white;
+                }
             }
         }
-        if (!item1Found)
+        if (!item1Found && !item2Found)
+        {
+            item2.text = "0/1";
+            item1.text = "0/1";
+            item2.color = Color.white;
+            item1.color = Color.white;
+        }
+        else if (!item1Found)
         {
             item1.text = "0/1";
             item1.color = Color.white;
+            String firstChar = item2.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item2.text = num.ToString() + "/1";
         }
-        if (!item2Found)
+        else if (!item2Found)
         {
             item2.text = "0/1";
             item2.color = Color.white;
+            String firstChar = item1.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item1.text = num.ToString() + "/1";
+
         }
-        item1Found = false;
-        item2Found = false;
+        if (item1.text != "0/1" && item2.text == "0/1")
+        {
+            item1.color = Color.green;
+        }
+        else if (item1.text == "0/1" && item2.text != "0/1")
+        {
+            item2.color = Color.green;
+        }
+
+        if (item1Found && item2Found)
+        {
+
+            Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
+            Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
+            var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
+            effect.transform.SetParent(forgeEffectPosition.transform, false);
+
+            var forged = Instantiate(forgedItem, forgedItemPosition.transform.position + add, Quaternion.identity) as GameObject;
+            forged.transform.SetParent(forgedItemPosition.transform, false);
+            Image image = forged.GetComponent<Image>();
+            image.sprite = sprites[0];
+            forgeSound.Play();
+            inventory.RemoveItem(MagicalAutumnLeaf);
+            inventory.RemoveItem(MagicalIceLeaf);
+            inventory.AddItem(AtkGearLevel1, 1);
+            inventory.save();
+            Destroy(effect, 1f);
+            Destroy(forged, 1.15f);
+
+        }
+        else
+        {
+            ErrorAudio.Play();
+            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(secondCanvas.transform, false);
+            Destroy(forgedTxt, 0.5f);
+        }
+
+
     }
 
     public void ForgeDef()
     {
-        inventory.RemoveItem(MagicalIceLeaf);
-        inventory.RemoveItem(MagicalSakuraLeaf);
-        inventory.save();
+
         item1Found = false;
         item2Found = false;
         for (int i = 0; i < inventory.Container.Count; i++)
@@ -379,40 +463,96 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalIceLeaf")
             {
                 item1Found = true;
-                item1.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item1.color = Color.green;
+                }
+                else
+                {
+                    item1.color = Color.white;
                 }
             }
             if (inventory.Container[i].item.name == "MagicalSakuraLeaf")
             {
                 item2Found = true;
-                item2.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item2.color = Color.green;
                 }
+                else
+                {
+                    item2.color = Color.white;
+                }
             }
         }
-        if (!item1Found)
+
+        if (!item1Found && !item2Found)
+        {
+            item2.text = "0/1";
+            item1.text = "0/1";
+            item2.color = Color.white;
+            item1.color = Color.white;
+        }
+        else if (!item1Found)
         {
             item1.text = "0/1";
             item1.color = Color.white;
+            String firstChar = item2.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item2.text = num.ToString() + "/1";
         }
-        if (!item2Found)
+        else if (!item2Found)
         {
             item2.text = "0/1";
             item2.color = Color.white;
+            String firstChar = item1.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item1.text = num.ToString() + "/1";
+
         }
-        item1Found = false;
-        item2Found = false;
+        if (item1.text != "0/1" && item2.text == "0/1")
+        {
+            item1.color = Color.green;
+        }
+        else if (item1.text == "0/1" && item2.text != "0/1")
+        {
+            item2.color = Color.green;
+        }
+
+
+        if (item1Found && item2Found)
+        {
+            Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
+            Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
+            var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
+            effect.transform.SetParent(forgeEffectPosition.transform, false);
+
+            var forged = Instantiate(forgedItem, forgedItemPosition.transform.position + add, Quaternion.identity) as GameObject;
+            forged.transform.SetParent(forgedItemPosition.transform, false);
+            Image image = forged.GetComponent<Image>();
+            image.sprite = sprites[1];
+            forgeSound.Play();
+            Destroy(effect, 1f);
+            Destroy(forged, 1.15f);
+            inventory.RemoveItem(MagicalIceLeaf);
+            inventory.RemoveItem(MagicalSakuraLeaf);
+            inventory.AddItem(DefGearLevel1, 1);
+            inventory.save();
+        }
+        else
+        {
+            ErrorAudio.Play();
+            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(secondCanvas.transform, false);
+            Destroy(forgedTxt, 0.5f);
+        }
+
     }
     public void ForgeHelmet()
     {
-        inventory.RemoveItem(MagicalFireLeaf);
-        inventory.RemoveItem(MagicalAutumnLeaf);
-        inventory.save();
+
         item1Found = false;
         item2Found = false;
         for (int i = 0; i < inventory.Container.Count; i++)
@@ -420,40 +560,97 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalFireLeaf")
             {
                 item1Found = true;
-                item1.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item1.color = Color.green;
+                }
+                else
+                {
+                    item1.color = Color.white;
                 }
             }
             if (inventory.Container[i].item.name == "MagicalAutumnLeaf")
             {
                 item2Found = true;
-                item2.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item2.color = Color.green;
                 }
+                else
+                {
+                    item2.color = Color.white;
+                }
             }
         }
-        if (!item1Found)
+        if (!item1Found && !item2Found)
+        {
+            item2.text = "0/1";
+            item1.text = "0/1";
+            item2.color = Color.white;
+            item1.color = Color.white;
+        }
+        else if (!item1Found)
         {
             item1.text = "0/1";
             item1.color = Color.white;
+            String firstChar = item2.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item2.text = num.ToString() + "/1";
         }
-        if (!item2Found)
+        else if (!item2Found)
         {
             item2.text = "0/1";
             item2.color = Color.white;
+            String firstChar = item1.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item1.text = num.ToString() + "/1";
+
         }
-        item1Found = false;
-        item2Found = false;
+        if (item1.text != "0/1" && item2.text == "0/1")
+        {
+            item1.color = Color.green;
+        }
+        else if (item1.text == "0/1" && item2.text != "0/1")
+        {
+            item2.color = Color.green;
+        }
+
+        if (item1Found && item2Found)
+        {
+            Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
+            Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
+            var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
+            effect.transform.SetParent(forgeEffectPosition.transform, false);
+
+            var forged = Instantiate(forgedItem, forgedItemPosition.transform.position + add, Quaternion.identity) as GameObject;
+            forged.transform.SetParent(forgedItemPosition.transform, false);
+            Image image = forged.GetComponent<Image>();
+            image.sprite = sprites[2];
+            forgeSound.Play();
+
+            Destroy(effect, 1f);
+            Destroy(forged, 1.15f);
+
+            inventory.RemoveItem(MagicalFireLeaf);
+            inventory.RemoveItem(MagicalAutumnLeaf);
+            inventory.AddItem(HelmetGearLevel1, 1);
+            inventory.save();
+        }
+        else
+        {
+            ErrorAudio.Play();
+            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(secondCanvas.transform, false);
+            Destroy(forgedTxt, 0.5f);
+        }
+
+
     }
     public void ForgeBelt()
     {
-        inventory.RemoveItem(MagicalPlantLeaf);
-        inventory.RemoveItem(MagicalFireLeaf);
-        inventory.save();
+
         item1Found = false;
         item2Found = false;
         for (int i = 0; i < inventory.Container.Count; i++)
@@ -461,42 +658,98 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalPlantLeaf")
             {
                 item1Found = true;
-                item1.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item1.color = Color.green;
+                }
+                else
+                {
+                    item1.color = Color.white;
                 }
 
             }
             if (inventory.Container[i].item.name == "MagicalFireLeaf")
             {
                 item2Found = true;
-                item2.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item2.color = Color.green;
+                }
+                else
+                {
+                    item2.color = Color.white;
                 }
 
             }
         }
-        if (!item1Found)
+        if (!item1Found && !item2Found)
+        {
+            item2.text = "0/1";
+            item1.text = "0/1";
+            item2.color = Color.white;
+            item1.color = Color.white;
+        }
+        else if (!item1Found)
         {
             item1.text = "0/1";
             item1.color = Color.white;
+            String firstChar = item2.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item2.text = num.ToString() + "/1";
         }
-        if (!item2Found)
+        else if (!item2Found)
         {
             item2.text = "0/1";
             item2.color = Color.white;
+            String firstChar = item1.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item1.text = num.ToString() + "/1";
+
         }
-        item1Found = false;
-        item2Found = false;
+        if (item1.text != "0/1" && item2.text == "0/1")
+        {
+            item1.color = Color.green;
+        }
+        else if (item1.text == "0/1" && item2.text != "0/1")
+        {
+            item2.color = Color.green;
+        }
+
+        if (item1Found && item2Found)
+        {
+            Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
+            Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
+            var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
+            effect.transform.SetParent(forgeEffectPosition.transform, false);
+
+            var forged = Instantiate(forgedItem, forgedItemPosition.transform.position + add, Quaternion.identity) as GameObject;
+            forged.transform.SetParent(forgedItemPosition.transform, false);
+            Image image = forged.GetComponent<Image>();
+            image.sprite = sprites[3];
+            forgeSound.Play();
+
+            Destroy(effect, 1f);
+            Destroy(forged, 1.15f);
+
+            inventory.RemoveItem(MagicalPlantLeaf);
+            inventory.RemoveItem(MagicalFireLeaf);
+            inventory.AddItem(BeltGearLevel1, 1);
+            inventory.save();
+        }
+        else
+        {
+            ErrorAudio.Play();
+            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(secondCanvas.transform, false);
+            Destroy(forgedTxt, 0.5f);
+        }
+
     }
     public void ForgeRing()
     {
-        inventory.RemoveItem(MagicalSakuraLeaf);
-        inventory.RemoveItem(MagicalPlantLeaf);
-        inventory.save();
+
         item1Found = false;
         item2Found = false;
         for (int i = 0; i < inventory.Container.Count; i++)
@@ -504,33 +757,91 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalSakuraLeaf")
             {
                 item1Found = true;
-                item1.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item1.color = Color.green;
+                }
+                else
+                {
+                    item1.color = Color.white;
                 }
             }
             if (inventory.Container[i].item.name == "MagicalPlantLeaf")
             {
                 item2Found = true;
-                item2.text = inventory.Container[i].amount.ToString() + "/1";
-                if (inventory.Container[i].amount > 0)
+                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
+                if (inventory.Container[i].amount > 1)
                 {
                     item2.color = Color.green;
                 }
+                else
+                {
+                    item2.color = Color.white;
+                }
             }
         }
-        if (!item1Found)
+        if (!item1Found && !item2Found)
+        {
+            item2.text = "0/1";
+            item1.text = "0/1";
+            item2.color = Color.white;
+            item1.color = Color.white;
+        }
+        else if (!item1Found)
         {
             item1.text = "0/1";
             item1.color = Color.white;
+            String firstChar = item2.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item2.text = num.ToString() + "/1";
         }
-        if (!item2Found)
+        else if (!item2Found)
         {
             item2.text = "0/1";
             item2.color = Color.white;
+            String firstChar = item1.text.Substring(0, 1);
+            int num = Int32.Parse(firstChar) + 1;
+            item1.text = num.ToString() + "/1";
+
         }
-        item1Found = false;
-        item2Found = false;
+        if (item1.text != "0/1" && item2.text == "0/1")
+        {
+            item1.color = Color.green;
+        }
+        else if (item1.text == "0/1" && item2.text != "0/1")
+        {
+            item2.color = Color.green;
+        }
+
+        if (item2Found && item1Found)
+        {
+            Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
+            Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
+            var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
+            effect.transform.SetParent(forgeEffectPosition.transform, false);
+
+            var forged = Instantiate(forgedItem, forgedItemPosition.transform.position + add, Quaternion.identity) as GameObject;
+            forged.transform.SetParent(forgedItemPosition.transform, false);
+            Image image = forged.GetComponent<Image>();
+            image.sprite = sprites[4];
+            forgeSound.Play();
+
+            Destroy(effect, 1f);
+            Destroy(forged, 1.15f);
+
+            inventory.RemoveItem(MagicalSakuraLeaf);
+            inventory.RemoveItem(MagicalPlantLeaf);
+            inventory.AddItem(RingGearLevel1, 1);
+            inventory.save();
+        }
+        else
+        {
+            ErrorAudio.Play();
+            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(secondCanvas.transform, false);
+            Destroy(forgedTxt, 0.5f);
+        }
+
     }
 }
