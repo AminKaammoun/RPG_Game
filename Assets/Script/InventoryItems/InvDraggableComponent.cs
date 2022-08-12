@@ -15,6 +15,7 @@ public class InvDraggableComponent : MonoBehaviour, IInitializePotentialDragHand
     public Vector3 StartPosition;
 
     public static bool isPlaced;
+    public static Vector3 posi;
 
     private void Awake()
     {
@@ -32,22 +33,29 @@ public class InvDraggableComponent : MonoBehaviour, IInitializePotentialDragHand
     {
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+
+        posi = transform.position;
+        this.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("inventory").transform, false);
+        transform.position = posi;
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //isPlaced = false;
+       
         rectTransform.anchoredPosition += eventData.delta / (canvas.scaleFactor - canvas.scaleFactor / 4);
-
+        
 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+
         if (!isPlaced)
         {
+            this.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
             rectTransform.anchoredPosition = StartPosition;
-            //Destroy(this.gameObject);
+          
         }
 
 
@@ -58,11 +66,8 @@ public class InvDraggableComponent : MonoBehaviour, IInitializePotentialDragHand
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
         eventData.useDragThreshold = false;
-        Vector3 add = new Vector3(-533.33f,-262.16752f, 0f) ;
-        Vector3 Position = transform.position/ (canvas.scaleFactor - canvas.scaleFactor / 4)+ add;
-        
+        Vector3 Position = transform.localPosition ;
         StartPosition = Position;
     }
-
 
 }

@@ -19,9 +19,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
 
         if (eventData.pointerDrag != null)
         {
-
-            
-           
+   
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("attack"))
             {
                 attackGear = PlayerPrefs.GetString("AttackGear");

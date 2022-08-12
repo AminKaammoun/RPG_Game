@@ -37,8 +37,7 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
     public void OnDrag(PointerEventData eventData)
     {
 
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-
+        rectTransform.anchoredPosition += eventData.delta / (canvas.scaleFactor - canvas.scaleFactor / 4);
     }
 
     public void OnEndDrag(PointerEventData eventData)

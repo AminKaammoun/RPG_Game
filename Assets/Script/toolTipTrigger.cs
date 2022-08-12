@@ -6,14 +6,18 @@ public class toolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     private bool Show;
     public GameObject toolTip;
+    Vector3 pos;
     public void OnPointerEnter(PointerEventData eventData)
     {
         Show = true;
+        
+        
         StartCoroutine(startShow());
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        
         toolTip.SetActive(false);
         Show = false;
     }

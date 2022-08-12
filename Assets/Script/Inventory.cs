@@ -21,6 +21,8 @@ public class Inventory : MonoBehaviour
 
     public static bool refreshInv = false;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,8 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        
         text.text = description;
 
         UpdateDisplay();
@@ -75,7 +79,9 @@ public class Inventory : MonoBehaviour
 
             else
             {
-                var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+                var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
+  
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                 if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel)
                 {
@@ -96,7 +102,8 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < inventory.Container.Count; i++)
         {
 
-            var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+            var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+            obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             if (inventory.Container[i].item.type == ItemType.Potion)
             {
