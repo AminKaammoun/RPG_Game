@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class bigHealthPotion : MonoBehaviour
 {
-    
+
     public GameObject panel;
     public ItemObject BigHealthPotion;
     public InventoryObject inventory;
     public TextMeshProUGUI text;
     public GameObject item;
     public GameObject[] panels;
-    public string description ;
-
+    public string description;
+    public GameObject toolTip;
     public void showPanel()
     {
         panels = GameObject.FindGameObjectsWithTag("panel");
@@ -52,5 +53,6 @@ public class bigHealthPotion : MonoBehaviour
 
     }
 
+   
 
 }
