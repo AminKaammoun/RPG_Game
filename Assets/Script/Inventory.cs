@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
     public float YspaceBtwItems;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     public static string description;
-    public TextMeshProUGUI text;
+   
 
 
     public static bool refreshInv = false;
@@ -42,8 +42,7 @@ public class Inventory : MonoBehaviour
     void Update()
     {
 
-
-        text.text = description;
+ 
         if (refreshInv)
         {
             itemsDisplayed.Clear();

@@ -8,11 +8,14 @@ public class ForrestDungeon2 : MonoBehaviour
     public GameObject log;
     public GameObject[] logs;
     public GameObject[] treants;
+    public GameObject[] waves;
     public GameObject treant;
     public GameObject Cyclop;
     public GameObject wall;
+    public GameObject wall1;
+    public GameObject goldKey;
+    public GameObject door;
 
-    public static bool DunLvl2Clear = false;
     public static bool inFight;
     public static bool cyclopIsBeaten = false;
 
@@ -24,6 +27,15 @@ public class ForrestDungeon2 : MonoBehaviour
     public AudioClip forestMusic;
     public AudioClip fightMusic;
 
+    private float startTime = 1.5f;
+    private float TimeBtwSpawn = 1.5f;
+
+    public static bool wavesAreCleared = false;
+    private bool instantiateEnemys = false;
+    private int currentWave = 0;
+    private int SpawnedLogs = 0;
+
+    Vector3 pos;
     void Update()
     {
         if (inFight)
@@ -33,7 +45,79 @@ public class ForrestDungeon2 : MonoBehaviour
         else
         {
             wall.SetActive(false);
+            wall1.SetActive(false);
         }
+
+        GameObject[] logs = GameObject.FindGameObjectsWithTag("log");
+        GameObject[] treants = GameObject.FindGameObjectsWithTag("treant");
+        if (logs.Length + treants.Length == 0 && currentWave != 0 && currentWave < 2)
+        {
+
+            StartCoroutine(resetWave());
+        }
+        if (currentWave == 2 && logs.Length == 1)
+        {
+            pos = logs[0].transform.position;
+
+        }
+        if (currentWave == 2 && logs.Length == 0)
+        {
+            Instantiate(goldKey, pos, Quaternion.identity);
+            currentWave = 0;
+        }
+
+
+        if (instantiateEnemys)
+        {
+
+            waves[currentWave].SetActive(true);
+            if (SpawnedLogs >= 15)
+            {
+                instantiateEnemys = false;
+                currentWave++;
+                SpawnedLogs = 0;
+
+            }
+
+            if (TimeBtwSpawn <= 0)
+            {
+                int rand = Random.Range(0, 8);
+                SpawnedLogs++;
+                switch (rand)
+                {
+                    case 0:
+                        Instantiate(log, new Vector3(130.5307f, 64.54595f, 0), Quaternion.identity);
+                        break;
+                    case 1:
+                        Instantiate(treant, new Vector3(130.599f, 76.8381f, 0), Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(log, new Vector3(130.5307f, 88.45f, 0), Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(treant, new Vector3(143.37f, 88.65f, 0), Quaternion.identity);
+                        break;
+                    case 4:
+                        Instantiate(treant, new Vector3(160.3743f, 88.51565f, 0), Quaternion.identity);
+                        break;
+                    case 5:
+                        Instantiate(log, new Vector3(176.56f, 87.43f, 0), Quaternion.identity);
+                        break;
+                    case 6:
+                        Instantiate(treant, new Vector3(176.62f, 76.49f, 0), Quaternion.identity);
+                        break;
+                    case 7:
+                        Instantiate(log, new Vector3(176.62f, 64.61f, 0), Quaternion.identity);
+                        break;
+                }
+                TimeBtwSpawn = startTime;
+            }
+            else
+            {
+                TimeBtwSpawn -= Time.deltaTime;
+            }
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -84,17 +168,12 @@ public class ForrestDungeon2 : MonoBehaviour
                 GameController.changeBGM(fightMusic, musicSource);
                 player.transform.position = new Vector3(153.63f, 63.83f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd1;
-                if (DunLvl2Clear == false)
+                if (!wavesAreCleared)
                 {
-                    Instantiate(log, new Vector3(159.02f, 72.16f, 0), Quaternion.identity);
-                    Instantiate(log, new Vector3(141.06f, 72.03f, 0), Quaternion.identity);
-                    Instantiate(log, new Vector3(136.93f, 65.78f, 0), Quaternion.identity);
-                    Instantiate(log, new Vector3(167.41f, 71.88f, 0), Quaternion.identity);
-                    Instantiate(log, new Vector3(171.79f, 65.43f, 0), Quaternion.identity);
-                    Instantiate(treant, new Vector3(148.6f, 72.24f, 0), Quaternion.identity);
-                    Instantiate(treant, new Vector3(132.86f, 71.52f, 0), Quaternion.identity);
-                    Instantiate(treant, new Vector3(175.55f, 71.61f, 0), Quaternion.identity);
-                    DunLvl2Clear = true;
+                    wall1.SetActive(true);
+                    GameController.changeBGM(fightMusic, musicSource);
+                    wavesAreCleared = true;
+                    instantiateEnemys = true;
                 }
             }
         }
@@ -116,11 +195,11 @@ public class ForrestDungeon2 : MonoBehaviour
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp3")
             {
                 
-                player.transform.position = new Vector3(153.63f, 76.9f, 0f);
+                player.transform.position = new Vector3(154.59f, 91.32f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd2;
                 if (!cyclopIsBeaten)
                 {
-                    Instantiate(Cyclop, new Vector3(153.02f, 85.26f, 0), Quaternion.identity);
+                    Instantiate(Cyclop, new Vector3(153.59f, 100.4828f, 0), Quaternion.identity);
                     inFight = true;
                 }
                 
@@ -130,7 +209,7 @@ public class ForrestDungeon2 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp3")
             {
-                player.transform.position = new Vector3(153.63f, 74.1f, 0f);
+                player.transform.position = new Vector3(154.59f, 89.46f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd1;
             }
 
@@ -138,13 +217,19 @@ public class ForrestDungeon2 : MonoBehaviour
     }
     public void resetDun2()
     {
-        ForrestDungeon2.DunLvl2Clear = false;
-        GameController.silverKeyDoorReset = true;
+        wavesAreCleared = false;
+        door.SetActive(true);
         GameController.goldKeyDoorReset = true;
-        KeyInstantiate.silverkeyNumbers = 0;
         KeyInstantiate.goldkeyNumbers = 0;
         cyclopIsBeaten = false;
-        //Door1.silverKeyObtained = false;
+        waves[0].SetActive(false);
+        waves[1].SetActive(false);
         Door2.goldKeyObtained = false;
+    }
+    IEnumerator resetWave()
+    {
+
+        yield return new WaitForSeconds(2f);
+        instantiateEnemys = true;
     }
 }

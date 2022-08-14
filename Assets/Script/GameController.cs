@@ -577,13 +577,13 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.forrestDungeon2nd1)
         {
-            CameraMovement.maxPosition = new Vector2(167.38f, 68.54f);
-            CameraMovement.minPosition = new Vector2(140f, 68.32f);
+            CameraMovement.maxPosition = new Vector2(185.2f, 83.59f);
+            CameraMovement.minPosition = new Vector2(124.02f, 69.05f);
         }
         else if (currentMap == PlayerMap.forrestDungeon2nd2)
         {
-            CameraMovement.maxPosition = new Vector2(167.38f, 82.42f);
-            CameraMovement.minPosition = new Vector2(140f, 82.21f);
+            CameraMovement.maxPosition = new Vector2(167.38f, 97.28f);
+            CameraMovement.minPosition = new Vector2(143.54f, 97.02f);
         }
         else if (currentMap == PlayerMap.beach)
         {

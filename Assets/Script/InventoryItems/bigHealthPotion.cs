@@ -15,6 +15,7 @@ public class bigHealthPotion : MonoBehaviour
     public GameObject[] panels;
     public string description;
     public GameObject toolTip;
+
     public void showPanel()
     {
         panels = GameObject.FindGameObjectsWithTag("panel");
@@ -53,6 +54,6 @@ public class bigHealthPotion : MonoBehaviour
 
     }
 
-   
+
 
 }

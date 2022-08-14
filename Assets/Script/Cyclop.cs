@@ -52,7 +52,7 @@ public class Cyclop : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").transform;
         currentState = CyclopState.walk;
-        target = new Vector3(160.22f, 85.26f, 0f);
+        target = new Vector3(160.83f, 100.5544f, 0f);
         float rand = Random.Range(0, 3);
         StartTime = rand;
         TimeBtwShoot = StartTime;
@@ -114,9 +114,9 @@ public class Cyclop : MonoBehaviour
 
         if (numberOfProjectiles >= 10)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 79f, 0f), 5 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 93.89f, 0f), 5 * Time.deltaTime);
             currentState = CyclopState.stun;
-            if (transform.position.y == 79f)
+            if (transform.position.y == 93.89f)
             {
                 anim.SetBool("walk", false);
             }
@@ -127,13 +127,13 @@ public class Cyclop : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             anim.SetBool("walk", true);
-            if (transform.position.x == 160.22f)
+            if (transform.position.x == 160.83f)
             {
-                target = new Vector3(147.15f, 85.26f, 0f);
+                target = new Vector3(146.39f, 100.37f, 0f);
             }
-            else if (transform.position.x == 147.15f)
+            else if (transform.position.x == 146.39f)
             {
-                target = new Vector3(160.22f, 85.26f, 0f);
+                target = new Vector3(160.83f, 100.5544f, 0f);
             }
 
             if (TimeBtwShoot <= 0)
@@ -163,13 +163,13 @@ public class Cyclop : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, target, speed * 1.25f * Time.deltaTime);
             anim.SetBool("walk", true);
-            if (transform.position.x == 160.22f)
+            if (transform.position.x == 160.83f)
             {
-                target = new Vector3(147.15f, 85.26f, 0f);
+                target = new Vector3(146.39f, 100.37f, 0f);
             }
-            else if (transform.position.x == 147.15f)
+            else if (transform.position.x == 146.39f)
             {
-                target = new Vector3(160.22f, 85.26f, 0f);
+                target = new Vector3(160.83f, 100.5544f, 0f);
             }
 
             if (TimeBtwShoot <= 0)
@@ -219,7 +219,7 @@ public class Cyclop : MonoBehaviour
         yield return new WaitForSeconds(5f);
         numberOfProjectiles = 0;
         currentState = CyclopState.walk;
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(153.02f, 85.26f, 0f), 5 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(153.62f, 100.37f, 0f), 5 * Time.deltaTime);
     }
     IEnumerator backFromSlowMo()
     {
