@@ -29,9 +29,10 @@ public class chest : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 playChestAudio = true;
-                int rand1 = Random.Range(1, 5);
-                int rand2 = Random.Range(1, 5);
+                int rand1 = Random.Range(5, 11);
+                int rand2 = Random.Range(5, 11);
                 int rand3 = Random.Range(0, 5);
+                int rand4 = Random.Range(0, 5);
                 for (int i = 0; i < rand1; i++)
                 {
                     Instantiate(xpBall, transform.position, Quaternion.identity);
@@ -42,7 +43,7 @@ public class chest : MonoBehaviour
                 }
 
                 Instantiate(ForgeItems[rand3], transform.position, Quaternion.identity);
-
+                Instantiate(ForgeItems[rand4], transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

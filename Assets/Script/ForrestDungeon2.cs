@@ -71,7 +71,7 @@ public class ForrestDungeon2 : MonoBehaviour
         {
 
             waves[currentWave].SetActive(true);
-            if (SpawnedLogs >= 15)
+            if (SpawnedLogs >= 10)
             {
                 instantiateEnemys = false;
                 currentWave++;
