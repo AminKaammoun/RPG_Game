@@ -10,13 +10,15 @@ public class ForrestDungeon1 : MonoBehaviour
     public GameObject worm;
     public GameObject[] waves;
     public GameObject goldKey;
+    public GameObject door;
 
 
-    [SerializeField] public GameObject closer;
+    public GameObject closer;
+    public GameObject closer2;
 
     public static bool isclosed = false;
-    public static bool DunLvl2Clear = false;
-    public static bool DunLvl3Clear = false;
+    public static bool wavesAreCleared = false;
+
     private bool wormIsBeaten = false;
     private bool instantiateEnemys = false;
     private int currentWave = 0;
@@ -24,7 +26,7 @@ public class ForrestDungeon1 : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource musicSource;
     public AudioClip dunSound;
-    public AudioClip forestSound;
+    public AudioClip forestSound; 
     public AudioClip dunMusic;
     public AudioClip forestMusic;
     public AudioClip fightMusic;
@@ -42,6 +44,7 @@ public class ForrestDungeon1 : MonoBehaviour
         {
             wormIsBeaten = true;
             closer.SetActive(false);
+            closer2.SetActive(false);
         }
         else
         {
@@ -53,31 +56,31 @@ public class ForrestDungeon1 : MonoBehaviour
         GameObject[] logs = GameObject.FindGameObjectsWithTag("log");
         if (logs.Length == 0 && currentWave != 0 && currentWave < 2)
         {
-            
+
             StartCoroutine(resetWave());
         }
-       if(currentWave == 2 && logs.Length == 1)
+        if (currentWave == 2 && logs.Length == 1)
         {
             pos = logs[0].transform.position;
-            
+
         }
-        if(currentWave == 2 && logs.Length == 0)
+        if (currentWave == 2 && logs.Length == 0)
         {
             Instantiate(goldKey, pos, Quaternion.identity);
             currentWave = 0;
         }
 
-       
+
         if (instantiateEnemys)
         {
-            
+
             waves[currentWave].SetActive(true);
-            if (SpawnedLogs >= 4)
+            if (SpawnedLogs >= 10)
             {
                 instantiateEnemys = false;
                 currentWave++;
                 SpawnedLogs = 0;
-             
+
             }
 
             if (TimeBtwSpawn <= 0)
@@ -164,11 +167,15 @@ public class ForrestDungeon1 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp2")
             {
-                GameController.changeBGM(fightMusic, musicSource);
                 player.transform.position = new Vector3(89.67f, 53.78f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2;
-                instantiateEnemys = true;
-
+                if (!wavesAreCleared)
+                {
+                    closer2.SetActive(true);
+                    GameController.changeBGM(fightMusic, musicSource);
+                    instantiateEnemys = true;
+                    wavesAreCleared = true;
+                }
             }
         }
         else if (GameController.currentMap == PlayerMap.forrestDungeon2)
@@ -181,7 +188,7 @@ public class ForrestDungeon1 : MonoBehaviour
 
         }
         //Teleport from dun 1 floor 2 to floor 3
-       
+
 
         if (GameController.currentMap == PlayerMap.forrestDungeon2)
         {
@@ -212,20 +219,19 @@ public class ForrestDungeon1 : MonoBehaviour
     }
     public void resetDun1()
     {
-        ForrestDungeon1.DunLvl2Clear = false;
-        ForrestDungeon1.DunLvl3Clear = false;
-        GameController.silverKeyDoorReset = true;
+        wavesAreCleared = false;
+        door.SetActive(true);
+        waves[0].SetActive(false);
+        waves[1].SetActive(false);
         GameController.goldKeyDoorReset = true;
-        KeyInstantiate.silverkeyNumbers = 0;
         KeyInstantiate.goldkeyNumbers = 0;
         Worm.isdead = false;
-       
         Door2.goldKeyObtained = false;
     }
 
     IEnumerator resetWave()
     {
-       
+
         yield return new WaitForSeconds(2f);
         instantiateEnemys = true;
     }

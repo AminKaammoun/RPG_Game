@@ -6,7 +6,7 @@ public class Door2 : MonoBehaviour
 {
     public bool playerInRange;
     public static bool goldKeyObtained;
-
+ 
     public GameObject key;
     public GameObject player;
     public GameObject goldKeyCanvas;
@@ -22,11 +22,12 @@ public class Door2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (!goldKeyObtained)
         {
             goldKeyCanvas.SetActive(false);
         }
-       
+
         if (playerInRange && goldKeyObtained)
         {
             key.SetActive(true);
@@ -35,7 +36,7 @@ public class Door2 : MonoBehaviour
                 this.gameObject.SetActive(false);
                 doorAudio.Play();
                 goldKeyObtained = false;
-
+          
             }
         }
         else

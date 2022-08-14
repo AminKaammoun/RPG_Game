@@ -13,7 +13,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public ItemDataBaseObject database;
 
     public List<InventorySlot> Container = new List<InventorySlot>();
-
+    public List<InventorySlot> GearsContainer = new List<InventorySlot>();
 
     public void OnEnable()
     {
@@ -33,9 +33,11 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
                 return;
             }
           
+
         }
 
         Container.Add(new InventorySlot(database.GetId[_item], _item, _amount));
+
     }
 
 

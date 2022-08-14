@@ -119,6 +119,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         attackGear = PlayerPrefs.GetString("AttackGear");
         defGear = PlayerPrefs.GetString("DefGear");
         beltGear = PlayerPrefs.GetString("BeltGear");
