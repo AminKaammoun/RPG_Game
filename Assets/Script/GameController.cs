@@ -35,9 +35,11 @@ public class GameController : MonoBehaviour
 
     public GameObject inventory;
     public GameObject[] leafSpawner;
+    public GameObject[] crowSpawner;
     public GameObject alert;
     public GameObject[] panel;
     public GameObject leaf;
+    public GameObject crow;
     public GameObject dashUi;
     public GameObject player;
     public GameObject loadingPanel;
@@ -102,6 +104,9 @@ public class GameController : MonoBehaviour
 
     private float startLoadingTime = 0.35f;
     public float TimeBtwLoading;
+
+    private float TimeBtwCrows;
+    private float startCrowTime = 5f;
 
     public static int coins;
     public static bool showAlert = false;
@@ -237,7 +242,9 @@ public class GameController : MonoBehaviour
         level = new LevelSystem(PlayerPrefs.GetInt("LEVEL"), OnLevelUp);
         level.experience = PlayerPrefs.GetInt("XP");
         currentTime = startTime;
+        TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
+        crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         currentMap = PlayerMap.forrest;
 
     }
@@ -587,8 +594,19 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.beach)
         {
-            CameraMovement.minPosition = new Vector2(76.55f, 100f);
-            CameraMovement.maxPosition = new Vector2(160f, 146.94f);
+            CameraMovement.minPosition = new Vector2(78.23f, 100f);
+            CameraMovement.maxPosition = new Vector2(175.6f, 146.94f);
+
+            if(TimeBtwCrows <= 0)
+            {
+                int rand = Random.Range(0, 2);
+                Instantiate(crow, crowSpawner[rand].transform.position, Quaternion.identity);
+                TimeBtwCrows = startCrowTime;
+            }
+            else
+            {
+                TimeBtwCrows -= Time.deltaTime;
+            }
         }
         else if (currentMap == PlayerMap.beachDun)
         {
