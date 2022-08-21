@@ -67,7 +67,8 @@ public class Dialog : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
-            if(this.gameObject.tag == "blacksmith")
+            ArrowSpawn.canShoot = false;
+            if (this.gameObject.tag == "blacksmith")
             {
                 animator.SetBool("dialog", true);
             }
@@ -78,6 +79,8 @@ public class Dialog : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            PlayerMovements.changeCursor = true;
+            ArrowSpawn.canShoot = true;
             playerInRange = false;
             cursorHotspot = new Vector2(0, -1);
             Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);

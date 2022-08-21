@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
     public float TimeBtwLoading;
 
     private float TimeBtwCrows;
-    private float startCrowTime = 5f;
+    private float startCrowTime = 2f;
 
     public static int coins;
     public static bool showAlert = false;
@@ -245,7 +245,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.forrest;
+        currentMap = PlayerMap.beach;
 
     }
 
@@ -272,6 +272,7 @@ public class GameController : MonoBehaviour
         if (wantTp)
         {
             tpPanel.SetActive(true);
+            ArrowSpawn.canShoot = false;
         }
 
         panel = GameObject.FindGameObjectsWithTag("panel");
@@ -306,6 +307,8 @@ public class GameController : MonoBehaviour
     }
     public void closeInventory()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         Inventory.description = "";
         inventory.SetActive(false);
         Inv.save();
@@ -320,6 +323,7 @@ public class GameController : MonoBehaviour
     }
     public void closeAlertButton()
     {
+        
         alert.SetActive(false);
         showAlert = false;
         cursorHotspot = new Vector2(0, -1);
@@ -328,6 +332,8 @@ public class GameController : MonoBehaviour
 
     public void closeTpPanel()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         tpPanel.SetActive(false);
         wantTp = false;
         cursorHotspot = new Vector2(0, -1);
@@ -336,6 +342,8 @@ public class GameController : MonoBehaviour
 
     public void closeDun1Pnanel()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         Dun1Panel.SetActive(false);
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
@@ -343,18 +351,24 @@ public class GameController : MonoBehaviour
 
     public void closeForestBlackSmithPanel()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         BlackSmithPanel.SetActive(false);
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
     public void closeDun2Panel()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         Dun2Panel.SetActive(false);
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
     public void VillageTpButton()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         changeBGM(villageMusic, musicSource);
         changeBGS(villageSound, audioSource);
         musicSource.loop = true;
@@ -369,6 +383,8 @@ public class GameController : MonoBehaviour
     }
     public void ForrestTpButton()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         changeBGM(forestMusic, musicSource);
         if (time.hour >= 5 && time.hour <= 20)
         {
@@ -391,6 +407,8 @@ public class GameController : MonoBehaviour
     }
     public void BeachTpButton()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         changeBGM(beachMusic, musicSource);
         changeBGS(beachAudio, audioSource);
         musicSource.loop = false;
@@ -407,16 +425,19 @@ public class GameController : MonoBehaviour
     public void potionShop()
     {
         PotionShopPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
     }
     public void ForestBlackSmithPanel()
     {
         BlackSmithPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
     }
     public void closePanels()
     {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
         PotionShopPanel.SetActive(false);
-        cursorHotspot = new Vector2(0, -1);
-        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+        
     }
     public void OnLevelUp()
     {
@@ -518,6 +539,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            ArrowSpawn.canShoot = false;
             inventory.SetActive(true);
             Inv.load();
             PlayerMovements.invIsOpen = true;
@@ -599,7 +621,7 @@ public class GameController : MonoBehaviour
 
             if(TimeBtwCrows <= 0)
             {
-                int rand = Random.Range(0, 2);
+                int rand = Random.Range(0, 6);
                 Instantiate(crow, crowSpawner[rand].transform.position, Quaternion.identity);
                 TimeBtwCrows = startCrowTime;
             }
@@ -611,7 +633,7 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.beachDun)
         {
             CameraMovement.minPosition = new Vector2(94f, 172.13f);
-            CameraMovement.maxPosition = new Vector2(117.22f, 173.57f);
+            CameraMovement.maxPosition = new Vector2(117.22f, 172.46f);
         }
         else if (currentMap == PlayerMap.beachDun1)
         {
@@ -625,8 +647,8 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.beachDun3)
         {
-            CameraMovement.minPosition = new Vector2(78.14f, 210.04f);
-            CameraMovement.maxPosition = new Vector2(117.71f, 211.46f);
+            CameraMovement.minPosition = new Vector2(75.63f, 211.02f);
+            CameraMovement.maxPosition = new Vector2(118.17f, 225.61f);
         }
     }
     public static void changeBGS(AudioClip music, AudioSource source)

@@ -55,12 +55,18 @@ public class ForrestDungeon2 : MonoBehaviour
 
             StartCoroutine(resetWave());
         }
-        if (currentWave == 2 && logs.Length == 1)
+        if (currentWave == 2 && logs.Length + treants.Length == 1)
         {
-            pos = logs[0].transform.position;
-
+            if (logs.Length == 1)
+            {
+                pos = logs[0].transform.position;
+            }
+            else
+            {
+                pos = treants[0].transform.position;
+            }
         }
-        if (currentWave == 2 && logs.Length == 0)
+        if (currentWave == 2 && logs.Length + treants.Length == 0)
         {
             Instantiate(goldKey, pos, Quaternion.identity);
             currentWave = 0;
@@ -121,19 +127,19 @@ public class ForrestDungeon2 : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
 
         //Teleport to dun 2
         if (GameController.currentMap == PlayerMap.forrest)
         {
-            if (collision.CompareTag("Player") )
+            if (collision.CompareTag("Player"))
             {
                 GameController.changeBGS(dunSound, audioSource);
                 GameController.changeBGM(dunMusic, musicSource);
 
                 player.transform.position = new Vector3(153.47f, 50.91f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd;
-                
+
             }
         }
 
@@ -194,7 +200,7 @@ public class ForrestDungeon2 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp3")
             {
-                
+
                 player.transform.position = new Vector3(154.59f, 91.32f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd2;
                 if (!cyclopIsBeaten)
@@ -202,7 +208,7 @@ public class ForrestDungeon2 : MonoBehaviour
                     Instantiate(Cyclop, new Vector3(153.59f, 100.4828f, 0), Quaternion.identity);
                     inFight = true;
                 }
-                
+
             }
         }
         else if (GameController.currentMap == PlayerMap.forrestDungeon2nd2)

@@ -56,7 +56,7 @@ public class PlayerMovements : MonoBehaviour
     public HealthBar healthbar;
     private Vector3 change;
 
-    
+
 
     public GameObject Bow;
     public GameObject HealEffect;
@@ -92,6 +92,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool isSmallSpeeded = false;
     public static bool isBigSpeeded = false;
 
+    public static bool changeCursor = false;
     public static bool healthIsMax = false;
     public static bool isDashButtonDown;
     public static bool canDash = true;
@@ -127,7 +128,7 @@ public class PlayerMovements : MonoBehaviour
 
         health = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
         healthbar.SetMaxHealth(100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp);
-        
+
     }
 
 
@@ -136,7 +137,7 @@ public class PlayerMovements : MonoBehaviour
     {
         healthbar.SetMaxHealth(100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp);
         getStats();
-        
+
         Vector3 add = new Vector3(0f, 2f, 0f);
         xpText.transform.position = transform.position + add;
         if (health >= 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp)
@@ -255,11 +256,13 @@ public class PlayerMovements : MonoBehaviour
         {
             if (Input.GetKeyDown("1"))
             {
+                changeCursor = true;
                 currentWeapon = PlayerWeapon.sword;
                 Bow.SetActive(false);
             }
             else if (Input.GetKeyDown("2"))
             {
+                changeCursor = true;
                 currentWeapon = PlayerWeapon.bow;
                 Bow.SetActive(true);
             }
@@ -421,8 +424,22 @@ public class PlayerMovements : MonoBehaviour
         {
             if (collision.CompareTag("Enemy"))
             {
-                hurtAudio.Play();
-                TakeDamage(10);
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    damagePlayer = false;
+                    canBeDamaged = false;
+                    hurtAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    Enemy.attack = 50;
+
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 100;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
             }
             else if (collision.CompareTag("BringerOfDeath"))
             {
@@ -437,7 +454,7 @@ public class PlayerMovements : MonoBehaviour
                     Enemy.attack = 30;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     damagePlayer = false;
-                    
+                    canBeDamaged = false;
                     hurtAudio.Play();
                     islogDamaged = true;
                     float attack = Enemy.attack;
@@ -474,7 +491,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 0;
                     Enemy.attack = 60;
                     damagePlayer = false;
-                    
+                    canBeDamaged = false;
                     hurtAudio.Play();
                     isTreantDamaged = true;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -524,21 +541,54 @@ public class PlayerMovements : MonoBehaviour
             }
             else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
             {
+                damagePlayer = false;
+                canBeDamaged = false;
                 hurtAudio.Play();
-                TakeDamage(10);
+                StartCoroutine(backAfterHit());
+                rend.color = colorToTurnTo;
+                StartCoroutine(returnColor());
+                Enemy.attack = 50;
+
+                var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                float attack = 50;
+                float damage = attack * (100 / (100 + PlayerMovements.defence));
+                TakeDamage((int)damage);
             }
             else if (collision.CompareTag("pusher"))
             {
+                damagePlayer = false;
+                canBeDamaged = false;
                 hurtAudio.Play();
-                TakeDamage(10);
+                StartCoroutine(backAfterHit());
                 rend.color = colorToTurnTo;
                 StartCoroutine(returnColor());
+                Enemy.attack = 100;
+
+                var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                float attack = 100;
+                float damage = attack * (100 / (100 + PlayerMovements.defence));
+                TakeDamage((int)damage);
+
             }
             else if (collision.CompareTag("crab"))
             {
-                hurtAudio.Play();
-                TakeDamage(10);
-                isCrabDamaged = true;
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    damagePlayer = false;
+                    canBeDamaged = false;
+                    hurtAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    Enemy.attack = 80;
+                    isCrabDamaged = true;
+
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 100;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
             }
         }
         else
@@ -576,6 +626,10 @@ public class PlayerMovements : MonoBehaviour
                 hurtWithShieldAudio.Play();
             }
             else if (collision.CompareTag("pusher"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("crab"))
             {
                 hurtWithShieldAudio.Play();
             }
@@ -624,9 +678,9 @@ public class PlayerMovements : MonoBehaviour
         }
         if (collision.CompareTag("Leaf"))
         {
-            if(collision.gameObject.name == "AutumnLeaf(Clone)")
+            if (collision.gameObject.name == "AutumnLeaf(Clone)")
             {
-                inventory.AddItem(AutumnLeaf,1);
+                inventory.AddItem(AutumnLeaf, 1);
                 inventory.save();
             }
             if (collision.gameObject.name == "IceLeaf(Clone)")

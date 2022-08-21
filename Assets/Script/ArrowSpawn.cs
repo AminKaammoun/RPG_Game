@@ -11,6 +11,8 @@ public class ArrowSpawn : MonoBehaviour
 
     public AudioSource BowAudio;
 
+    public static bool canShoot = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class ArrowSpawn : MonoBehaviour
 
         if (currentTime <= 0 && PlayerMovements.invIsOpen == false)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && canShoot)
             {
                 BowAudio.Play();
                 Instantiate(arrows, bow.transform.position, bow.transform.rotation);
