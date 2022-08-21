@@ -12,6 +12,8 @@ public class beachDungeon1 : MonoBehaviour
     private GameObject[] crabs;
     public GameObject goldKey;
     public GameObject[] waves;
+    public GameObject wall;
+    public GameObject wall1;
 
     public GameObject WaterFallSound;
 
@@ -54,13 +56,14 @@ public class beachDungeon1 : MonoBehaviour
             if (slimes.Length == 1)
             {
                 pos = slimes[0].transform.position;
-            }else
+            }
+            else
             {
                 pos = crabs[0].transform.position;
             }
         }
-       
-        if (currentWave == 3 && slimes.Length + crabs.Length ==  0)
+
+        if (currentWave == 3 && slimes.Length + crabs.Length == 0)
         {
             Instantiate(goldKey, pos, Quaternion.identity);
             currentWave = 0;
@@ -71,7 +74,7 @@ public class beachDungeon1 : MonoBehaviour
         {
 
             waves[currentWave].SetActive(true);
-            if (SpawnedLogs >= 4)
+            if (SpawnedLogs >= 15)
             {
                 instantiateEnemys = false;
                 currentWave++;
@@ -172,12 +175,7 @@ public class beachDungeon1 : MonoBehaviour
                 traps.SetActive(false);
                 WaterFallSound.SetActive(true);
                 player.transform.position = new Vector3(86.9f, 192.55f, 0f);
-                //Instantiate(Slime, new Vector3(81.04f, 194.61f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(85.93f, 202.2f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(89.37f, 199.66f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(80.08f, 198.3104f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(94.28f, 194.5f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(94.07f, 201.2f, 0), Quaternion.identity);
+
                 GameController.currentMap = PlayerMap.beachDun2;
             }
         }
@@ -199,15 +197,8 @@ public class beachDungeon1 : MonoBehaviour
             {
                 WaterFallSound.SetActive(false);
                 player.transform.position = new Vector3(87.5f, 205.63f, 0f);
-                //Instantiate(Slime, new Vector3(111.4789f, 213.8602f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(110.5343f, 207.5034f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(92.76656f, 208.0395f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(82.70934f, 213.4076f, 0), Quaternion.identity);
-                //Instantiate(Slime, new Vector3(81.70198f, 209.7529f, 0), Quaternion.identity);
+                wall.SetActive(true);
 
-                //Instantiate(crab, new Vector3(103.75f, 214.3708f, 0), Quaternion.identity);
-                //Instantiate(crab, new Vector3(92.35809f, 214.1154f, 0), Quaternion.identity);
-                //Instantiate(crab, new Vector3(104.8214f, 207.1184f, 0), Quaternion.identity);
 
                 if (!wavesAreCleared)
                 {
@@ -230,6 +221,27 @@ public class beachDungeon1 : MonoBehaviour
                 GameController.currentMap = PlayerMap.beachDun2;
             }
         }
+       
+        //Teleport from Floor 3 to Floor 4
+        if (GameController.currentMap == PlayerMap.beachDun3)
+        {
+            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp6")
+            {
+                wall1.SetActive(true);
+                player.transform.position = new Vector3(85.52f, 233.95f, 0f);
+                GameController.currentMap = PlayerMap.beachDun4;
+            }
+
+        }
+        else if (GameController.currentMap == PlayerMap.beachDun4)
+        {
+            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp6")
+            {
+                
+                player.transform.position = new Vector3(85.52f, 231.37f, 0f);
+                GameController.currentMap = PlayerMap.beachDun3;
+            }
+        }
     }
     public void resetDun1()
     {
@@ -238,8 +250,10 @@ public class beachDungeon1 : MonoBehaviour
         GameController.goldKeyDoorReset = true;
         KeyInstantiate.goldkeyNumbers = 0;
         //cyclopIsBeaten = false;
-        //waves[0].SetActive(false);
-        //waves[1].SetActive(false);
+        waves[0].SetActive(false);
+        waves[1].SetActive(false);
+        waves[2].SetActive(false);
+
         Door2.goldKeyObtained = false;
     }
     IEnumerator resetWave()

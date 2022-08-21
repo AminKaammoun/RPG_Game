@@ -29,7 +29,8 @@ public class smallHealthPostion : MonoBehaviour
     {
         if (!PlayerMovements.healthIsMax)
         {
-
+            ArrowSpawn.canShoot = true;
+            PlayerMovements.changeCursor = true;
             PlayerMovements.invIsOpen = false;
             PlayerMovements.isHealed = true;
 

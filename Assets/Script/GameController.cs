@@ -17,7 +17,8 @@ public enum PlayerMap
     beachDun,
     beachDun1,
     beachDun2,
-    beachDun3
+    beachDun3,
+    beachDun4
 
 
 }
@@ -649,6 +650,11 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(75.63f, 211.02f);
             CameraMovement.maxPosition = new Vector2(118.17f, 225.61f);
+        }
+        else if (currentMap == PlayerMap.beachDun4)
+        {
+            CameraMovement.minPosition = new Vector2(73.44f, 239f);
+            CameraMovement.maxPosition = new Vector2(97.34f, 240.53f);
         }
     }
     public static void changeBGS(AudioClip music, AudioSource source)

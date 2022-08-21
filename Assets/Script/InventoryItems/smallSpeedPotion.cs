@@ -26,7 +26,8 @@ public class smallSpeedPotion : MonoBehaviour
     {
         if (!PlayerMovements.PotionInUse)
         {
-
+            ArrowSpawn.canShoot = true;
+            PlayerMovements.changeCursor = true;
             PlayerMovements.invIsOpen = false;
             PlayerMovements.isSmallSpeeded = true;
             PlayerMovements.PotionInUse = true;

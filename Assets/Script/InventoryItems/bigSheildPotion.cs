@@ -27,7 +27,8 @@ public class bigSheildPotion : MonoBehaviour
     {
         if (!PlayerMovements.PotionInUse)
         {
-
+            ArrowSpawn.canShoot = true;
+            PlayerMovements.changeCursor = true;
             PlayerMovements.invIsOpen = false;
             PlayerMovements.isBigSheilded = true;
             PlayerMovements.PotionInUse = true;

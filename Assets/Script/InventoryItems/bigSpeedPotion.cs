@@ -27,7 +27,8 @@ public class bigSpeedPotion : MonoBehaviour
     {
         if (!PlayerMovements.PotionInUse)
         {
-
+            ArrowSpawn.canShoot = true;
+            PlayerMovements.changeCursor = true;
             PlayerMovements.invIsOpen = false;
             PlayerMovements.isBigSpeeded = true;
             PlayerMovements.PotionInUse = true;

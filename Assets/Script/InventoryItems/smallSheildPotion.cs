@@ -27,6 +27,8 @@ public class smallSheildPotion : MonoBehaviour
     {
         if (!PlayerMovements.PotionInUse)
         {
+            ArrowSpawn.canShoot = true;
+            PlayerMovements.changeCursor = true;
             PlayerMovements.invIsOpen = false;
             PlayerMovements.isSmallSheilded = true;
             PlayerMovements.PotionInUse = true;
