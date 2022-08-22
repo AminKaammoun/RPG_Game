@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -552990318574578949}
   - component: {fileID: -4525395657174754966}
   - component: {fileID: 843984140272732868}
+  - component: {fileID: 8884877736542002220}
   m_Layer: 0
   m_Name: arrow
   m_TagString: Arrow
@@ -314,3 +315,21 @@ MonoBehaviour:
   dashLayerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &8884877736542002220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172310720260582204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 4
+  knockTime: 0.25
+  otherTag: bat
+  dashLayerMask:
+    serializedVersion: 2
+    m_Bits: 0

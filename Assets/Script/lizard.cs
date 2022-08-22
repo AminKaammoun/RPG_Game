@@ -22,9 +22,11 @@ public class lizard : MonoBehaviour
 
     public Animator anim;
     private SpriteRenderer Lizard;
-
+    private float TimeBtwBatSpawn;
 
     private Vector3 target;
+
+    public GameObject bat;
 
     // Start is called before the first frame update
     void Start()
@@ -32,15 +34,42 @@ public class lizard : MonoBehaviour
         currentState = LizardState.walk;
         target = new Vector3(92.54f, 245.32f, 0f);
         Lizard = GetComponent<SpriteRenderer>();
+      
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (TimeBtwBatSpawn <= 0)
+        {
+            int rand = Random.Range(0, 4);
+            switch (rand)
+            {
+                case 0:
+                    Instantiate(bat, new Vector3(76.54f, 241.26f, 0f), Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(bat, new Vector3(76.54f, 236.21f, 0f), Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(bat, new Vector3(94.51f, 236.21f, 0f), Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(bat, new Vector3(94.51f, 241.16f, 0f), Quaternion.identity);
+                    break;
+            }
+            int rand1 = Random.Range(1, 5);
+            TimeBtwBatSpawn = rand1;
+        }
+        else
+        {
+            TimeBtwBatSpawn -= Time.deltaTime;
+        }
+
         if (currentState == LizardState.walk)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            //anim.SetBool("walk", true);
+
             if (transform.position.x == 92.54f)
             {
                 target = new Vector3(78.53f, 245.32f, 0f);
@@ -52,17 +81,6 @@ public class lizard : MonoBehaviour
                 Lizard.flipX = false;
             }
 
-            /* if (TimeBtwShoot <= 0)
-             {
-                 Instantiate(Projectile, transform.position, Quaternion.identity);
-                 numberOfProjectiles++;
-                 StartTime = Random.Range(0, 3);
-                 TimeBtwShoot = StartTime;
-             }
-             else
-             {
-                 TimeBtwShoot -= Time.deltaTime;
-             }*/
         }
     }
 }

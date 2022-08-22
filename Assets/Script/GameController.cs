@@ -249,7 +249,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.beach;
+        currentMap = PlayerMap.beachDun4;
 
     }
 
@@ -673,6 +673,8 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(73.44f, 239f);
             CameraMovement.maxPosition = new Vector2(97.34f, 240.53f);
+
+           
         }
     }
     public static void changeBGS(AudioClip music, AudioSource source)

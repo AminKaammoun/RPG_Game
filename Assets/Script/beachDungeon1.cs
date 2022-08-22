@@ -231,6 +231,7 @@ public class beachDungeon1 : MonoBehaviour
                 wall1.SetActive(true);
                 player.transform.position = new Vector3(85.52f, 233.95f, 0f);
                 GameController.currentMap = PlayerMap.beachDun4;
+
             }
 
         }
