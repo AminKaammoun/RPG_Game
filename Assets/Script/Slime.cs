@@ -16,6 +16,8 @@ public class Slime : Enemy
     public GameObject xp;
     public GameObject coin;
     public GameObject damageText;
+    public GameObject[] splash;
+    public GameObject splashBlood;
 
     public AudioSource hurtAudio;
     public AudioSource BowHurtAudio;
@@ -144,10 +146,15 @@ public class Slime : Enemy
                     }
 
                     Destroy(gameObject, 5f);
-
+                    var BloodSplsh = Instantiate(splashBlood, transform.position, Quaternion.identity);
+                    Destroy(BloodSplsh, 1f);
                 }
                 else
                 {
+                    int rand = Random.Range(0, 10);
+                    var splsh = Instantiate(splash[rand], transform.position, Quaternion.identity);
+                    Destroy(splsh, 5f);
+                   
                     isHurt = true;
                     animator.SetBool("hurt", true);
                     StartCoroutine(waitAfterHurt());

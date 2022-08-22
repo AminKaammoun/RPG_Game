@@ -56,7 +56,7 @@ public class PlayerMovements : MonoBehaviour
     public HealthBar healthbar;
     private Vector3 change;
 
-
+    public GameObject dashSmoke;
 
     public GameObject Bow;
     public GameObject HealEffect;
@@ -306,7 +306,9 @@ public class PlayerMovements : MonoBehaviour
             isDashButtonDown = true;
             GameController.dashed = true;
             dashAudio.Play();
-
+            Vector3 adds = new Vector3(0f, -0.5f, 0f);
+            var dashSmokes = Instantiate(dashSmoke, transform.position + adds, Quaternion.identity);
+            Destroy(dashSmokes, 0.5f);
         }
     }
 

@@ -66,7 +66,7 @@ public class Worm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         player = GameObject.FindWithTag("Player").transform;
         board.SetActive(true);
         currentState = WormState.walk;
@@ -119,6 +119,7 @@ public class Worm : MonoBehaviour
             currentState = WormState.dead;
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
+            GameController.enemyBeaten = true;
             FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             Destroy(this.gameObject, 1.5f);
             Instantiate(chest, transform.position, Quaternion.identity);
@@ -271,6 +272,7 @@ public class Worm : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Time.timeScale = 1f;
+        
     }
     IEnumerator backToWalk()
     {

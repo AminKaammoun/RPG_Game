@@ -20,6 +20,9 @@ public class crab : Enemy
     public GameObject coin;
     public GameObject xp;
     public GameObject damageText;
+    public GameObject[] splash;
+    public GameObject[] part;
+    public GameObject splashBlood;
 
     private bool canBeDamaged = true;
 
@@ -128,8 +131,12 @@ public class crab : Enemy
 
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);
                 Instantiate(damageText, transform.position + add, Quaternion.identity);
-
+                int rand1 = Random.Range(0, 10);
+                var splsh = Instantiate(splash[rand1], transform.position, Quaternion.identity);
+                Destroy(splsh, 5f);
                 canBeDamaged = false;
+                
+               
                 if (health <= 0)
                 {
                     canBeDamaged = false;
@@ -147,7 +154,12 @@ public class crab : Enemy
                     }
 
                     Destroy(gameObject, 5f);
-
+                    Instantiate(part[0], transform.position, Quaternion.identity);
+                    Instantiate(part[1], transform.position, Quaternion.identity);
+                    Instantiate(part[2], transform.position, Quaternion.identity);
+                    Instantiate(part[3], transform.position, Quaternion.identity);
+                    var BloodSplsh = Instantiate(splashBlood, transform.position, Quaternion.identity);
+                    Destroy(BloodSplsh, 1f);
                 }
                 else
                 {

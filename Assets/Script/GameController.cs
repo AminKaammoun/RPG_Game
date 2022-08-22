@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
     public float TimeBtwLeafSpawn;
     public float StartTime = 0.25f;
 
+    public Camera mainCamera;
+
     [SerializeField] private Texture2D NormalCursor;
 
     public GameObject inventory;
@@ -112,6 +114,7 @@ public class GameController : MonoBehaviour
     public static int coins;
     public static bool showAlert = false;
     public static bool returnDunMusic = false;
+    public static bool enemyBeaten = false;
 
     private Vector2 cursorHotspot;
 
@@ -125,7 +128,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         attackGear = PlayerPrefs.GetString("AttackGear");
         defGear = PlayerPrefs.GetString("DefGear");
         beltGear = PlayerPrefs.GetString("BeltGear");
@@ -246,7 +249,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.forrest;
+        currentMap = PlayerMap.beach;
 
     }
 
@@ -275,7 +278,12 @@ public class GameController : MonoBehaviour
             tpPanel.SetActive(true);
             ArrowSpawn.canShoot = false;
         }
-
+        if (enemyBeaten)
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
+            
+            StartCoroutine(backFromSlowMo());
+        }
         panel = GameObject.FindGameObjectsWithTag("panel");
         InventoryControl();
         checkCurrentMap();
@@ -301,7 +309,7 @@ public class GameController : MonoBehaviour
 
         if (goldKeyDoorReset)
         {
-            
+
             forestDoor3.SetActive(true);
             goldKeyDoorReset = false;
         }
@@ -324,7 +332,7 @@ public class GameController : MonoBehaviour
     }
     public void closeAlertButton()
     {
-        
+
         alert.SetActive(false);
         showAlert = false;
         cursorHotspot = new Vector2(0, -1);
@@ -438,7 +446,7 @@ public class GameController : MonoBehaviour
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
         PotionShopPanel.SetActive(false);
-        
+
     }
     public void OnLevelUp()
     {
@@ -474,7 +482,12 @@ public class GameController : MonoBehaviour
         theBeach.SetActive(false);
     }
 
-
+    IEnumerator backFromSlowMo()
+    {
+        yield return new WaitForSeconds(1f);
+        mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 8, 4f * Time.deltaTime);
+        enemyBeaten = false;
+    }
     public void updateLevelStats()
     {
         lvl.text = "Lv. " + level.currentLevel;
@@ -587,12 +600,17 @@ public class GameController : MonoBehaviour
             CameraMovement.maxPosition = new Vector2(200f, 66.66f);
             CameraMovement.minPosition = new Vector2(0f, 59.27f);
         }
-        else if (currentMap == PlayerMap.forrestDungeon3)
+        else if (currentMap == PlayerMap.forrestDungeon3 && !enemyBeaten)
         {
             CameraMovement.maxPosition = new Vector2(200f, 80.28f);
             CameraMovement.minPosition = new Vector2(0f, 80.21f);
         }
-       
+        else if (currentMap == PlayerMap.forrestDungeon3 && enemyBeaten)
+        {
+            CameraMovement.maxPosition = new Vector2(200f, 76.77f);
+            CameraMovement.minPosition = new Vector2(0f, 76.76f);
+        }
+
         else if (currentMap == PlayerMap.Village)
         {
             CameraMovement.maxPosition = new Vector2(10.79f, 2.2f);
@@ -620,7 +638,7 @@ public class GameController : MonoBehaviour
             CameraMovement.minPosition = new Vector2(78.23f, 100f);
             CameraMovement.maxPosition = new Vector2(175.6f, 146.94f);
 
-            if(TimeBtwCrows <= 0)
+            if (TimeBtwCrows <= 0)
             {
                 int rand = Random.Range(0, 6);
                 Instantiate(crow, crowSpawner[rand].transform.position, Quaternion.identity);
