@@ -204,6 +204,7 @@ public class beachDungeon1 : MonoBehaviour
                 {
                     //wall1.SetActive(true);
                     GameController.changeBGM(fightMusic, musicSource);
+                    musicSource.loop = true;
                     wavesAreCleared = true;
                     instantiateEnemys = true;
                 }

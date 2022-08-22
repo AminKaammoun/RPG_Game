@@ -14,6 +14,9 @@ public class Treant : Enemy
     public GameObject coin;
     public GameObject slashEff;
     public GameObject damageText;
+    public GameObject[] grass;
+    public GameObject[] parts;
+    public GameObject smoke;
 
     public AudioSource hurtAudio;
 
@@ -22,7 +25,7 @@ public class Treant : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+
         target = GameObject.FindWithTag("Player").transform;
         rb2D = GetComponent<Rigidbody2D>();
     }
@@ -113,7 +116,12 @@ public class Treant : Enemy
 
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);
                 Instantiate(damageText, transform.position + add, Quaternion.identity);
-
+                Instantiate(grass[0], transform.position, Quaternion.identity);
+                Instantiate(grass[1], transform.position, Quaternion.identity);
+                Instantiate(grass[2], transform.position, Quaternion.identity);
+                Instantiate(grass[3], transform.position, Quaternion.identity);
+                Instantiate(grass[4], transform.position, Quaternion.identity);
+                Instantiate(grass[5], transform.position, Quaternion.identity);
                 canBeDamaged = false;
                 if (health <= 0)
                 {
@@ -132,11 +140,16 @@ public class Treant : Enemy
                     }
 
                     Destroy(gameObject, 5f);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Instantiate(parts[i], transform.position, Quaternion.identity);
+                    }
+                    var smokes = Instantiate(smoke, transform.position, Quaternion.identity);
+                    Destroy(smokes, 0.5f);
 
                 }
                 else
                 {
-
                     treant.material.color = new Color(1, 0.5f, 0.5f, 1);
                     isHurt = true;
                     StartCoroutine(waitAfterHurt());
@@ -158,7 +171,7 @@ public class Treant : Enemy
     {
         yield return new WaitForSeconds(0.25f);
         this.gameObject.SetActive(false);
-       
+
     }
 
 }

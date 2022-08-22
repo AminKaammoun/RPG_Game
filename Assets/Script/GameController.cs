@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
     public XpBar xpBar;
 
     private float currentTime;
-    private float startTime = 5f;
+    private float startTime = 3f;
     public static bool dashed = false;
     public static bool wantTp = false;
 
@@ -246,7 +246,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.beach;
+        currentMap = PlayerMap.forrest;
 
     }
 
