@@ -12,13 +12,14 @@ public class Arrows : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.transform.Translate(Vector2.right * bulletForce * Time.deltaTime);
-        Destroy(gameObject, 5f);
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -430,12 +430,12 @@ public class PlayerMovements : MonoBehaviour
                 {
                     PlayerDamage.num = 0;
                     damagePlayer = false;
-                    canBeDamaged = false;
+
                     hurtAudio.Play();
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                    Enemy.attack = 50;
+                    Enemy.attack = 100;
 
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = 100;
@@ -456,7 +456,7 @@ public class PlayerMovements : MonoBehaviour
                     Enemy.attack = 30;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     damagePlayer = false;
-                    canBeDamaged = false;
+
                     hurtAudio.Play();
                     islogDamaged = true;
                     float attack = Enemy.attack;
@@ -476,9 +476,27 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 1;
                     hurtAudio.Play();
                     isFireBallDamaged = true;
-                    canBeDamaged = false;
+
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Worm.attack;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(backAfterHit());
+                    StartCoroutine(returnColor());
+                }
+            }
+            else if (collision.CompareTag("fireBall1"))
+            {
+                if (damagePlayer)
+                {
+                    damagePlayer = false;
+                    PlayerDamage.num = 0;
+                    hurtAudio.Play();
+                    isFireBallDamaged = true;
+                    Enemy.attack = 40;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = Enemy.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
                     rend.color = colorToTurnTo;
@@ -493,7 +511,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 0;
                     Enemy.attack = 60;
                     damagePlayer = false;
-                    canBeDamaged = false;
+
                     hurtAudio.Play();
                     isTreantDamaged = true;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -512,7 +530,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 2;
                     hurtAudio.Play();
                     isCyclopDamaged = true;
-                    canBeDamaged = false;
+
                     damagePlayer = false;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Cyclop.attack;
@@ -528,7 +546,7 @@ public class PlayerMovements : MonoBehaviour
                 if (damagePlayer)
                 {
                     damagePlayer = false;
-                    canBeDamaged = false;
+
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
@@ -543,34 +561,39 @@ public class PlayerMovements : MonoBehaviour
             }
             else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
             {
-                damagePlayer = false;
-                canBeDamaged = false;
-                hurtAudio.Play();
-                StartCoroutine(backAfterHit());
-                rend.color = colorToTurnTo;
-                StartCoroutine(returnColor());
-                Enemy.attack = 50;
+                if (damagePlayer)
+                {
+                    damagePlayer = false;
 
-                var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                float attack = 50;
-                float damage = attack * (100 / (100 + PlayerMovements.defence));
-                TakeDamage((int)damage);
+                    hurtAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    Enemy.attack = 50;
+
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 50;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
             }
             else if (collision.CompareTag("pusher"))
             {
-                damagePlayer = false;
-                canBeDamaged = false;
-                hurtAudio.Play();
-                StartCoroutine(backAfterHit());
-                rend.color = colorToTurnTo;
-                StartCoroutine(returnColor());
-                Enemy.attack = 100;
+                if (damagePlayer)
+                {
+                    damagePlayer = false;
 
-                var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                float attack = 100;
-                float damage = attack * (100 / (100 + PlayerMovements.defence));
-                TakeDamage((int)damage);
+                    hurtAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    Enemy.attack = 100;
 
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 100;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
             }
             else if (collision.CompareTag("crab"))
             {
@@ -578,7 +601,7 @@ public class PlayerMovements : MonoBehaviour
                 {
                     PlayerDamage.num = 0;
                     damagePlayer = false;
-                    canBeDamaged = false;
+                    
                     hurtAudio.Play();
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;

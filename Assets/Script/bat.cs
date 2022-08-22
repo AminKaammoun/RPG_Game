@@ -11,19 +11,20 @@ public class bat : Enemy
 
     private float TimeBtwMovements = 1f;
     private bool canBeDamaged = true;
+    private bool isHurt = false;
 
-    private SpriteRenderer Bat;
+    public SpriteRenderer Bat;
 
     public GameObject damageText;
    
     public GameObject blood;
+    public AudioSource BowHurtAudio;
 
     Vector3 target;
     // Start is called before the first frame update
     void Start()
     {
 
-        Bat = GetComponent<SpriteRenderer>();
         float randX = Random.Range(76.28f, 94.74f);
         float randY = Random.Range(233.58f, 244.87f);
         target = new Vector3(randX, randY, 0f);
@@ -35,7 +36,12 @@ public class bat : Enemy
     // Update is called once per frame
     void Update()
     {
-       
+        if (isHurt && PlayerMovements.currentWeapon == PlayerWeapon.bow)
+        {
+            BowHurtAudio.Play();
+            isHurt = false;
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         if(TimeBtwMovements <= 0)
         {
@@ -54,7 +60,7 @@ public class bat : Enemy
         if (TimeBtwSpawn <= 0)
         {
             Instantiate(Fireball, transform.position, Quaternion.identity);
-            int rand = Random.Range(2, 6);
+            int rand = Random.Range(2, 5);
             TimeBtwSpawn = rand;
         }
         else
@@ -64,7 +70,7 @@ public class bat : Enemy
     }
     IEnumerator waitAfterDead()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.35f);
         this.gameObject.SetActive(false);
     }
 
@@ -86,8 +92,9 @@ public class bat : Enemy
                 canBeDamaged = false;
                 if (health <= 0)
                 {
+                    animator.SetBool("die", true);
                     canBeDamaged = false;
-                    //isHurt = true;
+                    isHurt = true;
                     int rand = Random.Range(0, 2);
                     Bat.color = new Color(255f, 0f, 0f, 255f);
                     StartCoroutine(waitAfterDead());
@@ -105,7 +112,7 @@ public class bat : Enemy
                 {
 
                     Bat.color = new Color(255f, 0f, 0f, 255f);
-                    //isHurt = true;
+                    isHurt = true;
                     StartCoroutine(waitAfterHurt());
                     currentState = EnemyState.stagger;
 
