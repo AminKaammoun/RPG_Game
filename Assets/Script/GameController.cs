@@ -89,6 +89,7 @@ public class GameController : MonoBehaviour
     public Text XP;
     public Text coinText;
     public Text coinTextPotionShop;
+    public Text coinsToolTipText;
 
     public Text attackValue;
     public Text defValue;
@@ -112,6 +113,7 @@ public class GameController : MonoBehaviour
     private float startCrowTime = 2f;
 
     public static int coins;
+    private int value;
     public static bool showAlert = false;
     public static bool returnDunMusic = false;
     public static bool enemyBeaten = false;
@@ -249,7 +251,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.beachDun4;
+        currentMap = PlayerMap.forrest;
 
     }
 
@@ -268,7 +270,23 @@ public class GameController : MonoBehaviour
 
         }
 
-        coinText.text = coins.ToString();
+        if (coins < 1000000 && coins >= 1000)
+        {
+            value = coins / 1000;
+            coinText.text = value.ToString() + "K";
+        }
+        else if (coins >= 1000000)
+        {
+            value = coins / 1000000;
+            int rest = coins - 1000000 * value;
+            int restInK = rest / 10000;
+            coinText.text = value.ToString() + "." + restInK + "M";
+        }
+        else
+        {
+            coinText.text = coins.ToString();
+        }
+        coinsToolTipText.text = coins.ToString();
 
         updateLevelStats();
         checkIfCanDash();
@@ -281,7 +299,7 @@ public class GameController : MonoBehaviour
         if (enemyBeaten)
         {
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
-            
+
             StartCoroutine(backFromSlowMo());
         }
         panel = GameObject.FindGameObjectsWithTag("panel");
@@ -674,7 +692,7 @@ public class GameController : MonoBehaviour
             CameraMovement.minPosition = new Vector2(73.44f, 239f);
             CameraMovement.maxPosition = new Vector2(97.34f, 240.53f);
 
-           
+
         }
     }
     public static void changeBGS(AudioClip music, AudioSource source)

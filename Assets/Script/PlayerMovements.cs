@@ -71,6 +71,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject smallSlashEffect;
     public GameObject xpText;
     public GameObject xpText1;
+    public GameObject coinText;
+    public GameObject coinText1;
     public GameObject damageText;
 
     public AudioSource dashAudio;
@@ -678,7 +680,15 @@ public class PlayerMovements : MonoBehaviour
         if (collision.CompareTag("coin"))
         {
             collectCoinAudio.Play();
-            GameController.coins++;
+            GameController.coins += 8000;
+            var coinTxt = Instantiate(coinText, transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("coin1"))
+        {
+            collectCoinAudio.Play();
+            GameController.coins += 16000;
+            var coinTxt = Instantiate(coinText1, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
         }
 
