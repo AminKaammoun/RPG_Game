@@ -59,6 +59,8 @@ public class GameController : MonoBehaviour
     public GameObject volume;
     public GameObject ultDirection;
     public GameObject ultSlash;
+    public GameObject ultEffect;
+    public GameObject thunder;
 
     public AudioSource audioSource;
     public AudioSource musicSource;
@@ -353,6 +355,8 @@ public class GameController : MonoBehaviour
                 Time.timeScale = 1f;
                 Time.fixedDeltaTime = 0.02f;
                 Instantiate(ultSlash, player.transform.position, ultDirection.transform.rotation);
+                Instantiate(ultEffect, player.transform.position, ultDirection.transform.rotation);
+                Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
             }
             StartCoroutine(backFromSlowMo());
         }

@@ -6,7 +6,7 @@ public class ultSlash : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float bulletForce = 20f;
-    public GameObject smoke;
+    
 
     // Start is called before the first frame update
     void Start()
