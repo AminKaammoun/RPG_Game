@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 public enum PlayerState
 {
     idle,
@@ -56,6 +57,8 @@ public class PlayerMovements : MonoBehaviour
     public HealthBar healthbar;
     private Vector3 change;
 
+    public Camera mainCamera;
+
     public GameObject dashSmoke;
 
     public GameObject Bow;
@@ -74,6 +77,12 @@ public class PlayerMovements : MonoBehaviour
     public GameObject coinText;
     public GameObject coinText1;
     public GameObject damageText;
+    public GameObject volume;
+    public GameObject teleport_hit;
+    public GameObject brust;
+    public GameObject playerShadow;
+    public GameObject ultDirection;
+   
 
     public AudioSource dashAudio;
     public AudioSource swingAudio;
@@ -84,6 +93,7 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource collectXpAudio;
     public AudioSource levelUpAudio;
     public AudioSource hurtWithShieldAudio;
+    public AudioSource slowMotionSound;
 
 
     public static bool invIsOpen = false;
@@ -302,7 +312,7 @@ public class PlayerMovements : MonoBehaviour
             }
         }
 
-
+        //dash
         if (Input.GetKeyDown(KeyCode.R) && canDash)
         {
             isDashButtonDown = true;
@@ -312,6 +322,28 @@ public class PlayerMovements : MonoBehaviour
             var dashSmokes = Instantiate(dashSmoke, transform.position + adds, Quaternion.identity);
             Destroy(dashSmokes, 0.5f);
         }
+
+        //Ult
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Vector3 adds = new Vector3(0f, 1.5f, 0f); 
+            Instantiate(brust, transform.position, Quaternion.identity);
+            Instantiate(teleport_hit, transform.position + adds, Quaternion.identity);
+            Instantiate(playerShadow, transform.position, Quaternion.identity);
+            slowMotionSound.Play();
+            GameController.ultPressed = true;
+            CameraMovement.longUltShake = true;
+            ultDirection.SetActive(true);
+            Time.timeScale = 0.25f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+            var Volumes = volume.GetComponent<Volume>();
+            if (Volumes.profile.TryGet<ChromaticAberration>(out var chromaticAberration))
+            {
+                chromaticAberration.intensity.value = 1f;
+            }
+        }
+
+       
     }
 
     void FixedUpdate()
@@ -603,7 +635,7 @@ public class PlayerMovements : MonoBehaviour
                 {
                     PlayerDamage.num = 0;
                     damagePlayer = false;
-                    
+
                     hurtAudio.Play();
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;

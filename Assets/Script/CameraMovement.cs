@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
 
     public static bool shake = false;
     public static bool bigShake = false;
+    public static bool longUltShake = false;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -25,6 +26,11 @@ public class CameraMovement : MonoBehaviour
         {
             StartCoroutine(Shake(0.25f));
             bigShake = false;
+        }
+        if (longUltShake)
+        {
+            StartCoroutine(SoftShake(1.5f));
+            longUltShake = false;
         }
         if (transform.position != target.position)
         {
@@ -46,6 +52,21 @@ public class CameraMovement : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             transform.position = orignalPosition + Random.insideUnitSphere;
+
+            yield return null;
+        }
+        transform.position = orignalPosition;
+    }
+
+    public IEnumerator SoftShake(float duration)
+    {
+        Vector3 orignalPosition = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            transform.position = orignalPosition + Random.insideUnitSphere * 0.05f;
 
             yield return null;
         }

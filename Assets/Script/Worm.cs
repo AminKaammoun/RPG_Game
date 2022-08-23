@@ -119,6 +119,7 @@ public class Worm : MonoBehaviour
             currentState = WormState.dead;
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
             GameController.enemyBeaten = true;
             FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             Destroy(this.gameObject, 1.5f);

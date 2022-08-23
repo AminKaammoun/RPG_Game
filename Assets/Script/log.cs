@@ -122,7 +122,7 @@ public class log : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
+        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash"))
         {
             if (canBeDamaged)
             {

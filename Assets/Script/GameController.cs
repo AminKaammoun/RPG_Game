@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 public enum PlayerMap
 {
     Village,
@@ -55,16 +56,22 @@ public class GameController : MonoBehaviour
     public GameObject theBeach;
     public GameObject cockAudio;
     public GameObject BlackSmithPanel;
+    public GameObject volume;
+    public GameObject ultDirection;
+    public GameObject ultSlash;
 
     public AudioSource audioSource;
     public AudioSource musicSource;
+    
+    public AudioSource chestAudio;
+    public AudioSource ultimateSound;
+
     public AudioClip forestAudio;
     public AudioClip forestNightAudio;
     public AudioClip villageSound;
     public AudioClip villageMusic;
     public AudioClip forestMusic;
     public AudioClip dunMusic;
-    public AudioSource chestAudio;
     public AudioClip beachMusic;
     public AudioClip beachAudio;
 
@@ -117,6 +124,8 @@ public class GameController : MonoBehaviour
     public static bool showAlert = false;
     public static bool returnDunMusic = false;
     public static bool enemyBeaten = false;
+    public static bool ultPressed = false;
+    private bool openUltimate = false;
 
     private Vector2 cursorHotspot;
 
@@ -263,7 +272,7 @@ public class GameController : MonoBehaviour
         SetStats();
         Hp.text = PlayerMovements.health.ToString() + "/" + (100 + (PlayerPrefs.GetInt("LEVEL") * 10) + PlayerMovements.BonusHp).ToString();
         resetForestDoors();
-        coinTextPotionShop.text = coins.ToString();
+
         if (coins > PlayerPrefs.GetInt("coins"))
         {
             PlayerPrefs.SetInt("coins", coins);
@@ -274,23 +283,44 @@ public class GameController : MonoBehaviour
         {
             value = coins / 1000;
             coinText.text = value.ToString() + "K";
+            coinTextPotionShop.text = value.ToString() + "K";
         }
         else if (coins >= 1000000)
         {
             value = coins / 1000000;
             int rest = coins - 1000000 * value;
             int restInK = rest / 10000;
-            coinText.text = value.ToString() + "." + restInK + "M";
+            if (restInK < 10)
+            {
+                coinText.text = value.ToString() + "." + "0" + restInK + "M";
+                coinTextPotionShop.text = value.ToString() + "." + "0" + restInK + "M";
+            }
+            else
+            {
+                coinText.text = value.ToString() + "." + restInK + "M";
+                coinTextPotionShop.text = value.ToString() + "." + restInK + "M";
+            }
         }
         else
         {
             coinText.text = coins.ToString();
+            coinTextPotionShop.text = coins.ToString();
         }
         coinsToolTipText.text = coins.ToString();
 
         updateLevelStats();
         checkIfCanDash();
         ControlLoadingPageIfExist();
+
+        if (openUltimate)
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 12, 4f * Time.deltaTime);
+        }
+        else
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 8, 4f * Time.deltaTime);
+        }
+
         if (wantTp)
         {
             tpPanel.SetActive(true);
@@ -299,9 +329,34 @@ public class GameController : MonoBehaviour
         if (enemyBeaten)
         {
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
-
+            var Volumes = volume.GetComponent<Volume>();
+            if (Volumes.profile.TryGet<ChromaticAberration>(out var chromaticAberration))
+            {
+                chromaticAberration.intensity.value = 1f;
+            }
+            if (Volumes.profile.TryGet<LensDistortion>(out var lensDistortions))
+            {
+                lensDistortions.intensity.value = Mathf.Lerp(lensDistortions.intensity.value, 0.5f, 0.5f * Time.deltaTime);
+            }
             StartCoroutine(backFromSlowMo());
         }
+
+        if (ultPressed)
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
+            if (Input.GetMouseButton(0))
+            {
+                ultimateSound.Play();
+                ultPressed = false;
+                ultDirection.SetActive(false);
+                openUltimate = true;
+                Time.timeScale = 1f;
+                Time.fixedDeltaTime = 0.02f;
+                Instantiate(ultSlash, player.transform.position, ultDirection.transform.rotation);
+            }
+            StartCoroutine(backFromSlowMo());
+        }
+
         panel = GameObject.FindGameObjectsWithTag("panel");
         InventoryControl();
         checkCurrentMap();
@@ -503,9 +558,25 @@ public class GameController : MonoBehaviour
     IEnumerator backFromSlowMo()
     {
         yield return new WaitForSeconds(1f);
+        ultDirection.SetActive(false);
         mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 8, 4f * Time.deltaTime);
+        Time.fixedDeltaTime = 0.02f;
+        Time.timeScale = 1;
+        var Volumes = volume.GetComponent<Volume>();
+        if (Volumes.profile.TryGet<ChromaticAberration>(out var chromaticAberration))
+        {
+            chromaticAberration.intensity.value = 0f;
+        }
+        if (Volumes.profile.TryGet<LensDistortion>(out var lensDistortions))
+        {
+            lensDistortions.intensity.value = Mathf.Lerp(lensDistortions.intensity.value, 0f, 0.5f * Time.deltaTime);
+        }
         enemyBeaten = false;
+        ultPressed = false;
+        openUltimate = false;
     }
+
+
     public void updateLevelStats()
     {
         lvl.text = "Lv. " + level.currentLevel;

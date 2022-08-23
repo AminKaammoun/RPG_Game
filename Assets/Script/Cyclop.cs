@@ -80,7 +80,7 @@ public class Cyclop : MonoBehaviour
             CameraMovement.bigShake = true;
             Time.timeScale = 0.5f;
             GameController.enemyBeaten = true;
-            
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
             Destroy(this.gameObject, 1.5f);
             Instantiate(chest, transform.position, Quaternion.identity);
             ForrestDungeon1.isclosed = false;
