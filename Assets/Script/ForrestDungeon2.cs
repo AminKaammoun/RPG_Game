@@ -45,6 +45,10 @@ public class ForrestDungeon2 : MonoBehaviour
         else
         {
             wall.SetActive(false);
+           
+        }
+        if (cyclopIsBeaten)
+        {
             wall1.SetActive(false);
         }
 
@@ -174,6 +178,7 @@ public class ForrestDungeon2 : MonoBehaviour
                 GameController.changeBGM(fightMusic, musicSource);
                 player.transform.position = new Vector3(153.63f, 63.83f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd1;
+               
                 if (!wavesAreCleared)
                 {
                     wall1.SetActive(true);

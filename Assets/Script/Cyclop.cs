@@ -72,9 +72,9 @@ public class Cyclop : MonoBehaviour
                 playDieAudio = false;
             }
             //isdead = true;
-            
+
             statue.isRaged = false;
-           
+
             anim.SetBool("dead", true);
             currentState = CyclopState.dead;
             CameraMovement.bigShake = true;
@@ -194,7 +194,7 @@ public class Cyclop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("hitBox") && currentState == CyclopState.stun)
+        if ((collision.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash")) && currentState == CyclopState.stun)
         {
             isHurt = true;
             CameraMovement.shake = true;

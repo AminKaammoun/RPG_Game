@@ -82,7 +82,7 @@ public class BabyCyclop : Enemy
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
+        if (collision.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash"))
         {
             Vector3 add = new Vector3(0.1f, 0.1f, 0f);
             Instantiate(damage, transform.position + add, Quaternion.identity);

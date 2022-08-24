@@ -33,6 +33,7 @@ public class Worm : MonoBehaviour
     public GameObject board;
     public GameObject slashEff;
     public GameObject damage;
+    public GameObject Blood;
 
     public AudioSource hurtAudio;
     public AudioSource rageAudio;
@@ -66,7 +67,7 @@ public class Worm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         player = GameObject.FindWithTag("Player").transform;
         board.SetActive(true);
         currentState = WormState.walk;
@@ -113,6 +114,7 @@ public class Worm : MonoBehaviour
                 GameController.returnDunMusic = true;
                 playDieAudio = false;
             }
+            Instantiate(Blood, transform.position, Quaternion.identity);
 
             isdead = true;
             anim.SetBool("die", true);
@@ -224,7 +226,7 @@ public class Worm : MonoBehaviour
             else if (transform.position.x == 96.04f)
             {
                 worm.flipX = true;
-                target = new Vector3(83.83f, 83.68695f, 0f); 
+                target = new Vector3(83.83f, 83.68695f, 0f);
             }
 
         }
@@ -273,7 +275,7 @@ public class Worm : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Time.timeScale = 1f;
-        
+
     }
     IEnumerator backToWalk()
     {
@@ -310,7 +312,7 @@ public class Worm : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("hitBox") && currentState == WormState.stun)
+        if ((collision.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash")) && currentState == WormState.stun)
         {
             if (canBeDamaged)
             {

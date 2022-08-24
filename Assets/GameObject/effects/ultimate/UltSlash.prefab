@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8076279145533600035}
   - component: {fileID: 5885336101288872544}
   - component: {fileID: -4579734103428215053}
+  - component: {fileID: -2654451700207612619}
+  - component: {fileID: 661507095558329847}
   m_Layer: 0
   m_Name: UltSlash
   m_TagString: ultSlash
@@ -121,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b092807411a674c95e2b2095eb9e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoke: {fileID: 839359984659950593, guid: 0ba4825e7bba7884a9332dd8c87642f4, type: 3}
 --- !u!50 &8076279145533600035
 Rigidbody2D:
   serializedVersion: 4
@@ -184,6 +185,42 @@ MonoBehaviour:
   thrust: 20
   knockTime: 0.25
   otherTag: log
+  dashLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &-2654451700207612619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044564769304137077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 20
+  knockTime: 0.25
+  otherTag: treant
+  dashLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &661507095558329847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044564769304137077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 20
+  knockTime: 0.25
+  otherTag: babyCyclop
   dashLayerMask:
     serializedVersion: 2
     m_Bits: 0
