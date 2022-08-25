@@ -16,7 +16,7 @@ public class log : Enemy
     public GameObject xp;
     public GameObject coin;
     public GameObject slashEff;
-    public GameObject damageText;
+    public GameObject damage;
     public GameObject[] grass;
     public GameObject[] parts;
     public GameObject smoke;
@@ -126,14 +126,25 @@ public class log : Enemy
         {
             if (canBeDamaged)
             {
-                defence = 300;
-
-                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-                float damage = attack * (100 / (100 + defence));
-                TakeDamage((int)damage);
-
+                if (collision.gameObject.CompareTag("hitBox"))
+                {
+                    damageText.num = 0;
+                    defence = 300;
+                    float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("ultSlash"))
+                {
+                    damageText.num = -1;
+                    defence = 300;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    TakeDamage((int)damage);
+                }
+             
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);
-                Instantiate(damageText, transform.position + add, Quaternion.identity);
+                Instantiate(damage, transform.position + add, Quaternion.identity);
                 Instantiate(grass[0], transform.position, Quaternion.identity);
                 Instantiate(grass[1], transform.position, Quaternion.identity);
                 Instantiate(grass[2], transform.position, Quaternion.identity);

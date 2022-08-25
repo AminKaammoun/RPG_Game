@@ -200,13 +200,25 @@ public class Cyclop : MonoBehaviour
             CameraMovement.shake = true;
             Vector3 add = new Vector3(1.5f, 0.1f, 0f);
             Instantiate(damage, transform.position + add, Quaternion.identity);
-            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-            float damages = attack * (100 / (100 + defence));
-            health -= (int)damages;
+           
+            if (collision.CompareTag("hitBox"))
+            {
+                damageText.num = 2;
+                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                float damages = attack * (100 / (100 + defence));
+                health -= (int)damages;
+            }
+            else if (collision.gameObject.CompareTag("ultSlash"))
+            {
+                damageText.num = 4;
+                float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                float damages = attack * (100 / (100 + defence));
+                health -= (int)damages;
+            }
             StartCoroutine(backFromStagger());
             currentState = CyclopState.stagger;
             anim.SetBool("hurt", true);
-            damageText.num = 2;
+
         }
     }
     IEnumerator backFromStagger()

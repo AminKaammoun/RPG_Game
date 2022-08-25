@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 public enum PlayerMap
 {
     Village,
@@ -61,10 +62,11 @@ public class GameController : MonoBehaviour
     public GameObject ultSlash;
     public GameObject ultEffect;
     public GameObject thunder;
+    public GameObject gainedBp;
 
     public AudioSource audioSource;
     public AudioSource musicSource;
-    
+
     public AudioSource chestAudio;
     public AudioSource ultimateSound;
 
@@ -113,6 +115,8 @@ public class GameController : MonoBehaviour
     public Text HpBonus;
     public Text Hp;
 
+    public TextMeshProUGUI battlePowerText;
+
     public static PlayerMap currentMap;
 
     private float startLoadingTime = 0.35f;
@@ -128,6 +132,7 @@ public class GameController : MonoBehaviour
     public static bool enemyBeaten = false;
     public static bool ultPressed = false;
     private bool openUltimate = false;
+    public static float BattlePower;
 
     private Vector2 cursorHotspot;
 
@@ -258,6 +263,7 @@ public class GameController : MonoBehaviour
         //PlayerPrefs.SetInt("LEVEL", 1);
         level = new LevelSystem(PlayerPrefs.GetInt("LEVEL"), OnLevelUp);
         level.experience = PlayerPrefs.GetInt("XP");
+        BattlePower = PlayerPrefs.GetInt("BattlePower");
         currentTime = startTime;
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
@@ -792,12 +798,25 @@ public class GameController : MonoBehaviour
         SpValue.text = PlayerMovements.Sp.ToString();
         HpValue.text = PlayerMovements.hp.ToString();
 
-
         attackBonus.text = "+(" + PlayerMovements.BonusAttack.ToString() + ")";
         defBonus.text = "+(" + PlayerMovements.BonusDefence.ToString() + ")";
         agilityBonus.text = "+(" + PlayerMovements.BonusAgility.ToString() + ")";
         SpBonus.text = "+(" + PlayerMovements.BonusSp.ToString() + ")";
         HpBonus.text = "+(" + PlayerMovements.BonusHp.ToString() + ")";
+
+        BattlePower = (int)(PlayerMovements.attack * 4 + PlayerMovements.defence / 2 + PlayerMovements.agility / 2 + PlayerMovements.hp / 2 + PlayerMovements.Sp * 2);
+        battlePowerText.text = BattlePower.ToString() + " BP.";
+
+        if (PlayerPrefs.GetInt("BattlePower") != (int)GameController.BattlePower)
+        {
+            
+                gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
+                var gainedTxt = Instantiate(gainedBp, new Vector3(-145.8f, -21.9f, 0f), Quaternion.identity) as GameObject;
+                gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("mainCanvas").transform, false);
+                PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
+            
+        }
+
     }
     IEnumerator removeCock()
     {

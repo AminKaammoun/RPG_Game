@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        damageText.num = 0;
+        
     }
 
     public void Knock(Rigidbody2D rb2d, float knockTime)

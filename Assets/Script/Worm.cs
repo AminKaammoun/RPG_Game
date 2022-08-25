@@ -321,13 +321,24 @@ public class Worm : MonoBehaviour
                 Instantiate(damage, transform.position + add, Quaternion.identity);
                 isHurt = true;
                 CameraMovement.shake = true;
-                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-                float damages = attack * (100 / (100 + defence));
-                health -= (int)damages;
+                if (collision.CompareTag("hitBox"))
+                {
+                    damageText.num = 1;
+                    float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                    float damages = attack * (100 / (100 + defence));
+                    health -= (int)damages;
+                }
+                else if (collision.gameObject.CompareTag("ultSlash"))
+                {
+                    damageText.num = 3;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damages = attack * (100 / (100 + defence));
+                    health -= (int)damages;
+                }
                 StartCoroutine(backFromStagger());
                 currentState = WormState.stagger;
                 anim.SetBool("stagger", true);
-                damageText.num = 1;
+
             }
         }
     }

@@ -12,12 +12,19 @@ public class damageText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         Destroy(this.gameObject, 0.5f);
     }
     private void Update()
     {
-        if (num == 0)
+        if (num == -1)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Enemy.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+
+        else if (num == 0)
         {
             float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
             float damage = attack * (100 / (100 + Enemy.defence));
@@ -28,9 +35,22 @@ public class damageText : MonoBehaviour
             float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
             float damage = attack * (100 / (100 + Worm.defence));
             textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
-        }else if (num == 2)
+        }
+        else if (num == 2)
         {
             float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+            float damage = attack * (100 / (100 + Cyclop.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+        else if (num == 3)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Worm.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+        else if (num == 4)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
             float damage = attack * (100 / (100 + Cyclop.defence));
             textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
