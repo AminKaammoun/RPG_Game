@@ -8,7 +8,7 @@ public enum PlayerState
     idle,
     walk,
     attack,
-    stagger, 
+    stagger,
     mine
 }
 
@@ -83,7 +83,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject brust;
     public GameObject playerShadow;
     public GameObject ultDirection;
-   
+
 
     public AudioSource dashAudio;
     public AudioSource swingAudio;
@@ -112,6 +112,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool canBeDamaged = true;
     public static bool isLevelUp = false;
     public static bool PotionInUse = false;
+    public static bool canMine = false;
 
     private bool islogDamaged = false;
     private bool isFireBallDamaged = false;
@@ -299,7 +300,7 @@ public class PlayerMovements : MonoBehaviour
 
         if (currentState == PlayerState.walk)
         {
-            
+
             if (change != Vector3.zero)
             {
                 animator.SetFloat("moveX", change.x);
@@ -327,7 +328,9 @@ public class PlayerMovements : MonoBehaviour
         //Ult
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Vector3 adds = new Vector3(0f, 1.5f, 0f); 
+            animator.SetBool("ulting", true);
+            StartCoroutine(returnFromUlt());
+            Vector3 adds = new Vector3(0f, 1.5f, 0f);
             Instantiate(brust, transform.position, Quaternion.identity);
             Instantiate(teleport_hit, transform.position + adds, Quaternion.identity);
             Instantiate(playerShadow, transform.position, Quaternion.identity);
@@ -343,15 +346,11 @@ public class PlayerMovements : MonoBehaviour
                 chromaticAberration.intensity.value = 1f;
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            currentState = PlayerState.mine;
-            animator.SetBool("mining", true);
 
-        }
+      
     }
 
-        void FixedUpdate()
+    void FixedUpdate()
     {
         Vector3 direction = change.normalized;
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
@@ -395,6 +394,12 @@ public class PlayerMovements : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         rend.color = new Color(1, 1, 1, 1); //1,1,1,1 white with 255 transparency
 
+    }
+
+    IEnumerator returnFromUlt()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("ulting", false);
     }
     IEnumerator backToNormalSpeed()
     {

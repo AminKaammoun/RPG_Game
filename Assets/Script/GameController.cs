@@ -355,6 +355,7 @@ public class GameController : MonoBehaviour
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
             if (Input.GetMouseButton(0))
             {
+                PlayerMovements.animator.SetBool("ulting", false);
                 ultimateSound.Play();
                 ultPressed = false;
                 ultDirection.SetActive(false);
@@ -815,12 +816,12 @@ public class GameController : MonoBehaviour
 
         if (PlayerPrefs.GetInt("BattlePower") != (int)GameController.BattlePower)
         {
-            
-                gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
-                var gainedTxt = Instantiate(gainedBp, new Vector3(-145.8f, -21.9f, 0f), Quaternion.identity) as GameObject;
-                gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("mainCanvas").transform, false);
-                PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
-            
+
+            gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
+            var gainedTxt = Instantiate(gainedBp, new Vector3(-194.8f, 30f, 0f), Quaternion.identity) as GameObject;
+            gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("inventory").transform, false);
+            PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
+
         }
 
     }

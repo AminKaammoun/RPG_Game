@@ -13,10 +13,17 @@ public class rock : MonoBehaviour
     private float health;
 
     public GameObject smoke;
+    public GameObject smokeHit;
+
+    private GameObject player;
+    public GameObject Ekey;
+
+    public static bool playerInRockRange = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         int rand = Random.Range(0, 3);
         switch (rand)
         {
@@ -33,7 +40,7 @@ public class rock : MonoBehaviour
                 health = 3;
                 break;
         }
-      
+
     }
 
     // Update is called once per frame
@@ -54,14 +61,49 @@ public class rock : MonoBehaviour
         else
         {
             Rock.sprite = rocks[3];
-            PlayerMovements.animator.SetBool("mining", false);
+           
+            playerInRockRange = false;
+            Ekey.SetActive(false);
+            transform.position = new Vector3(0f, 0f, 0f);
             Destroy(this.gameObject, 0.5f);
         }
+        if (Vector3.Distance(this.gameObject.transform.position, player.transform.position) < 1)
+        {
+            playerInRockRange = true;
+            Ekey.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PlayerMovements.animator.SetBool("mining", true);
+            }
+        }
+        else
+        {
+            playerInRockRange = false;
+            Ekey.SetActive(false);
+        }
+      
+        if (!playerInRockRange)
+        {
+            PlayerMovements.animator.SetBool("mining", false);
+
+        }
+  
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("pickAxe"))
         {
+            int rand1 = Random.Range(0, 3);
+            switch (rand1)
+            {
+                case 0:
+                    //
+                    break;
+            }
+            
+            Vector3 add = new Vector3(0f, 0.5f, 0f);
+            var SmokeHit = Instantiate(smokeHit, transform.position + add, Quaternion.identity);
+            Destroy(SmokeHit, 0.5f);
             health -= 1;
             if (health == 6 || health == 3 || health == 0)
             {

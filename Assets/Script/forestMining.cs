@@ -26,6 +26,7 @@ public class forestMining : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
+                PlayerMovements.canMine = true;
                 player.transform.position = new Vector3(120.71f, -20.62f, 0f);
                 GameController.currentMap = PlayerMap.forrestMiningArea;
             }
@@ -36,6 +37,7 @@ public class forestMining : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp1")
             {
+                PlayerMovements.canMine = false;
                 player.transform.position = new Vector3(119.98f, -6.38f, 0f);
                 GameController.currentMap = PlayerMap.forrest;
             }
