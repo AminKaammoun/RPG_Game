@@ -9,7 +9,7 @@ public class time : MonoBehaviour
     public static int hour;
 
     private float timeBtwSecs;
-    private float startTime = 0.05f;
+    private float startTime = 1f;
     public Light2D globalLight;
 
 

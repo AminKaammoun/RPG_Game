@@ -8,7 +8,8 @@ public enum PlayerState
     idle,
     walk,
     attack,
-    stagger
+    stagger, 
+    mine
 }
 
 public enum PlayerWeapon
@@ -36,7 +37,7 @@ public class PlayerMovements : MonoBehaviour
 
     private Rigidbody2D rb2D;
     public Rigidbody2D bow;
-    private Animator animator;
+    public static Animator animator;
     public PlayerState currentState;
     public float speed = 5f;
     public static PlayerWeapon currentWeapon;
@@ -298,7 +299,7 @@ public class PlayerMovements : MonoBehaviour
 
         if (currentState == PlayerState.walk)
         {
-
+            
             if (change != Vector3.zero)
             {
                 animator.SetFloat("moveX", change.x);
@@ -342,11 +343,15 @@ public class PlayerMovements : MonoBehaviour
                 chromaticAberration.intensity.value = 1f;
             }
         }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            currentState = PlayerState.mine;
+            animator.SetBool("mining", true);
 
-       
+        }
     }
 
-    void FixedUpdate()
+        void FixedUpdate()
     {
         Vector3 direction = change.normalized;
         rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
