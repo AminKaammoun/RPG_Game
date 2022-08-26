@@ -4,6 +4,9 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using TMPro;
+using System;
+using Random = UnityEngine.Random;
+
 public enum PlayerMap
 {
     Village,
@@ -819,7 +822,14 @@ public class GameController : MonoBehaviour
 
             gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
             var gainedTxt = Instantiate(gainedBp, new Vector3(-194.8f, 30f, 0f), Quaternion.identity) as GameObject;
-            gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("inventory").transform, false);
+            try
+            {
+                gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("inventory").transform, false);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
             PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
 
         }

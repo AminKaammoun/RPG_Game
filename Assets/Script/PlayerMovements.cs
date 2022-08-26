@@ -78,6 +78,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject coinText;
     public GameObject coinText1;
     public GameObject damageText;
+    public GameObject stoneText;
+
     public GameObject volume;
     public GameObject teleport_hit;
     public GameObject brust;
@@ -95,7 +97,7 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource levelUpAudio;
     public AudioSource hurtWithShieldAudio;
     public AudioSource slowMotionSound;
-
+    public AudioSource collectStoneAudio;
 
     public static bool invIsOpen = false;
 
@@ -126,6 +128,7 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject FireLeaf;
     public ItemObject PlantLeaf;
     public ItemObject SakuraLeaf;
+    public ItemObject Stone;
 
     // Start is called before the first frame update
 
@@ -347,7 +350,7 @@ public class PlayerMovements : MonoBehaviour
             }
         }
 
-      
+
     }
 
     void FixedUpdate()
@@ -779,6 +782,18 @@ public class PlayerMovements : MonoBehaviour
             {
                 inventory.AddItem(SakuraLeaf, 1);
                 inventory.save();
+            }
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("minerals"))
+        {
+            if (collision.gameObject.name == "Stone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(Stone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
+
             }
             Destroy(collision.gameObject);
         }

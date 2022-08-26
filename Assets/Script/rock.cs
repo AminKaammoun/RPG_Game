@@ -17,8 +17,10 @@ public class rock : MonoBehaviour
 
     private GameObject player;
     public GameObject Ekey;
+    public GameObject stone;
 
     public static bool playerInRockRange = false;
+    private bool isDone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +63,7 @@ public class rock : MonoBehaviour
         else
         {
             Rock.sprite = rocks[3];
-           
+
             playerInRockRange = false;
             Ekey.SetActive(false);
             transform.position = new Vector3(0f, 0f, 0f);
@@ -69,6 +71,7 @@ public class rock : MonoBehaviour
         }
         if (Vector3.Distance(this.gameObject.transform.position, player.transform.position) < 1)
         {
+            isDone = true;
             playerInRockRange = true;
             Ekey.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
@@ -81,13 +84,16 @@ public class rock : MonoBehaviour
             playerInRockRange = false;
             Ekey.SetActive(false);
         }
-      
+
         if (!playerInRockRange)
         {
-            PlayerMovements.animator.SetBool("mining", false);
-
+            if (isDone)
+            {
+                PlayerMovements.animator.SetBool("mining", false);
+                isDone = false;
+            }
         }
-  
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -97,10 +103,10 @@ public class rock : MonoBehaviour
             switch (rand1)
             {
                 case 0:
-                    //
+                    Instantiate(stone, transform.position, Quaternion.identity);
                     break;
             }
-            
+
             Vector3 add = new Vector3(0f, 0.5f, 0f);
             var SmokeHit = Instantiate(smokeHit, transform.position + add, Quaternion.identity);
             Destroy(SmokeHit, 0.5f);
