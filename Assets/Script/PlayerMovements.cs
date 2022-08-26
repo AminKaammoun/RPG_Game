@@ -79,6 +79,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject coinText1;
     public GameObject damageText;
     public GameObject stoneText;
+    public GameObject IronStoneText;
 
     public GameObject volume;
     public GameObject teleport_hit;
@@ -129,6 +130,7 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject PlantLeaf;
     public ItemObject SakuraLeaf;
     public ItemObject Stone;
+    public ItemObject IronStone;
 
     // Start is called before the first frame update
 
@@ -793,6 +795,15 @@ public class PlayerMovements : MonoBehaviour
                 inventory.AddItem(Stone, 1);
                 inventory.save();
                 var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
+
+            }
+
+            if (collision.gameObject.name == "IronStone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(IronStone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(IronStoneText, transform.position, Quaternion.identity);
 
             }
             Destroy(collision.gameObject);

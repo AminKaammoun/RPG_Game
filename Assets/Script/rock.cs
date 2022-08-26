@@ -18,6 +18,7 @@ public class rock : MonoBehaviour
     private GameObject player;
     public GameObject Ekey;
     public GameObject stone;
+    public GameObject ironStone;
 
     public static bool playerInRockRange = false;
     private bool isDone = false;
@@ -99,11 +100,17 @@ public class rock : MonoBehaviour
     {
         if (collision.CompareTag("pickAxe"))
         {
-            int rand1 = Random.Range(0, 3);
+            int rand1 = Random.Range(0, 6);
             switch (rand1)
             {
                 case 0:
                     Instantiate(stone, transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(stone, transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(ironStone, transform.position, Quaternion.identity);
                     break;
             }
 
