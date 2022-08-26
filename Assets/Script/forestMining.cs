@@ -48,7 +48,7 @@ public class forestMining : MonoBehaviour
             {
                 GameController.changeBGS(dunSound, audioSource);
                 GameController.changeBGM(dunMusic, musicSource);
-                PlayerMovements.canMine = true;
+               
                 player.transform.position = new Vector3(120.71f, -20.62f, 0f);
                 GameController.currentMap = PlayerMap.forrestMiningArea;
             }
@@ -68,7 +68,7 @@ public class forestMining : MonoBehaviour
                 {
                     GameController.changeBGS(forestNightAudio, audioSource);
                 }
-                PlayerMovements.canMine = false;
+               
                 player.transform.position = new Vector3(119.98f, -6.38f, 0f);
                 GameController.currentMap = PlayerMap.forrest;
             }

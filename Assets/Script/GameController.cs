@@ -20,6 +20,7 @@ public enum PlayerMap
     forrestDungeon2nd1,
     forrestDungeon2nd2,
     forrestMiningArea,
+    forrestTreesArea,
     beachDun,
     beachDun1,
     beachDun2,
@@ -676,7 +677,7 @@ public class GameController : MonoBehaviour
         if (currentMap == PlayerMap.forrest)
         {
 
-            CameraMovement.maxPosition = new Vector2(157.79f, 30f);
+            CameraMovement.maxPosition = new Vector2(196.89f, 20.77f);
             CameraMovement.minPosition = new Vector2(58.54f, -1.37f);
 
             if (TimeBtwLeafSpawn <= 0)
@@ -697,7 +698,7 @@ public class GameController : MonoBehaviour
         {
 
             CameraMovement.maxPosition = new Vector2(100f, 45.61f);
-            CameraMovement.minPosition = new Vector2(0f, 45.6f);
+            CameraMovement.minPosition = new Vector2(0f, 21.55f);
         }
         else if (currentMap == PlayerMap.forrestDungeon2)
         {
@@ -718,6 +719,12 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.maxPosition = new Vector2(177f, -26.3f);
             CameraMovement.minPosition = new Vector2(114.9f, -30.88f);
+        }
+
+        else if (currentMap == PlayerMap.forrestTreesArea)
+        {
+            CameraMovement.maxPosition = new Vector2(224.29f, 44.32f);
+            CameraMovement.minPosition = new Vector2(198.64f, 35.36f);
         }
 
         else if (currentMap == PlayerMap.Village)

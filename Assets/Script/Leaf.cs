@@ -13,7 +13,7 @@ public class Leaf : MonoBehaviour
     void Start()
     {
         leaf = GetComponent<SpriteRenderer>();
-        Color c = leaf.material.color;
+        Color c = leaf.color;
         c.a = 0f;
         StartCoroutine(FadeIn());
     }
@@ -21,9 +21,9 @@ public class Leaf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         transform.Translate(up_left * speed * Time.deltaTime);
-       if(existTime > 0)
+        if (existTime > 0)
         {
             existTime -= Time.deltaTime;
         }
@@ -32,18 +32,18 @@ public class Leaf : MonoBehaviour
             existTime = 3f;
             StartCoroutine(FadeOut());
         }
-       
+
     }
 
-IEnumerator FadeIn()
+    IEnumerator FadeIn()
     {
-        for (float f = 0.05f; f<= 1; f+= 0.05f)
+        for (float f = 0.05f; f <= 1; f += 0.05f)
         {
-            Color c = leaf.material.color;
+            Color c = leaf.color;
             c.a = f;
-            leaf.material.color = c;
+            leaf.color = c;
             yield return new WaitForSeconds(0.05f);
-           
+
         }
     }
 
@@ -51,11 +51,11 @@ IEnumerator FadeIn()
     {
         for (float f = 1f; f >= -0.05; f -= 0.05f)
         {
-            Color c = leaf.material.color;
+            Color c = leaf.color;
             c.a = f;
-            leaf.material.color = c;
+            leaf.color = c;
             yield return new WaitForSeconds(0.05f);
-            
+
         }
         Destroy(gameObject);
     }

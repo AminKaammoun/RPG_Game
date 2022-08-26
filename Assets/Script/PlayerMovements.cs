@@ -80,6 +80,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject damageText;
     public GameObject stoneText;
     public GameObject IronStoneText;
+    public GameObject CoalStoneText;
 
     public GameObject volume;
     public GameObject teleport_hit;
@@ -115,7 +116,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool canBeDamaged = true;
     public static bool isLevelUp = false;
     public static bool PotionInUse = false;
-    public static bool canMine = false;
+   
 
     private bool islogDamaged = false;
     private bool isFireBallDamaged = false;
@@ -131,6 +132,7 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject SakuraLeaf;
     public ItemObject Stone;
     public ItemObject IronStone;
+    public ItemObject CoalStone;
 
     // Start is called before the first frame update
 
@@ -804,6 +806,15 @@ public class PlayerMovements : MonoBehaviour
                 inventory.AddItem(IronStone, 1);
                 inventory.save();
                 var stoneTxt = Instantiate(IronStoneText, transform.position, Quaternion.identity);
+
+            }
+           
+            if (collision.gameObject.name == "CoalStone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(CoalStone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(CoalStoneText, transform.position, Quaternion.identity);
 
             }
             Destroy(collision.gameObject);
