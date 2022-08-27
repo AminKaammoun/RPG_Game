@@ -56,6 +56,8 @@ public class GameController : MonoBehaviour
     public GameObject tpPanel;
     public GameObject Dun1Panel;
     public GameObject Dun2Panel;
+    public GameObject MiningAreaPanel;
+    public GameObject TreesAreaPanel;
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
@@ -463,6 +465,25 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
+
+    public void closeMiningAreaPnanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        MiningAreaPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
+    public void closeTreesAreaPnanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        TreesAreaPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void VillageTpButton()
     {
         ArrowSpawn.canShoot = true;

@@ -110,8 +110,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -130,8 +130,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5Found = true;
                     item5.color = Color.green;
@@ -219,8 +219,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -239,8 +239,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5Found = true;
                     item5.color = Color.green;
@@ -319,8 +319,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -339,8 +339,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5Found = true;
                     item5.color = Color.green;
@@ -417,8 +417,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -437,8 +437,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5Found = true;
                     item5.color = Color.green;
@@ -517,8 +517,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -537,8 +537,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5Found = true;
                     item5.color = Color.green;
@@ -615,8 +615,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -635,8 +635,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5Found = true;
                     item5.color = Color.green;
@@ -688,7 +688,7 @@ public class ForestBlacksmith : MonoBehaviour
 
                 item1Found = true;
 
-                if (inventory.Container[i].amount > 1)
+                if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
                 }
@@ -701,7 +701,7 @@ public class ForestBlacksmith : MonoBehaviour
             {
                 item2Found = true;
 
-                if (inventory.Container[i].amount > 1)
+                if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
                 }
@@ -713,7 +713,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
                     item3Found = true;
@@ -726,7 +726,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 4)
                 {
                     item4.color = Color.green;
                     item4Found = true;
@@ -739,7 +739,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                     item5Found = true;
@@ -768,11 +768,19 @@ public class ForestBlacksmith : MonoBehaviour
             inventory.RemoveItem(MagicalIceLeaf);
             for (int i = 0; i < 5; i++)
             {
-                inventory.RemoveItem(Stone);
+                
                 inventory.RemoveItem(Wood);
+                
+            }
+            for (int i = 0; i < 10; i++)
+            {
                 inventory.RemoveItem(CoalStone);
             }
-
+            for (int i = 0; i < 15; i++)
+            {
+                inventory.RemoveItem(Stone);
+            }
+        
             inventory.AddItem(AtkGearLevel1, 1);
             inventory.save();
             Destroy(effect, 1f);
@@ -818,8 +826,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
 
@@ -846,8 +854,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                 }
@@ -873,8 +881,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalIceLeaf")
             {
                 item1Found = true;
-                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+               
+                if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
                 }
@@ -886,8 +894,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalSakuraLeaf")
             {
                 item2Found = true;
-                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+                
+                if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
                 }
@@ -899,7 +907,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
                     item3Found = true;
@@ -912,7 +920,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 4)
                 {
                     item4.color = Color.green;
                     item4Found = true;
@@ -925,7 +933,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                     item5Found = true;
@@ -956,11 +964,18 @@ public class ForestBlacksmith : MonoBehaviour
 
             for (int i = 0; i < 5; i++)
             {
-                inventory.RemoveItem(Stone);
+
                 inventory.RemoveItem(Wood);
+
+            }
+            for (int i = 0; i < 10; i++)
+            {
                 inventory.RemoveItem(CoalStone);
             }
-
+            for (int i = 0; i < 15; i++)
+            {
+                inventory.RemoveItem(Stone);
+            }
             inventory.RemoveItem(MagicalIceLeaf);
             inventory.RemoveItem(MagicalSakuraLeaf);
             inventory.AddItem(DefGearLevel1, 1);
@@ -1005,8 +1020,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
 
@@ -1033,8 +1048,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                 }
@@ -1061,8 +1076,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalFireLeaf")
             {
                 item1Found = true;
-                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+              
+                if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
                 }
@@ -1074,8 +1089,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalAutumnLeaf")
             {
                 item2Found = true;
-                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+               
+                if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
                 }
@@ -1087,7 +1102,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
                     item3Found = true;
@@ -1100,7 +1115,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 4)
                 {
                     item4.color = Color.green;
                     item4Found = true;
@@ -1113,7 +1128,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                     item5Found = true;
@@ -1144,9 +1159,17 @@ public class ForestBlacksmith : MonoBehaviour
 
             for (int i = 0; i < 5; i++)
             {
-                inventory.RemoveItem(Stone);
+
                 inventory.RemoveItem(Wood);
+
+            }
+            for (int i = 0; i < 10; i++)
+            {
                 inventory.RemoveItem(CoalStone);
+            }
+            for (int i = 0; i < 15; i++)
+            {
+                inventory.RemoveItem(Stone);
             }
 
             inventory.RemoveItem(MagicalFireLeaf);
@@ -1192,8 +1215,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
 
@@ -1220,8 +1243,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                 }
@@ -1247,8 +1270,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalPlantLeaf")
             {
                 item1Found = true;
-                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+                
+                if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
                 }
@@ -1261,8 +1284,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalFireLeaf")
             {
                 item2Found = true;
-                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+               
+                if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
                 }
@@ -1275,7 +1298,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
                     item3Found = true;
@@ -1288,7 +1311,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 4)
                 {
                     item4.color = Color.green;
                     item4Found = true;
@@ -1301,7 +1324,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                     item5Found = true;
@@ -1332,11 +1355,18 @@ public class ForestBlacksmith : MonoBehaviour
 
             for (int i = 0; i < 5; i++)
             {
-                inventory.RemoveItem(Stone);
+
                 inventory.RemoveItem(Wood);
+
+            }
+            for (int i = 0; i < 10; i++)
+            {
                 inventory.RemoveItem(CoalStone);
             }
-
+            for (int i = 0; i < 15; i++)
+            {
+                inventory.RemoveItem(Stone);
+            }
 
             inventory.RemoveItem(MagicalPlantLeaf);
             inventory.RemoveItem(MagicalFireLeaf);
@@ -1381,8 +1411,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
 
@@ -1409,8 +1439,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                 }
@@ -1436,8 +1466,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalSakuraLeaf")
             {
                 item1Found = true;
-                item1.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+                
+                if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
                 }
@@ -1449,8 +1479,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalPlantLeaf")
             {
                 item2Found = true;
-                item2.text = (inventory.Container[i].amount - 1).ToString() + "/1";
-                if (inventory.Container[i].amount > 1)
+                
+                if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
                 }
@@ -1462,7 +1492,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
                     item3Found = true;
@@ -1475,7 +1505,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 4)
                 {
                     item4.color = Color.green;
                     item4Found = true;
@@ -1488,7 +1518,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                if (inventory.Container[i].amount > 5)
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                     item5Found = true;
@@ -1518,9 +1548,17 @@ public class ForestBlacksmith : MonoBehaviour
 
             for (int i = 0; i < 5; i++)
             {
-                inventory.RemoveItem(Stone);
+
                 inventory.RemoveItem(Wood);
+
+            }
+            for (int i = 0; i < 10; i++)
+            {
                 inventory.RemoveItem(CoalStone);
+            }
+            for (int i = 0; i < 15; i++)
+            {
+                inventory.RemoveItem(Stone);
             }
 
             inventory.RemoveItem(MagicalSakuraLeaf);
@@ -1566,8 +1604,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "CoalStone")
             {
 
-                item3.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item3.text = inventory.Container[i].amount.ToString() + "/10";
+                if (inventory.Container[i].amount > 9)
                 {
                     item3.color = Color.green;
 
@@ -1594,8 +1632,8 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "Stone")
             {
 
-                item5.text = inventory.Container[i].amount.ToString() + "/5";
-                if (inventory.Container[i].amount > 4)
+                item5.text = inventory.Container[i].amount.ToString() + "/15";
+                if (inventory.Container[i].amount > 14)
                 {
                     item5.color = Color.green;
                 }
