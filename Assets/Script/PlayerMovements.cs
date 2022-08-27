@@ -81,6 +81,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject stoneText;
     public GameObject IronStoneText;
     public GameObject CoalStoneText;
+    public GameObject WoodText;
 
     public GameObject volume;
     public GameObject teleport_hit;
@@ -100,6 +101,7 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource hurtWithShieldAudio;
     public AudioSource slowMotionSound;
     public AudioSource collectStoneAudio;
+    public AudioSource collectWoodAudio;
 
     public static bool invIsOpen = false;
 
@@ -133,6 +135,7 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject Stone;
     public ItemObject IronStone;
     public ItemObject CoalStone;
+    public ItemObject Wood;
 
     // Start is called before the first frame update
 
@@ -815,6 +818,15 @@ public class PlayerMovements : MonoBehaviour
                 inventory.AddItem(CoalStone, 1);
                 inventory.save();
                 var stoneTxt = Instantiate(CoalStoneText, transform.position, Quaternion.identity);
+
+            }
+
+            if (collision.gameObject.name == "Wood(Clone)")
+            {
+                collectWoodAudio.Play();
+                inventory.AddItem(Wood, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(WoodText, transform.position, Quaternion.identity);
 
             }
             Destroy(collision.gameObject);

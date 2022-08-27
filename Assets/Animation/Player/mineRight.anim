@@ -294,6 +294,13 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 3401c9010ed97f045888a74102dd3682, type: 3}
+    attribute: m_Sprite
+    path: pick axe
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -336,6 +343,13 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2227639399
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -944137457, guid: 805a82ce6738592448a955138b93c12a, type: 3}
     - {fileID: -1832500628, guid: 805a82ce6738592448a955138b93c12a, type: 3}
@@ -343,6 +357,7 @@ AnimationClip:
     - {fileID: 1185963035, guid: 805a82ce6738592448a955138b93c12a, type: 3}
     - {fileID: -1832500628, guid: 805a82ce6738592448a955138b93c12a, type: 3}
     - {fileID: -944137457, guid: 805a82ce6738592448a955138b93c12a, type: 3}
+    - {fileID: 21300000, guid: 3401c9010ed97f045888a74102dd3682, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

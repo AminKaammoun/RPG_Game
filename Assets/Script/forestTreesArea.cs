@@ -5,20 +5,33 @@ using UnityEngine;
 public class forestTreesArea : MonoBehaviour
 {
     public GameObject player;
+    public GameObject[] treesSpawnArea;
+    public GameObject Tree;
+
 
     public AudioSource audioSource;
     public AudioSource musicSource;
-    
+
     public AudioClip forestSound;
-    
+
     public AudioClip forestMusic;
     public AudioClip forestNightAudio;
 
-   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        treesSpawnArea = GameObject.FindGameObjectsWithTag("treeSpawnArea");
+        foreach (GameObject treeSpawnArea in treesSpawnArea)
+        {
+            int rand = Random.Range(0, 4);
+            switch (rand)
+            {
+                case 0:
+                    Instantiate(Tree, treeSpawnArea.transform.position, Quaternion.identity);
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -34,8 +47,8 @@ public class forestTreesArea : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
-               
-               
+
+
                 player.transform.position = new Vector3(198.4f, 30.57f, 0f);
                 GameController.currentMap = PlayerMap.forrestTreesArea;
             }
@@ -55,7 +68,7 @@ public class forestTreesArea : MonoBehaviour
                 {
                     GameController.changeBGS(forestNightAudio, audioSource);
                 }
-                
+
                 player.transform.position = new Vector3(198.4f, 26.41f, 0f);
                 GameController.currentMap = PlayerMap.forrest;
             }
