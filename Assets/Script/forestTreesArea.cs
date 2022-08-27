@@ -22,6 +22,7 @@ public class forestTreesArea : MonoBehaviour
     void Start()
     {
         treesSpawnArea = GameObject.FindGameObjectsWithTag("treeSpawnArea");
+        
         foreach (GameObject treeSpawnArea in treesSpawnArea)
         {
             int rand = Random.Range(0, 4);
