@@ -32,6 +32,7 @@ public class Cyclop : MonoBehaviour
     public GameObject chest;
     public GameObject blood;
     public GameObject damage;
+    public GameObject Blood;
 
     public AudioSource hurtAudio;
     public AudioSource dieAudio;
@@ -72,7 +73,7 @@ public class Cyclop : MonoBehaviour
                 playDieAudio = false;
             }
             //isdead = true;
-
+            Instantiate(Blood, transform.position, Quaternion.identity);
             statue.isRaged = false;
 
             anim.SetBool("dead", true);

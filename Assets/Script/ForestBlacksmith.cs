@@ -753,7 +753,7 @@ public class ForestBlacksmith : MonoBehaviour
 
         if (item1Found && item2Found && item3Found && item4Found && item5Found)
         {
-
+            GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
             Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
             var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
@@ -949,6 +949,7 @@ public class ForestBlacksmith : MonoBehaviour
 
         if (item1Found && item2Found && item3Found && item4Found && item5Found)
         {
+            GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
             Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
             var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
@@ -1143,6 +1144,7 @@ public class ForestBlacksmith : MonoBehaviour
 
         if (item1Found && item2Found && item3Found && item4Found && item5Found)
         {
+            GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
             Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
             var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
@@ -1339,6 +1341,7 @@ public class ForestBlacksmith : MonoBehaviour
 
         if (item1Found && item2Found && item3Found && item4Found && item5Found)
         {
+            GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
             Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
             var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;
@@ -1532,6 +1535,7 @@ public class ForestBlacksmith : MonoBehaviour
 
         if (item1Found && item2Found && item3Found && item4Found && item5Found)
         {
+            GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
             Vector3 add1 = new Vector3(-702.6507f, -303.0973f, 0f);
             var effect = Instantiate(forgeEffect, forgeEffectPosition.transform.position / (canvas.scaleFactor - canvas.scaleFactor / 4) + add1, Quaternion.identity) as GameObject;

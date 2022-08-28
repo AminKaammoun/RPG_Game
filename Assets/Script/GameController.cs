@@ -288,7 +288,7 @@ public class GameController : MonoBehaviour
         Hp.text = PlayerMovements.health.ToString() + "/" + (100 + (PlayerPrefs.GetInt("LEVEL") * 10) + PlayerMovements.BonusHp).ToString();
         resetForestDoors();
 
-        if (coins > PlayerPrefs.GetInt("coins"))
+        if (coins != PlayerPrefs.GetInt("coins"))
         {
             PlayerPrefs.SetInt("coins", coins);
 

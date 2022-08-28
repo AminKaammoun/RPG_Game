@@ -21,7 +21,7 @@ public class Dialog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (this.gameObject.tag == "blacksmith")
+        if (this.gameObject.tag == "blacksmith" || this.gameObject.tag == "gemCrafter")
         {
             animator = GetComponent<Animator>();
         }
@@ -72,6 +72,10 @@ public class Dialog : MonoBehaviour
             {
                 animator.SetBool("dialog", true);
             }
+            if (this.gameObject.tag == "gemCrafter")
+            {
+                animator.SetBool("dialog", true);
+            }
         }
     }
 
@@ -85,6 +89,10 @@ public class Dialog : MonoBehaviour
             cursorHotspot = new Vector2(0, -1);
             Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
             if (this.gameObject.tag == "blacksmith")
+            {
+                animator.SetBool("dialog", false);
+            }
+            if(this.gameObject.tag == "gemCrafter")
             {
                 animator.SetBool("dialog", false);
             }

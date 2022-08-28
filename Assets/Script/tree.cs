@@ -7,7 +7,9 @@ public class tree : MonoBehaviour
     private GameObject player;
     public GameObject Ekey;
     public GameObject wood;
-  
+    public GameObject leaf;
+    public GameObject[] leafSpawner; 
+
     public Animator animator;
 
     public static bool playerInRockRange = false;
@@ -25,7 +27,7 @@ public class tree : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
+        
     }
 
     // Update is called once per frame
@@ -87,7 +89,17 @@ public class tree : MonoBehaviour
                     break;
 
             }
-
+            foreach (GameObject spawner in leafSpawner)
+            {
+                int rand2 = Random.Range(0, 5);
+                switch (rand2)
+                {
+                    case 0:
+                        Instantiate(leaf, spawner.transform.position, Quaternion.identity);
+                        break;
+                }
+            }
+        
             health -= 1;
             if (health <= 0)
             {
