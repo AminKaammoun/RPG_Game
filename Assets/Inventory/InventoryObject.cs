@@ -27,7 +27,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
         for (int i = 0; i < Container.Count; i++)
         {
-            if (Container[i].item == _item && (Container[i].item.type == ItemType.Potion || Container[i].item.type == ItemType.Materiel))
+            if (Container[i].item == _item && (Container[i].item.type == ItemType.Potion || Container[i].item.type == ItemType.Materiel || Container[i].item.type == ItemType.Gem))
             {
                 Container[i].AddAmount(_amount);
                 return;

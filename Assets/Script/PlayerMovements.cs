@@ -82,6 +82,11 @@ public class PlayerMovements : MonoBehaviour
     public GameObject IronStoneText;
     public GameObject CoalStoneText;
     public GameObject WoodText;
+    public GameObject BlueGemStoneText;
+    public GameObject RedGemStoneText;
+    public GameObject YellowGemStoneText;
+    public GameObject GreenGemStoneText;
+    public GameObject OrangeGemStoneText;
 
     public GameObject volume;
     public GameObject teleport_hit;
@@ -136,6 +141,11 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject IronStone;
     public ItemObject CoalStone;
     public ItemObject Wood;
+    public ItemObject BlueGemStone;
+    public ItemObject RedGemStone;
+    public ItemObject YellowGemStone;
+    public ItemObject OrangeGemStone;
+    public ItemObject GreenGemStone;
 
     // Start is called before the first frame update
 
@@ -827,6 +837,51 @@ public class PlayerMovements : MonoBehaviour
                 inventory.AddItem(Wood, 1);
                 inventory.save();
                 var stoneTxt = Instantiate(WoodText, transform.position, Quaternion.identity);
+
+            }
+           
+            if (collision.gameObject.name == "BlueGemStone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(BlueGemStone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(BlueGemStoneText, transform.position, Quaternion.identity);
+
+            }
+            
+            if (collision.gameObject.name == "GreenGemStone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(GreenGemStone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(GreenGemStoneText, transform.position, Quaternion.identity);
+
+            }
+
+            if (collision.gameObject.name == "RedGemStone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(RedGemStone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(RedGemStoneText, transform.position, Quaternion.identity);
+
+            }
+
+            if (collision.gameObject.name == "YellowGemStone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(YellowGemStone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(YellowGemStoneText, transform.position, Quaternion.identity);
+
+            }
+
+            if (collision.gameObject.name == "OrangeGemStone(Clone)")
+            {
+                collectStoneAudio.Play();
+                inventory.AddItem(OrangeGemStone, 1);
+                inventory.save();
+                var stoneTxt = Instantiate(OrangeGemStoneText, transform.position, Quaternion.identity);
 
             }
             Destroy(collision.gameObject);

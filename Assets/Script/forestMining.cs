@@ -16,11 +16,21 @@ public class forestMining : MonoBehaviour
     public AudioClip forestNightAudio;
 
     public GameObject[] rockSpawnAreas;
+    public GameObject[] gemStoneSpawnArea;
     public GameObject rock;
+    public GameObject blueGemStone;
+    public GameObject redGemStone;
+    public GameObject greenGemStone;
+    public GameObject yellowGemStone;
+    public GameObject orangeGemStone;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        gemStoneSpawnArea = GameObject.FindGameObjectsWithTag("gemStoneSpawnArea");
         rockSpawnAreas = GameObject.FindGameObjectsWithTag("rockSpawnArea");
+        
         foreach(GameObject rockSpawnArea in rockSpawnAreas)
         {
             int rand = Random.Range(0, 4);
@@ -28,6 +38,29 @@ public class forestMining : MonoBehaviour
             {
                 case 0:
                     Instantiate(rock, rockSpawnArea.transform.position, Quaternion.identity);
+                    break;
+            }
+        }
+
+        foreach (GameObject gemStoneSpawnArea in gemStoneSpawnArea)
+        {
+            int rand = Random.Range(0, 20);
+            switch (rand)
+            {
+                case 0:
+                    Instantiate(blueGemStone, gemStoneSpawnArea.transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(redGemStone, gemStoneSpawnArea.transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(yellowGemStone, gemStoneSpawnArea.transform.position, Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(orangeGemStone, gemStoneSpawnArea.transform.position, Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(greenGemStone, gemStoneSpawnArea.transform.position, Quaternion.identity);
                     break;
             }
         }
