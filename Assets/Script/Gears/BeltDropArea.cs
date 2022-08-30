@@ -80,7 +80,7 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                 //AtkLevel1.destoryItem = true;
                 inventory.RemoveItem(itemObject[num]);
                 inventory.save();
-                Lapidary.refresh = true;
+                LapidaryLeftSide.refresh = true;
                 //Inventory.refreshInv = true;
                 //InvDraggableComponent.isPlaced = true;
                 BeltGears.isPlaced = true;

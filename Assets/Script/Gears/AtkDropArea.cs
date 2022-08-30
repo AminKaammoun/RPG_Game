@@ -80,7 +80,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         break;
 
                 }
-                Lapidary.refresh = true;
+                LapidaryLeftSide.refresh = true;
                 inventory.RemoveItem(itemObject[num]);
                 inventory.save();
 

@@ -72,6 +72,7 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
             }
             DefLevel1.destoryItem = false;
             PlayerPrefs.SetString("DefGear", "");
+            LapidaryLeftSide.refresh = true;
             Destroy(this.gameObject);
         }
 

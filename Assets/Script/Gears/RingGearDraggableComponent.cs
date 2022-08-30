@@ -69,6 +69,7 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
             }
             //AtkLevel1.destoryItem = false;
             PlayerPrefs.SetString("RingGear", "");
+            LapidaryLeftSide.refresh = true;
             Destroy(this.gameObject);
         }
 

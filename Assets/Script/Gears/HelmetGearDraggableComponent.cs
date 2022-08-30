@@ -73,6 +73,7 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
                     break;
             }
             PlayerPrefs.SetString("HelmetGear", "");
+            LapidaryLeftSide.refresh = true;
             //AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);
         }

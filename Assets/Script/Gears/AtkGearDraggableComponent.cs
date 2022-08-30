@@ -73,7 +73,8 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
                     break;
             }
-            PlayerPrefs.SetString("AttackGear", "");
+            PlayerPrefs.SetString("AttackGear", null);
+            LapidaryLeftSide.refresh = true;
             AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);
         }

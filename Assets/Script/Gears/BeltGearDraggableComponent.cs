@@ -71,6 +71,7 @@ public class BeltGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
                     break;
             }
             PlayerPrefs.SetString("BeltGear", "");
+            LapidaryLeftSide.refresh = true;
             //AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);
         }

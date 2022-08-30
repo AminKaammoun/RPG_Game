@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     public Text levelText;
 
     public InventoryObject Inv;
+    public InventoryObject GemInv;
 
     public float TimeBtwLeafSpawn;
     public float StartTime = 0.25f;
@@ -461,6 +462,7 @@ public class GameController : MonoBehaviour
 
     public void closeGemCraftingPanel()
     {
+        GemInv.save();
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
         GemCraftingPanel.SetActive(false);
