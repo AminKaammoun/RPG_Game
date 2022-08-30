@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour
     public GameObject theBeach;
     public GameObject cockAudio;
     public GameObject BlackSmithPanel;
+    public GameObject GemCraftingPanel;
     public GameObject volume;
     public GameObject ultDirection;
     public GameObject ultSlash;
@@ -457,6 +458,16 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
+
+    public void closeGemCraftingPanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        GemCraftingPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void closeDun2Panel()
     {
         ArrowSpawn.canShoot = true;
@@ -551,6 +562,13 @@ public class GameController : MonoBehaviour
         BlackSmithPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
+
+    public void gemCraftingPanel()
+    {
+        GemCraftingPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
+    }
+
     public void closePanels()
     {
         ArrowSpawn.canShoot = true;

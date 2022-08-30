@@ -82,7 +82,7 @@ public class RingDropArea : MonoBehaviour, IDropHandler
                 //AtkLevel1.destoryItem = true;
                 inventory.RemoveItem(itemObject[num]);
                 inventory.save();
-
+                Lapidary.refresh = true;
                 //Inventory.refreshInv = true;
                 //InvDraggableComponent.isPlaced = true;
                 RingGears.isPlaced = true;

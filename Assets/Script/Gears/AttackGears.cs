@@ -42,7 +42,7 @@ public class AttackGears : MonoBehaviour
 
         if (isPlaced)
         {
-
+           
             isPlaced = false;
             attackGear = PlayerPrefs.GetString("AttackGear");
             Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);

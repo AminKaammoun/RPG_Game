@@ -20,9 +20,10 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
 
         if (eventData.pointerDrag != null)
         {
-   
+            
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("attack"))
             {
+                
                 attackGear = PlayerPrefs.GetString("AttackGear");
                  if (attackGear == "lvl 1 attack (equipmentObject)")
                 {
@@ -79,7 +80,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         break;
 
                 }
-               
+                Lapidary.refresh = true;
                 inventory.RemoveItem(itemObject[num]);
                 inventory.save();
 
