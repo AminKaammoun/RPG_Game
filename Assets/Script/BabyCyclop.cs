@@ -14,6 +14,8 @@ public class BabyCyclop : Enemy
     public GameObject slashEff;
 
     public AudioSource hurtAudio;
+
+    private bool canBeDamaged = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,27 +86,31 @@ public class BabyCyclop : Enemy
     {
         if (collision.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash"))
         {
-            Vector3 add = new Vector3(0.1f, 0.1f, 0f);
-            Instantiate(damage, transform.position + add, Quaternion.identity);
-            defence = 50;
-            damageText.num = 0;
-            currentState = EnemyState.stagger;
-            isHurt = true;
-            var bloods = Instantiate(blood, transform.position, Quaternion.identity);
-            baby.material.color = new Color(1, 0.5f, 0.5f, 1);
-            StartCoroutine(waitAfterHurt());
-            //this.gameObject.SetActive(false);
-            Destroy(bloods, 3f);
-            CameraMovement.shake = true;
-            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-            float damages = attack * (100 / (100 + defence));
-            TakeDamage((int)damages);
+            if (canBeDamaged)
+            {
+                canBeDamaged = false;
+                Vector3 add = new Vector3(0.1f, 0.1f, 0f);
+                Instantiate(damage, transform.position + add, Quaternion.identity);
+                defence = 50;
+                damageText.num = 0;
+                currentState = EnemyState.stagger;
+                isHurt = true;
+                var bloods = Instantiate(blood, transform.position, Quaternion.identity);
+                baby.material.color = new Color(1, 0.5f, 0.5f, 1);
+                StartCoroutine(waitAfterHurt());
+                //this.gameObject.SetActive(false);
+                Destroy(bloods, 3f);
+                CameraMovement.shake = true;
+                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                float damages = attack * (100 / (100 + defence));
+                TakeDamage((int)damages);
+            }
         }
     }
     IEnumerator waitAfterHurt()
     {
         yield return new WaitForSeconds(0.25f);
         baby.material.color = new Color(1, 1f, 1f, 1);
-
+        canBeDamaged = true;
     }
 }

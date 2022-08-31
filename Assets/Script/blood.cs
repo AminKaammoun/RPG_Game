@@ -10,7 +10,7 @@ public class blood : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("worm").transform;
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, 0.5f);
     }
 
     // Update is called once per frame

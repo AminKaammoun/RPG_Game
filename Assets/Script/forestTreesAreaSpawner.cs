@@ -95,10 +95,16 @@ public class forestTreesAreaSpawner : MonoBehaviour
     public void spawnTrees()
     {
         GameObject[] trees = GameObject.FindGameObjectsWithTag("tree");
+        GameObject[] leafs = GameObject.FindGameObjectsWithTag("treeAreaLeaf");
 
         foreach (GameObject tree in trees)
         {
             Destroy(tree);
+        }
+
+        foreach (GameObject leaf in leafs)
+        {
+            Destroy(leaf);
         }
 
         treesSpawnArea = GameObject.FindGameObjectsWithTag("treeSpawnArea");

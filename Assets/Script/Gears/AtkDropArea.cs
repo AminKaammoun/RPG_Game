@@ -9,7 +9,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
     public InventoryObject inventory;
     public ItemObject[] itemObject;
 
-   
+
     // public GameObject Gear;
     public static int num;
     private string attackGear;
@@ -20,19 +20,19 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
 
         if (eventData.pointerDrag != null)
         {
-            
+
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("attack"))
             {
-                
+
                 attackGear = PlayerPrefs.GetString("AttackGear");
-                 if (attackGear == "lvl 1 attack (equipmentObject)")
+                if (attackGear == "lvl 1 attack (equipmentObject)")
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
-                    
+
                 }
                 else if (attackGear == "lvl 10 attack (equipmentObject)")
                 {

@@ -197,35 +197,39 @@ public class Cyclop : MonoBehaviour
     {
         if ((collision.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash")) && currentState == CyclopState.stun)
         {
-            isHurt = true;
-            CameraMovement.shake = true;
-            Vector3 add = new Vector3(1.5f, 0.1f, 0f);
-            Instantiate(damage, transform.position + add, Quaternion.identity);
-           
-            if (collision.CompareTag("hitBox"))
+            if (canBeDamaged)
             {
-                damageText.num = 2;
-                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-                float damages = attack * (100 / (100 + defence));
-                health -= (int)damages;
-            }
-            else if (collision.gameObject.CompareTag("ultSlash"))
-            {
-                damageText.num = 4;
-                float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
-                float damages = attack * (100 / (100 + defence));
-                health -= (int)damages;
-            }
-            StartCoroutine(backFromStagger());
-            currentState = CyclopState.stagger;
-            anim.SetBool("hurt", true);
+                isHurt = true;
+                CameraMovement.shake = true;
+                Vector3 add = new Vector3(1.5f, 0.1f, 0f);
+                Instantiate(damage, transform.position + add, Quaternion.identity);
+                canBeDamaged = false;
+                if (collision.CompareTag("hitBox"))
+                {
+                    damageText.num = 2;
+                    float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                    float damages = attack * (100 / (100 + defence));
+                    health -= (int)damages;
+                }
+                else if (collision.gameObject.CompareTag("ultSlash"))
+                {
+                    damageText.num = 4;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damages = attack * (100 / (100 + defence));
+                    health -= (int)damages;
+                }
+                StartCoroutine(backFromStagger());
+                currentState = CyclopState.stagger;
+                anim.SetBool("hurt", true);
 
+            }
         }
     }
     IEnumerator backFromStagger()
     {
         yield return new WaitForSeconds(0.3f);
         currentState = CyclopState.stun;
+        canBeDamaged = true;
         anim.SetBool("hurt", false);
     }
     IEnumerator backToWalk()

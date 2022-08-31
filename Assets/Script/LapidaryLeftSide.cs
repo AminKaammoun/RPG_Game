@@ -5,8 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+public enum SelectedGear
+{
+    sword,
+    shield,
+    helmet,
+    belt,
+    ring
+}
 public class LapidaryLeftSide : MonoBehaviour
 {
+    public static SelectedGear currentgear;
+
     private string attackGear;
     private string defGear;
     private string helmetGear;
@@ -49,6 +59,8 @@ public class LapidaryLeftSide : MonoBehaviour
     public Image HelmetGear;
     public Image BeltGear;
     public Image RingGear;
+
+    public Image CurrentGear;
 
     public GameObject atkButton;
     public GameObject DefButton;
@@ -346,13 +358,13 @@ public class LapidaryLeftSide : MonoBehaviour
         {
             itemsDisplayed.Clear();
             GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
-            
+
 
             foreach (GameObject gem in gems)
             {
                 Destroy(gem);
             }
-         
+
             CreateDisplay();
             refreshInv = false;
 
@@ -619,6 +631,144 @@ public class LapidaryLeftSide : MonoBehaviour
     public Vector3 GetPosition(int i)
     {
         return new Vector3(Xstart + (XspaceBtwItem * (i % NumberOfColumns)), Ystart + (-YspaceBtwItems * (i / NumberOfColumns)), 0f);
+    }
+
+    public void swordGear()
+    {
+        currentgear = SelectedGear.sword;
+        CurrentGear.sprite = AttackGear.sprite;
+        GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
+
+        foreach (GameObject gemIcon in gemIcons)
+        {
+            Destroy(gemIcon);
+        }
+
+        string swordRedGem = PlayerPrefs.GetString("AttackGearRedGem");
+        string swordBlueGem = PlayerPrefs.GetString("AttackGearBlueGem");
+
+        switch (swordRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                redGems.isAtkGearRedGemPlaced = true;
+                break;
+        }
+        switch (swordBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                blueGems.isAtkGearBlueGemPlaced = true;
+                break;
+        }
+    }
+    public void ShieldGear()
+    {
+        currentgear = SelectedGear.shield;
+        CurrentGear.sprite = DefGear.sprite;
+      
+        GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
+
+        foreach (GameObject gemIcon in gemIcons)
+        {
+            Destroy(gemIcon);
+        }
+
+        string ShieldRedGem = PlayerPrefs.GetString("DefGearRedGem");
+        string shieldBlueGem = PlayerPrefs.GetString("DefGearBlueGem");
+
+        switch (ShieldRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                redGems.isDefGearRedGemPlaced = true;
+                break;
+        }
+        switch (shieldBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                blueGems.isDefGearBlueGemPlaced = true;
+                break;
+        }
+    }
+    public void helmetAgiGear()
+    {
+        currentgear = SelectedGear.helmet;
+        CurrentGear.sprite = HelmetGear.sprite;
+
+        GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
+
+        foreach (GameObject gemIcon in gemIcons)
+        {
+            Destroy(gemIcon);
+        }
+
+        string HelmetRedGem = PlayerPrefs.GetString("HelmetGearRedGem");
+        string helmetBlueGem = PlayerPrefs.GetString("HelmetGearBlueGem");
+
+        switch (HelmetRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                redGems.isHelmetGearRedGemPlaced = true;
+                break;
+        }
+        switch (helmetBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                blueGems.isHelmetGearBlueGemPlaced = true;
+                break;
+        }
+    }
+    public void beltSpGear()
+    {
+        currentgear = SelectedGear.belt;
+        CurrentGear.sprite = BeltGear.sprite;
+        GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
+
+        foreach (GameObject gemIcon in gemIcons)
+        {
+            Destroy(gemIcon);
+        }
+
+        string BeltRedGem = PlayerPrefs.GetString("BeltGearRedGem");
+        string beltBlueGem = PlayerPrefs.GetString("BeltGearBlueGem");
+
+        switch (BeltRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                redGems.isBeltGearRedGemPlaced = true;
+                break;
+        }
+        switch (beltBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                blueGems.isBeltGearBlueGemPlaced = true;
+                break;
+        }
+    }
+    public void ringHpGear()
+    {
+        currentgear = SelectedGear.ring;
+        CurrentGear.sprite = RingGear.sprite;
+        GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
+
+        foreach (GameObject gemIcon in gemIcons)
+        {
+            Destroy(gemIcon);
+        }
+
+        string RingRedGem = PlayerPrefs.GetString("RingGearRedGem");
+        string ringBlueGem = PlayerPrefs.GetString("RingGearBlueGem");
+
+        switch (RingRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                redGems.isRingGearRedGemPlaced = true;
+                break;
+        }
+        switch (ringBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                blueGems.isRingGearBlueGemPlaced = true;
+                break;
+        }
     }
 
 }

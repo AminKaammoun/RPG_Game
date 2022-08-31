@@ -65,9 +65,88 @@ public class LapidaryRightSide : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Awake()
     {
+        RedForgeButton.SetActive(true);
+        BlueForgeButton.SetActive(false);
+        YellowForgeButton.SetActive(false);
+        OrangeForgeButton.SetActive(false);
+        GreenForgeButton.SetActive(false);
 
+        image.sprite = gemSprites[0];
+        craftItem.sprite = gemStonesSprites[0];
+
+        item1Found = false;
+        item2Found = false;
+        item3Found = false;
+
+        for (int i = 0; i < inventory.Container.Count; i++)
+        {
+            if (inventory.Container[i].item.name == "RedGemStone")
+            {
+                item1Found = true;
+                item1.text = inventory.Container[i].amount.ToString() + "/5";
+                if (inventory.Container[i].amount > 4)
+                {
+
+                    item1.color = Color.green;
+                }
+                else
+                {
+                    item1.color = Color.white;
+                }
+            }
+
+            if (inventory.Container[i].item.name == "CoalStone")
+            {
+                item2Found = true;
+                item2.text = inventory.Container[i].amount.ToString() + "/3";
+                if (inventory.Container[i].amount > 2)
+                {
+
+                    item2.color = Color.green;
+                }
+                else
+                {
+                    item2.color = Color.white;
+                }
+            }
+
+            if (inventory.Container[i].item.name == "Wood")
+            {
+                item3Found = true;
+                item3.text = inventory.Container[i].amount.ToString() + "/20";
+                if (inventory.Container[i].amount > 19)
+                {
+
+                    item3.color = Color.green;
+                }
+                else
+                {
+                    item3.color = Color.white;
+                }
+            }
+
+        }
+        if (!item1Found)
+        {
+            item1.color = Color.white;
+            item1.text = "0/5";
+        }
+        if (!item2Found)
+        {
+            item2.color = Color.white;
+            item2.text = "0/3";
+        }
+        if (!item3Found)
+        {
+            item3.color = Color.white;
+            item3.text = "0/20";
+        }
+
+        item1Found = false;
+        item2Found = false;
+        item3Found = false;
     }
 
     public void RedGem()
@@ -494,7 +573,7 @@ public class LapidaryRightSide : MonoBehaviour
 
     public void RedGemForge()
     {
-        
+
         item1Found = false;
         item2Found = false;
         item3Found = false;
@@ -664,7 +743,7 @@ public class LapidaryRightSide : MonoBehaviour
 
     public void BlueGemForge()
     {
-       
+
         item1Found = false;
         item2Found = false;
         item3Found = false;
@@ -834,7 +913,7 @@ public class LapidaryRightSide : MonoBehaviour
 
     public void YellowGemForge()
     {
-        
+
         item1Found = false;
         item2Found = false;
         item3Found = false;
@@ -1004,7 +1083,7 @@ public class LapidaryRightSide : MonoBehaviour
 
     public void OrangeGemForge()
     {
-        
+
         item1Found = false;
         item2Found = false;
         item3Found = false;
@@ -1174,7 +1253,7 @@ public class LapidaryRightSide : MonoBehaviour
 
     public void GreenGemForge()
     {
-        
+
         item1Found = false;
         item2Found = false;
         item3Found = false;
@@ -1364,49 +1443,64 @@ public class LapidaryRightSide : MonoBehaviour
         {
             if (inventory.Container[i].item.name == "RedGemStone")
             {
+                item1Found = true;
                 item1.text = inventory.Container[i].amount.ToString() + "/5";
                 if (inventory.Container[i].amount > 4)
                 {
-                    item1Found = true;
+
                     item1.color = Color.green;
+                }
+                else
+                {
+                    item1.color = Color.white;
                 }
             }
 
             if (inventory.Container[i].item.name == "CoalStone")
             {
-
+                item2Found = true;
                 item2.text = inventory.Container[i].amount.ToString() + "/3";
                 if (inventory.Container[i].amount > 2)
                 {
-                    item2Found = true;
+
                     item2.color = Color.green;
+                }
+                else
+                {
+                    item2.color = Color.white;
                 }
             }
 
             if (inventory.Container[i].item.name == "Wood")
             {
-
+                item3Found = true;
                 item3.text = inventory.Container[i].amount.ToString() + "/20";
                 if (inventory.Container[i].amount > 19)
                 {
-                    item3Found = true;
+
                     item3.color = Color.green;
+                }
+                else
+                {
+                    item3.color = Color.white;
                 }
             }
 
         }
-
         if (!item1Found)
         {
             item1.color = Color.white;
+            item1.text = "0/5";
         }
         if (!item2Found)
         {
             item2.color = Color.white;
+            item2.text = "0/3";
         }
         if (!item3Found)
         {
             item3.color = Color.white;
+            item3.text = "0/20";
         }
 
         item1Found = false;
