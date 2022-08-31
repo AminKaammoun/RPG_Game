@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class redGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -13,6 +14,8 @@ public class redGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragHa
 
     public InventoryObject inventory;
     public InventoryObject GemInventory;
+
+  
 
     private void Awake()
     {
@@ -40,26 +43,31 @@ public class redGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Destroy(this.gameObject);
+       
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
             PlayerPrefs.SetString("AttackGearRedGem", "");
+           
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
             PlayerPrefs.SetString("DefGearRedGem", "");
+           
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
             PlayerPrefs.SetString("HelmetGearRedGem", "");
+           
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
             PlayerPrefs.SetString("BeltGearRedGem", "");
+          
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
             PlayerPrefs.SetString("RingGearRedGem", "");
+           
         }
 
         inventory.AddItem(redGems[0], 1);
@@ -68,6 +76,7 @@ public class redGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragHa
         GemInventory.save();
         LapidaryLeftSide.refreshInv = true;
         Inventory.refreshInv = true;
+        Destroy(this.gameObject);
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)

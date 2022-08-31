@@ -23,6 +23,15 @@ public class LapidaryLeftSide : MonoBehaviour
     private string beltGear;
     private string ringGear;
 
+    public Text atkGemLevel;
+    public Text defGemLevel;
+    public Text helmetGemLevel;
+    public Text beltGemLevel;
+    public Text ringGemLevel;
+
+    public GameObject effect;
+    public GameObject icon;
+
     public InventoryObject inventory;
     public int Xstart;
     public int Ystart;
@@ -356,6 +365,8 @@ public class LapidaryLeftSide : MonoBehaviour
 
         if (refreshInv)
         {
+
+
             itemsDisplayed.Clear();
             GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
 
@@ -635,6 +646,8 @@ public class LapidaryLeftSide : MonoBehaviour
 
     public void swordGear()
     {
+        effect.SetActive(true);
+        icon.SetActive(true);
         currentgear = SelectedGear.sword;
         CurrentGear.sprite = AttackGear.sprite;
         GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
@@ -646,25 +659,69 @@ public class LapidaryLeftSide : MonoBehaviour
 
         string swordRedGem = PlayerPrefs.GetString("AttackGearRedGem");
         string swordBlueGem = PlayerPrefs.GetString("AttackGearBlueGem");
+        string swordYellowGem = PlayerPrefs.GetString("AttackGearYellowGem");
+        string swordOrangeGem = PlayerPrefs.GetString("AttackGearOrangeGem");
+        string swordGreenGem = PlayerPrefs.GetString("AttackGearGreenGem");
 
         switch (swordRedGem)
         {
+            case "":
+                atkGemLevel.text = "";
+                break;
             case "lvl1RedGem (gemObject)":
                 redGems.isAtkGearRedGemPlaced = true;
+                atkGemLevel.text = "lvl 1";
                 break;
+
         }
         switch (swordBlueGem)
         {
+            case "":
+                defGemLevel.text = "";
+                break;
             case "lvl1BlueGem (gemObject)":
                 blueGems.isAtkGearBlueGemPlaced = true;
+                defGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (swordYellowGem)
+        {
+            case "":
+                helmetGemLevel.text = "";
+                break;
+            case "lvl1YellowGem (gemObject)":
+                yellowGems.isAtkGearYellowGemPlaced = true;
+                helmetGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (swordOrangeGem)
+        {
+            case "":
+                beltGemLevel.text = "";
+                break;
+            case "lvl1OrangeGem (gemObject)":
+                orangeGems.isAtkGearOrangeGemPlaced = true;
+                beltGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (swordGreenGem)
+        {
+            case "":
+                ringGemLevel.text = "";
+                break;
+            case "lvl1GreenGem (gemObject)":
+                greenGems.isAtkGearGreenGemPlaced = true;
+                ringGemLevel.text = "lvl 1";
                 break;
         }
     }
     public void ShieldGear()
     {
+        effect.SetActive(true);
+        icon.SetActive(true);
         currentgear = SelectedGear.shield;
         CurrentGear.sprite = DefGear.sprite;
-      
+
         GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
 
         foreach (GameObject gemIcon in gemIcons)
@@ -674,22 +731,65 @@ public class LapidaryLeftSide : MonoBehaviour
 
         string ShieldRedGem = PlayerPrefs.GetString("DefGearRedGem");
         string shieldBlueGem = PlayerPrefs.GetString("DefGearBlueGem");
+        string shieldYellowGem = PlayerPrefs.GetString("DefGearYellowGem");
+        string shieldOrangeGem = PlayerPrefs.GetString("DefGearOrangeGem");
+        string shieldGreenGem = PlayerPrefs.GetString("DefGearGreenGem");
 
         switch (ShieldRedGem)
         {
+            case "":
+                atkGemLevel.text = "";
+                break;
             case "lvl1RedGem (gemObject)":
                 redGems.isDefGearRedGemPlaced = true;
+                atkGemLevel.text = "lvl 1";
                 break;
         }
         switch (shieldBlueGem)
         {
+            case "":
+                defGemLevel.text = "";
+                break;
             case "lvl1BlueGem (gemObject)":
                 blueGems.isDefGearBlueGemPlaced = true;
+                defGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (shieldYellowGem)
+        {
+            case "":
+                helmetGemLevel.text = "";
+                break;
+            case "lvl1YellowGem (gemObject)":
+                yellowGems.isDefGearYellowGemPlaced = true;
+                helmetGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (shieldOrangeGem)
+        {
+            case "":
+               beltGemLevel.text = "";
+                break;
+            case "lvl1OrangeGem (gemObject)":
+                orangeGems.isDefGearOrangeGemPlaced = true;
+                beltGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (shieldGreenGem)
+        {
+            case "":
+                ringGemLevel.text = "";
+                break;
+            case "lvl1GreenGem (gemObject)":
+                greenGems.isDefGearGreenGemPlaced = true;
+                ringGemLevel.text = "lvl 1";
                 break;
         }
     }
     public void helmetAgiGear()
     {
+        effect.SetActive(true);
+        icon.SetActive(true);
         currentgear = SelectedGear.helmet;
         CurrentGear.sprite = HelmetGear.sprite;
 
@@ -702,22 +802,65 @@ public class LapidaryLeftSide : MonoBehaviour
 
         string HelmetRedGem = PlayerPrefs.GetString("HelmetGearRedGem");
         string helmetBlueGem = PlayerPrefs.GetString("HelmetGearBlueGem");
+        string helmetYellowGem = PlayerPrefs.GetString("HelmetGearYellowGem");
+        string helmetOrangeGem = PlayerPrefs.GetString("HelmetGearOrangeGem");
+        string helmetGreenGem = PlayerPrefs.GetString("HelmetGearGreenGem");
 
         switch (HelmetRedGem)
         {
+            case "":
+                atkGemLevel.text = "";
+                break;
             case "lvl1RedGem (gemObject)":
                 redGems.isHelmetGearRedGemPlaced = true;
+                atkGemLevel.text = "lvl 1";
                 break;
         }
         switch (helmetBlueGem)
         {
+            case "":
+               defGemLevel.text = "";
+                break;
             case "lvl1BlueGem (gemObject)":
                 blueGems.isHelmetGearBlueGemPlaced = true;
+                defGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (helmetYellowGem)
+        {
+            case "":
+               helmetGemLevel.text = "";
+                break;
+            case "lvl1YellowGem (gemObject)":
+                yellowGems.isHelmetGearYellowGemPlaced = true;
+                helmetGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (helmetOrangeGem)
+        {
+            case "":
+                beltGemLevel.text = "";
+                break;
+            case "lvl1OrangeGem (gemObject)":
+                orangeGems.isHelmetGearOrangeGemPlaced = true;
+                beltGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (helmetGreenGem)
+        {
+            case "":
+                ringGemLevel.text = "";
+                break;
+            case "lvl1GreenGem (gemObject)":
+                greenGems.isHelmetGearGreenGemPlaced = true;
+                ringGemLevel.text = "lvl 1";
                 break;
         }
     }
     public void beltSpGear()
     {
+        effect.SetActive(true);
+        icon.SetActive(true);
         currentgear = SelectedGear.belt;
         CurrentGear.sprite = BeltGear.sprite;
         GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
@@ -729,22 +872,65 @@ public class LapidaryLeftSide : MonoBehaviour
 
         string BeltRedGem = PlayerPrefs.GetString("BeltGearRedGem");
         string beltBlueGem = PlayerPrefs.GetString("BeltGearBlueGem");
+        string beltYellowGem = PlayerPrefs.GetString("BeltGearYellowGem");
+        string beltOrangeGem = PlayerPrefs.GetString("BeltGearOrangeGem");
+        string beltGreenGem = PlayerPrefs.GetString("BeltGearGreenGem");
 
         switch (BeltRedGem)
         {
+            case "":
+                atkGemLevel.text = "";
+                break;
             case "lvl1RedGem (gemObject)":
                 redGems.isBeltGearRedGemPlaced = true;
+                atkGemLevel.text = "lvl 1";
                 break;
         }
         switch (beltBlueGem)
         {
+            case "":
+                defGemLevel.text = "";
+                break;
             case "lvl1BlueGem (gemObject)":
                 blueGems.isBeltGearBlueGemPlaced = true;
+                defGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (beltYellowGem)
+        {
+            case "":
+                helmetGemLevel.text = "";
+                break;
+            case "lvl1YellowGem (gemObject)":
+                yellowGems.isBeltGearYellowGemPlaced = true;
+                helmetGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (beltOrangeGem)
+        {
+            case "":
+               beltGemLevel.text = "";
+                break;
+            case "lvl1OrangeGem (gemObject)":
+                orangeGems.isBeltGearOrangeGemPlaced = true;
+                beltGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (beltGreenGem)
+        {
+            case "":
+                ringGemLevel.text = "";
+                break;
+            case "lvl1GreenGem (gemObject)":
+                greenGems.isHelmetGearGreenGemPlaced = true;
+                ringGemLevel.text = "lvl 1";
                 break;
         }
     }
     public void ringHpGear()
     {
+        effect.SetActive(true);
+        icon.SetActive(true);
         currentgear = SelectedGear.ring;
         CurrentGear.sprite = RingGear.sprite;
         GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
@@ -756,17 +942,58 @@ public class LapidaryLeftSide : MonoBehaviour
 
         string RingRedGem = PlayerPrefs.GetString("RingGearRedGem");
         string ringBlueGem = PlayerPrefs.GetString("RingGearBlueGem");
+        string ringYellowGem = PlayerPrefs.GetString("RingGearYellowGem");
+        string ringOrangeGem = PlayerPrefs.GetString("RingGearOrangeGem");
+        string ringGreenGem = PlayerPrefs.GetString("BeltGearGreenGem");
 
         switch (RingRedGem)
         {
+            case "":
+                atkGemLevel.text = "";
+                break;
             case "lvl1RedGem (gemObject)":
                 redGems.isRingGearRedGemPlaced = true;
+                atkGemLevel.text = "lvl 1";
                 break;
         }
         switch (ringBlueGem)
         {
+            case "":
+                defGemLevel.text = "";
+                break;
             case "lvl1BlueGem (gemObject)":
                 blueGems.isRingGearBlueGemPlaced = true;
+                defGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (ringYellowGem)
+        {
+            case "":
+                helmetGemLevel.text = "";
+                break;
+            case "lvl1YellowGem (gemObject)":
+                yellowGems.isRingGearYellowGemPlaced = true;
+                helmetGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (ringOrangeGem)
+        {
+            case "":
+                beltGemLevel.text = "";
+                break;
+            case "lvl1OrangeGem (gemObject)":
+                orangeGems.isRingGearOrangeGemPlaced = true;
+                beltGemLevel.text = "lvl 1";
+                break;
+        }
+        switch (ringGreenGem)
+        {
+            case "":
+                ringGemLevel.text = "";
+                break;
+            case "lvl1GreenGem (gemObject)":
+                greenGems.isHelmetGearGreenGemPlaced = true;
+                ringGemLevel.text = "lvl 1";
                 break;
         }
     }
