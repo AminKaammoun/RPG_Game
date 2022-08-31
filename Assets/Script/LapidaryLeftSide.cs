@@ -21,6 +21,8 @@ public class LapidaryLeftSide : MonoBehaviour
     public float YspaceBtwItems;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
+    public static bool refreshInv = false;
+
     public Sprite atkLevel1Gear;
     public Sprite atkLevel10Gear;
 
@@ -339,6 +341,25 @@ public class LapidaryLeftSide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (refreshInv)
+        {
+            itemsDisplayed.Clear();
+            GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
+            
+
+            foreach (GameObject gem in gems)
+            {
+                Destroy(gem);
+            }
+         
+            CreateDisplay();
+            refreshInv = false;
+
+        }
+
+
+
         if (refresh)
         {
             attackGear = PlayerPrefs.GetString("AttackGear");

@@ -14,20 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePath: /GemInventory.save
   database: {fileID: 11400000, guid: 89832b23f75f0df4d88d18477efc6e16, type: 2}
-  Container:
-  - ID: 30
-    item: {fileID: 11400000, guid: 860ea4bf6aa4a324e97949e738a7945f, type: 2}
-    amount: 5
-  - ID: 31
-    item: {fileID: 11400000, guid: ab804b92a5ae6bc41ac94124b88c80d8, type: 2}
-    amount: 5
-  - ID: 32
-    item: {fileID: 11400000, guid: e7e7bdf6428be394f8f83435c5eeeafe, type: 2}
-    amount: 5
-  - ID: 33
-    item: {fileID: 11400000, guid: 09807548d4165dd48a29d883ebdf3495, type: 2}
-    amount: 5
-  - ID: 34
-    item: {fileID: 11400000, guid: dd1d7045a04c78c49856739f00845cce, type: 2}
-    amount: 5
+  Container: []
   GearsContainer: []

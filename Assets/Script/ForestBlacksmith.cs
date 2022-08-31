@@ -768,9 +768,9 @@ public class ForestBlacksmith : MonoBehaviour
             inventory.RemoveItem(MagicalIceLeaf);
             for (int i = 0; i < 5; i++)
             {
-                
+
                 inventory.RemoveItem(Wood);
-                
+
             }
             for (int i = 0; i < 10; i++)
             {
@@ -780,7 +780,7 @@ public class ForestBlacksmith : MonoBehaviour
             {
                 inventory.RemoveItem(Stone);
             }
-        
+
             inventory.AddItem(AtkGearLevel1, 1);
             inventory.save();
             Destroy(effect, 1f);
@@ -881,7 +881,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalIceLeaf")
             {
                 item1Found = true;
-               
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
@@ -894,7 +894,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalSakuraLeaf")
             {
                 item2Found = true;
-                
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
@@ -947,7 +947,7 @@ public class ForestBlacksmith : MonoBehaviour
 
 
 
-        if (item1Found && item2Found && item3Found && item4Found && item5Found)
+        if (item1Found && item2Found && item3Found && item4Found && item5Found && GameController.coins >= 50000)
         {
             GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
@@ -1077,7 +1077,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalFireLeaf")
             {
                 item1Found = true;
-              
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
@@ -1090,7 +1090,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalAutumnLeaf")
             {
                 item2Found = true;
-               
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
@@ -1142,7 +1142,7 @@ public class ForestBlacksmith : MonoBehaviour
 
         }
 
-        if (item1Found && item2Found && item3Found && item4Found && item5Found)
+        if (item1Found && item2Found && item3Found && item4Found && item5Found && GameController.coins >= 50000)
         {
             GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
@@ -1272,7 +1272,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalPlantLeaf")
             {
                 item1Found = true;
-                
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
@@ -1286,7 +1286,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalFireLeaf")
             {
                 item2Found = true;
-               
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
@@ -1339,7 +1339,7 @@ public class ForestBlacksmith : MonoBehaviour
         }
 
 
-        if (item1Found && item2Found && item3Found && item4Found && item5Found)
+        if (item1Found && item2Found && item3Found && item4Found && item5Found && GameController.coins >= 50000)
         {
             GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
@@ -1469,7 +1469,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalSakuraLeaf")
             {
                 item1Found = true;
-                
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item1.color = Color.green;
@@ -1482,7 +1482,7 @@ public class ForestBlacksmith : MonoBehaviour
             if (inventory.Container[i].item.name == "MagicalPlantLeaf")
             {
                 item2Found = true;
-                
+
                 if (inventory.Container[i].amount > 0)
                 {
                     item2.color = Color.green;
@@ -1533,7 +1533,7 @@ public class ForestBlacksmith : MonoBehaviour
             }
         }
 
-        if (item1Found && item2Found && item3Found && item4Found && item5Found)
+        if (item1Found && item2Found && item3Found && item4Found && item5Found && GameController.coins >= 50000)
         {
             GameController.coins -= 50000;
             Vector3 add = new Vector3(-655.4413f, -282.812f, 0f);
