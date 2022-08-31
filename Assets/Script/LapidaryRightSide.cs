@@ -1416,6 +1416,7 @@ public class LapidaryRightSide : MonoBehaviour
     public void gemsButton()
     {
         LapidaryLeftSide.refreshInv = true;
+        Inventory.refreshInv = true;
         rightSideCraft.SetActive(false);
         rightSideGems.SetActive(true);
     }

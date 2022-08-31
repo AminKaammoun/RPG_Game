@@ -49,6 +49,7 @@ public class Inventory : MonoBehaviour
             GameObject[] potions = GameObject.FindGameObjectsWithTag("potionIcon");
             GameObject[] equipments = GameObject.FindGameObjectsWithTag("equipIcon");
             GameObject[] materials = GameObject.FindGameObjectsWithTag("materialIcon");
+            GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
 
             foreach (GameObject potion in potions)
             {
@@ -61,6 +62,10 @@ public class Inventory : MonoBehaviour
             foreach (GameObject material in materials)
             {
                 Destroy(material);
+            }
+            foreach (GameObject gem in gems)
+            {
+                Destroy(gem);
             }
 
             CreateDisplay();
