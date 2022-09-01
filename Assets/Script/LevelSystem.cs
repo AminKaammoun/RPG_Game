@@ -6,8 +6,8 @@ using UnityEngine;
 [System.Serializable]
 public class LevelSystem 
 {
-    public int experience;
-    public int currentLevel;
+    public int experience ;
+    public int currentLevel ;
     public Action OnLevelUp;
 
     public int MAX_EXP;

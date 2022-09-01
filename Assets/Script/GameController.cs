@@ -135,6 +135,10 @@ public class GameController : MonoBehaviour
     private float startCrowTime = 2f;
 
     public static int coins;
+    public static int diamonds;
+    public static int xp;
+    public static int Level;
+
     private int value;
     public static bool showAlert = false;
     public static bool returnDunMusic = false;
@@ -266,12 +270,10 @@ public class GameController : MonoBehaviour
                 break;
         }
 
-        //PlayerPrefs.SetInt("coins", 0);
-        coins = PlayerPrefs.GetInt("coins");
-        //PlayerPrefs.SetInt("XP", 0);
-        //PlayerPrefs.SetInt("LEVEL", 1);
-        level = new LevelSystem(PlayerPrefs.GetInt("LEVEL"), OnLevelUp);
-        level.experience = PlayerPrefs.GetInt("XP");
+
+        LoadData();
+        level = new LevelSystem(Level, OnLevelUp);
+        level.experience = xp;
         BattlePower = PlayerPrefs.GetInt("BattlePower");
         currentTime = startTime;
         TimeBtwCrows = startCrowTime;
@@ -281,7 +283,27 @@ public class GameController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    public void SaveData()
+    {
+        saveSystem.SavePlayer(this);
+    }
+
+    public void LoadData()
+    {
+        playerData data = saveSystem.LoadPlayer();
+
+        coins = data.coins;
+        diamonds = data.diamonds;
+        PlayerMovements.health = data.health;
+        xp = data.xp;
+        Level = data.level;
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveData();
+    }
+
     void Update()
     {
 
@@ -290,11 +312,6 @@ public class GameController : MonoBehaviour
         Hp.text = PlayerMovements.health.ToString() + "/" + (100 + (PlayerPrefs.GetInt("LEVEL") * 10) + PlayerMovements.BonusHp).ToString();
         resetForestDoors();
 
-        if (coins != PlayerPrefs.GetInt("coins"))
-        {
-            PlayerPrefs.SetInt("coins", coins);
-
-        }
 
         if (coins < 1000000 && coins >= 1000)
         {
@@ -637,16 +654,6 @@ public class GameController : MonoBehaviour
     public void updateLevelStats()
     {
         lvl.text = "Lv. " + level.currentLevel;
-
-        if (level.experience > PlayerPrefs.GetInt("XP"))
-        {
-            PlayerPrefs.SetInt("XP", level.experience);
-        }
-
-        if (level.currentLevel > PlayerPrefs.GetInt("LEVEL"))
-        {
-            PlayerPrefs.SetInt("LEVEL", level.currentLevel);
-        }
         int currentXp = level.experience - level.GetXPforLevel(level.currentLevel);
         int xpToNextLevel = (level.GetXPforLevel(level.currentLevel + 1) - level.GetXPforLevel(level.currentLevel));
         float levelFinishPercentage = (float)currentXp / xpToNextLevel;

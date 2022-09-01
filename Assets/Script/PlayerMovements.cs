@@ -160,8 +160,8 @@ public class PlayerMovements : MonoBehaviour
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
 
-        health = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
-        healthbar.SetMaxHealth(100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp);
+        health = 100 + (GameController.Level * 10) + BonusHp;
+        healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp);
 
     }
 
@@ -169,14 +169,14 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthbar.SetMaxHealth(100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp);
+        healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp);
         getStats();
 
         Vector3 add = new Vector3(0f, 2f, 0f);
         xpText.transform.position = transform.position + add;
-        if (health >= 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp)
+        if (health >= 100 + (GameController.Level * 10) + BonusHp)
         {
-            health = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
+            health = 100 + (GameController.Level * 10) + BonusHp;
             healthIsMax = true;
         }
         else
@@ -899,11 +899,11 @@ public class PlayerMovements : MonoBehaviour
     public void getStats()
     {
 
-        attack = 100 + (PlayerPrefs.GetInt("LEVEL") * 5) + BonusAttack;
-        defence = 50 + (PlayerPrefs.GetInt("LEVEL") * 4) + BonusDefence;
-        agility = 30 + (PlayerPrefs.GetInt("LEVEL") * 2) + BonusAgility;
-        hp = 100 + (PlayerPrefs.GetInt("LEVEL") * 10) + BonusHp;
-        Sp = 50 + (PlayerPrefs.GetInt("LEVEL") * 2) + BonusSp;
+        attack = 100 + (GameController.Level * 5) + BonusAttack;
+        defence = 50 + (GameController.Level * 4) + BonusDefence;
+        agility = 30 + (GameController.Level * 2) + BonusAgility;
+        hp = 100 + (GameController.Level * 10) + BonusHp;
+        Sp = 50 + (GameController.Level * 2) + BonusSp;
 
     }
 }
