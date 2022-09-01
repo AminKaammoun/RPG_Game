@@ -24,8 +24,8 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("attack"))
             {
 
-                attackGear = PlayerPrefs.GetString("AttackGear");
-                if (attackGear == "lvl 1 attack (equipmentObject)")
+               
+                if (GameController.attackGear == "lvl 1 attack (equipmentObject)")
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
@@ -48,13 +48,13 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                     GameObject.Destroy(child.gameObject);
                 }
 
-                attackGear = PlayerPrefs.GetString("AttackGear");
-                if (attackGear == "lvl 1 attack (equipmentObject)")
+                
+                if (GameController.attackGear == "lvl 1 attack (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[0], 1);
                     inventory.save();
                 }
-                else if (attackGear == "lvl 10 attack (equipmentObject)")
+                else if (GameController.attackGear == "lvl 10 attack (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[1], 1);
                     inventory.save();
@@ -72,10 +72,10 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                 switch (num)
                 {
                     case 0:
-                        PlayerPrefs.SetString("AttackGear", itemObject[0].ToString());
+                        GameController.attackGear = itemObject[0].ToString();
                         break;
                     case 1:
-                        PlayerPrefs.SetString("AttackGear", itemObject[1].ToString());
+                        GameController.attackGear = itemObject[1].ToString();
 
                         break;
 

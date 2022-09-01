@@ -10,7 +10,7 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
-    private string helmetGear;
+   
     public void OnDrop(PointerEventData eventData)
     {
 
@@ -21,8 +21,8 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("helmet"))
             {
 
-                helmetGear = PlayerPrefs.GetString("HelmetGear");
-                switch (helmetGear)
+               
+                switch (GameController.helmetGear)
                 {
                     case "lvl 1 helmet (equipmentObject)":
 
@@ -48,12 +48,12 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                 }
 
                 
-                if (helmetGear == "lvl 1 helmet (equipmentObject)")
+                if (GameController.helmetGear == "lvl 1 helmet (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[0], 1);
                     inventory.save();
                 }
-                else if (helmetGear == "lvl 10 helmet (equipmentObject)")
+                else if (GameController.helmetGear == "lvl 10 helmet (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[1], 1);
                     inventory.save();
@@ -70,10 +70,10 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                 switch (num)
                 {
                     case 0:
-                        PlayerPrefs.SetString("HelmetGear", itemObject[0].ToString());
+                        GameController.helmetGear = itemObject[0].ToString();
                         break;
                     case 1:
-                        PlayerPrefs.SetString("HelmetGear", itemObject[1].ToString());
+                        GameController.helmetGear = itemObject[1].ToString();
 
                         break;
 

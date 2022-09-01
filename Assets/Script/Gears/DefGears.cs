@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefGears : MonoBehaviour
 {
-    private string defGear;
+   
 
     public static bool isPlaced;
     public GameObject defLevel1Gear;
@@ -14,9 +14,9 @@ public class DefGears : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defGear = PlayerPrefs.GetString("DefGear");
+       
         Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-        switch (defGear)
+        switch (GameController.defGear)
         {
             case "lvl 1 def (equipmentObject)":
                 var def1gear = Instantiate(defLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
@@ -40,9 +40,9 @@ public class DefGears : MonoBehaviour
         if (isPlaced)
         {
             isPlaced = false;
-            defGear = PlayerPrefs.GetString("DefGear");
+            
             Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-            switch (defGear)
+            switch (GameController.defGear)
             {
                 case "lvl 1 def (equipmentObject)":
                     var def1gear = Instantiate(defLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;

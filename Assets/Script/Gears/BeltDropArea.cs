@@ -8,7 +8,7 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
-    private string beltGear;
+  
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
@@ -17,9 +17,9 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
 
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("belt"))
             {
-                beltGear = PlayerPrefs.GetString("BeltGear");
+               
 
-                switch (beltGear)
+                switch (GameController.beltGear)
                 {
                     case "lvl 1 belt (equipmentObject)":
 
@@ -44,13 +44,13 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                     GameObject.Destroy(child.gameObject);
                 }
 
-                beltGear = PlayerPrefs.GetString("BeltGear");
-                if (beltGear == "lvl 1 belt (equipmentObject)")
+                
+                if (GameController.beltGear == "lvl 1 belt (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[0], 1);
                     inventory.save();
                 }
-                else if (beltGear == "lvl 10 belt (equipmentObject)")
+                else if (GameController.beltGear == "lvl 10 belt (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[1], 1);
                     inventory.save();
@@ -67,10 +67,10 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                 switch (num)
                 {
                     case 0:
-                        PlayerPrefs.SetString("BeltGear", itemObject[0].ToString());
+                        GameController.beltGear = itemObject[0].ToString();
                         break;
                     case 1:
-                        PlayerPrefs.SetString("BeltGear", itemObject[1].ToString());
+                        GameController.beltGear = itemObject[1].ToString();
 
                         break;
 

@@ -15,7 +15,7 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
     public Vector3 StartPosition;
 
     public static bool isPlaced;
-    private string ringGear;
+   
     private void Awake()
     {
 
@@ -46,9 +46,9 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
         {
             inventory.AddItem(gear, 1);
             inventory.save();
-            ringGear = PlayerPrefs.GetString("RingGear");
+           
             
-            switch (ringGear)
+            switch (GameController.ringGear)
             {
                 case "lvl 1 ring (equipmentObject)":
                     
@@ -68,7 +68,7 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
                     break;
             }
             //AtkLevel1.destoryItem = false;
-            PlayerPrefs.SetString("RingGear", "");
+            GameController.ringGear = "";
             LapidaryLeftSide.refresh = true;
             Destroy(this.gameObject);
         }

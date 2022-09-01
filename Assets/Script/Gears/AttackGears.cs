@@ -5,13 +5,8 @@ using UnityEngine;
 public class AttackGears : MonoBehaviour
 {
 
-    private string attackGear;
-
-
     public static bool isPlaced;
   
-
-
     public GameObject atkLevel1Gear;
     public GameObject atkLevel10Gear;
 
@@ -21,9 +16,9 @@ public class AttackGears : MonoBehaviour
     void Start()
     {
 
-        attackGear = PlayerPrefs.GetString("AttackGear");
+       
         Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-        switch (attackGear)
+        switch (GameController.attackGear)
         {
             case "lvl 1 attack (equipmentObject)":
                 var atk1gear = Instantiate(atkLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
@@ -48,9 +43,9 @@ public class AttackGears : MonoBehaviour
         {
 
             isPlaced = false;
-            attackGear = PlayerPrefs.GetString("AttackGear");
+           
             Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-            switch (attackGear)
+            switch (GameController.attackGear)
             {
                 case "lvl 1 attack (equipmentObject)":
                     var atkgear = Instantiate(atkLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;

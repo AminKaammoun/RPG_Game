@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class HelmetGears : MonoBehaviour
 {
-    private string helmetGear;
-
     public static bool isPlaced;
     public GameObject helLevel1Gear;
     public GameObject helLevel10Gear;
     // Start is called before the first frame update
     void Start()
     {
-        helmetGear = PlayerPrefs.GetString("HelmetGear");
+       
         Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-        switch (helmetGear)
+        switch (GameController.helmetGear)
         {
             case "lvl 1 helmet (equipmentObject)":
                 var hel1gear = Instantiate(helLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
@@ -38,9 +36,9 @@ public class HelmetGears : MonoBehaviour
         if (isPlaced)
         {
             isPlaced = false;
-            helmetGear = PlayerPrefs.GetString("HelmetGear");
+           
             Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-            switch (helmetGear)
+            switch (GameController.helmetGear)
             {
                 case "lvl 1 helmet (equipmentObject)":
                     var hel1gear = Instantiate(helLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;

@@ -8,7 +8,7 @@ public class RingDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
-    private string ringGear;
+    
     public void OnDrop(PointerEventData eventData)
     {
 
@@ -18,9 +18,9 @@ public class RingDropArea : MonoBehaviour, IDropHandler
            
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("ring"))
             {
-                ringGear = PlayerPrefs.GetString("RingGear");
+           
 
-                switch (ringGear)
+                switch (GameController.ringGear)
                 {
                     case "lvl 1 ring (equipmentObject)":
 
@@ -46,13 +46,13 @@ public class RingDropArea : MonoBehaviour, IDropHandler
                     GameObject.Destroy(child.gameObject);
                 }
 
-                ringGear = PlayerPrefs.GetString("RingGear");
-                if (ringGear == "lvl 1 ring (equipmentObject)")
+               
+                if (GameController.ringGear == "lvl 1 ring (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[0], 1);
                     inventory.save();
                 }
-                else if (ringGear == "lvl 10 ring (equipmentObject)")
+                else if (GameController.ringGear == "lvl 10 ring (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[1], 1);
                     inventory.save();
@@ -69,10 +69,10 @@ public class RingDropArea : MonoBehaviour, IDropHandler
                 switch (num)
                 {
                     case 0:
-                        PlayerPrefs.SetString("RingGear", itemObject[0].ToString());
+                        GameController.ringGear = itemObject[0].ToString();
                         break;
                     case 1:
-                        PlayerPrefs.SetString("RingGear", itemObject[1].ToString());
+                        GameController.ringGear = itemObject[1].ToString();
 
                         break;
 

@@ -18,7 +18,7 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
 
     public static bool isPlaced;
 
-    private string attackGear;
+   
     private void Awake()
     {
 
@@ -52,8 +52,8 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
             inventory.save();
             
            
-            attackGear = PlayerPrefs.GetString("AttackGear");
-            switch (attackGear)
+           
+            switch (GameController.attackGear)
             {
                 case "lvl 1 attack (equipmentObject)":
 
@@ -73,7 +73,7 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
                     break;
             }
-            PlayerPrefs.SetString("AttackGear", null);
+            GameController.attackGear = "";
             LapidaryLeftSide.refresh = true;
             AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);

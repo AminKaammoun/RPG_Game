@@ -16,7 +16,7 @@ public class BeltGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
     public Vector3 StartPosition;
 
     public static bool isPlaced;
-    private string beltGear;
+   
 
     private void Awake()
     {
@@ -49,9 +49,9 @@ public class BeltGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
         {
             inventory.AddItem(gear, 1);
             inventory.save();
-            beltGear = PlayerPrefs.GetString("BeltGear");
             
-            switch (beltGear)
+            
+            switch (GameController.beltGear)
             {
                 case "lvl 1 belt (equipmentObject)":
                     
@@ -70,7 +70,7 @@ public class BeltGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
                     break;
             }
-            PlayerPrefs.SetString("BeltGear", "");
+            GameController.beltGear = "";
             LapidaryLeftSide.refresh = true;
             //AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);

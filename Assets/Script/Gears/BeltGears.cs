@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class BeltGears : MonoBehaviour
 {
-    private string beltGear;
-
+  
     public static bool isPlaced;
     public GameObject beltLevel1Gear;
     public GameObject beltLevel10Gear;
     void Start()
     {
-        beltGear = PlayerPrefs.GetString("BeltGear");
+        
         Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-        switch (beltGear)
+        switch (GameController.beltGear)
         {
             case "lvl 1 belt (equipmentObject)":
                 var belt1gear = Instantiate(beltLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;
@@ -35,9 +34,9 @@ public class BeltGears : MonoBehaviour
         if (isPlaced)
         {
             isPlaced = false;
-            beltGear = PlayerPrefs.GetString("BeltGear");
+           
             Vector3 add = new Vector3(-transform.position.x, -transform.position.y, 0f);
-            switch (beltGear)
+            switch (GameController.beltGear)
             {
                 case "lvl 1 belt (equipmentObject)":
                     var hel1gear = Instantiate(beltLevel1Gear, transform.position + add, Quaternion.identity) as GameObject;

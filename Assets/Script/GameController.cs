@@ -149,22 +149,17 @@ public class GameController : MonoBehaviour
 
     private Vector2 cursorHotspot;
 
-    private string attackGear;
-    private string defGear;
-    private string beltGear;
-    private string helmetGear;
-    private string ringGear;
+    public static string attackGear;
+    public static string defGear;
+    public static string beltGear;
+    public static string helmetGear;
+    public static string ringGear;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
-        attackGear = PlayerPrefs.GetString("AttackGear");
-        defGear = PlayerPrefs.GetString("DefGear");
-        beltGear = PlayerPrefs.GetString("BeltGear");
-        helmetGear = PlayerPrefs.GetString("HelmetGear");
-        ringGear = PlayerPrefs.GetString("RingGear");
+        LoadData();
 
         switch (attackGear)
         {
@@ -271,7 +266,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        LoadData();
+
         level = new LevelSystem(Level, OnLevelUp);
         level.experience = xp;
         BattlePower = PlayerPrefs.GetInt("BattlePower");
@@ -286,6 +281,7 @@ public class GameController : MonoBehaviour
     public void SaveData()
     {
         saveSystem.SavePlayer(this);
+        saveSystem.SaveGears(this);
     }
 
     public void LoadData()
@@ -297,6 +293,14 @@ public class GameController : MonoBehaviour
         PlayerMovements.health = data.health;
         xp = data.xp;
         Level = data.level;
+
+        gearData data1 = saveSystem.LoadGears();
+
+        attackGear = data1.attackGear;
+        defGear = data1.defGear;
+        beltGear = data1.beltGear;
+        helmetGear = data1.helmetGear;
+        ringGear = data1.ringGear;
     }
 
     private void OnApplicationQuit()

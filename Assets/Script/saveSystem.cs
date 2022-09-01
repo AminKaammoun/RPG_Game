@@ -37,4 +37,35 @@ public class saveSystem
             return null;
         }
     }
+
+    public static void SaveGears(GameController player)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/gears.file";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        gearData data = new gearData(player);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+    public static gearData LoadGears()
+    {
+        string path = Application.persistentDataPath + "/gears.file";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            gearData data = formatter.Deserialize(stream) as gearData;
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("Save File not found in " + path);
+            return null;
+        }
+    }
 }

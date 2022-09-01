@@ -9,7 +9,7 @@ public class DefDropArea : MonoBehaviour, IDropHandler
     public ItemObject[] itemObject;
 
     public static int num;
-    private string defGear;
+   
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -21,8 +21,8 @@ public class DefDropArea : MonoBehaviour, IDropHandler
 
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("def"))
             {
-                defGear = PlayerPrefs.GetString("DefGear");
-                switch (defGear)
+                
+                switch (GameController.defGear)
                 {
                     case "lvl 1 def (equipmentObject)":
 
@@ -48,12 +48,12 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                 }
 
                 
-                if (defGear == "lvl 1 def (equipmentObject)")
+                if (GameController.defGear == "lvl 1 def (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[0], 1);
                     inventory.save();
                 }
-                else if (defGear == "lvl 10 def (equipmentObject)")
+                else if (GameController.defGear == "lvl 10 def (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[1], 1);
                     inventory.save();
@@ -70,10 +70,10 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                 switch (num)
                 {
                     case 0:
-                        PlayerPrefs.SetString("DefGear", itemObject[0].ToString());
+                        GameController.defGear = itemObject[0].ToString();
                         break;
                     case 1:
-                        PlayerPrefs.SetString("DefGear", itemObject[1].ToString());
+                        GameController.defGear = itemObject[1].ToString();
 
                         break;
 

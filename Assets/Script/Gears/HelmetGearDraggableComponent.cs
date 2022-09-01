@@ -17,7 +17,7 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
     public Vector3 StartPosition;
 
     public static bool isPlaced;
-    private string helmetGear;
+    
 
     private void Awake()
     {
@@ -51,9 +51,9 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
             inventory.AddItem(gear, 1);
             inventory.save();
             
-            helmetGear = PlayerPrefs.GetString("HelmetGear");
+            
             PlayerPrefs.SetString("HelmetGear", "");
-            switch (helmetGear)
+            switch (GameController.helmetGear)
             {
                 case "lvl 1 helmet (equipmentObject)":
                     
@@ -72,7 +72,7 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
                     break;
             }
-            PlayerPrefs.SetString("HelmetGear", "");
+            GameController.helmetGear = "";
             LapidaryLeftSide.refresh = true;
             //AtkLevel1.destoryItem = false;
             Destroy(this.gameObject);
