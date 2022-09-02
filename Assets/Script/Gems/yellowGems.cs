@@ -12,6 +12,12 @@ public class yellowGems : MonoBehaviour
     public static bool isBeltGearYellowGemPlaced;
     public static bool isRingGearYellowGemPlaced;
 
+    public static bool atkGemIsAdded = false;
+    public static bool defGemIsAdded = false;
+    public static bool agiGemIsAdded = false;
+    public static bool spGemIsAdded = false;
+    public static bool hpGemIsAdded = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +34,11 @@ public class yellowGems : MonoBehaviour
             switch (GameController.swordYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
+                    if (atkGemIsAdded)
+                    {
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                        atkGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1YellowGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("yellowGemSlot").transform, false);
@@ -42,6 +53,11 @@ public class yellowGems : MonoBehaviour
             switch (GameController.shieldYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
+                    if (defGemIsAdded)
+                    {
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                        defGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1YellowGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("yellowGemSlot").transform, false);
@@ -56,6 +72,11 @@ public class yellowGems : MonoBehaviour
             switch (GameController.helmetYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
+                    if (agiGemIsAdded)
+                    {
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                        agiGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1YellowGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("yellowGemSlot").transform, false);
@@ -70,6 +91,11 @@ public class yellowGems : MonoBehaviour
             switch (GameController.beltYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
+                    if (spGemIsAdded)
+                    {
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                        spGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1YellowGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("yellowGemSlot").transform, false);
@@ -84,6 +110,11 @@ public class yellowGems : MonoBehaviour
             switch (GameController.ringYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
+                    if (hpGemIsAdded)
+                    {
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                        hpGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1YellowGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("yellowGemSlot").transform, false);

@@ -44,22 +44,27 @@ public class yellowGemDraggbleComponent : MonoBehaviour, IInitializePotentialDra
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
             GameController.swordYellowGem = "";
+            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
             GameController.shieldYellowGem = "";
+            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
             GameController.helmetYellowGem = "";
+            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
             GameController.beltYellowGem = "";
+            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
             GameController.ringYellowGem = "";
+            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
         }
 
         inventory.AddItem(yellowGems[0], 1);

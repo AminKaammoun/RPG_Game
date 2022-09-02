@@ -7,10 +7,13 @@ public class gainedBpText : MonoBehaviour
 {
     public static int GainedValue;
     public Text GainedValueText;
+
+    public GameObject FireEffect;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, 1f);
+        
+        Destroy(FireEffect, 1f);
         if (GainedValue > 0)
         {
             GainedValueText.color = Color.green;

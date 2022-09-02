@@ -45,22 +45,27 @@ public class orangeGemDraggbleComponent : MonoBehaviour, IInitializePotentialDra
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
             GameController.swordOrangeGem = "";
+            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
             GameController.shieldOrangeGem = "";
+            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
             GameController.helmetOrangeGem = "";
+            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
             GameController.beltOrangeGem = "";
+            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
             GameController.ringOrangeGem = "";
+            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
         }
 
         inventory.AddItem(orangeGems[0], 1);

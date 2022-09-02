@@ -44,22 +44,27 @@ public class greenGemDraggbleComponent : MonoBehaviour, IInitializePotentialDrag
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
             GameController.swordGreenGem = "";
+            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
             GameController.shieldGreenGem = "";
+            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
             GameController.helmetGreenGem = "";
+            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
             GameController.beltGreenGem = "";
+            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
             GameController.ringGreenGem = "";
+            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
         }
 
         inventory.AddItem(greenGems[0], 1);

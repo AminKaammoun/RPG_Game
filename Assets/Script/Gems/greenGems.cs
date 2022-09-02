@@ -12,6 +12,12 @@ public class greenGems : MonoBehaviour
     public static bool isBeltGearGreenGemPlaced;
     public static bool isRingGearGreenGemPlaced;
 
+    public static bool atkGemIsAdded = false;
+    public static bool defGemIsAdded = false;
+    public static bool agiGemIsAdded = false;
+    public static bool spGemIsAdded = false;
+    public static bool hpGemIsAdded = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +34,11 @@ public class greenGems : MonoBehaviour
             switch (GameController.swordGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
+                    if (atkGemIsAdded)
+                    {
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                        atkGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1GreenGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
@@ -42,6 +53,11 @@ public class greenGems : MonoBehaviour
             switch (GameController.shieldGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
+                    if (defGemIsAdded)
+                    {
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                        defGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1GreenGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
@@ -56,6 +72,11 @@ public class greenGems : MonoBehaviour
             switch (GameController.helmetGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
+                    if (agiGemIsAdded)
+                    {
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                        agiGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1GreenGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
@@ -70,6 +91,11 @@ public class greenGems : MonoBehaviour
             switch (GameController.beltGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
+                    if (spGemIsAdded)
+                    {
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                        spGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1GreenGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
@@ -84,6 +110,11 @@ public class greenGems : MonoBehaviour
             switch (GameController.ringGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
+                    if (hpGemIsAdded)
+                    {
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                        hpGemIsAdded = false;
+                    }
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
                     var redGem1 = Instantiate(lvl1GreenGem, transform.position - add, Quaternion.identity) as GameObject;
                     redGem1.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);

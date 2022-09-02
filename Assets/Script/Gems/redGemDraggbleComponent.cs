@@ -47,28 +47,29 @@ public class redGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragHa
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
             GameController.swordRedGem = "";
-           
+            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
            
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
             GameController.shieldRedGem = "";
+            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
 
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
             GameController.helmetRedGem = "";
-
+            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
             GameController.beltRedGem = "";
-
+            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
             GameController.ringRedGem = "";
-
+            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
         }
 
         inventory.AddItem(redGems[0], 1);

@@ -190,6 +190,7 @@ public class GameController : MonoBehaviour
     {
         LoadData();
 
+        //Gears
         switch (attackGear)
         {
             case "lvl 1 attack (equipmentObject)":
@@ -204,7 +205,7 @@ public class GameController : MonoBehaviour
                 break;
             case "lvl 10 attack (equipmentObject)":
 
-                PlayerMovements.BonusAttack = 50;
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 50;
                 PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 25;
                 PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 15;
                 PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
@@ -293,8 +294,168 @@ public class GameController : MonoBehaviour
 
                 break;
         }
+        //Red Gems
+        switch (swordRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                break;
+        }
+        switch (shieldRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                break;
+        }
+        switch (helmetRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                break;
+        }
+        switch (beltRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                break;
+        }
+        switch (ringRedGem)
+        {
+            case "lvl1RedGem (gemObject)":
+                PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                break;
+        }
+
+        //Blue Gems
+        switch (swordBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                break;
+        }
+        switch (shieldBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                break;
+        }
+        switch (helmetBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                break;
+        }
+        switch (beltBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                break;
+        }
+        switch (ringBlueGem)
+        {
+            case "lvl1BlueGem (gemObject)":
+                PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                break;
+        }
+
+        //Yellow Gems
+        switch (swordYellowGem)
+        {
+            case "lvl1YellowGem (gemObject)":
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                break;
+        }
+        switch (shieldYellowGem)
+        {
+            case "lvl1YellowGem (gemObject)":
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                break;
+        }
+        switch (helmetYellowGem)
+        {
+            case "lvl1YellowGem (gemObject)":
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                break;
+        }
+        switch (beltYellowGem)
+        {
+            case "lvl1YellowGem (gemObject)":
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                break;
+        }
+        switch (ringYellowGem)
+        {
+            case "lvl1YellowGem (gemObject)":
+                PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                break;
+        }
+
+        //Orange Gems
+
+        switch (swordOrangeGem)
+        {
+            case "lvl1OrangeGem (gemObject)":
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                break;
+        }
+        switch (shieldOrangeGem)
+        {
+            case "lvl1OrangeGem (gemObject)":
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                break;
+        }
+        switch (helmetOrangeGem)
+        {
+            case "lvl1OrangeGem (gemObject)":
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                break;
+        }
+        switch (beltOrangeGem)
+        {
+            case "lvl1OrangeGem (gemObject)":
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                break;
+        }
+        switch (ringOrangeGem)
+        {
+            case "lvl1OrangeGem (gemObject)":
+                PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                break;
+        }
 
 
+        //Green Gems
+
+        switch (swordGreenGem)
+        {
+            case "lvl1GreenGem (gemObject)":
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                break;
+        }
+        switch (shieldGreenGem)
+        {
+            case "lvl1GreenGem (gemObject)":
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                break;
+        }
+        switch (helmetGreenGem)
+        {
+            case "lvl1GreenGem (gemObject)":
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                break;
+        }
+        switch (beltGreenGem)
+        {
+            case "lvl1GreenGem (gemObject)":
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                break;
+        }
+        switch (ringGreenGem)
+        {
+            case "lvl1GreenGem (gemObject)":
+                PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                break;
+        }
 
         level = new LevelSystem(Level, OnLevelUp);
         level.experience = xp;
@@ -388,7 +549,7 @@ public class GameController : MonoBehaviour
 
         checkForCockSound();
         SetStats();
-        Hp.text = PlayerMovements.health.ToString() + "/" + (100 + (PlayerPrefs.GetInt("LEVEL") * 10) + PlayerMovements.BonusHp).ToString();
+        Hp.text = PlayerMovements.health.ToString() + "/" + ((100 + Level * 10) + PlayerMovements.BonusHp).ToString();
         resetForestDoors();
 
 
@@ -955,14 +1116,18 @@ public class GameController : MonoBehaviour
         {
 
             gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
-            var gainedTxt = Instantiate(gainedBp, new Vector3(-194.8f, 30f, 0f), Quaternion.identity) as GameObject;
+           
             try
             {
+                var gainedTxt = Instantiate(gainedBp, new Vector3(-194.8f, 30f, 0f), Quaternion.identity) as GameObject;
                 gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("inventory").transform, false);
+                gainedTxt.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
             catch (NullReferenceException e)
             {
-
+                var gainedTxt = Instantiate(gainedBp, new Vector3(-2.838074f, 8.945099f, 0f), Quaternion.identity) as GameObject;
+                gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("lapidary").transform, false);
+                gainedTxt.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
             }
             PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
 
