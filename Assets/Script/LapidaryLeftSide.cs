@@ -11,7 +11,8 @@ public enum SelectedGear
     shield,
     helmet,
     belt,
-    ring
+    ring,
+    nothing
 }
 public class LapidaryLeftSide : MonoBehaviour
 {
@@ -374,10 +375,25 @@ public class LapidaryLeftSide : MonoBehaviour
 
             CreateDisplay();
             refreshInv = false;
+         
 
         }
 
-
+        if(currentgear == SelectedGear.nothing)
+        {
+            effect.SetActive(false);
+            icon.SetActive(false);
+            GameObject[] gemIcons = GameObject.FindGameObjectsWithTag("gemIconsEquipped");
+            foreach (GameObject gemIcon in gemIcons)
+            {
+                Destroy(gemIcon);
+            }
+            atkGemLevel.text = "";
+            defGemLevel.text = "";
+            helmetGemLevel.text = "";
+            beltGemLevel.text = "";
+            ringGemLevel.text = "";
+        }
 
         if (refresh)
         {

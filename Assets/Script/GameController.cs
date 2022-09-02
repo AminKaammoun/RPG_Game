@@ -73,6 +73,8 @@ public class GameController : MonoBehaviour
     public GameObject thunder;
     public GameObject gainedBp;
 
+    public Toggle swapGemsToggle;
+
     public AudioSource audioSource;
     public AudioSource musicSource;
 
@@ -94,6 +96,8 @@ public class GameController : MonoBehaviour
 
     public static bool silverKeyDoorReset = false;
     public static bool goldKeyDoorReset = false;
+
+    public static bool swapGems = false;
 
     public static LevelSystem level;
     public XpBar xpBar;
@@ -457,6 +461,17 @@ public class GameController : MonoBehaviour
                 break;
         }
 
+        int a = PlayerPrefs.GetInt("swapGems");
+        if (a == 1)
+        {
+            swapGemsToggle.isOn = true;
+        }
+        else
+        {
+            swapGemsToggle.isOn = false;
+        }
+
+
         level = new LevelSystem(Level, OnLevelUp);
         level.experience = xp;
         BattlePower = PlayerPrefs.GetInt("BattlePower");
@@ -546,7 +561,17 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-
+        
+        if (swapGemsToggle.isOn)
+        {
+            swapGems = true;
+            PlayerPrefs.SetInt("swapGems", 1);
+        }
+        else
+        {
+            swapGems = false;
+            PlayerPrefs.SetInt("swapGems", 0);
+        }
         checkForCockSound();
         SetStats();
         Hp.text = PlayerMovements.health.ToString() + "/" + ((100 + Level * 10) + PlayerMovements.BonusHp).ToString();
@@ -722,6 +747,7 @@ public class GameController : MonoBehaviour
         GemInv.save();
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
+        LapidaryLeftSide.currentgear = SelectedGear.nothing;
         GemCraftingPanel.SetActive(false);
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
@@ -753,6 +779,7 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
+
 
     public void VillageTpButton()
     {
@@ -946,6 +973,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+
             ArrowSpawn.canShoot = false;
             inventory.SetActive(true);
             Inv.load();
@@ -1116,7 +1144,7 @@ public class GameController : MonoBehaviour
         {
 
             gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
-           
+
             try
             {
                 var gainedTxt = Instantiate(gainedBp, new Vector3(-194.8f, 30f, 0f), Quaternion.identity) as GameObject;
@@ -1125,9 +1153,17 @@ public class GameController : MonoBehaviour
             }
             catch (NullReferenceException e)
             {
-                var gainedTxt = Instantiate(gainedBp, new Vector3(-2.838074f, 8.945099f, 0f), Quaternion.identity) as GameObject;
-                gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("lapidary").transform, false);
-                gainedTxt.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                try
+                {
+                    var gainedTxt = Instantiate(gainedBp, new Vector3(-2.838074f, 8.945099f, 0f), Quaternion.identity) as GameObject;
+                    gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("lapidary").transform, false);
+                    gainedTxt.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                    Debug.Log(e);
+                }
+                catch (NullReferenceException e1)
+                {
+                    Debug.Log(e1);
+                }
             }
             PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
 

@@ -7,12 +7,17 @@ using UnityEngine.EventSystems;
 public class AtkDropArea : MonoBehaviour, IDropHandler
 {
     public InventoryObject inventory;
+    public InventoryObject GemInventory;
     public ItemObject[] itemObject;
 
+    public ItemObject lvl1RedGem;
+    public ItemObject lvl1BlueGem;
+    public ItemObject lvl1YellowGem;
+    public ItemObject lvl1OrangeGem;
+    public ItemObject lvl1GreenGem;
 
     // public GameObject Gear;
     public static int num;
-    private string attackGear;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -23,24 +28,121 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
 
             if (eventData.pointerDrag.GetComponent<RectTransform>().name.Contains("attack"))
             {
+                //GameController.wantToSwapGears = true;
 
-               
-                if (GameController.attackGear == "lvl 1 attack (equipmentObject)")
+                if (GameController.swapGems)
                 {
-                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
-                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
-                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
-                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
-                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
 
+                    if (GameController.attackGear == "lvl 1 attack (equipmentObject)")
+                    {
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
+
+                    }
+                    else if (GameController.attackGear == "lvl 10 attack (equipmentObject)")
+                    {
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 25;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
+                    }
                 }
-                else if (attackGear == "lvl 10 attack (equipmentObject)")
+                else
                 {
-                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
-                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 25;
-                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
-                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
-                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
+                    switch (GameController.swordRedGem)
+                    {
+                        case "lvl1RedGem (gemObject)":
+                            inventory.AddItem(lvl1RedGem, 1);
+                            GemInventory.AddItem(lvl1RedGem, 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                            GameController.swordRedGem = "";
+                            PlayerMovements.BonusAttack -= 5;
+                            break;
+                    }
+
+                    switch (GameController.swordBlueGem)
+                    {
+                        case "lvl1BlueGem (gemObject)":
+                            inventory.AddItem(lvl1BlueGem, 1);
+                            GemInventory.AddItem(lvl1BlueGem, 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                            GameController.swordBlueGem = "";
+                            PlayerMovements.BonusDefence -= 5;
+                            break;
+                    }
+
+
+                    switch (GameController.swordYellowGem)
+                    {
+                        case "lvl1YellowGem (gemObject)":
+                            inventory.AddItem(lvl1YellowGem, 1);
+                            GemInventory.AddItem(lvl1YellowGem, 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                            GameController.swordYellowGem = "";
+                            PlayerMovements.BonusAgility -= 5;
+                            break;
+                    }
+
+                    switch (GameController.swordOrangeGem)
+                    {
+                        case "lvl1OrangeGem (gemObject)":
+                            inventory.AddItem(lvl1OrangeGem, 1);
+                            GemInventory.AddItem(lvl1OrangeGem, 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                            GameController.swordOrangeGem = "";
+                            PlayerMovements.BonusSp -= 5;
+                            break;
+                    }
+
+
+                    switch (GameController.swordGreenGem)
+                    {
+                        case "lvl1GreenGem (gemObject)":
+                            inventory.AddItem(lvl1GreenGem, 1);
+                            GemInventory.AddItem(lvl1GreenGem, 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                            GameController.swordGreenGem = "";
+                            PlayerMovements.BonusHp -= 25;
+                            break;
+                    }
+
+                    if (GameController.attackGear == "lvl 1 attack (equipmentObject)")
+                    {
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
+
+                    }
+                    else if (GameController.attackGear == "lvl 10 attack (equipmentObject)")
+                    {
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 25;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
+                    }
+
                 }
 
                 foreach (Transform child in transform)
@@ -48,7 +150,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                     GameObject.Destroy(child.gameObject);
                 }
 
-                
+
                 if (GameController.attackGear == "lvl 1 attack (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[0], 1);

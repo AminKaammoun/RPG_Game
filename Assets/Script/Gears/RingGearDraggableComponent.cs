@@ -8,6 +8,7 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
     [SerializeField] private Canvas canvas;
 
     public InventoryObject inventory;
+    public InventoryObject GemInventory;
     public ItemObject gear;
      
 
@@ -15,7 +16,13 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
     public Vector3 StartPosition;
 
     public static bool isPlaced;
-   
+
+    public ItemObject lvl1RedGem;
+    public ItemObject lvl1BlueGem;
+    public ItemObject lvl1YellowGem;
+    public ItemObject lvl1OrangeGem;
+    public ItemObject lvl1GreenGem;
+
     private void Awake()
     {
 
@@ -46,8 +53,79 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
         {
             inventory.AddItem(gear, 1);
             inventory.save();
-           
-            
+
+            switch (GameController.ringRedGem)
+            {
+                case "lvl1RedGem (gemObject)":
+                    inventory.AddItem(lvl1RedGem, 1);
+                    GemInventory.AddItem(lvl1RedGem, 1);
+                    inventory.save();
+                    GemInventory.save();
+                    LapidaryLeftSide.refreshInv = true;
+                    Inventory.refreshInv = true;
+                    GameController.ringRedGem = "";
+                    PlayerMovements.BonusAttack -= 5;
+                    break;
+            }
+
+            switch (GameController.ringBlueGem)
+            {
+                case "lvl1BlueGem (gemObject)":
+                    inventory.AddItem(lvl1BlueGem, 1);
+                    GemInventory.AddItem(lvl1BlueGem, 1);
+                    inventory.save();
+                    GemInventory.save();
+                    LapidaryLeftSide.refreshInv = true;
+                    Inventory.refreshInv = true;
+                    GameController.ringBlueGem = "";
+                    PlayerMovements.BonusDefence -= 5;
+                    break;
+            }
+
+
+            switch (GameController.ringYellowGem)
+            {
+                case "lvl1YellowGem (gemObject)":
+                    inventory.AddItem(lvl1YellowGem, 1);
+                    GemInventory.AddItem(lvl1YellowGem, 1);
+                    inventory.save();
+                    GemInventory.save();
+                    LapidaryLeftSide.refreshInv = true;
+                    Inventory.refreshInv = true;
+                    GameController.ringYellowGem = "";
+                    PlayerMovements.BonusAgility -= 5;
+                    break;
+            }
+
+            switch (GameController.ringOrangeGem)
+            {
+                case "lvl1OrangeGem (gemObject)":
+                    inventory.AddItem(lvl1OrangeGem, 1);
+                    GemInventory.AddItem(lvl1OrangeGem, 1);
+                    inventory.save();
+                    GemInventory.save();
+                    LapidaryLeftSide.refreshInv = true;
+                    Inventory.refreshInv = true;
+                    GameController.ringOrangeGem = "";
+                    PlayerMovements.BonusSp -= 5;
+                    break;
+            }
+
+
+            switch (GameController.ringGreenGem)
+            {
+                case "lvl1GreenGem (gemObject)":
+                    inventory.AddItem(lvl1GreenGem, 1);
+                    GemInventory.AddItem(lvl1GreenGem, 1);
+                    inventory.save();
+                    GemInventory.save();
+                    LapidaryLeftSide.refreshInv = true;
+                    Inventory.refreshInv = true;
+                    GameController.ringGreenGem = "";
+                    PlayerMovements.BonusHp -= 25;
+                    break;
+            }
+
             switch (GameController.ringGear)
             {
                 case "lvl 1 ring (equipmentObject)":
