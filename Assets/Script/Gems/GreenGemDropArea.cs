@@ -28,27 +28,27 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
 
                     if (LapidaryLeftSide.currentgear == SelectedGear.sword)
                     {
-                        PlayerPrefs.SetString("AttackGearGreenGem", itemObject[0].ToString());
+                        GameController.swordGreenGem = itemObject[0].ToString();
                         greenGems.isAtkGearGreenGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
                     {
-                        PlayerPrefs.SetString("DefGearGreenGem", itemObject[0].ToString());
+                        GameController.shieldGreenGem = itemObject[0].ToString();
                         greenGems.isDefGearGreenGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
                     {
-                        PlayerPrefs.SetString("HelmetGearGreenGem", itemObject[0].ToString());
+                        GameController.helmetGreenGem = itemObject[0].ToString();
                         greenGems.isHelmetGearGreenGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
                     {
-                        PlayerPrefs.SetString("BeltGearGreenGem", itemObject[0].ToString());
+                        GameController.beltGreenGem = itemObject[0].ToString();
                         greenGems.isBeltGearGreenGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
                     {
-                        PlayerPrefs.SetString("RingGearGreenGem", itemObject[0].ToString());
+                        GameController.ringGreenGem = itemObject[0].ToString();
                         greenGems.isRingGearGreenGemPlaced = true;
                     }
 

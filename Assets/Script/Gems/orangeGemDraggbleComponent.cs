@@ -44,23 +44,23 @@ public class orangeGemDraggbleComponent : MonoBehaviour, IInitializePotentialDra
         Destroy(this.gameObject);
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
-            PlayerPrefs.SetString("AttackGearOrangeGem", "");
+            GameController.swordOrangeGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
-            PlayerPrefs.SetString("DefGearOrangeGem", "");
+            GameController.shieldOrangeGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
-            PlayerPrefs.SetString("HelmetGearOrangeGem", "");
+            GameController.helmetOrangeGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
-            PlayerPrefs.SetString("BeltGearOrangeGem", "");
+            GameController.beltOrangeGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
-            PlayerPrefs.SetString("RingGearOrangeGem", "");
+            GameController.ringOrangeGem = "";
         }
 
         inventory.AddItem(orangeGems[0], 1);

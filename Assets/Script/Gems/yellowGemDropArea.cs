@@ -28,27 +28,27 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
 
                     if (LapidaryLeftSide.currentgear == SelectedGear.sword)
                     {
-                        PlayerPrefs.SetString("AttackGearYellowGem", itemObject[0].ToString());
+                        GameController.swordYellowGem = itemObject[0].ToString();
                         yellowGems.isAtkGearYellowGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
                     {
-                        PlayerPrefs.SetString("DefGearYellowGem", itemObject[0].ToString());
+                        GameController.shieldYellowGem = itemObject[0].ToString();
                         yellowGems.isDefGearYellowGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
                     {
-                        PlayerPrefs.SetString("HelmetGearYellowGem", itemObject[0].ToString());
+                        GameController.helmetYellowGem = itemObject[0].ToString();
                         yellowGems.isHelmetGearYellowGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
                     {
-                        PlayerPrefs.SetString("BeltGearYellowGem", itemObject[0].ToString());
+                        GameController.beltYellowGem = itemObject[0].ToString();
                         yellowGems.isBeltGearYellowGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
                     {
-                        PlayerPrefs.SetString("RingGearYellowGem", itemObject[0].ToString());
+                        GameController.ringYellowGem = itemObject[0].ToString();
                         yellowGems.isRingGearYellowGemPlaced = true;
                     }
 

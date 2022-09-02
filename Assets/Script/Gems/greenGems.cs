@@ -24,8 +24,8 @@ public class greenGems : MonoBehaviour
         if (isAtkGearGreenGemPlaced)
         {
             isAtkGearGreenGemPlaced = false;
-            string attackGearRedGem = PlayerPrefs.GetString("AttackGearGreenGem");
-            switch (attackGearRedGem)
+            
+            switch (GameController.swordGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -38,8 +38,8 @@ public class greenGems : MonoBehaviour
         if (isDefGearGreenGemPlaced)
         {
             isDefGearGreenGemPlaced = false;
-            string defGearRedGem = PlayerPrefs.GetString("DefGearGreenGem");
-            switch (defGearRedGem)
+           
+            switch (GameController.shieldGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -52,8 +52,8 @@ public class greenGems : MonoBehaviour
         if (isHelmetGearGreenGemPlaced)
         {
             isHelmetGearGreenGemPlaced = false;
-            string helmetGearRedGem = PlayerPrefs.GetString("HelmetGearGreenGem");
-            switch (helmetGearRedGem)
+         
+            switch (GameController.helmetGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -66,8 +66,8 @@ public class greenGems : MonoBehaviour
         if (isBeltGearGreenGemPlaced)
         {
             isBeltGearGreenGemPlaced = false;
-            string beltGearRedGem = PlayerPrefs.GetString("BeltGearGreenGem");
-            switch (beltGearRedGem)
+           
+            switch (GameController.beltGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -80,8 +80,8 @@ public class greenGems : MonoBehaviour
         if (isRingGearGreenGemPlaced)
         {
             isRingGearGreenGemPlaced = false;
-            string ringGearRedGem = PlayerPrefs.GetString("RingGearGreenGem");
-            switch (ringGearRedGem)
+           
+            switch (GameController.ringGreenGem)
             {
                 case "lvl1GreenGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);

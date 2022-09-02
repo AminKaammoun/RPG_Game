@@ -24,8 +24,8 @@ public class yellowGems : MonoBehaviour
         if (isAtkGearYellowGemPlaced)
         {
             isAtkGearYellowGemPlaced = false;
-            string attackGearRedGem = PlayerPrefs.GetString("AttackGearYellowGem");
-            switch (attackGearRedGem)
+           
+            switch (GameController.swordYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -38,8 +38,8 @@ public class yellowGems : MonoBehaviour
         if (isDefGearYellowGemPlaced)
         {
             isDefGearYellowGemPlaced = false;
-            string defGearRedGem = PlayerPrefs.GetString("DefGearYellowGem");
-            switch (defGearRedGem)
+           
+            switch (GameController.shieldYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -52,8 +52,8 @@ public class yellowGems : MonoBehaviour
         if (isHelmetGearYellowGemPlaced)
         {
             isHelmetGearYellowGemPlaced = false;
-            string helmetGearRedGem = PlayerPrefs.GetString("HelmetGearYellowGem");
-            switch (helmetGearRedGem)
+           
+            switch (GameController.helmetYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -66,8 +66,8 @@ public class yellowGems : MonoBehaviour
         if (isBeltGearYellowGemPlaced)
         {
             isBeltGearYellowGemPlaced = false;
-            string beltGearRedGem = PlayerPrefs.GetString("BeltGearYellowGem");
-            switch (beltGearRedGem)
+           
+            switch (GameController.beltYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);
@@ -80,8 +80,8 @@ public class yellowGems : MonoBehaviour
         if (isRingGearYellowGemPlaced)
         {
             isRingGearYellowGemPlaced = false;
-            string ringGearRedGem = PlayerPrefs.GetString("RingGearYellowGem");
-            switch (ringGearRedGem)
+          
+            switch (GameController.ringYellowGem)
             {
                 case "lvl1YellowGem (gemObject)":
                     Vector3 add = new Vector3(transform.position.x, transform.position.y, 0);

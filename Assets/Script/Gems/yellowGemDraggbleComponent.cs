@@ -43,23 +43,23 @@ public class yellowGemDraggbleComponent : MonoBehaviour, IInitializePotentialDra
         Destroy(this.gameObject);
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
-            PlayerPrefs.SetString("AttackGearYellowGem", "");
+            GameController.swordYellowGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
-            PlayerPrefs.SetString("DefGearYellowGem", "");
+            GameController.shieldYellowGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
-            PlayerPrefs.SetString("HelmetGearYellowGem", "");
+            GameController.helmetYellowGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
-            PlayerPrefs.SetString("BeltGearYellowGem", "");
+            GameController.beltYellowGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
-            PlayerPrefs.SetString("RingGearYellowGem", "");
+            GameController.ringYellowGem = "";
         }
 
         inventory.AddItem(yellowGems[0], 1);

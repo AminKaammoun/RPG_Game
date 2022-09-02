@@ -43,27 +43,27 @@ public class blueGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragH
         Destroy(this.gameObject);
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
-            PlayerPrefs.SetString("AttackGearBlueGem", "");
+            GameController.swordBlueGem = "";
 
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
-            PlayerPrefs.SetString("DefGearBlueGem", "");
+            GameController.shieldBlueGem = "";
 
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
-            PlayerPrefs.SetString("HelmetGearBlueGem", "");
+            GameController.helmetBlueGem = "";
 
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
-            PlayerPrefs.SetString("BeltGearBlueGem", "");
+            GameController.beltBlueGem = "";
 
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
-            PlayerPrefs.SetString("RingGearBlueGem", "");
+            GameController.ringBlueGem = "";
 
         }
 

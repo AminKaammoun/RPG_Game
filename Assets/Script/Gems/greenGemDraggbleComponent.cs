@@ -43,23 +43,23 @@ public class greenGemDraggbleComponent : MonoBehaviour, IInitializePotentialDrag
         Destroy(this.gameObject);
         if (LapidaryLeftSide.currentgear == SelectedGear.sword)
         {
-            PlayerPrefs.SetString("AttackGearGreenGem", "");
+            GameController.swordGreenGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
         {
-            PlayerPrefs.SetString("DefGearGreenGem", "");
+            GameController.shieldGreenGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
         {
-            PlayerPrefs.SetString("HelmetGearGreenGem", "");
+            GameController.helmetGreenGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
         {
-            PlayerPrefs.SetString("BeltGearGreenGem", "");
+            GameController.beltGreenGem = "";
         }
         else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
         {
-            PlayerPrefs.SetString("RingGearGreenGem", "");
+            GameController.ringGreenGem = "";
         }
 
         inventory.AddItem(greenGems[0], 1);

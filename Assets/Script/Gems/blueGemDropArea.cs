@@ -28,27 +28,27 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                     if (LapidaryLeftSide.currentgear == SelectedGear.sword)
                     {
-                        PlayerPrefs.SetString("AttackGearBlueGem", itemObject[0].ToString());
+                        GameController.swordBlueGem = itemObject[0].ToString();
                         blueGems.isAtkGearBlueGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
                     {
-                        PlayerPrefs.SetString("DefGearBlueGem", itemObject[0].ToString());
+                        GameController.shieldBlueGem = itemObject[0].ToString();
                         blueGems.isDefGearBlueGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
                     {
-                        PlayerPrefs.SetString("HelmetGearBlueGem", itemObject[0].ToString());
+                        GameController.helmetBlueGem = itemObject[0].ToString();
                         blueGems.isHelmetGearBlueGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
                     {
-                        PlayerPrefs.SetString("BeltGearBlueGem", itemObject[0].ToString());
+                        GameController.beltBlueGem = itemObject[0].ToString();
                         blueGems.isBeltGearBlueGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
                     {
-                        PlayerPrefs.SetString("RingGearBlueGem", itemObject[0].ToString());
+                        GameController.ringBlueGem = itemObject[0].ToString();
                         blueGems.isRingGearBlueGemPlaced = true;
                     }
 

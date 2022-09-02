@@ -155,6 +155,35 @@ public class GameController : MonoBehaviour
     public static string helmetGear;
     public static string ringGear;
 
+    public static string swordRedGem;
+    public static string swordBlueGem;
+    public static string swordYellowGem;
+    public static string swordOrangeGem;
+    public static string swordGreenGem;
+
+    public static string shieldRedGem;
+    public static string shieldBlueGem;
+    public static string shieldYellowGem;
+    public static string shieldOrangeGem;
+    public static string shieldGreenGem;
+
+    public static string helmetRedGem;
+    public static string helmetBlueGem;
+    public static string helmetYellowGem;
+    public static string helmetOrangeGem;
+    public static string helmetGreenGem;
+
+    public static string beltRedGem;
+    public static string beltBlueGem;
+    public static string beltYellowGem;
+    public static string beltOrangeGem;
+    public static string beltGreenGem;
+
+    public static string ringRedGem;
+    public static string ringBlueGem;
+    public static string ringYellowGem;
+    public static string ringOrangeGem;
+    public static string ringGreenGem;
 
     // Start is called before the first frame update
     void Start()
@@ -282,6 +311,11 @@ public class GameController : MonoBehaviour
     {
         saveSystem.SavePlayer(this);
         saveSystem.SaveGears(this);
+        saveSystem.SaveSwordGems(this);
+        saveSystem.SaveShieldGems(this);
+        saveSystem.SaveHelmetGems(this);
+        saveSystem.SaveBeltGems(this);
+        saveSystem.SaveRingGems(this);
     }
 
     public void LoadData()
@@ -301,6 +335,47 @@ public class GameController : MonoBehaviour
         beltGear = data1.beltGear;
         helmetGear = data1.helmetGear;
         ringGear = data1.ringGear;
+
+        swordGemsData data2 = saveSystem.LoadSwordGems();
+
+        swordRedGem = data2.swordRedGem;
+        swordBlueGem = data2.swordBlueGem;
+        swordYellowGem = data2.swordYellowGem;
+        swordOrangeGem = data2.swordOrangeGem;
+        swordGreenGem = data2.swordGreenGem;
+
+        shieldGemsData data3 = saveSystem.LoadShieldGems();
+
+        shieldRedGem = data3.shieldRedGem;
+        shieldBlueGem = data3.shieldBlueGem;
+        shieldYellowGem = data3.shieldYellowGem;
+        shieldOrangeGem = data3.shieldOrangeGem;
+        shieldGreenGem = data3.shieldGreenGem;
+
+        helmetGemsData data4 = saveSystem.LoadHelmetGems();
+
+        helmetRedGem = data4.helmetRedGem;
+        helmetBlueGem = data4.helmetBlueGem;
+        helmetYellowGem = data4.helmetYellowGem;
+        helmetOrangeGem = data4.helmetOrangeGem;
+        helmetGreenGem = data4.helmetGreenGem;
+
+        beltGemsData data5 = saveSystem.LoadBeltGems();
+
+        beltRedGem = data5.beltRedGem;
+        beltBlueGem = data5.beltBlueGem;
+        beltYellowGem = data5.beltYellowGem;
+        beltOrangeGem = data5.beltOrangeGem;
+        beltGreenGem = data5.beltGreenGem;
+
+        ringGemsData data6 = saveSystem.LoadRingGems();
+
+        ringRedGem = data6.ringRedGem;
+        ringBlueGem = data6.ringBlueGem;
+        ringYellowGem = data6.ringYellowGem;
+        ringOrangeGem = data6.ringOrangeGem;
+        ringGreenGem = data6.ringGreenGem;
+
     }
 
     private void OnApplicationQuit()

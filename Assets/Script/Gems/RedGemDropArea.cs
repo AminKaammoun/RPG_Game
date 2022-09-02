@@ -29,28 +29,30 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
 
                     if (LapidaryLeftSide.currentgear == SelectedGear.sword)
                     {
-                        PlayerPrefs.SetString("AttackGearRedGem", itemObject[0].ToString());
+                       
+                        GameController.swordRedGem = itemObject[0].ToString();
                         redGems.isAtkGearRedGemPlaced = true;
                         
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.shield)
                     {
-                        PlayerPrefs.SetString("DefGearRedGem", itemObject[0].ToString());
+                      
+                        GameController.shieldRedGem = itemObject[0].ToString();
                         redGems.isDefGearRedGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.helmet)
                     {
-                        PlayerPrefs.SetString("HelmetGearRedGem", itemObject[0].ToString());
+                        GameController.helmetRedGem = itemObject[0].ToString();
                         redGems.isHelmetGearRedGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.belt)
                     {
-                        PlayerPrefs.SetString("BeltGearRedGem", itemObject[0].ToString());
+                        GameController.beltRedGem = itemObject[0].ToString();
                         redGems.isBeltGearRedGemPlaced = true;
                     }
                     else if (LapidaryLeftSide.currentgear == SelectedGear.ring)
                     {
-                        PlayerPrefs.SetString("RingGearRedGem", itemObject[0].ToString());
+                        GameController.ringRedGem = itemObject[0].ToString();
                         redGems.isRingGearRedGemPlaced = true;
                     }
 

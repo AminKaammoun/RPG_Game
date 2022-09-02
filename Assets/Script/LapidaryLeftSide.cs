@@ -119,13 +119,9 @@ public class LapidaryLeftSide : MonoBehaviour
     void Start()
     {
         CreateDisplay();
-        attackGear = PlayerPrefs.GetString("AttackGear");
-        defGear = PlayerPrefs.GetString("DefGear");
-        helmetGear = PlayerPrefs.GetString("HelmetGear");
-        beltGear = PlayerPrefs.GetString("BeltGear");
-        ringGear = PlayerPrefs.GetString("RingGear");
 
-        switch (attackGear)
+
+        switch (GameController.attackGear)
         {
             case "":
                 AttackGear.sprite = AtkEmpty;
@@ -172,7 +168,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
         }
 
-        switch (defGear)
+        switch (GameController.defGear)
         {
             case "":
                 NoDefEquipTxt.SetActive(true);
@@ -218,7 +214,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
         }
 
-        switch (helmetGear)
+        switch (GameController.helmetGear)
         {
             case "":
                 NoHelmetEquipTxt.SetActive(true);
@@ -264,7 +260,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
         }
 
-        switch (beltGear)
+        switch (GameController.beltGear)
         {
             case "":
                 NoBeltEquipTxt.SetActive(true);
@@ -310,7 +306,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
         }
 
-        switch (ringGear)
+        switch (GameController.ringGear)
         {
             case "":
                 NoRingEquipTxt.SetActive(true);
@@ -385,14 +381,10 @@ public class LapidaryLeftSide : MonoBehaviour
 
         if (refresh)
         {
-            attackGear = PlayerPrefs.GetString("AttackGear");
-            defGear = PlayerPrefs.GetString("DefGear");
-            helmetGear = PlayerPrefs.GetString("HelmetGear");
-            beltGear = PlayerPrefs.GetString("BeltGear");
-            ringGear = PlayerPrefs.GetString("RingGear");
+
             refresh = false;
 
-            switch (attackGear)
+            switch (GameController.attackGear)
             {
                 case "":
                     AttackGear.sprite = AtkEmpty;
@@ -439,7 +431,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
             }
 
-            switch (defGear)
+            switch (GameController.defGear)
             {
                 case "":
                     NoDefEquipTxt.SetActive(true);
@@ -485,7 +477,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
             }
 
-            switch (helmetGear)
+            switch (GameController.helmetGear)
             {
                 case "":
                     NoHelmetEquipTxt.SetActive(true);
@@ -531,7 +523,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
             }
 
-            switch (beltGear)
+            switch (GameController.beltGear)
             {
                 case "":
                     NoBeltEquipTxt.SetActive(true);
@@ -577,7 +569,7 @@ public class LapidaryLeftSide : MonoBehaviour
 
             }
 
-            switch (ringGear)
+            switch (GameController.ringGear)
             {
                 case "":
                     NoRingEquipTxt.SetActive(true);
@@ -657,13 +649,7 @@ public class LapidaryLeftSide : MonoBehaviour
             Destroy(gemIcon);
         }
 
-        string swordRedGem = PlayerPrefs.GetString("AttackGearRedGem");
-        string swordBlueGem = PlayerPrefs.GetString("AttackGearBlueGem");
-        string swordYellowGem = PlayerPrefs.GetString("AttackGearYellowGem");
-        string swordOrangeGem = PlayerPrefs.GetString("AttackGearOrangeGem");
-        string swordGreenGem = PlayerPrefs.GetString("AttackGearGreenGem");
-
-        switch (swordRedGem)
+        switch (GameController.swordRedGem)
         {
             case "":
                 atkGemLevel.text = "";
@@ -674,7 +660,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 break;
 
         }
-        switch (swordBlueGem)
+        switch (GameController.swordBlueGem)
         {
             case "":
                 defGemLevel.text = "";
@@ -684,7 +670,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 defGemLevel.text = "lvl 1";
                 break;
         }
-        switch (swordYellowGem)
+        switch (GameController.swordYellowGem)
         {
             case "":
                 helmetGemLevel.text = "";
@@ -694,7 +680,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 helmetGemLevel.text = "lvl 1";
                 break;
         }
-        switch (swordOrangeGem)
+        switch (GameController.swordOrangeGem)
         {
             case "":
                 beltGemLevel.text = "";
@@ -704,7 +690,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 beltGemLevel.text = "lvl 1";
                 break;
         }
-        switch (swordGreenGem)
+        switch (GameController.swordGreenGem)
         {
             case "":
                 ringGemLevel.text = "";
@@ -729,13 +715,7 @@ public class LapidaryLeftSide : MonoBehaviour
             Destroy(gemIcon);
         }
 
-        string ShieldRedGem = PlayerPrefs.GetString("DefGearRedGem");
-        string shieldBlueGem = PlayerPrefs.GetString("DefGearBlueGem");
-        string shieldYellowGem = PlayerPrefs.GetString("DefGearYellowGem");
-        string shieldOrangeGem = PlayerPrefs.GetString("DefGearOrangeGem");
-        string shieldGreenGem = PlayerPrefs.GetString("DefGearGreenGem");
-
-        switch (ShieldRedGem)
+        switch (GameController.shieldRedGem)
         {
             case "":
                 atkGemLevel.text = "";
@@ -745,7 +725,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 atkGemLevel.text = "lvl 1";
                 break;
         }
-        switch (shieldBlueGem)
+        switch (GameController.shieldBlueGem)
         {
             case "":
                 defGemLevel.text = "";
@@ -755,7 +735,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 defGemLevel.text = "lvl 1";
                 break;
         }
-        switch (shieldYellowGem)
+        switch (GameController.shieldYellowGem)
         {
             case "":
                 helmetGemLevel.text = "";
@@ -765,17 +745,17 @@ public class LapidaryLeftSide : MonoBehaviour
                 helmetGemLevel.text = "lvl 1";
                 break;
         }
-        switch (shieldOrangeGem)
+        switch (GameController.shieldOrangeGem)
         {
             case "":
-               beltGemLevel.text = "";
+                beltGemLevel.text = "";
                 break;
             case "lvl1OrangeGem (gemObject)":
                 orangeGems.isDefGearOrangeGemPlaced = true;
                 beltGemLevel.text = "lvl 1";
                 break;
         }
-        switch (shieldGreenGem)
+        switch (GameController.shieldGreenGem)
         {
             case "":
                 ringGemLevel.text = "";
@@ -800,13 +780,7 @@ public class LapidaryLeftSide : MonoBehaviour
             Destroy(gemIcon);
         }
 
-        string HelmetRedGem = PlayerPrefs.GetString("HelmetGearRedGem");
-        string helmetBlueGem = PlayerPrefs.GetString("HelmetGearBlueGem");
-        string helmetYellowGem = PlayerPrefs.GetString("HelmetGearYellowGem");
-        string helmetOrangeGem = PlayerPrefs.GetString("HelmetGearOrangeGem");
-        string helmetGreenGem = PlayerPrefs.GetString("HelmetGearGreenGem");
-
-        switch (HelmetRedGem)
+        switch (GameController.helmetRedGem)
         {
             case "":
                 atkGemLevel.text = "";
@@ -816,27 +790,27 @@ public class LapidaryLeftSide : MonoBehaviour
                 atkGemLevel.text = "lvl 1";
                 break;
         }
-        switch (helmetBlueGem)
+        switch (GameController.helmetBlueGem)
         {
             case "":
-               defGemLevel.text = "";
+                defGemLevel.text = "";
                 break;
             case "lvl1BlueGem (gemObject)":
                 blueGems.isHelmetGearBlueGemPlaced = true;
                 defGemLevel.text = "lvl 1";
                 break;
         }
-        switch (helmetYellowGem)
+        switch (GameController.helmetYellowGem)
         {
             case "":
-               helmetGemLevel.text = "";
+                helmetGemLevel.text = "";
                 break;
             case "lvl1YellowGem (gemObject)":
                 yellowGems.isHelmetGearYellowGemPlaced = true;
                 helmetGemLevel.text = "lvl 1";
                 break;
         }
-        switch (helmetOrangeGem)
+        switch (GameController.helmetOrangeGem)
         {
             case "":
                 beltGemLevel.text = "";
@@ -846,7 +820,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 beltGemLevel.text = "lvl 1";
                 break;
         }
-        switch (helmetGreenGem)
+        switch (GameController.helmetGreenGem)
         {
             case "":
                 ringGemLevel.text = "";
@@ -870,13 +844,7 @@ public class LapidaryLeftSide : MonoBehaviour
             Destroy(gemIcon);
         }
 
-        string BeltRedGem = PlayerPrefs.GetString("BeltGearRedGem");
-        string beltBlueGem = PlayerPrefs.GetString("BeltGearBlueGem");
-        string beltYellowGem = PlayerPrefs.GetString("BeltGearYellowGem");
-        string beltOrangeGem = PlayerPrefs.GetString("BeltGearOrangeGem");
-        string beltGreenGem = PlayerPrefs.GetString("BeltGearGreenGem");
-
-        switch (BeltRedGem)
+        switch (GameController.beltRedGem)
         {
             case "":
                 atkGemLevel.text = "";
@@ -886,7 +854,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 atkGemLevel.text = "lvl 1";
                 break;
         }
-        switch (beltBlueGem)
+        switch (GameController.beltBlueGem)
         {
             case "":
                 defGemLevel.text = "";
@@ -896,7 +864,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 defGemLevel.text = "lvl 1";
                 break;
         }
-        switch (beltYellowGem)
+        switch (GameController.beltYellowGem)
         {
             case "":
                 helmetGemLevel.text = "";
@@ -906,17 +874,17 @@ public class LapidaryLeftSide : MonoBehaviour
                 helmetGemLevel.text = "lvl 1";
                 break;
         }
-        switch (beltOrangeGem)
+        switch (GameController.beltOrangeGem)
         {
             case "":
-               beltGemLevel.text = "";
+                beltGemLevel.text = "";
                 break;
             case "lvl1OrangeGem (gemObject)":
                 orangeGems.isBeltGearOrangeGemPlaced = true;
                 beltGemLevel.text = "lvl 1";
                 break;
         }
-        switch (beltGreenGem)
+        switch (GameController.beltGreenGem)
         {
             case "":
                 ringGemLevel.text = "";
@@ -940,13 +908,7 @@ public class LapidaryLeftSide : MonoBehaviour
             Destroy(gemIcon);
         }
 
-        string RingRedGem = PlayerPrefs.GetString("RingGearRedGem");
-        string ringBlueGem = PlayerPrefs.GetString("RingGearBlueGem");
-        string ringYellowGem = PlayerPrefs.GetString("RingGearYellowGem");
-        string ringOrangeGem = PlayerPrefs.GetString("RingGearOrangeGem");
-        string ringGreenGem = PlayerPrefs.GetString("BeltGearGreenGem");
-
-        switch (RingRedGem)
+        switch (GameController.ringRedGem)
         {
             case "":
                 atkGemLevel.text = "";
@@ -956,7 +918,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 atkGemLevel.text = "lvl 1";
                 break;
         }
-        switch (ringBlueGem)
+        switch (GameController.ringBlueGem)
         {
             case "":
                 defGemLevel.text = "";
@@ -966,7 +928,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 defGemLevel.text = "lvl 1";
                 break;
         }
-        switch (ringYellowGem)
+        switch (GameController.ringYellowGem)
         {
             case "":
                 helmetGemLevel.text = "";
@@ -976,7 +938,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 helmetGemLevel.text = "lvl 1";
                 break;
         }
-        switch (ringOrangeGem)
+        switch (GameController.ringOrangeGem)
         {
             case "":
                 beltGemLevel.text = "";
@@ -986,7 +948,7 @@ public class LapidaryLeftSide : MonoBehaviour
                 beltGemLevel.text = "lvl 1";
                 break;
         }
-        switch (ringGreenGem)
+        switch (GameController.ringGreenGem)
         {
             case "":
                 ringGemLevel.text = "";
