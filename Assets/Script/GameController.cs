@@ -189,6 +189,37 @@ public class GameController : MonoBehaviour
     public static string ringOrangeGem;
     public static string ringGreenGem;
 
+    public static int swordAtkGemBonus;
+    public static int swordDefGemBonus;
+    public static int swordAgiGemBonus;
+    public static int swordSpGemBonus;
+    public static int swordHpGemBonus;
+
+    public static int shieldAtkGemBonus;
+    public static int shieldDefGemBonus;
+    public static int shieldAgiGemBonus;
+    public static int shieldSpGemBonus;
+    public static int shieldHpGemBonus;
+
+    public static int helmetAtkGemBonus;
+    public static int helmetDefGemBonus;
+    public static int helmetAgiGemBonus;
+    public static int helmetSpGemBonus;
+    public static int helmetHpGemBonus;
+
+    public static int beltAtkGemBonus;
+    public static int beltDefGemBonus;
+    public static int beltAgiGemBonus;
+    public static int beltSpGemBonus;
+    public static int beltHpGemBonus;
+
+    public static int ringAtkGemBonus;
+    public static int ringDefGemBonus;
+    public static int ringAgiGemBonus;
+    public static int ringSpGemBonus;
+    public static int ringHpGemBonus;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -301,32 +332,38 @@ public class GameController : MonoBehaviour
         //Red Gems
         switch (swordRedGem)
         {
+
             case "lvl1RedGem (gemObject)":
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                swordAtkGemBonus = 5;
                 break;
         }
         switch (shieldRedGem)
         {
             case "lvl1RedGem (gemObject)":
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                shieldAtkGemBonus = 5;
                 break;
         }
         switch (helmetRedGem)
         {
             case "lvl1RedGem (gemObject)":
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                helmetAtkGemBonus = 5;
                 break;
         }
         switch (beltRedGem)
         {
             case "lvl1RedGem (gemObject)":
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                beltAtkGemBonus = 5;
                 break;
         }
         switch (ringRedGem)
         {
             case "lvl1RedGem (gemObject)":
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
+                ringAtkGemBonus = 5;
                 break;
         }
 
@@ -335,30 +372,35 @@ public class GameController : MonoBehaviour
         {
             case "lvl1BlueGem (gemObject)":
                 PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                swordDefGemBonus = 5;
                 break;
         }
         switch (shieldBlueGem)
         {
             case "lvl1BlueGem (gemObject)":
                 PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                shieldDefGemBonus = 5;
                 break;
         }
         switch (helmetBlueGem)
         {
             case "lvl1BlueGem (gemObject)":
                 PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                helmetDefGemBonus = 5;
                 break;
         }
         switch (beltBlueGem)
         {
             case "lvl1BlueGem (gemObject)":
                 PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                beltDefGemBonus = 5;
                 break;
         }
         switch (ringBlueGem)
         {
             case "lvl1BlueGem (gemObject)":
                 PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 5;
+                ringDefGemBonus = 5;
                 break;
         }
 
@@ -367,30 +409,35 @@ public class GameController : MonoBehaviour
         {
             case "lvl1YellowGem (gemObject)":
                 PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                swordAgiGemBonus = 5;
                 break;
         }
         switch (shieldYellowGem)
         {
             case "lvl1YellowGem (gemObject)":
                 PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                shieldAgiGemBonus = 5;
                 break;
         }
         switch (helmetYellowGem)
         {
             case "lvl1YellowGem (gemObject)":
                 PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                helmetAgiGemBonus = 5;
                 break;
         }
         switch (beltYellowGem)
         {
             case "lvl1YellowGem (gemObject)":
                 PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                beltAgiGemBonus = 5;
                 break;
         }
         switch (ringYellowGem)
         {
             case "lvl1YellowGem (gemObject)":
                 PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 5;
+                ringAgiGemBonus = 5;
                 break;
         }
 
@@ -400,30 +447,35 @@ public class GameController : MonoBehaviour
         {
             case "lvl1OrangeGem (gemObject)":
                 PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                swordSpGemBonus = 5;
                 break;
         }
         switch (shieldOrangeGem)
         {
             case "lvl1OrangeGem (gemObject)":
                 PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                shieldSpGemBonus = 5;
                 break;
         }
         switch (helmetOrangeGem)
         {
             case "lvl1OrangeGem (gemObject)":
                 PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                helmetSpGemBonus = 5;
                 break;
         }
         switch (beltOrangeGem)
         {
             case "lvl1OrangeGem (gemObject)":
                 PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                beltSpGemBonus = 5;
                 break;
         }
         switch (ringOrangeGem)
         {
             case "lvl1OrangeGem (gemObject)":
                 PlayerMovements.BonusSp = PlayerMovements.BonusSp + 5;
+                ringSpGemBonus = 5;
                 break;
         }
 
@@ -434,30 +486,35 @@ public class GameController : MonoBehaviour
         {
             case "lvl1GreenGem (gemObject)":
                 PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                swordHpGemBonus = 25;
                 break;
         }
         switch (shieldGreenGem)
         {
             case "lvl1GreenGem (gemObject)":
                 PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                shieldHpGemBonus = 25;
                 break;
         }
         switch (helmetGreenGem)
         {
             case "lvl1GreenGem (gemObject)":
                 PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                helmetHpGemBonus = 25;
                 break;
         }
         switch (beltGreenGem)
         {
             case "lvl1GreenGem (gemObject)":
                 PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                beltHpGemBonus = 25;
                 break;
         }
         switch (ringGreenGem)
         {
             case "lvl1GreenGem (gemObject)":
                 PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                ringHpGemBonus = 25;
                 break;
         }
 
@@ -561,7 +618,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        
+        //Debug.Log(swordAtkGemBonus);
         if (swapGemsToggle.isOn)
         {
             swapGems = true;
