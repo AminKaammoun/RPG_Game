@@ -25,7 +25,8 @@ public enum PlayerMap
     beachDun1,
     beachDun2,
     beachDun3,
-    beachDun4
+    beachDun4,
+    Library
 
 
 }
@@ -75,6 +76,9 @@ public class GameController : MonoBehaviour
 
     public Toggle swapGemsToggle;
 
+    public Image loadingSlot;
+    public Sprite[] mapSprite;
+
     public AudioSource audioSource;
     public AudioSource musicSource;
 
@@ -85,6 +89,7 @@ public class GameController : MonoBehaviour
     public AudioClip forestNightAudio;
     public AudioClip villageSound;
     public AudioClip villageMusic;
+    public AudioClip LibraryMusic;
     public AudioClip forestMusic;
     public AudioClip dunMusic;
     public AudioClip beachMusic;
@@ -151,6 +156,8 @@ public class GameController : MonoBehaviour
     private bool openUltimate = false;
     public static float BattlePower;
     public static bool gearExist = false;
+    public static bool enterLibrary = false;
+    public static bool quitLibrary = false;
 
     private Vector2 cursorHotspot;
 
@@ -1117,6 +1124,18 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (enterLibrary)
+        {
+            changeBGM(LibraryMusic, musicSource);
+            changeBGS(dunMusic, audioSource);
+            enterLibrary = false;
+        }
+        if (quitLibrary)
+        {
+            changeBGM(villageMusic, musicSource);
+            changeBGS(villageSound, audioSource);
+            quitLibrary = false;
+        }
 
         if (swapGemsToggle.isOn)
         {
@@ -1179,6 +1198,8 @@ public class GameController : MonoBehaviour
         if (wantTp)
         {
             tpPanel.SetActive(true);
+            int rand = Random.Range(0, 5);
+            loadingSlot.sprite = mapSprite[rand];
             ArrowSpawn.canShoot = false;
         }
         if (enemyBeaten)
@@ -1602,7 +1623,7 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.Village)
         {
             CameraMovement.maxPosition = new Vector2(10.79f, 2.2f);
-            CameraMovement.minPosition = new Vector2(-27.64f, -0.12f);
+            CameraMovement.minPosition = new Vector2(-48.68f, -0.12f);
 
 
         }
@@ -1661,6 +1682,13 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(73.44f, 239f);
             CameraMovement.maxPosition = new Vector2(97.34f, 240.53f);
+
+
+        }
+        else if (currentMap == PlayerMap.Library)
+        {
+            CameraMovement.minPosition = new Vector2(-60.58f, -26.29f); 
+            CameraMovement.maxPosition = new Vector2(-25.45f, -20.38f);
 
 
         }
