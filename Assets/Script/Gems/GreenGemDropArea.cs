@@ -21,7 +21,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordGreenGem == "lvl1GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1GreenGem(Clone)")
@@ -42,7 +42,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordGreenGem == "lvl2GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 75;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2GreenGem(Clone)")
@@ -62,7 +62,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordGreenGem == "lvl3GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 225;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3GreenGem(Clone)")
@@ -83,7 +83,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordGreenGem == "lvl4GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 675;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4GreenGem(Clone)")
@@ -103,7 +103,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordGreenGem == "lvl5GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 2025;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5GreenGem(Clone)")
@@ -124,7 +124,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldGreenGem == "lvl1GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1GreenGem(Clone)")
@@ -144,7 +144,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldGreenGem == "lvl2GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 75;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2GreenGem(Clone)")
@@ -164,7 +164,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldGreenGem == "lvl3GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 225;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3GreenGem(Clone)")
@@ -184,7 +184,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldGreenGem == "lvl4GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 675;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4GreenGem(Clone)")
@@ -204,7 +204,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldGreenGem == "lvl5GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 2025;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5GreenGem(Clone)")
@@ -224,7 +224,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetGreenGem == "lvl1GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1GreenGem(Clone)")
@@ -244,7 +244,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetGreenGem == "lvl2GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 75;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2GreenGem(Clone)")
@@ -264,7 +264,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetGreenGem == "lvl3GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 225;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3GreenGem(Clone)")
@@ -284,7 +284,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetGreenGem == "lvl4GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 675;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4GreenGem(Clone)")
@@ -304,7 +304,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetGreenGem == "lvl5GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 2025;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5GreenGem(Clone)")
@@ -324,7 +324,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltGreenGem == "lvl1GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1GreenGem(Clone)")
@@ -344,7 +344,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltGreenGem == "lvl2GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 75;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2GreenGem(Clone)")
@@ -364,7 +364,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltGreenGem == "lvl3GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 225;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3GreenGem(Clone)")
@@ -384,7 +384,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltGreenGem == "lvl4GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 675;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4GreenGem(Clone)")
@@ -404,7 +404,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltGreenGem == "lvl5GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 2025;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5GreenGem(Clone)")
@@ -426,7 +426,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringGreenGem == "lvl1GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1GreenGem(Clone)")
@@ -446,7 +446,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringGreenGem == "lvl2GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 75;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2GreenGem(Clone)")
@@ -466,7 +466,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringGreenGem == "lvl3GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 225;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3GreenGem(Clone)")
@@ -486,7 +486,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringGreenGem == "lvl4GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 675;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4GreenGem(Clone)")
@@ -506,7 +506,7 @@ public class GreenGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringGreenGem == "lvl5GreenGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 2025;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5GreenGem(Clone)")

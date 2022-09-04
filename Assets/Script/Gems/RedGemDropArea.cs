@@ -21,7 +21,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordRedGem == "lvl1RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1RedGem(Clone)")
@@ -41,7 +41,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordRedGem == "lvl2RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
-
+                    GameController.gearExist = true; GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2RedGem(Clone)")
@@ -62,7 +62,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordRedGem == "lvl3RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3RedGem(Clone)")
@@ -82,7 +82,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordRedGem == "lvl4RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4RedGem(Clone)")
@@ -103,7 +103,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordRedGem == "lvl5RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5RedGem(Clone)")
@@ -124,7 +124,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldRedGem == "lvl1RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1RedGem(Clone)")
@@ -145,7 +145,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldRedGem == "lvl2RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2RedGem(Clone)")
@@ -166,7 +166,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldRedGem == "lvl3RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3RedGem(Clone)")
@@ -186,7 +186,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldRedGem == "lvl4RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4RedGem(Clone)")
@@ -207,7 +207,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldRedGem == "lvl5RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5RedGem(Clone)")
@@ -228,7 +228,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetRedGem == "lvl1RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1RedGem(Clone)")
@@ -249,7 +249,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetRedGem == "lvl2RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2RedGem(Clone)")
@@ -269,7 +269,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetRedGem == "lvl3RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3RedGem(Clone)")
@@ -290,7 +290,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetRedGem == "lvl4RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4RedGem(Clone)")
@@ -311,7 +311,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetRedGem == "lvl5RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5RedGem(Clone)")
@@ -332,7 +332,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltRedGem == "lvl1RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1RedGem(Clone)")
@@ -353,7 +353,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltRedGem == "lvl2RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2RedGem(Clone)")
@@ -374,7 +374,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltRedGem == "lvl3RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3RedGem(Clone)")
@@ -395,7 +395,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltRedGem == "lvl4RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4RedGem(Clone)")
@@ -417,7 +417,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltRedGem == "lvl5RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5RedGem(Clone)")
@@ -436,7 +436,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                     if (GameController.ringRedGem == "lvl1RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1RedGem(Clone)")
@@ -457,7 +457,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringRedGem == "lvl2RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2RedGem(Clone)")
@@ -477,7 +477,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringRedGem == "lvl3RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3RedGem(Clone)")
@@ -499,7 +499,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringRedGem == "lvl4RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4RedGem(Clone)")
@@ -520,7 +520,7 @@ public class RedGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringRedGem == "lvl5RedGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5RedGem(Clone)")

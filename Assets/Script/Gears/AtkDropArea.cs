@@ -64,6 +64,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
                         PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                         PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
+                        GameController.gearExist = true;
 
                     }
                     else if (GameController.attackGear == "lvl 10 attack (equipmentObject)")
@@ -73,6 +74,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
                         PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                         PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
+                        GameController.gearExist = true;
                     }
                 }
                 else
@@ -410,6 +412,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
                         PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                         PlayerMovements.BonusHp = PlayerMovements.BonusHp - 5;
+                        GameController.gearExist = true;
 
                     }
                     else if (GameController.attackGear == "lvl 10 attack (equipmentObject)")
@@ -419,6 +422,7 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
                         PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                         PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
+                        GameController.gearExist = true;
                     }
 
                 }

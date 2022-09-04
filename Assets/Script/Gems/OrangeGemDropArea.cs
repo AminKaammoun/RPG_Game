@@ -23,7 +23,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordOrangeGem == "lvl1OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1OrangeGem(Clone)")
@@ -43,7 +43,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordOrangeGem == "lvl2OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2OrangeGem(Clone)")
@@ -63,7 +63,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordOrangeGem == "lvl3OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3OrangeGem(Clone)")
@@ -83,7 +83,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordOrangeGem == "lvl4OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4OrangeGem(Clone)")
@@ -103,7 +103,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordOrangeGem == "lvl5OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5OrangeGem(Clone)")
@@ -123,7 +123,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldOrangeGem == "lvl1OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1OrangeGem(Clone)")
@@ -144,7 +144,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldOrangeGem == "lvl2OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2OrangeGem(Clone)")
@@ -164,7 +164,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldOrangeGem == "lvl3OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3OrangeGem(Clone)")
@@ -184,7 +184,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldOrangeGem == "lvl4OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4OrangeGem(Clone)")
@@ -204,7 +204,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldOrangeGem == "lvl5OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5OrangeGem(Clone)")
@@ -225,7 +225,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetOrangeGem == "lvl1OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1OrangeGem(Clone)")
@@ -245,7 +245,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetOrangeGem == "lvl2OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2OrangeGem(Clone)")
@@ -266,7 +266,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetOrangeGem == "lvl3OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3OrangeGem(Clone)")
@@ -286,7 +286,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetOrangeGem == "lvl4OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4OrangeGem(Clone)")
@@ -306,7 +306,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetOrangeGem == "lvl5OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5OrangeGem(Clone)")
@@ -327,7 +327,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltOrangeGem == "lvl1OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1OrangeGem(Clone)")
@@ -347,7 +347,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltOrangeGem == "lvl2OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2OrangeGem(Clone)")
@@ -367,7 +367,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltOrangeGem == "lvl3OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3OrangeGem(Clone)")
@@ -387,7 +387,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltOrangeGem == "lvl4OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4OrangeGem(Clone)")
@@ -407,7 +407,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltOrangeGem == "lvl5OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5OrangeGem(Clone)")
@@ -427,7 +427,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringOrangeGem == "lvl1OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1OrangeGem(Clone)")
@@ -447,7 +447,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringOrangeGem == "lvl2OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2OrangeGem(Clone)")
@@ -467,7 +467,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringOrangeGem == "lvl3OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3OrangeGem(Clone)")
@@ -487,7 +487,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringOrangeGem == "lvl4OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4OrangeGem(Clone)")
@@ -507,7 +507,7 @@ public class OrangeGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.ringOrangeGem == "lvl5OrangeGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5OrangeGem(Clone)")

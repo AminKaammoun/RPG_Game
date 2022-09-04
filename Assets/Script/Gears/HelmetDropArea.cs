@@ -63,6 +63,7 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 8;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 helmet (equipmentObject)":
 
@@ -71,6 +72,7 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 50;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
+                            GameController.gearExist = true;
                             break;
                     }
                 }
@@ -410,6 +412,7 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 8;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 helmet (equipmentObject)":
 
@@ -418,6 +421,7 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 50;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
+                            GameController.gearExist = true;
                             break;
                     }
                    

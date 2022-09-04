@@ -150,6 +150,7 @@ public class GameController : MonoBehaviour
     public static bool ultPressed = false;
     private bool openUltimate = false;
     public static float BattlePower;
+    public static bool gearExist = false;
 
     private Vector2 cursorHotspot;
 
@@ -337,7 +338,7 @@ public class GameController : MonoBehaviour
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 5;
                 swordAtkGemBonus = 5;
                 break;
-            
+
             case "lvl2RedGem (gemObject)":
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 15;
                 swordAtkGemBonus = 15;
@@ -1116,7 +1117,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        
+
         if (swapGemsToggle.isOn)
         {
             swapGems = true;
@@ -1695,7 +1696,7 @@ public class GameController : MonoBehaviour
         BattlePower = (int)(PlayerMovements.attack * 4 + PlayerMovements.defence / 2 + PlayerMovements.agility / 2 + PlayerMovements.hp / 2 + PlayerMovements.Sp * 2);
         battlePowerText.text = BattlePower.ToString() + " BP.";
 
-        if (PlayerPrefs.GetInt("BattlePower") != (int)GameController.BattlePower)
+        if (PlayerPrefs.GetInt("BattlePower") != (int)GameController.BattlePower && !gearExist)
         {
 
             gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
@@ -1722,6 +1723,10 @@ public class GameController : MonoBehaviour
             }
             PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
 
+        }
+        else if (PlayerPrefs.GetInt("BattlePower") != (int)GameController.BattlePower && gearExist)
+        {
+            gearExist = false;
         }
 
     }

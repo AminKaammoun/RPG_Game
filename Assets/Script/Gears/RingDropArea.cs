@@ -62,6 +62,7 @@ public class RingDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 2;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 3;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 50;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 ring (equipmentObject)":
 
@@ -70,6 +71,7 @@ public class RingDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 250;
+                            GameController.gearExist = true;
                             break;
                     }
                 }
@@ -439,6 +441,7 @@ public class RingDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 2;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 3;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 50;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 ring (equipmentObject)":
 
@@ -447,6 +450,7 @@ public class RingDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 250;
+                            GameController.gearExist = true;
                             break;
                     }
                 }

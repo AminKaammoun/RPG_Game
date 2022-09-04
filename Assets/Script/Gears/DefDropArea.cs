@@ -63,6 +63,7 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 2;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 10;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 def (equipmentObject)":
                             PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
@@ -70,6 +71,7 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 50;
+                            GameController.gearExist = true;
 
                             break;
                     }
@@ -413,6 +415,7 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 2;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 2;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 10;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 def (equipmentObject)":
                             PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 10;
@@ -420,7 +423,7 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 10;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 50;
-
+                            GameController.gearExist = true;
                             break;
                     }
 

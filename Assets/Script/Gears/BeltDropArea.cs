@@ -61,6 +61,7 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 7;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 belt (equipmentObject)":
 
@@ -69,6 +70,7 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
+                            GameController.gearExist = true;
                             break;
                     }
                 }
@@ -407,6 +409,7 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 3;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 7;
+                            GameController.gearExist = true;
                             break;
                         case "lvl 10 belt (equipmentObject)":
 
@@ -415,6 +418,7 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
                             PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
+                            GameController.gearExist = true;
                             break;
                     }
                 }

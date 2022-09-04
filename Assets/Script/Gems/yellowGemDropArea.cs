@@ -21,7 +21,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordYellowGem == "lvl1YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1YellowGem(Clone)")
@@ -41,7 +41,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordYellowGem == "lvl2YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2YellowGem(Clone)")
@@ -62,7 +62,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordYellowGem == "lvl3YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3YellowGem(Clone)")
@@ -83,7 +83,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordYellowGem == "lvl4YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4YellowGem(Clone)")
@@ -103,7 +103,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.swordYellowGem == "lvl5YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.sword)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5YellowGem(Clone)")
@@ -124,7 +124,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldYellowGem == "lvl1YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1YellowGem(Clone)")
@@ -144,7 +144,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldYellowGem == "lvl2YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2YellowGem(Clone)")
@@ -165,7 +165,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldYellowGem == "lvl3YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3YellowGem(Clone)")
@@ -186,7 +186,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldYellowGem == "lvl4YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4YellowGem(Clone)")
@@ -206,7 +206,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.shieldYellowGem == "lvl5YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5YellowGem(Clone)")
@@ -227,7 +227,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetYellowGem == "lvl1YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1YellowGem(Clone)")
@@ -248,7 +248,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetYellowGem == "lvl2YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2YellowGem(Clone)")
@@ -269,7 +269,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetYellowGem == "lvl3YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 45;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl3YellowGem(Clone)")
@@ -290,7 +290,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetYellowGem == "lvl4YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 135;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl4YellowGem(Clone)")
@@ -310,7 +310,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.helmetYellowGem == "lvl5YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 405;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl5YellowGem(Clone)")
@@ -333,7 +333,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltYellowGem == "lvl1YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 5;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl1YellowGem(Clone)")
@@ -353,7 +353,7 @@ public class yellowGemDropArea : MonoBehaviour, IDropHandler
                 if (GameController.beltYellowGem == "lvl2YellowGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 15;
-
+                    GameController.gearExist = true;
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject.name == "lvl2YellowGem(Clone)")

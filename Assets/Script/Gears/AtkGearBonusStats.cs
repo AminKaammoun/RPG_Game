@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class AtkGearBonusStats : MonoBehaviour
     public Sprite[] lvl5Gems;
 
     public Text[] lvl1GemsName;
-  
+
 
     public Image[] gemSpots;
 
@@ -50,7 +51,7 @@ public class AtkGearBonusStats : MonoBehaviour
                     lvl1GemsName[0].text = "lvl 2 Atk gem";
                     lvl1GemsName[0].color = Color.green;
                     break;
-              
+
                 case 45:
                     gemSpots[0].sprite = lvl3Gems[0];
                     lvl1GemsName[0].text = "lvl 3 Atk gem";
@@ -72,10 +73,19 @@ public class AtkGearBonusStats : MonoBehaviour
         }
         else
         {
-            gemSpots[0].sprite = none;
-            lvl1GemsName[0].text = "not equipped.";
-            lvl1GemsName[0].color = Color.white;
-            AtkBonus.text = "";
+            try
+            {
+
+                gemSpots[0].sprite = none;
+                lvl1GemsName[0].text = "not equipped.";
+                lvl1GemsName[0].color = Color.white;
+                AtkBonus.text = "";
+            }
+            catch
+            {
+                //do Nothing
+            }
+
         }
 
         if (GameController.swordDefGemBonus > 0)
@@ -116,10 +126,17 @@ public class AtkGearBonusStats : MonoBehaviour
         }
         else
         {
-            gemSpots[1].sprite = none;
-            lvl1GemsName[1].text = "not equipped.";
-            lvl1GemsName[1].color = Color.white;
-            DefBonus.text = "";
+            try
+            {
+                gemSpots[1].sprite = none;
+                lvl1GemsName[1].text = "not equipped.";
+                lvl1GemsName[1].color = Color.white;
+                DefBonus.text = "";
+            }
+            catch
+            {
+                //do Nothing
+            }
         }
 
         if (GameController.swordAgiGemBonus > 0)
@@ -160,10 +177,17 @@ public class AtkGearBonusStats : MonoBehaviour
         }
         else
         {
-            gemSpots[2].sprite = none;
-            lvl1GemsName[2].text = "not equipped.";
-            lvl1GemsName[2].color = Color.white;
-            AgiBonus.text = "";
+            try
+            {
+                gemSpots[2].sprite = none;
+                lvl1GemsName[2].text = "not equipped.";
+                lvl1GemsName[2].color = Color.white;
+                AgiBonus.text = "";
+            }
+            catch
+            {
+                //do Nothing
+            }
         }
 
         if (GameController.swordSpGemBonus > 0)
@@ -204,10 +228,17 @@ public class AtkGearBonusStats : MonoBehaviour
         }
         else
         {
-            gemSpots[3].sprite = none;
-            lvl1GemsName[3].text = "not equipped.";
-            lvl1GemsName[3].color = Color.white;
-            SpBonus.text = "";
+            try
+            {
+                gemSpots[3].sprite = none;
+                lvl1GemsName[3].text = "not equipped.";
+                lvl1GemsName[3].color = Color.white;
+                SpBonus.text = "";
+            }
+            catch
+            {
+                //do Nothing
+            }
         }
 
 
@@ -249,10 +280,17 @@ public class AtkGearBonusStats : MonoBehaviour
         }
         else
         {
-            gemSpots[4].sprite = none;
-            lvl1GemsName[4].text = "not equipped.";
-            lvl1GemsName[4].color = Color.white;
-            HpBonus.text = "";
+            try
+            {
+                gemSpots[4].sprite = none;
+                lvl1GemsName[4].text = "not equipped.";
+                lvl1GemsName[4].color = Color.white;
+                HpBonus.text = "";
+            }
+            catch
+            {
+                //do Nothing
+            }
         }
 
 
