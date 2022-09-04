@@ -140,7 +140,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl2BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
+                if (GameController.shieldBlueGem == "lvl2BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 15;
 
@@ -160,7 +160,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl3BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
+                if (GameController.shieldBlueGem == "lvl3BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 45;
 
@@ -181,7 +181,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
                 }
 
 
-                if (GameController.swordBlueGem == "lvl4BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
+                if (GameController.shieldBlueGem == "lvl4BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 135;
 
@@ -201,7 +201,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl5BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
+                if (GameController.shieldBlueGem == "lvl5BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.shield)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 405;
 
@@ -242,7 +242,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl2BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
+                if (GameController.helmetBlueGem == "lvl2BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 15;
 
@@ -262,7 +262,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl3BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
+                if (GameController.helmetBlueGem == "lvl3BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 45;
 
@@ -283,7 +283,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
                 }
 
 
-                if (GameController.swordBlueGem == "lvl4BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
+                if (GameController.helmetBlueGem == "lvl4BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 135;
 
@@ -303,7 +303,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl5BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
+                if (GameController.helmetBlueGem == "lvl5BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 405;
 
@@ -324,7 +324,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
                 }
 
 
-                if (GameController.beltBlueGem == "lvl1BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.helmet)
+                if (GameController.beltBlueGem == "lvl1BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
 
@@ -344,7 +344,86 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                
+                if (GameController.beltBlueGem == "lvl2BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
+                {
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 15;
+
+                    foreach (Transform child in transform)
+                    {
+                        if (child.gameObject.name == "lvl2BlueGem(Clone)")
+                        {
+                            GameObject.Destroy(child.gameObject);
+                            inventory.AddItem(itemObject[1], 1);
+                            GemInventory.AddItem(itemObject[1], 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                        }
+                    }
+
+                }
+
+                if (GameController.beltBlueGem == "lvl3BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
+                {
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 45;
+
+                    foreach (Transform child in transform)
+                    {
+                        if (child.gameObject.name == "lvl3BlueGem(Clone)")
+                        {
+                            GameObject.Destroy(child.gameObject);
+                            inventory.AddItem(itemObject[2], 1);
+                            GemInventory.AddItem(itemObject[2], 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                        }
+                    }
+
+                }
+
+                if (GameController.beltBlueGem == "lvl4BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
+                {
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 135;
+
+                    foreach (Transform child in transform)
+                    {
+                        if (child.gameObject.name == "lvl4BlueGem(Clone)")
+                        {
+                            GameObject.Destroy(child.gameObject);
+                            inventory.AddItem(itemObject[3], 1);
+                            GemInventory.AddItem(itemObject[3], 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                        }
+                    }
+
+                }
+
+                if (GameController.beltBlueGem == "lvl5BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.belt)
+                {
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 405;
+
+                    foreach (Transform child in transform)
+                    {
+                        if (child.gameObject.name == "lvl5BlueGem(Clone)")
+                        {
+                            GameObject.Destroy(child.gameObject);
+                            inventory.AddItem(itemObject[4], 1);
+                            GemInventory.AddItem(itemObject[4], 1);
+                            inventory.save();
+                            GemInventory.save();
+                            LapidaryLeftSide.refreshInv = true;
+                            Inventory.refreshInv = true;
+                        }
+                    }
+
+                }
+
 
                 if (GameController.ringBlueGem == "lvl1BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
@@ -367,7 +446,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
                 }
 
 
-                if (GameController.swordBlueGem == "lvl2BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
+                if (GameController.ringBlueGem == "lvl2BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 15;
 
@@ -387,7 +466,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl3BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
+                if (GameController.ringBlueGem == "lvl3BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 45;
 
@@ -408,7 +487,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
                 }
 
 
-                if (GameController.swordBlueGem == "lvl4BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
+                if (GameController.ringBlueGem == "lvl4BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 135;
 
@@ -428,7 +507,7 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-                if (GameController.swordBlueGem == "lvl5BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
+                if (GameController.ringBlueGem == "lvl5BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
                 {
                     PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 405;
 
@@ -448,26 +527,6 @@ public class blueGemDropArea : MonoBehaviour, IDropHandler
 
                 }
 
-
-                if (GameController.beltBlueGem == "lvl1BlueGem (gemObject)" && LapidaryLeftSide.currentgear == SelectedGear.ring)
-                {
-                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 5;
-
-                    foreach (Transform child in transform)
-                    {
-                        if (child.gameObject.name == "lvl1BlueGem(Clone)")
-                        {
-                            GameObject.Destroy(child.gameObject);
-                            inventory.AddItem(itemObject[0], 1);
-                            GemInventory.AddItem(itemObject[0], 1);
-                            inventory.save();
-                            GemInventory.save();
-                            LapidaryLeftSide.refreshInv = true;
-                            Inventory.refreshInv = true;
-                        }
-                    }
-
-                }
 
 
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl1BlueGem(Clone)")

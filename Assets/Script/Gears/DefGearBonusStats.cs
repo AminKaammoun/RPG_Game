@@ -57,7 +57,7 @@ public class DefGearBonusStats : MonoBehaviour
                 case 135:
                     gemSpots[0].sprite = lvl4Gems[0];
                     lvl1GemsName[0].text = "lvl 4 Atk gem";
-                    lvl1GemsName[0].color = new Color32(143, 0, 254, 1);
+                    lvl1GemsName[0].color = new Color(0.5f, 0f, 1f, 1f);
                     break;
 
                 case 405:
@@ -71,7 +71,8 @@ public class DefGearBonusStats : MonoBehaviour
         {
             gemSpots[0].sprite = none;
             lvl1GemsName[0].text = "not equipped.";
-            AtkBonus.text = "";
+            lvl1GemsName[0].color = Color.white;
+           AtkBonus.text = "";
         }
 
         if (GameController.shieldDefGemBonus > 0)
@@ -100,7 +101,7 @@ public class DefGearBonusStats : MonoBehaviour
                 case 135:
                     gemSpots[1].sprite = lvl4Gems[1];
                     lvl1GemsName[1].text = "lvl 4 def gem";
-                    lvl1GemsName[1].color = new Color32(143, 0, 254, 1);
+                    lvl1GemsName[1].color = new Color(0.5f, 0f, 1f, 1f);
                     break;
 
                 case 405:
@@ -114,6 +115,7 @@ public class DefGearBonusStats : MonoBehaviour
         {
             gemSpots[1].sprite = none;
             lvl1GemsName[1].text = "not equipped.";
+            lvl1GemsName[1].color = Color.white;
             DefBonus.text = "";
         }
 
@@ -143,7 +145,7 @@ public class DefGearBonusStats : MonoBehaviour
                 case 135:
                     gemSpots[2].sprite = lvl4Gems[2];
                     lvl1GemsName[2].text = "lvl 4 agi gem";
-                    lvl1GemsName[2].color = new Color32(143, 0, 254, 1);
+                    lvl1GemsName[2].color = new Color(0.5f, 0f, 1f, 1f);
                     break;
 
                 case 405:
@@ -157,6 +159,7 @@ public class DefGearBonusStats : MonoBehaviour
         {
             gemSpots[2].sprite = none;
             lvl1GemsName[2].text = "not equipped.";
+            lvl1GemsName[2].color = Color.white;
             AgiBonus.text = "";
         }
 
@@ -186,7 +189,7 @@ public class DefGearBonusStats : MonoBehaviour
                 case 135:
                     gemSpots[3].sprite = lvl4Gems[3];
                     lvl1GemsName[3].text = "lvl 4 sp gem";
-                    lvl1GemsName[3].color = new Color32(143, 0, 254, 1);
+                    lvl1GemsName[3].color = new Color(0.5f, 0f, 1f, 1f);
                     break;
 
                 case 405:
@@ -200,6 +203,7 @@ public class DefGearBonusStats : MonoBehaviour
         {
             gemSpots[3].sprite = none;
             lvl1GemsName[3].text = "not equipped.";
+            lvl1GemsName[3].color = Color.white;
             SpBonus.text = "";
         }
 
@@ -230,7 +234,7 @@ public class DefGearBonusStats : MonoBehaviour
                 case 675:
                     gemSpots[4].sprite = lvl4Gems[4];
                     lvl1GemsName[4].text = "lvl 4 hp gem";
-                    lvl1GemsName[4].color = new Color32(143, 0, 254, 1);
+                    lvl1GemsName[4].color = new Color(0.5f, 0f, 1f, 1f);
                     break;
 
                 case 2025:
@@ -244,6 +248,7 @@ public class DefGearBonusStats : MonoBehaviour
         {
             gemSpots[4].sprite = none;
             lvl1GemsName[4].text = "not equipped.";
+            lvl1GemsName[4].color = Color.white;
             HpBonus.text = "";
         }
 

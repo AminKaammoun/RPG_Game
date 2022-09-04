@@ -299,7 +299,7 @@ public class redGems : MonoBehaviour
                     if (spGemIsAdded)
                     {
                         PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 135;
-                        GameController.helmetAtkGemBonus = 135;
+                        GameController.beltAtkGemBonus = 135;
                         spGemIsAdded = false;
                     }
                     Vector3 add3 = new Vector3(transform.position.x, transform.position.y, 0);
@@ -312,7 +312,7 @@ public class redGems : MonoBehaviour
                     if (spGemIsAdded)
                     {
                         PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 405;
-                        GameController.helmetAtkGemBonus = 405;
+                        GameController.beltAtkGemBonus = 405;
                         spGemIsAdded = false;
                     }
                     Vector3 add4 = new Vector3(transform.position.x, transform.position.y, 0);

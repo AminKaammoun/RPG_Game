@@ -278,7 +278,7 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
                     break;
             }
 
-            switch (GameController.swordOrangeGem)
+            switch (GameController.shieldOrangeGem)
             {
                 case "lvl1OrangeGem (gemObject)":
                     inventory.AddItem(lvl1OrangeGem, 1);

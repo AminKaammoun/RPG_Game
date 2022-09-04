@@ -58,7 +58,7 @@ public class greenGems : MonoBehaviour
                         atkGemIsAdded = false;
                     }
                     Vector3 add1 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem2 = Instantiate(lvl1GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
+                    var redGem2 = Instantiate(lvl2GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
                     redGem2.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem2.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -71,7 +71,7 @@ public class greenGems : MonoBehaviour
                         atkGemIsAdded = false;
                     }
                     Vector3 add2 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem3 = Instantiate(lvl1GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
+                    var redGem3 = Instantiate(lvl3GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
                     redGem3.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem3.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -84,7 +84,7 @@ public class greenGems : MonoBehaviour
                         atkGemIsAdded = false;
                     }
                     Vector3 add3 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem4 = Instantiate(lvl1GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
+                    var redGem4 = Instantiate(lvl4GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
                     redGem4.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem4.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -97,7 +97,7 @@ public class greenGems : MonoBehaviour
                         atkGemIsAdded = false;
                     }
                     Vector3 add4 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem5 = Instantiate(lvl1GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
+                    var redGem5 = Instantiate(lvl5GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
                     redGem5.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem5.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -130,7 +130,7 @@ public class greenGems : MonoBehaviour
                         defGemIsAdded = false;
                     }
                     Vector3 add1 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem2 = Instantiate(lvl1GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
+                    var redGem2 = Instantiate(lvl2GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
                     redGem2.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem2.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -143,7 +143,7 @@ public class greenGems : MonoBehaviour
                         defGemIsAdded = false;
                     }
                     Vector3 add2 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem3 = Instantiate(lvl1GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
+                    var redGem3 = Instantiate(lvl3GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
                     redGem3.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem3.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -156,7 +156,7 @@ public class greenGems : MonoBehaviour
                         defGemIsAdded = false;
                     }
                     Vector3 add3 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem4 = Instantiate(lvl1GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
+                    var redGem4 = Instantiate(lvl4GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
                     redGem4.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem4.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -169,7 +169,7 @@ public class greenGems : MonoBehaviour
                         defGemIsAdded = false;
                     }
                     Vector3 add4 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem5 = Instantiate(lvl1GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
+                    var redGem5 = Instantiate(lvl5GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
                     redGem5.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem5.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -202,7 +202,7 @@ public class greenGems : MonoBehaviour
                         agiGemIsAdded = false;
                     }
                     Vector3 add1 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem2 = Instantiate(lvl1GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
+                    var redGem2 = Instantiate(lvl2GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
                     redGem2.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem2.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -215,7 +215,7 @@ public class greenGems : MonoBehaviour
                         agiGemIsAdded = false;
                     }
                     Vector3 add2 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem3 = Instantiate(lvl1GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
+                    var redGem3 = Instantiate(lvl3GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
                     redGem3.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem3.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -228,7 +228,7 @@ public class greenGems : MonoBehaviour
                         agiGemIsAdded = false;
                     }
                     Vector3 add3 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem4 = Instantiate(lvl1GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
+                    var redGem4 = Instantiate(lvl4GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
                     redGem4.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem4.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -241,7 +241,7 @@ public class greenGems : MonoBehaviour
                         agiGemIsAdded = false;
                     }
                     Vector3 add4 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem5 = Instantiate(lvl1GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
+                    var redGem5 = Instantiate(lvl5GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
                     redGem5.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem5.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -274,7 +274,7 @@ public class greenGems : MonoBehaviour
                         spGemIsAdded = false;
                     }
                     Vector3 add1 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem2 = Instantiate(lvl1GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
+                    var redGem2 = Instantiate(lvl2GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
                     redGem2.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem2.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -287,7 +287,7 @@ public class greenGems : MonoBehaviour
                         spGemIsAdded = false;
                     }
                     Vector3 add2 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem3 = Instantiate(lvl1GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
+                    var redGem3 = Instantiate(lvl3GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
                     redGem3.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem3.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -300,7 +300,7 @@ public class greenGems : MonoBehaviour
                         spGemIsAdded = false;
                     }
                     Vector3 add3 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem4 = Instantiate(lvl1GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
+                    var redGem4 = Instantiate(lvl4GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
                     redGem4.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem4.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -313,7 +313,7 @@ public class greenGems : MonoBehaviour
                         spGemIsAdded = false;
                     }
                     Vector3 add4 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem5 = Instantiate(lvl1GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
+                    var redGem5 = Instantiate(lvl5GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
                     redGem5.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem5.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -346,7 +346,7 @@ public class greenGems : MonoBehaviour
                         hpGemIsAdded = false;
                     }
                     Vector3 add1 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem2 = Instantiate(lvl1GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
+                    var redGem2 = Instantiate(lvl2GreenGem, transform.position - add1, Quaternion.identity) as GameObject;
                     redGem2.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem2.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -359,7 +359,7 @@ public class greenGems : MonoBehaviour
                         hpGemIsAdded = false;
                     }
                     Vector3 add2 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem3 = Instantiate(lvl1GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
+                    var redGem3 = Instantiate(lvl3GreenGem, transform.position - add2, Quaternion.identity) as GameObject;
                     redGem3.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem3.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -372,7 +372,7 @@ public class greenGems : MonoBehaviour
                         hpGemIsAdded = false;
                     }
                     Vector3 add3 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem4 = Instantiate(lvl1GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
+                    var redGem4 = Instantiate(lvl4GreenGem, transform.position - add3, Quaternion.identity) as GameObject;
                     redGem4.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem4.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
@@ -385,7 +385,7 @@ public class greenGems : MonoBehaviour
                         hpGemIsAdded = false;
                     }
                     Vector3 add4 = new Vector3(transform.position.x, transform.position.y, 0);
-                    var redGem5 = Instantiate(lvl1GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
+                    var redGem5 = Instantiate(lvl5GreenGem, transform.position - add4, Quaternion.identity) as GameObject;
                     redGem5.transform.SetParent(GameObject.FindGameObjectWithTag("greenGemSlot").transform, false);
                     redGem5.GetComponent<RectTransform>().sizeDelta = new Vector2(27, 27);
                     break;
