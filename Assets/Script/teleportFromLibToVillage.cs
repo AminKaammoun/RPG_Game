@@ -20,7 +20,7 @@ public class teleportFromLibToVillage : MonoBehaviour
         {
             tpPanel.SetActive(true);
             StartCoroutine(removeLoadingPanel());
-            player.transform.position = new Vector3(-37.66f, 2.45f, 0f);
+            player.transform.position = new Vector3(-37.66f, 2.44f, 0f);
             GameController.currentMap = PlayerMap.Village;
         }
     }

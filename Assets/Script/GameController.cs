@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour
     public GameObject ultEffect;
     public GameObject thunder;
     public GameObject gainedBp;
+    public GameObject skillPointPanel;
 
     public Toggle swapGemsToggle;
 
@@ -1042,7 +1043,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.forrest;
+        currentMap = PlayerMap.Village;
 
     }
 
@@ -1319,6 +1320,15 @@ public class GameController : MonoBehaviour
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
+    public void closeSkillPointsPanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        skillPointPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void closeGemCraftingPanel()
     {
         GemInv.save();
@@ -1423,6 +1433,12 @@ public class GameController : MonoBehaviour
     public void ForestBlackSmithPanel()
     {
         BlackSmithPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
+    }
+
+    public void SkillPointsPanel()
+    {
+       skillPointPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
 
