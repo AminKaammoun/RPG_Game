@@ -448,7 +448,7 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -469,7 +469,7 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,6 +477,48 @@ TextureImporter:
       bones: []
       spriteID: 42b091ac3ef31d4418292de4739cc4d8
       internalID: -765835147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25b16278f32d0ffd4f3b093777ef8950 1_18
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 186
+        width: 166
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa26262cd27540489fa617a3c2e69e6
+      internalID: 127291698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25b16278f32d0ffd4f3b093777ef8950 1_19
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 401
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b29f49cc523e7468541367d4d9d672
+      internalID: 471066066
       vertices: []
       indices: 
       edges: []
@@ -493,7 +535,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       25b16278f32d0ffd4f3b093777ef8950 1_11: 681694512
+      25b16278f32d0ffd4f3b093777ef8950 1_18: 127291698
       25b16278f32d0ffd4f3b093777ef8950 1_17: -765835147
+      25b16278f32d0ffd4f3b093777ef8950 1_19: 471066066
       25b16278f32d0ffd4f3b093777ef8950 1_8: 1779803909
       25b16278f32d0ffd4f3b093777ef8950 1_2: 432691350
       25b16278f32d0ffd4f3b093777ef8950 1_7: -1991919745
