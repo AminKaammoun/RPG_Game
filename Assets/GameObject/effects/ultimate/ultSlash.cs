@@ -12,7 +12,7 @@ public class ultSlash : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame

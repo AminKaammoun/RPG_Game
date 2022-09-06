@@ -74,6 +74,7 @@ public class GameController : MonoBehaviour
     public GameObject thunder;
     public GameObject gainedBp;
     public GameObject skillPointPanel;
+    public GameObject rock;
 
     public Toggle swapGemsToggle;
 
@@ -148,6 +149,13 @@ public class GameController : MonoBehaviour
     public static int diamonds;
     public static int xp;
     public static int Level;
+    public static int skillPoint;
+    public static int skill1Level;
+    public static int skill2Level;
+    public static int skill3Level;
+    public static int skill4Level;
+    public static int skill5Level;
+    public static int currentSkill;
 
     private int value;
     public static bool showAlert = false;
@@ -228,6 +236,8 @@ public class GameController : MonoBehaviour
     public static int ringSpGemBonus;
     public static int ringHpGemBonus;
 
+    public Image skill;
+    public Sprite[] skills;
 
     // Start is called before the first frame update
     void Start()
@@ -1067,6 +1077,13 @@ public class GameController : MonoBehaviour
         PlayerMovements.health = data.health;
         xp = data.xp;
         Level = data.level;
+        skill1Level = data.skill1Level;
+        skill2Level = data.skill2Level;
+        skill3Level = data.skill3Level;
+        skill4Level = data.skill4Level;
+        skill5Level = data.skill5Level;
+        skillPoint = data.skillPoints;
+        currentSkill = data.CurrentSkill;
 
         gearData data1 = saveSystem.LoadGears();
 
@@ -1125,6 +1142,27 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+
+        switch (GameController.currentSkill)
+        {
+            case 0:
+                skill.sprite = skills[0];
+                break;
+            case 1:
+                skill.sprite = skills[1];
+                break;
+            case 2:
+                skill.sprite = skills[2];
+                break;
+            case 3:
+                skill.sprite = skills[3];
+                break;
+            case 4:
+                skill.sprite = skills[4];
+                break;
+
+        }
+
         if (enterLibrary)
         {
             changeBGM(LibraryMusic, musicSource);
@@ -1223,6 +1261,7 @@ public class GameController : MonoBehaviour
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
             if (Input.GetMouseButton(0))
             {
+
                 PlayerMovements.animator.SetBool("ulting", false);
                 ultimateSound.Play();
                 ultPressed = false;
@@ -1230,9 +1269,20 @@ public class GameController : MonoBehaviour
                 openUltimate = true;
                 Time.timeScale = 1f;
                 Time.fixedDeltaTime = 0.02f;
-                Instantiate(ultSlash, player.transform.position, ultDirection.transform.rotation);
-                Instantiate(ultEffect, player.transform.position, ultDirection.transform.rotation);
-                Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
+
+                switch (currentSkill)
+                {
+                    case 0:
+                        Instantiate(ultSlash, player.transform.position, ultDirection.transform.rotation);
+                        Instantiate(ultEffect, player.transform.position, ultDirection.transform.rotation);
+                        Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
+                        break;
+                    case 1:
+                        Instantiate(rock, player.transform.position, ultDirection.transform.rotation);
+                        Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
+                        break;
+                }
+               
             }
             StartCoroutine(backFromSlowMo());
         }

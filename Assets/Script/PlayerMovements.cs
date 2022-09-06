@@ -93,7 +93,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject brust;
     public GameObject playerShadow;
     public GameObject ultDirection;
-
+    public GameObject rockEffect;
+    public GameObject soulEffect;
 
     public AudioSource dashAudio;
     public AudioSource swingAudio;
@@ -123,7 +124,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool canBeDamaged = true;
     public static bool isLevelUp = false;
     public static bool PotionInUse = false;
-   
+
 
     private bool islogDamaged = false;
     private bool isFireBallDamaged = false;
@@ -350,13 +351,9 @@ public class PlayerMovements : MonoBehaviour
         {
             animator.SetBool("ulting", true);
             StartCoroutine(returnFromUlt());
-            Vector3 adds = new Vector3(0f, 1.5f, 0f);
-            Instantiate(brust, transform.position, Quaternion.identity);
-            Instantiate(teleport_hit, transform.position + adds, Quaternion.identity);
-            Instantiate(playerShadow, transform.position, Quaternion.identity);
             slowMotionSound.Play();
-            GameController.ultPressed = true;
             CameraMovement.longUltShake = true;
+            GameController.ultPressed = true;
             ultDirection.SetActive(true);
             Time.timeScale = 0.25f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
@@ -365,9 +362,25 @@ public class PlayerMovements : MonoBehaviour
             {
                 chromaticAberration.intensity.value = 1f;
             }
+            Instantiate(playerShadow, transform.position, Quaternion.identity);
+            switch (GameController.currentSkill)
+            {
+                case 0:
+                    Vector3 adds = new Vector3(0f, 1.5f, 0f);
+                    Instantiate(brust, transform.position, Quaternion.identity);
+                    Instantiate(teleport_hit, transform.position + adds, Quaternion.identity);
+                    break;
+                
+                case 1:
+                    Instantiate(brust, transform.position, Quaternion.identity);
+                    Instantiate(rockEffect, transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(brust, transform.position, Quaternion.identity);
+                    Instantiate(soulEffect, transform.position, Quaternion.identity);
+                    break;
+            }
         }
-
-
     }
 
     void FixedUpdate()
@@ -821,7 +834,7 @@ public class PlayerMovements : MonoBehaviour
                 var stoneTxt = Instantiate(IronStoneText, transform.position, Quaternion.identity);
 
             }
-           
+
             if (collision.gameObject.name == "CoalStone(Clone)")
             {
                 collectStoneAudio.Play();
@@ -839,7 +852,7 @@ public class PlayerMovements : MonoBehaviour
                 var stoneTxt = Instantiate(WoodText, transform.position, Quaternion.identity);
 
             }
-           
+
             if (collision.gameObject.name == "BlueGemStone(Clone)")
             {
                 collectStoneAudio.Play();
@@ -848,7 +861,7 @@ public class PlayerMovements : MonoBehaviour
                 var stoneTxt = Instantiate(BlueGemStoneText, transform.position, Quaternion.identity);
 
             }
-            
+
             if (collision.gameObject.name == "GreenGemStone(Clone)")
             {
                 collectStoneAudio.Play();
