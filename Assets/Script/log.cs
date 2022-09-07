@@ -141,13 +141,15 @@ public class log : Enemy
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     TakeDamage((int)damage);
-                }else if (collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5"))
+                }else if (collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5") || collision.gameObject.CompareTag("Skill4"))
                 {
                     damageText.num = -1;
                     defence = 300;
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     TakeDamage((int)damage);
+                  
+
                 }
              
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);

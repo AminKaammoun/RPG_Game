@@ -95,8 +95,10 @@ public class PlayerMovements : MonoBehaviour
     public GameObject ultDirection;
     public GameObject BrownUltDirection;
     public GameObject PinkUltDirection;
+    public GameObject GreenUltDirection;
     public GameObject rockEffect;
     public GameObject soulEffect;
+    public GameObject greenEffect;
 
     public AudioSource dashAudio;
     public AudioSource swingAudio;
@@ -383,6 +385,11 @@ public class PlayerMovements : MonoBehaviour
                     PinkUltDirection.SetActive(true);
                     Instantiate(brust, transform.position, Quaternion.identity);
                     Instantiate(soulEffect, transform.position, Quaternion.identity);
+                    break;
+                case 3:
+                    GreenUltDirection.SetActive(true);
+                    Instantiate(brust, transform.position, Quaternion.identity);
+                    Instantiate(greenEffect, transform.position, Quaternion.identity);
                     break;
             }
         }

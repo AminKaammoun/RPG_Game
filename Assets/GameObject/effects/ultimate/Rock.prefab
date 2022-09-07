@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 3017249741734670831}
   - component: {fileID: 5392647293672764291}
   - component: {fileID: 3512474808602028619}
-  - component: {fileID: -7546114942768781676}
   - component: {fileID: -7461599307798201229}
   - component: {fileID: 8001832286642065867}
   - component: {fileID: 2699383397615608695}
   - component: {fileID: 6793880590770322854}
   - component: {fileID: -7959239792281156085}
+  - component: {fileID: -3161859193755580642}
   m_Layer: 0
   m_Name: Rock
   m_TagString: ultSlash
@@ -111,18 +111,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-7546114942768781676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100404796711449207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b092807411a674c95e2b2095eb9e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-7461599307798201229
 Rigidbody2D:
   serializedVersion: 4
@@ -302,3 +290,17 @@ MonoBehaviour:
   dashLayerMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &-3161859193755580642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100404796711449207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4539fc7d9751dd40ae7ee6216917efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterSplash: {fileID: 4586000152152983322, guid: 1d4c8e89d86ad0542b8ec884bbef9734, type: 3}
+  waterSplash1: {fileID: 4586000152152983322, guid: 1d4c8e89d86ad0542b8ec884bbef9734, type: 3}

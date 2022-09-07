@@ -71,6 +71,7 @@ public class GameController : MonoBehaviour
     public GameObject ultDirection;
     public GameObject BrownUltDirection;
     public GameObject PinkUltDirection;
+    public GameObject GreenUltDirection;
     public GameObject ultSlash;
     public GameObject ultEffect;
     public GameObject thunder;
@@ -78,6 +79,8 @@ public class GameController : MonoBehaviour
     public GameObject skillPointPanel;
     public GameObject rock;
     public GameObject skulls;
+    public GameObject Wind;
+    public GameObject WindEffect;
 
     public Toggle swapGemsToggle;
 
@@ -1271,6 +1274,7 @@ public class GameController : MonoBehaviour
                 ultDirection.SetActive(false);
                 BrownUltDirection.SetActive(false);
                 PinkUltDirection.SetActive(false);
+                GreenUltDirection.SetActive(false);
                 openUltimate = true;
                 Time.timeScale = 1f;
                 Time.fixedDeltaTime = 0.02f;
@@ -1289,8 +1293,14 @@ public class GameController : MonoBehaviour
                     case 2:
                         Instantiate(skulls, player.transform.position, PinkUltDirection.transform.rotation);
                         break;
+                    case 3:
+                        //Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
+                        Instantiate(Wind, player.transform.position, GreenUltDirection.transform.rotation);
+                        Instantiate(WindEffect, player.transform.position, GreenUltDirection.transform.rotation);
+
+                        break;
                 }
-               
+
             }
             StartCoroutine(backFromSlowMo());
         }
@@ -1496,7 +1506,7 @@ public class GameController : MonoBehaviour
 
     public void SkillPointsPanel()
     {
-       skillPointPanel.SetActive(true);
+        skillPointPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
 
@@ -1551,6 +1561,9 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         ultDirection.SetActive(false);
+        PinkUltDirection.SetActive(false);
+        GreenUltDirection.SetActive(false);
+        BrownUltDirection.SetActive(false);
         mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 8, 4f * Time.deltaTime);
         Time.fixedDeltaTime = 0.02f;
         Time.timeScale = 1;
@@ -1761,7 +1774,7 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.Library)
         {
-            CameraMovement.minPosition = new Vector2(-60.58f, -26.29f); 
+            CameraMovement.minPosition = new Vector2(-60.58f, -26.29f);
             CameraMovement.maxPosition = new Vector2(-25.45f, -20.38f);
 
 
