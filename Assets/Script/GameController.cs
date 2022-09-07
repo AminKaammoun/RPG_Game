@@ -69,12 +69,15 @@ public class GameController : MonoBehaviour
     public GameObject GemCraftingPanel;
     public GameObject volume;
     public GameObject ultDirection;
+    public GameObject BrownUltDirection;
+    public GameObject PinkUltDirection;
     public GameObject ultSlash;
     public GameObject ultEffect;
     public GameObject thunder;
     public GameObject gainedBp;
     public GameObject skillPointPanel;
     public GameObject rock;
+    public GameObject skulls;
 
     public Toggle swapGemsToggle;
 
@@ -1266,6 +1269,8 @@ public class GameController : MonoBehaviour
                 ultimateSound.Play();
                 ultPressed = false;
                 ultDirection.SetActive(false);
+                BrownUltDirection.SetActive(false);
+                PinkUltDirection.SetActive(false);
                 openUltimate = true;
                 Time.timeScale = 1f;
                 Time.fixedDeltaTime = 0.02f;
@@ -1278,8 +1283,11 @@ public class GameController : MonoBehaviour
                         Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
                         break;
                     case 1:
-                        Instantiate(rock, player.transform.position, ultDirection.transform.rotation);
-                        Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
+                        Instantiate(rock, player.transform.position, BrownUltDirection.transform.rotation);
+                        Instantiate(thunder, player.transform.position, BrownUltDirection.transform.rotation);
+                        break;
+                    case 2:
+                        Instantiate(skulls, player.transform.position, PinkUltDirection.transform.rotation);
                         break;
                 }
                

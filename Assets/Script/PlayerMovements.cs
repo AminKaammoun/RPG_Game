@@ -93,6 +93,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject brust;
     public GameObject playerShadow;
     public GameObject ultDirection;
+    public GameObject BrownUltDirection;
+    public GameObject PinkUltDirection;
     public GameObject rockEffect;
     public GameObject soulEffect;
 
@@ -354,7 +356,7 @@ public class PlayerMovements : MonoBehaviour
             slowMotionSound.Play();
             CameraMovement.longUltShake = true;
             GameController.ultPressed = true;
-            ultDirection.SetActive(true);
+          
             Time.timeScale = 0.25f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
             var Volumes = volume.GetComponent<Volume>();
@@ -366,16 +368,19 @@ public class PlayerMovements : MonoBehaviour
             switch (GameController.currentSkill)
             {
                 case 0:
+                    ultDirection.SetActive(true);
                     Vector3 adds = new Vector3(0f, 1.5f, 0f);
                     Instantiate(brust, transform.position, Quaternion.identity);
                     Instantiate(teleport_hit, transform.position + adds, Quaternion.identity);
                     break;
                 
                 case 1:
+                    BrownUltDirection.SetActive(true);
                     Instantiate(brust, transform.position, Quaternion.identity);
                     Instantiate(rockEffect, transform.position, Quaternion.identity);
                     break;
                 case 2:
+                    PinkUltDirection.SetActive(true);
                     Instantiate(brust, transform.position, Quaternion.identity);
                     Instantiate(soulEffect, transform.position, Quaternion.identity);
                     break;

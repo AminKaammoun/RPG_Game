@@ -122,7 +122,7 @@ public class log : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash"))
+        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash") || collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5"))
         {
             if (canBeDamaged)
             {
@@ -135,6 +135,13 @@ public class log : Enemy
                     TakeDamage((int)damage);
                 }
                 else if (collision.gameObject.CompareTag("ultSlash"))
+                {
+                    damageText.num = -1;
+                    defence = 300;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    TakeDamage((int)damage);
+                }else if (collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5"))
                 {
                     damageText.num = -1;
                     defence = 300;
