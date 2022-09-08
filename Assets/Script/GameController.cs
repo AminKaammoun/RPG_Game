@@ -94,6 +94,7 @@ public class GameController : MonoBehaviour
     public AudioSource chestAudio;
     public AudioSource ultimateSound;
     public AudioSource electricityAudio;
+    public AudioSource equipAudio;
 
     public AudioClip forestAudio;
     public AudioClip forestNightAudio;
@@ -1850,7 +1851,7 @@ public class GameController : MonoBehaviour
 
         if (PlayerPrefs.GetInt("BattlePower") != (int)GameController.BattlePower && !gearExist)
         {
-
+            equipAudio.Play();
             gainedBpText.GainedValue = (int)GameController.BattlePower - PlayerPrefs.GetInt("BattlePower");
 
             try
@@ -1878,6 +1879,7 @@ public class GameController : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("BattlePower") != (int)GameController.BattlePower && gearExist)
         {
+            equipAudio.Play();
             gearExist = false;
         }
 
