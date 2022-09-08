@@ -81,7 +81,8 @@ public class GameController : MonoBehaviour
     public GameObject skulls;
     public GameObject Wind;
     public GameObject WindEffect;
-
+    public GameObject redDot;
+   
     public Toggle swapGemsToggle;
 
     public Image loadingSlot;
@@ -92,6 +93,7 @@ public class GameController : MonoBehaviour
 
     public AudioSource chestAudio;
     public AudioSource ultimateSound;
+    public AudioSource electricityAudio;
 
     public AudioClip forestAudio;
     public AudioClip forestNightAudio;
@@ -114,6 +116,7 @@ public class GameController : MonoBehaviour
 
     public static LevelSystem level;
     public XpBar xpBar;
+    public ultBar UltBar;
 
     private float currentTime;
     private float startTime = 3f;
@@ -140,6 +143,7 @@ public class GameController : MonoBehaviour
     public Text SpBonus;
     public Text HpBonus;
     public Text Hp;
+    public Text UltText;
 
     public TextMeshProUGUI battlePowerText;
 
@@ -162,6 +166,7 @@ public class GameController : MonoBehaviour
     public static int skill4Level;
     public static int skill5Level;
     public static int currentSkill;
+    public static float ultValue;
 
     private int value;
     public static bool showAlert = false;
@@ -173,6 +178,7 @@ public class GameController : MonoBehaviour
     public static bool gearExist = false;
     public static bool enterLibrary = false;
     public static bool quitLibrary = false;
+    public static bool canUlt = false;
 
     private Vector2 cursorHotspot;
 
@@ -1148,7 +1154,20 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-
+        if(ultValue >= 10)
+        {
+            canUlt = true;
+        }
+        UltBar.SetUltValue(ultValue);
+        if(ultValue>= 10)
+        {
+            UltText.text = "READY!";
+        }
+        else
+        {
+            UltText.text = ultValue + "/10";
+        }
+    
         switch (GameController.currentSkill)
         {
             case 0:
@@ -1297,7 +1316,12 @@ public class GameController : MonoBehaviour
                         //Instantiate(thunder, player.transform.position, ultDirection.transform.rotation);
                         Instantiate(Wind, player.transform.position, GreenUltDirection.transform.rotation);
                         Instantiate(WindEffect, player.transform.position, GreenUltDirection.transform.rotation);
-
+                        break;
+                    case 4:
+                        skill5.spawn = true;
+                        electricityAudio.Play();
+                        CameraMovement.SuperLongUltShake = true;
+                        StartCoroutine(stopSkill5());
                         break;
                 }
 
@@ -1576,12 +1600,23 @@ public class GameController : MonoBehaviour
         {
             lensDistortions.intensity.value = Mathf.Lerp(lensDistortions.intensity.value, 0f, 0.5f * Time.deltaTime);
         }
+        if (Volumes.profile.TryGet<Vignette>(out var vignette))
+        {
+            vignette.rounded.value = false;
+            vignette.intensity.value = 0.45f;
+            vignette.smoothness.value = 0.1f;
+        }
+        redDot.SetActive(false);
         enemyBeaten = false;
         ultPressed = false;
         openUltimate = false;
     }
 
-
+    IEnumerator stopSkill5()
+    {
+        yield return new WaitForSeconds(7f);
+        skill5.spawn = false;
+    }
     public void updateLevelStats()
     {
         lvl.text = "Lv. " + level.currentLevel;

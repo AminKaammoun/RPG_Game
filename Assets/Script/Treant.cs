@@ -105,7 +105,7 @@ public class Treant : Enemy
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash"))
+        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("ultSlash") || collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5") || collision.gameObject.CompareTag("windUlt") || collision.gameObject.CompareTag("thunderStrike"))
         {
             if (canBeDamaged)
             {
@@ -123,8 +123,51 @@ public class Treant : Enemy
                     defence = 600;
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
+                    damage = damage + (GameController.skill1Level * 10);
                     TakeDamage((int)damage);
                 }
+                else if (collision.gameObject.CompareTag("rockUlt"))
+                {
+                    damageText.num = -2;
+                    defence = 600;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage + (GameController.skill2Level * 10);
+                    TakeDamage((int)damage);
+
+                }
+                else if (collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5"))
+                {
+                    damageText.num = -3;
+                    defence = 600;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.2f;
+                    damage = damage + (GameController.skill3Level * 10 * 1.2f);
+                    TakeDamage((int)damage);
+
+                }
+                else if (collision.gameObject.CompareTag("windUlt"))
+                {
+                    damageText.num = -4;
+                    defence = 600;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.2f;
+                    damage = damage + (GameController.skill4Level * 10 * 1.2f);
+                    TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("thunderStrike"))
+                {
+                    damageText.num = -5;
+                    defence = 600;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.5f;
+                    damage = damage + (GameController.skill5Level * 10 * 1.5f);
+                    TakeDamage((int)damage);
+                }
+
 
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);
                 Instantiate(damage, transform.position + add, Quaternion.identity);

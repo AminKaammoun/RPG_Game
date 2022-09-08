@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
     public static bool shake = false;
     public static bool bigShake = false;
     public static bool longUltShake = false;
+    public static bool SuperLongUltShake = false;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -32,6 +33,12 @@ public class CameraMovement : MonoBehaviour
             StartCoroutine(SoftShake(1.5f));
             longUltShake = false;
         }
+        if (SuperLongUltShake)
+        {
+            StartCoroutine(SoftShake(7f));
+            SuperLongUltShake = false;
+        }
+
         if (transform.position != target.position)
         {
             Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);

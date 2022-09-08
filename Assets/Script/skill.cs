@@ -24,6 +24,9 @@ public class skill : MonoBehaviour
     public GameObject Skill3;
     public GameObject Skill4;
     public GameObject Skill5;
+    public GameObject Skill3Button;
+    public GameObject Skill4Button;
+    public GameObject Skill5Button;
 
     public Sprite[] skills;
 
@@ -67,18 +70,21 @@ public class skill : MonoBehaviour
         if (GameController.skill1Level >= 10)
         {
             Skill3.SetActive(true);
+            Skill3Button.SetActive(true);
             skillSelectImage[0].sprite = skills[1];
         }
 
         if (GameController.skill2Level >= 10)
         {
             Skill4.SetActive(true);
+            Skill4Button.SetActive(true);
             skillSelectImage[1].sprite = skills[3];
         }
 
         if (GameController.skill3Level >= 10 && GameController.skill4Level >= 10)
         {
             Skill5.SetActive(true);
+            Skill5Button.SetActive(true);
             skillSelectImage[2].sprite = skills[5];
         }
     }
@@ -94,28 +100,28 @@ public class skill : MonoBehaviour
     {
         DescriptionImage.sprite = skillImages[1];
         skillTitle.text = "Mountain Seal";
-        skillDescription.text = "Attack all enemies using a spinning giant rock, growing rate 100%.";
+        skillDescription.text = "Attack all enemies on a straight Line using a spinning giant rock, growing rate 100%.";
     }
 
     public void skill3()
     {
         DescriptionImage.sprite = skillImages[2];
         skillTitle.text = "Cursed chains";
-        skillDescription.text = "growing rate 120%.";
+        skillDescription.text = "Take out the soul of 5 enemies, growing rate 120%.";
     }
 
     public void skill4()
     {
         DescriptionImage.sprite = skillImages[3];
         skillTitle.text = "Charge Attack";
-        skillDescription.text = "growing rate 120%.";
+        skillDescription.text = "Attack and track closest 5 enemies, growing rate 120%.";
     }
 
     public void skill5()
     {
         DescriptionImage.sprite = skillImages[4];
         skillTitle.text = "Holy hand";
-        skillDescription.text = "growing rate 150%.";
+        skillDescription.text = "Attack all enemies in range with lightning strikes, growing rate 150%.";
     }
 
     public void skill1Plus()
@@ -178,7 +184,7 @@ public class skill : MonoBehaviour
         selectAudio.Play();
         DescriptionImage.sprite = skillImages[1];
         skillTitle.text = "Mountain Seal";
-        skillDescription.text = "Attack all enemies using a spinning giant rock, growing rate 100%.";
+        skillDescription.text = "Attack all enemies on a straight Line using a spinning giant rock, growing rate 100%.";
     }
     public void SelectSkill3()
     {
@@ -186,7 +192,7 @@ public class skill : MonoBehaviour
         selectAudio.Play();
         DescriptionImage.sprite = skillImages[2];
         skillTitle.text = "Cursed chains";
-        skillDescription.text = "growing rate 120%.";
+        skillDescription.text = "Take out the soul of 5 enemies, growing rate 120%.";
     }
     public void SelectSkill4()
     {
@@ -194,7 +200,7 @@ public class skill : MonoBehaviour
         selectAudio.Play();
         DescriptionImage.sprite = skillImages[3];
         skillTitle.text = "Charge Attack";
-        skillDescription.text = "growing rate 120%.";
+        skillDescription.text = "Attack and track closest 5 enemies, growing rate 120%.";
     }
     public void SelectSkill5()
     {
@@ -202,6 +208,6 @@ public class skill : MonoBehaviour
         selectAudio.Play();
         DescriptionImage.sprite = skillImages[4];
         skillTitle.text = "Holy hand";
-        skillDescription.text = "growing rate 150%.";
+        skillDescription.text = "Attack all enemies in range with lightning strikes, growing rate 150%.";
     }
 }

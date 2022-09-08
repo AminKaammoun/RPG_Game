@@ -34,12 +34,12 @@ public class skill4 : MonoBehaviour
             try
             {
 
-                if (skullGroup.logs[0].activeSelf)
+                if (skullGroup.enemies[0].activeSelf)
                 {
-                    Vector3 lookDir = skullGroup.logs[0].transform.position - this.gameObject.transform.position;
+                    Vector3 lookDir = skullGroup.enemies[0].transform.position - this.gameObject.transform.position;
                     float angle = Vector2.SignedAngle(Vector2.up, lookDir);
                     transform.eulerAngles = new Vector3(0, 0, angle);
-                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.logs[0].transform.position, bulletForce * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.enemies[0].transform.position, bulletForce * Time.deltaTime);
                     if (TimeBtwSpawn <= 0)
                     {
                         int rand = Random.Range(0, 2);
@@ -60,12 +60,12 @@ public class skill4 : MonoBehaviour
                         TimeBtwSpawn -= Time.deltaTime;
                     }
                 }
-                else if (skullGroup.logs[1].activeSelf)
+                else if (skullGroup.enemies[1].activeSelf)
                 {
-                    Vector3 lookDir = skullGroup.logs[1].transform.position - this.gameObject.transform.position;
+                    Vector3 lookDir = skullGroup.enemies[1].transform.position - this.gameObject.transform.position;
                     float angle = Vector2.SignedAngle(Vector2.up, lookDir);
                     transform.eulerAngles = new Vector3(0, 0, angle);
-                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.logs[1].transform.position, bulletForce * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.enemies[1].transform.position, bulletForce * Time.deltaTime);
                     if (TimeBtwSpawn <= 0)
                     {
                         int rand = Random.Range(0, 2);
@@ -86,12 +86,12 @@ public class skill4 : MonoBehaviour
                         TimeBtwSpawn -= Time.deltaTime;
                     }
                 }
-                else if (skullGroup.logs[2].activeSelf)
+                else if (skullGroup.enemies[2].activeSelf)
                 {
-                    Vector3 lookDir = skullGroup.logs[2].transform.position - this.gameObject.transform.position;
+                    Vector3 lookDir = skullGroup.enemies[2].transform.position - this.gameObject.transform.position;
                     float angle = Vector2.SignedAngle(Vector2.up, lookDir);
                     transform.eulerAngles = new Vector3(0, 0, angle);
-                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.logs[2].transform.position, bulletForce * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.enemies[2].transform.position, bulletForce * Time.deltaTime);
                     if (TimeBtwSpawn <= 0)
                     {
                         int rand = Random.Range(0, 2);
@@ -112,12 +112,12 @@ public class skill4 : MonoBehaviour
                         TimeBtwSpawn -= Time.deltaTime;
                     }
                 }
-                else if (skullGroup.logs[3].activeSelf)
+                else if (skullGroup.enemies[3].activeSelf)
                 {
-                    Vector3 lookDir = skullGroup.logs[3].transform.position - this.gameObject.transform.position;
+                    Vector3 lookDir = skullGroup.enemies[3].transform.position - this.gameObject.transform.position;
                     float angle = Vector2.SignedAngle(Vector2.up, lookDir);
                     transform.eulerAngles = new Vector3(0, 0, angle);
-                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.logs[3].transform.position, bulletForce * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.enemies[3].transform.position, bulletForce * Time.deltaTime);
                     if (TimeBtwSpawn <= 0)
                     {
                         int rand = Random.Range(0, 2);
@@ -139,12 +139,12 @@ public class skill4 : MonoBehaviour
                     }
 
                 }
-                else if (skullGroup.logs[4].activeSelf)
+                else if (skullGroup.enemies[4].activeSelf)
                 {
-                    Vector3 lookDir = skullGroup.logs[4].transform.position - this.gameObject.transform.position;
+                    Vector3 lookDir = skullGroup.enemies[4].transform.position - this.gameObject.transform.position;
                     float angle = Vector2.SignedAngle(Vector2.up, lookDir);
                     transform.eulerAngles = new Vector3(0, 0, angle);
-                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.logs[4].transform.position, bulletForce * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, skullGroup.enemies[4].transform.position, bulletForce * Time.deltaTime);
                     if (TimeBtwSpawn <= 0)
                     {
                         int rand = Random.Range(0, 2);

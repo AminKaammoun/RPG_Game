@@ -99,6 +99,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject rockEffect;
     public GameObject soulEffect;
     public GameObject greenEffect;
+    public GameObject redDot;
+    public GameObject thunderEffect;
 
     public AudioSource dashAudio;
     public AudioSource swingAudio;
@@ -190,6 +192,7 @@ public class PlayerMovements : MonoBehaviour
         }
         if (isLevelUp)
         {
+            GameController.skillPoint++;
             GameObject levelUp = Instantiate(LevelUp) as GameObject;
             levelUp.transform.parent = this.gameObject.transform;
             levelUp.transform.position = transform.position;
@@ -351,8 +354,10 @@ public class PlayerMovements : MonoBehaviour
         }
 
         //Ult
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && GameController.canUlt)
         {
+            GameController.ultValue = 0;
+            GameController.canUlt = false;
             animator.SetBool("ulting", true);
             StartCoroutine(returnFromUlt());
             slowMotionSound.Play();
@@ -390,6 +395,17 @@ public class PlayerMovements : MonoBehaviour
                     GreenUltDirection.SetActive(true);
                     Instantiate(brust, transform.position, Quaternion.identity);
                     Instantiate(greenEffect, transform.position, Quaternion.identity);
+                    break;
+                case 4:
+                    redDot.SetActive(true);
+                    Instantiate(brust, transform.position, Quaternion.identity);
+                    Instantiate(thunderEffect, transform.position, Quaternion.identity);
+                    if (Volumes.profile.TryGet<Vignette>(out var vignette))
+                    {
+                        vignette.rounded.value = true;
+                        vignette.intensity.value = 1f;
+                        vignette.smoothness.value = 1f;
+                    }
                     break;
             }
         }
@@ -525,7 +541,7 @@ public class PlayerMovements : MonoBehaviour
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
                     Enemy.attack = 100;
-
+                    GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = 100;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
@@ -545,7 +561,7 @@ public class PlayerMovements : MonoBehaviour
                     Enemy.attack = 30;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     damagePlayer = false;
-
+                    GameController.ultValue += 0.5f;
                     hurtAudio.Play();
                     islogDamaged = true;
                     float attack = Enemy.attack;
@@ -565,7 +581,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 1;
                     hurtAudio.Play();
                     isFireBallDamaged = true;
-
+                    GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Worm.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
@@ -579,6 +595,7 @@ public class PlayerMovements : MonoBehaviour
             {
                 if (damagePlayer)
                 {
+                    GameController.ultValue += 0.5f;
                     damagePlayer = false;
                     PlayerDamage.num = 0;
                     hurtAudio.Play();
@@ -600,7 +617,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 0;
                     Enemy.attack = 60;
                     damagePlayer = false;
-
+                    GameController.ultValue += 0.5f;
                     hurtAudio.Play();
                     isTreantDamaged = true;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -619,7 +636,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 2;
                     hurtAudio.Play();
                     isCyclopDamaged = true;
-
+                    GameController.ultValue += 0.5f;
                     damagePlayer = false;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Cyclop.attack;
@@ -635,7 +652,7 @@ public class PlayerMovements : MonoBehaviour
                 if (damagePlayer)
                 {
                     damagePlayer = false;
-
+                    GameController.ultValue += 0.5f;
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
@@ -697,7 +714,7 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(returnColor());
                     Enemy.attack = 80;
                     isCrabDamaged = true;
-
+                    GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = 100;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
