@@ -144,6 +144,7 @@ public class GameController : MonoBehaviour
     public Text HpBonus;
     public Text Hp;
     public Text UltText;
+    public Text diamondsText;
 
     public TextMeshProUGUI battlePowerText;
 
@@ -1244,8 +1245,9 @@ public class GameController : MonoBehaviour
             coinText.text = coins.ToString();
             coinTextPotionShop.text = coins.ToString();
         }
-        coinsToolTipText.text = coins.ToString();
-
+      
+         diamondsText.text = diamonds.ToString();
+        
         updateLevelStats();
         checkIfCanDash();
         ControlLoadingPageIfExist();

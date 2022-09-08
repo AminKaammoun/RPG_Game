@@ -33,6 +33,14 @@ public class skill : MonoBehaviour
     public Text skillTitle;
     public Text skillDescription;
 
+    public GameObject alert;
+    public GameObject alert1;
+
+    private int currentskill;
+    public GameObject effect;
+
+    public GameObject slot;
+
     void Update()
     {
         skill1Level.text = GameController.skill1Level.ToString();
@@ -73,6 +81,12 @@ public class skill : MonoBehaviour
             Skill3Button.SetActive(true);
             skillSelectImage[0].sprite = skills[1];
         }
+        else
+        {
+            Skill3.SetActive(false);
+            Skill3Button.SetActive(false);
+            skillSelectImage[0].sprite = skills[0];
+        }
 
         if (GameController.skill2Level >= 10)
         {
@@ -80,12 +94,24 @@ public class skill : MonoBehaviour
             Skill4Button.SetActive(true);
             skillSelectImage[1].sprite = skills[3];
         }
+        else
+        {
+            Skill4.SetActive(false);
+            Skill4Button.SetActive(false);
+            skillSelectImage[1].sprite = skills[2];
+        }
 
         if (GameController.skill3Level >= 10 && GameController.skill4Level >= 10)
         {
             Skill5.SetActive(true);
             Skill5Button.SetActive(true);
             skillSelectImage[2].sprite = skills[5];
+        }
+        else
+        {
+            Skill5.SetActive(false);
+            Skill5Button.SetActive(false);
+            skillSelectImage[2].sprite = skills[4];
         }
     }
 
@@ -128,26 +154,37 @@ public class skill : MonoBehaviour
     {
         if (GameController.skillPoint > 0)
         {
+            Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot.transform, false);
+            Destroy(Effect, 1f);
             GameController.skill1Level++;
             GameController.skillPoint--;
         }
     }
     public void skill2Plus()
     {
+
         if (GameController.skillPoint > 0)
         {
-            if (GameController.skillPoint > 0)
-            {
-                GameController.skill2Level++;
-                GameController.skillPoint--;
-            }
+            Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot.transform, false);
+            Destroy(Effect, 1f);
+            GameController.skill2Level++;
+            GameController.skillPoint--;
         }
+
     }
 
     public void skill3Plus()
     {
         if (GameController.skillPoint > 0)
         {
+            Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot.transform, false);
+            Destroy(Effect, 1f);
             GameController.skill3Level++;
             GameController.skillPoint--;
         }
@@ -157,6 +194,10 @@ public class skill : MonoBehaviour
     {
         if (GameController.skillPoint > 0)
         {
+            Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot.transform, false);
+            Destroy(Effect, 1f);
             GameController.skill4Level++;
             GameController.skillPoint--;
         }
@@ -165,10 +206,59 @@ public class skill : MonoBehaviour
     {
         if (GameController.skillPoint > 0)
         {
+            Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot.transform, false);
+            Destroy(Effect, 1f);
             GameController.skill5Level++;
             GameController.skillPoint--;
         }
     }
+
+    public void skill1Minus()
+    {
+        if (GameController.skill1Level > 1)
+        {
+            currentskill = 1;
+            alert.SetActive(true);
+        }
+    }
+    public void skill2Minus()
+    {
+        if (GameController.skill2Level > 1)
+        {
+            currentskill = 2;
+            alert.SetActive(true);
+        }
+    }
+
+    public void skill3Minus()
+    {
+        if (GameController.skill3Level > 1)
+        {
+            currentskill = 3;
+            alert.SetActive(true);
+        }
+    }
+
+    public void skill4Minus()
+    {
+        if (GameController.skill4Level > 1)
+        {
+            currentskill = 4;
+            alert.SetActive(true);
+        }
+    }
+    public void skill5Minus()
+    {
+
+        if (GameController.skill5Level > 1)
+        {
+            currentskill = 5;
+            alert.SetActive(true);
+        }
+    }
+
 
     public void SelectSkill1()
     {
@@ -209,5 +299,54 @@ public class skill : MonoBehaviour
         DescriptionImage.sprite = skillImages[4];
         skillTitle.text = "Holy hand";
         skillDescription.text = "Attack all enemies in range with lightning strikes, growing rate 150%.";
+    }
+
+    public void closeAlert()
+    {
+        alert.SetActive(false);
+        alert1.SetActive(false);
+    }
+    public void comfirmAlert()
+    {
+        switch (currentskill)
+        {
+            case 1:
+                GameController.skill1Level--;
+                GameController.diamonds -= 10;
+                break;
+            case 2:
+                GameController.skill2Level--;
+                GameController.diamonds -= 10;
+                break;
+            case 3:
+                GameController.skill3Level--;
+                GameController.diamonds -= 10;
+                break;
+            case 4:
+                GameController.skill4Level--;
+                GameController.diamonds -= 10;
+                break;
+            case 5:
+                GameController.skill5Level--;
+                GameController.diamonds -= 10;
+                break;
+        }
+        GameController.skillPoint++;
+        alert.SetActive(false);
+    }
+    public void reset()
+    {
+        alert1.SetActive(true);
+    }
+    public void comfirmReset()
+    {
+        alert1.SetActive(false);
+        GameController.diamonds -= 100;
+        GameController.skillPoint += GameController.skill1Level + GameController.skill2Level + GameController.skill3Level + GameController.skill4Level + GameController.skill5Level - 5;
+        GameController.skill1Level = 1;
+        GameController.skill2Level = 1;
+        GameController.skill3Level = 1;
+        GameController.skill4Level = 1;
+        GameController.skill5Level = 1;
     }
 }
