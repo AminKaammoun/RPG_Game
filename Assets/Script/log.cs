@@ -141,7 +141,7 @@ public class log : Enemy
                     defence = 300;
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
-                    damage = damage + (GameController.skill1Level * 10);
+                    damage = damage + damage * (GameController.skill1Level / 100);
                     TakeDamage((int)damage);
                 }
                 else if (collision.gameObject.CompareTag("rockUlt"))
@@ -150,7 +150,7 @@ public class log : Enemy
                     defence = 300;
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
-                    damage = damage + (GameController.skill2Level * 10);
+                    damage = damage + damage * (GameController.skill2Level / 100);
                     TakeDamage((int)damage);
 
                 }
@@ -161,7 +161,7 @@ public class log : Enemy
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage * 1.2f;
-                    damage = damage + (GameController.skill3Level * 10 * 1.2f);
+                    damage = damage + damage * (GameController.skill3Level / 100) * 1.2f;
                     TakeDamage((int)damage);
 
                 }
@@ -172,7 +172,7 @@ public class log : Enemy
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage * 1.2f;
-                    damage = damage + (GameController.skill4Level * 10 * 1.2f);
+                    damage = damage + damage * (GameController.skill4Level / 100) * 1.2f;
                     TakeDamage((int)damage);
                 }
                 else if (collision.gameObject.CompareTag("thunderStrike"))
@@ -182,7 +182,7 @@ public class log : Enemy
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage * 1.5f;
-                    damage = damage + (GameController.skill5Level * 10 * 1.5f);
+                    damage = damage + damage * (GameController.skill5Level / 100) * 1.5f;
                     TakeDamage((int)damage);
                 }
 
