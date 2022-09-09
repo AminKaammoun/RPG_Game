@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
     public GameObject Dun2Panel;
     public GameObject MiningAreaPanel;
     public GameObject TreesAreaPanel;
+    public GameObject FishingAreaPanel;
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
@@ -1067,7 +1068,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.Village;
+        currentMap = PlayerMap.forrest;
 
     }
 
@@ -1462,6 +1463,15 @@ public class GameController : MonoBehaviour
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
+    public void closeFishingAreaPanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        FishingAreaPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
 
     public void VillageTpButton()
     {
@@ -1695,7 +1705,7 @@ public class GameController : MonoBehaviour
         if (currentMap == PlayerMap.forrest)
         {
 
-            CameraMovement.maxPosition = new Vector2(196.89f, 20.77f);
+            CameraMovement.maxPosition = new Vector2(235.72f, 20.77f);
             CameraMovement.minPosition = new Vector2(58.54f, -1.37f);
 
             if (TimeBtwLeafSpawn <= 0)
