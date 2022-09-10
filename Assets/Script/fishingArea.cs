@@ -9,6 +9,8 @@ public class fishingArea : MonoBehaviour
     public bool keyPressed;
     public Animator animator;
     public AudioSource fishing;
+    public AudioSource fishcatch;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class fishingArea : MonoBehaviour
                 animator.SetBool("fish", true);
                 keyPressed = true;
                 fishing.Play();
+                StartCoroutine(findFish());
             }
 
         }
@@ -56,7 +59,17 @@ public class fishingArea : MonoBehaviour
         {
             playerInRange = false;
             animator.SetBool("fish", false);
+            animator.SetBool("catch", false);
+            fishcatch.Stop();
             keyPressed = false;
         }
+    }
+
+    IEnumerator findFish()
+    {
+        int rand = Random.Range(5, 20);
+        yield return new WaitForSeconds(rand);
+        fishcatch.Play();
+        animator.SetBool("catch", true);
     }
 }
