@@ -10,7 +10,10 @@ public class fishingArea : MonoBehaviour
     public Animator animator;
     public AudioSource fishing;
     public AudioSource fishcatch;
-
+    public GameObject FishBar;
+    public static bool instantiateFish = false;
+    public static bool stopCollecting = false;
+    public fishBar fishbar;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,15 @@ public class fishingArea : MonoBehaviour
             key.SetActive(false);
 
         }
+
+        if (stopCollecting)
+        {
+            stopCollecting = false;
+            animator.SetBool("fish", false);
+            animator.SetBool("collect", false);
+            FishBar.SetActive(false);
+            fishbar.SetFish(0);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,6 +72,7 @@ public class fishingArea : MonoBehaviour
             playerInRange = false;
             animator.SetBool("fish", false);
             animator.SetBool("catch", false);
+            animator.SetBool("collect", false);
             fishcatch.Stop();
             keyPressed = false;
         }
@@ -70,6 +83,8 @@ public class fishingArea : MonoBehaviour
         int rand = Random.Range(5, 20);
         yield return new WaitForSeconds(rand);
         fishcatch.Play();
+        FishBar.SetActive(true);
         animator.SetBool("catch", true);
+        instantiateFish = true;
     }
 }

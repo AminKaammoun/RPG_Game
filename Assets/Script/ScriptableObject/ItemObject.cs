@@ -10,6 +10,7 @@ public enum ItemType
     Potion,
     Materiel,
     Gem,
+    fish,
     Default
 }
 public abstract class ItemObject : ScriptableObject
