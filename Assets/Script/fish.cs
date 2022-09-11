@@ -8,6 +8,7 @@ public class fish : MonoBehaviour
     private GameObject bonner;
     public ItemObject[] fishs;
     public InventoryObject inventory;
+    public InventoryObject FishInventory;
     public GameObject[] textPopUps;
     private GameObject player;
 
@@ -32,15 +33,19 @@ public class fish : MonoBehaviour
                 fishingArea.stopCollecting = true;
                 Instantiate(textPopUps[0], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[0], 1);
+                FishInventory.AddItem(fishs[0], 1);
                 inventory.save();
+                FishInventory.save();
                 Inventory.refreshInv = true;
-                Destroy(this.gameObject);
+               Destroy(this.gameObject);
             }
             else if (this.gameObject.name == "Fish2(Clone)")
             {
                 fishingArea.stopCollecting = true;
                 Instantiate(textPopUps[1], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[1], 1);
+                FishInventory.AddItem(fishs[1], 1);
+                FishInventory.save();
                 inventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
@@ -50,7 +55,9 @@ public class fish : MonoBehaviour
                 fishingArea.stopCollecting = true;
                 Instantiate(textPopUps[2], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[2], 1);
+                FishInventory.AddItem(fishs[2], 1);
                 inventory.save();
+                FishInventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
             }
@@ -59,7 +66,9 @@ public class fish : MonoBehaviour
                 fishingArea.stopCollecting = true;
                 Instantiate(textPopUps[3], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[3], 1);
+                FishInventory.AddItem(fishs[3], 1);
                 inventory.save();
+                FishInventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
             }
@@ -68,6 +77,8 @@ public class fish : MonoBehaviour
                 fishingArea.stopCollecting = true;
                 Instantiate(textPopUps[4], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[4], 1);
+                FishInventory.AddItem(fishs[4], 1);
+                FishInventory.save();
                 inventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);

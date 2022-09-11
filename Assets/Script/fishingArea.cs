@@ -14,6 +14,7 @@ public class fishingArea : MonoBehaviour
     public static bool instantiateFish = false;
     public static bool stopCollecting = false;
     public fishBar fishbar;
+    private bool executeCode;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,7 @@ public class fishingArea : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
+            executeCode = true;
         }
     }
 
@@ -74,7 +76,10 @@ public class fishingArea : MonoBehaviour
             animator.SetBool("catch", false);
             animator.SetBool("collect", false);
             fishcatch.Stop();
+            FishBar.SetActive(false);
+            fishbar.SetFish(0);
             keyPressed = false;
+            executeCode = false;
         }
     }
 
@@ -82,9 +87,12 @@ public class fishingArea : MonoBehaviour
     {
         int rand = Random.Range(5, 20);
         yield return new WaitForSeconds(rand);
-        fishcatch.Play();
-        FishBar.SetActive(true);
-        animator.SetBool("catch", true);
-        instantiateFish = true;
+        if (executeCode)
+        {
+            fishcatch.Play();
+            FishBar.SetActive(true);
+            animator.SetBool("catch", true);
+            instantiateFish = true;
+        }
     }
 }

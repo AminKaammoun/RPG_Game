@@ -582,7 +582,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 1;
                     hurtAudio.Play();
                     isFireBallDamaged = true;
-                    GameController.ultValue += 0.5f;
+                  
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Worm.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
@@ -596,7 +596,7 @@ public class PlayerMovements : MonoBehaviour
             {
                 if (damagePlayer)
                 {
-                    GameController.ultValue += 0.5f;
+                   
                     damagePlayer = false;
                     PlayerDamage.num = 0;
                     hurtAudio.Play();
@@ -637,7 +637,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 2;
                     hurtAudio.Play();
                     isCyclopDamaged = true;
-                    GameController.ultValue += 0.5f;
+                  
                     damagePlayer = false;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Cyclop.attack;
@@ -653,7 +653,7 @@ public class PlayerMovements : MonoBehaviour
                 if (damagePlayer)
                 {
                     damagePlayer = false;
-                    GameController.ultValue += 0.5f;
+                  
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());

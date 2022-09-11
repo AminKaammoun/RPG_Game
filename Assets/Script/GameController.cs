@@ -37,6 +37,7 @@ public class GameController : MonoBehaviour
 
     public InventoryObject Inv;
     public InventoryObject GemInv;
+    public InventoryObject FishInv;
 
     public float TimeBtwLeafSpawn;
     public float StartTime = 0.25f;
@@ -78,12 +79,13 @@ public class GameController : MonoBehaviour
     public GameObject thunder;
     public GameObject gainedBp;
     public GameObject skillPointPanel;
+    public GameObject fishPanel;
     public GameObject rock;
     public GameObject skulls;
     public GameObject Wind;
     public GameObject WindEffect;
     public GameObject redDot;
-   
+
     public Toggle swapGemsToggle;
 
     public Image loadingSlot;
@@ -1157,12 +1159,12 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if(ultValue >= 10)
+        if (ultValue >= 10)
         {
             canUlt = true;
         }
         UltBar.SetUltValue(ultValue);
-        if(ultValue>= 10)
+        if (ultValue >= 10)
         {
             UltText.text = "READY!";
         }
@@ -1170,7 +1172,7 @@ public class GameController : MonoBehaviour
         {
             UltText.text = ultValue + "/10";
         }
-    
+
         switch (GameController.currentSkill)
         {
             case 0:
@@ -1247,9 +1249,9 @@ public class GameController : MonoBehaviour
             coinText.text = coins.ToString();
             coinTextPotionShop.text = coins.ToString();
         }
-      
-         diamondsText.text = diamonds.ToString();
-        
+
+        diamondsText.text = diamonds.ToString();
+
         updateLevelStats();
         checkIfCanDash();
         ControlLoadingPageIfExist();
@@ -1454,6 +1456,16 @@ public class GameController : MonoBehaviour
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
+    public void closeFishPnanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        fishPanel.SetActive(false);
+        FishInv.save();
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void closeTreesAreaPnanel()
     {
         ArrowSpawn.canShoot = true;
@@ -1468,6 +1480,7 @@ public class GameController : MonoBehaviour
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
         FishingAreaPanel.SetActive(false);
+        FishInv.save();
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
@@ -1546,7 +1559,12 @@ public class GameController : MonoBehaviour
         skillPointPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
-
+    public void FishPanel()
+    {
+        fishPanel.SetActive(true);
+        fishingShop.refreshInv = true;
+        ArrowSpawn.canShoot = false;
+    }
     public void gemCraftingPanel()
     {
         GemCraftingPanel.SetActive(true);

@@ -194,7 +194,7 @@ public class ForrestDungeon1 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp4")
             {
-
+                GameController.ultValue = 0;
                 closer.SetActive(true);
                 isclosed = true;
                 player.transform.position = new Vector3(89.65f, 74.84f, 0f);

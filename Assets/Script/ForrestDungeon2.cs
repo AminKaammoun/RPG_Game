@@ -205,7 +205,7 @@ public class ForrestDungeon2 : MonoBehaviour
         {
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun2Tp3")
             {
-
+                GameController.ultValue = 0;
                 player.transform.position = new Vector3(154.59f, 91.32f, 0f);
                 GameController.currentMap = PlayerMap.forrestDungeon2nd2;
                 if (!cyclopIsBeaten)
