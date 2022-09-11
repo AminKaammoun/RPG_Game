@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5911971408057632750}
   m_Layer: 0
   m_Name: Fish1
-  m_TagString: Untagged
+  m_TagString: fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6287497b82cd87848af03dc547fcbbc5, type: 2}
   - {fileID: 11400000, guid: c513c37bb17faef4fbe47e6a26a03b0d, type: 2}
   inventory: {fileID: 11400000, guid: 30527436e5087b44c9834c97be56e6c7, type: 2}
+  textPopUps:
+  - {fileID: 9007892278722014127, guid: 1c1b33ab8031efa44a3f73c307abbb9d, type: 3}
+  - {fileID: 9007892278722014127, guid: f7b530cce39af3e4daa590199c5654a0, type: 3}
+  - {fileID: 9007892278722014127, guid: e2a7ddafab687814a9f48849f972c437, type: 3}
+  - {fileID: 9007892278722014127, guid: c0ad6db730da4ac4b9765331f5038ec2, type: 3}
+  - {fileID: 9007892278722014127, guid: 61b74a54d0ed61b41a97d4528d47a77f, type: 3}
 --- !u!61 &4301214962303076421
 BoxCollider2D:
   m_ObjectHideFlags: 0

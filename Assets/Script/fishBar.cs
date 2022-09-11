@@ -41,26 +41,28 @@ public class fishBar : MonoBehaviour
             fishingArea.instantiateFish = false;
             fishcatch.Stop();
             animator.SetBool("collect", true);
-            int rand = Random.Range(0, 5);
-            switch (rand)
+            int rand = Random.Range(0, 100);
+
+            if (rand >= 0 && rand < 50)
             {
-                case 0:
-                    Instantiate(fishs[0], bobber.transform.position, Quaternion.identity);
-                    break;
-                case 1:
-                    Instantiate(fishs[1], bobber.transform.position, Quaternion.identity);
-                    break;
-                case 2:
-                    Instantiate(fishs[2], bobber.transform.position, Quaternion.identity);
-                    break;
-                case 3:
-                    Instantiate(fishs[3], bobber.transform.position, Quaternion.identity);
-                    break;
-                case 4:
-                    Instantiate(fishs[4], bobber.transform.position, Quaternion.identity);
-                    break;
+                Instantiate(fishs[0], bobber.transform.position, Quaternion.identity);
             }
-             
+            else if (rand >= 50 && rand < 70)
+            {
+                Instantiate(fishs[1], bobber.transform.position, Quaternion.identity);
+            }
+            else if (rand >= 70 && rand < 85)
+            {
+                Instantiate(fishs[2], bobber.transform.position, Quaternion.identity);
+            }
+            else if (rand >= 85 && rand < 95)
+            {
+                Instantiate(fishs[3], bobber.transform.position, Quaternion.identity);
+            }
+            else if (rand >= 95 && rand < 100)
+            {
+                Instantiate(fishs[4], bobber.transform.position, Quaternion.identity);
+            }
         }
 
     }

@@ -114,6 +114,7 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource slowMotionSound;
     public AudioSource collectStoneAudio;
     public AudioSource collectWoodAudio;
+    public AudioSource fishCollect;
 
     public static bool invIsOpen = false;
 
@@ -363,7 +364,7 @@ public class PlayerMovements : MonoBehaviour
             slowMotionSound.Play();
             CameraMovement.longUltShake = true;
             GameController.ultPressed = true;
-          
+
             Time.timeScale = 0.25f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
             var Volumes = volume.GetComponent<Volume>();
@@ -380,7 +381,7 @@ public class PlayerMovements : MonoBehaviour
                     Instantiate(brust, transform.position, Quaternion.identity);
                     Instantiate(teleport_hit, transform.position + adds, Quaternion.identity);
                     break;
-                
+
                 case 1:
                     BrownUltDirection.SetActive(true);
                     Instantiate(brust, transform.position, Quaternion.identity);
@@ -927,6 +928,10 @@ public class PlayerMovements : MonoBehaviour
 
             }
             Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("fish"))
+        {
+            fishCollect.Play();
         }
     }
     void checkIfPlayerIsMoving(float PosX, float PosY)
