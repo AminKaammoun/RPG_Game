@@ -251,4 +251,40 @@ public static class saveSystem
             return null;
         }
     }
+
+    public static void SaveFishs(GameController player)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/fishs.file";
+
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        fishData data = new fishData(player);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+
+    }
+
+    public static fishData LoadFishs()
+    {
+        string path = Application.persistentDataPath + "/fishs.file";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            fishData data = formatter.Deserialize(stream) as fishData;
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("Save File not found in " + path);
+            return null;
+        }
+    }
+
 }

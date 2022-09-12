@@ -40,6 +40,8 @@ public class skill : MonoBehaviour
     public GameObject effect;
 
     public GameObject slot;
+    public GameObject notEnoughText;
+    public GameObject skillPanel;
 
     void Update()
     {
@@ -308,31 +310,40 @@ public class skill : MonoBehaviour
     }
     public void comfirmAlert()
     {
-        switch (currentskill)
+        if (GameController.diamonds > 99)
         {
-            case 1:
-                GameController.skill1Level--;
-                GameController.diamonds -= 10;
-                break;
-            case 2:
-                GameController.skill2Level--;
-                GameController.diamonds -= 10;
-                break;
-            case 3:
-                GameController.skill3Level--;
-                GameController.diamonds -= 10;
-                break;
-            case 4:
-                GameController.skill4Level--;
-                GameController.diamonds -= 10;
-                break;
-            case 5:
-                GameController.skill5Level--;
-                GameController.diamonds -= 10;
-                break;
+            switch (currentskill)
+            {
+                case 1:
+                    GameController.skill1Level--;
+                    GameController.diamonds -= 10;
+                    break;
+                case 2:
+                    GameController.skill2Level--;
+                    GameController.diamonds -= 10;
+                    break;
+                case 3:
+                    GameController.skill3Level--;
+                    GameController.diamonds -= 10;
+                    break;
+                case 4:
+                    GameController.skill4Level--;
+                    GameController.diamonds -= 10;
+                    break;
+                case 5:
+                    GameController.skill5Level--;
+                    GameController.diamonds -= 10;
+                    break;
+            }
+            GameController.skillPoint++;
+            alert.SetActive(false);
         }
-        GameController.skillPoint++;
-        alert.SetActive(false);
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(skillPanel.transform, false);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
     public void reset()
     {
@@ -340,13 +351,22 @@ public class skill : MonoBehaviour
     }
     public void comfirmReset()
     {
-        alert1.SetActive(false);
-        GameController.diamonds -= 100;
-        GameController.skillPoint += GameController.skill1Level + GameController.skill2Level + GameController.skill3Level + GameController.skill4Level + GameController.skill5Level - 5;
-        GameController.skill1Level = 1;
-        GameController.skill2Level = 1;
-        GameController.skill3Level = 1;
-        GameController.skill4Level = 1;
-        GameController.skill5Level = 1;
+        if (GameController.diamonds > 99)
+        {
+            alert1.SetActive(false);
+            GameController.diamonds -= 100;
+            GameController.skillPoint += GameController.skill1Level + GameController.skill2Level + GameController.skill3Level + GameController.skill4Level + GameController.skill5Level - 5;
+            GameController.skill1Level = 1;
+            GameController.skill2Level = 1;
+            GameController.skill3Level = 1;
+            GameController.skill4Level = 1;
+            GameController.skill5Level = 1;
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(skillPanel.transform, false);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
 }

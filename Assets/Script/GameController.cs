@@ -253,6 +253,12 @@ public class GameController : MonoBehaviour
     public static int ringSpGemBonus;
     public static int ringHpGemBonus;
 
+    public static bool Fish1Discovered;
+    public static bool Fish2Discovered;
+    public static bool Fish3Discovered;
+    public static bool Fish4Discovered;
+    public static bool Fish5Discovered;
+
     public Image skill;
     public Sprite[] skills;
 
@@ -1083,6 +1089,7 @@ public class GameController : MonoBehaviour
         saveSystem.SaveHelmetGems(this);
         saveSystem.SaveBeltGems(this);
         saveSystem.SaveRingGems(this);
+        saveSystem.SaveFishs(this);
     }
 
     public void LoadData()
@@ -1149,6 +1156,14 @@ public class GameController : MonoBehaviour
         ringYellowGem = data6.ringYellowGem;
         ringOrangeGem = data6.ringOrangeGem;
         ringGreenGem = data6.ringGreenGem;
+
+        fishData data7 = saveSystem.LoadFishs();
+
+        Fish1Discovered = data7.Fish1Discovered;
+        Fish2Discovered = data7.Fish2Discovered;
+        Fish3Discovered = data7.Fish3Discovered;
+        Fish4Discovered = data7.Fish4Discovered;
+        Fish5Discovered = data7.Fish5Discovered;
 
     }
 
