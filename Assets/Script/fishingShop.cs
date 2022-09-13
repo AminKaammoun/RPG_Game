@@ -264,166 +264,169 @@ public class fishingShop : MonoBehaviour
     {
 
         int number = int.Parse(value.text);
-        switch (currentFish)
+        if (number > 0)
         {
+            switch (currentFish)
+            {
 
-            case "fish1":
-                counter = 0;
-                for (int i = 0; i < inventory.Container.Count; i++)
-                {
-                    if (inventory.Container[i].item.name == "DeltaSmelt")
+                case "fish1":
+                    counter = 0;
+                    for (int i = 0; i < inventory.Container.Count; i++)
                     {
-                        counter = inventory.Container[i].amount;
+                        if (inventory.Container[i].item.name == "DeltaSmelt")
+                        {
+                            counter = inventory.Container[i].amount;
+                        }
                     }
-                }
-                if (counter >= number)
-                {
-                    for (int i = 0; i < number; i++)
+                    if (counter >= number)
                     {
-                        Inv.RemoveItem(Fishs[0]);
-                        inventory.RemoveItem(Fishs[0]);
-                        Inv.save();
-                        inventory.save();
-                        Inventory.refreshInv = true;
-                        refreshInv = true;
-                        GameController.coins += Fish1Price * 1000;
+                        for (int i = 0; i < number; i++)
+                        {
+                            Inv.RemoveItem(Fishs[0]);
+                            inventory.RemoveItem(Fishs[0]);
+                            Inv.save();
+                            inventory.save();
+                            Inventory.refreshInv = true;
+                            refreshInv = true;
+                            GameController.coins += Fish1Price * 1000;
+                        }
+                        coinCollect.Play();
                     }
-                    coinCollect.Play();
-                }
-                else
-                {
-                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
-                    Destroy(forgedTxt, 1f);
-                }
-                break;
+                    else
+                    {
+                        var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                        forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                        Destroy(forgedTxt, 1f);
+                    }
+                    break;
 
-            case "fish2":
-                counter = 0;
-                for (int i = 0; i < inventory.Container.Count; i++)
-                {
-                    if (inventory.Container[i].item.name == "Sweetfish")
+                case "fish2":
+                    counter = 0;
+                    for (int i = 0; i < inventory.Container.Count; i++)
                     {
-                        counter = inventory.Container[i].amount;
+                        if (inventory.Container[i].item.name == "Sweetfish")
+                        {
+                            counter = inventory.Container[i].amount;
+                        }
                     }
-                }
-                if (counter >= number)
-                {
-                    for (int i = 0; i < number; i++)
+                    if (counter >= number)
                     {
-                        Inv.RemoveItem(Fishs[1]);
-                        inventory.RemoveItem(Fishs[1]);
-                        Inv.save();
-                        inventory.save();
-                        Inventory.refreshInv = true;
-                        refreshInv = true;
-                        GameController.coins += Fish2Price * 1000;
+                        for (int i = 0; i < number; i++)
+                        {
+                            Inv.RemoveItem(Fishs[1]);
+                            inventory.RemoveItem(Fishs[1]);
+                            Inv.save();
+                            inventory.save();
+                            Inventory.refreshInv = true;
+                            refreshInv = true;
+                            GameController.coins += Fish2Price * 1000;
+                        }
+                        coinCollect.Play();
                     }
-                    coinCollect.Play();
-                }
-                else
-                {
-                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
-                    Destroy(forgedTxt, 1f);
-                }
-                break;
+                    else
+                    {
+                        var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                        forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                        Destroy(forgedTxt, 1f);
+                    }
+                    break;
 
-            case "fish3":
-                counter = 0;
-                for (int i = 0; i < inventory.Container.Count; i++)
-                {
-                    if (inventory.Container[i].item.name == "Guppy")
+                case "fish3":
+                    counter = 0;
+                    for (int i = 0; i < inventory.Container.Count; i++)
                     {
-                        counter = inventory.Container[i].amount;
+                        if (inventory.Container[i].item.name == "Guppy")
+                        {
+                            counter = inventory.Container[i].amount;
+                        }
                     }
-                }
-                if (counter >= number)
-                {
-                    for (int i = 0; i < number; i++)
+                    if (counter >= number)
                     {
-                        Inv.RemoveItem(Fishs[2]);
-                        inventory.RemoveItem(Fishs[2]);
-                        Inv.save();
-                        inventory.save();
-                        Inventory.refreshInv = true;
-                        refreshInv = true;
-                        GameController.coins += Fish3Price * 1000;
+                        for (int i = 0; i < number; i++)
+                        {
+                            Inv.RemoveItem(Fishs[2]);
+                            inventory.RemoveItem(Fishs[2]);
+                            Inv.save();
+                            inventory.save();
+                            Inventory.refreshInv = true;
+                            refreshInv = true;
+                            GameController.coins += Fish3Price * 1000;
+                        }
+                        coinCollect.Play();
                     }
-                    coinCollect.Play();
-                }
-                else
-                {
-                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
-                    Destroy(forgedTxt, 1f);
-                }
-                break;
+                    else
+                    {
+                        var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                        forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                        Destroy(forgedTxt, 1f);
+                    }
+                    break;
 
-            case "fish4":
-                counter = 0;
-                for (int i = 0; i < inventory.Container.Count; i++)
-                {
-                    if (inventory.Container[i].item.name == "Rainbow Trout")
+                case "fish4":
+                    counter = 0;
+                    for (int i = 0; i < inventory.Container.Count; i++)
                     {
-                        counter = inventory.Container[i].amount;
+                        if (inventory.Container[i].item.name == "Rainbow Trout")
+                        {
+                            counter = inventory.Container[i].amount;
+                        }
                     }
-                }
-                if (counter >= number)
-                {
-                    for (int i = 0; i < number; i++)
+                    if (counter >= number)
                     {
-                        Inv.RemoveItem(Fishs[3]);
-                        inventory.RemoveItem(Fishs[3]);
-                        Inv.save();
-                        inventory.save();
-                        Inventory.refreshInv = true;
-                        refreshInv = true;
-                        GameController.coins += Fish4Price * 1000;
+                        for (int i = 0; i < number; i++)
+                        {
+                            Inv.RemoveItem(Fishs[3]);
+                            inventory.RemoveItem(Fishs[3]);
+                            Inv.save();
+                            inventory.save();
+                            Inventory.refreshInv = true;
+                            refreshInv = true;
+                            GameController.coins += Fish4Price * 1000;
+                        }
+                        coinCollect.Play();
                     }
-                    coinCollect.Play();
-                }
-                else
-                {
-                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
-                    Destroy(forgedTxt, 1f);
-                }
-                break;
+                    else
+                    {
+                        var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                        forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                        Destroy(forgedTxt, 1f);
+                    }
+                    break;
 
-            case "fish5":
-                counter = 0;
-                for (int i = 0; i < inventory.Container.Count; i++)
-                {
-                    if (inventory.Container[i].item.name == "Yellow Perch")
+                case "fish5":
+                    counter = 0;
+                    for (int i = 0; i < inventory.Container.Count; i++)
                     {
-                        counter = inventory.Container[i].amount;
+                        if (inventory.Container[i].item.name == "Yellow Perch")
+                        {
+                            counter = inventory.Container[i].amount;
+                        }
                     }
-                }
-                if (counter >= number)
-                {
-                    for (int i = 0; i < number; i++)
+                    if (counter >= number)
                     {
-                        Inv.RemoveItem(Fishs[4]);
-                        inventory.RemoveItem(Fishs[4]);
-                        Inv.save();
-                        inventory.save();
-                        Inventory.refreshInv = true;
-                        refreshInv = true;
-                        GameController.coins += Fish5Price * 1000;
+                        for (int i = 0; i < number; i++)
+                        {
+                            Inv.RemoveItem(Fishs[4]);
+                            inventory.RemoveItem(Fishs[4]);
+                            Inv.save();
+                            inventory.save();
+                            Inventory.refreshInv = true;
+                            refreshInv = true;
+                            GameController.coins += Fish5Price * 1000;
+                        }
+                        coinCollect.Play();
                     }
-                    coinCollect.Play();
-                }
-                else
-                {
-                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
-                    Destroy(forgedTxt, 1f);
-                }
-                break;
+                    else
+                    {
+                        var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                        forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                        Destroy(forgedTxt, 1f);
+                    }
+                    break;
+            }
+
+            panel.SetActive(false);
         }
-
-        panel.SetActive(false);
     }
     public void resetFish()
     {

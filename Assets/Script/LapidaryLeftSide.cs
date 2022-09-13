@@ -116,6 +116,36 @@ public class LapidaryLeftSide : MonoBehaviour
 
     public static bool refresh = false;
 
+    public GameObject atkText1;
+    public GameObject defText1;
+    public GameObject helmetText1;
+    public GameObject beltText1;
+    public GameObject ringText1;
+
+    public GameObject atkText2;
+    public GameObject defText2;
+    public GameObject helmetText2;
+    public GameObject beltText2;
+    public GameObject ringText2;
+
+    public GameObject atkText3;
+    public GameObject defText3;
+    public GameObject helmetText3;
+    public GameObject beltText3;
+    public GameObject ringText3;
+
+    public GameObject atkText4;
+    public GameObject defText4;
+    public GameObject helmetText4;
+    public GameObject beltText4;
+    public GameObject ringText4;
+
+    public GameObject atkText5;
+    public GameObject defText5;
+    public GameObject helmetText5;
+    public GameObject beltText5;
+    public GameObject ringText5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,6 +163,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 atkGearSpText.text = "";
                 atkGearAgiText.text = "";
                 atkGearHpText.text = "";
+                atkText1.SetActive(false);
+                defText1.SetActive(false);
+                helmetText1.SetActive(false);
+                beltText1.SetActive(false);
+                ringText1.SetActive(false);
                 break;
 
             case "lvl 1 attack (equipmentObject)":
@@ -144,6 +179,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 atkGearSpText.text = "sp:2";
                 atkGearAgiText.text = "agi:3";
                 atkGearHpText.text = "hp:5";
+                atkText1.SetActive(true);
+                defText1.SetActive(true);
+                helmetText1.SetActive(true);
+                beltText1.SetActive(true);
+                ringText1.SetActive(true);
                 break;
 
             case "lvl 10 attack (equipmentObject)":
@@ -155,6 +195,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 atkGearSpText.text = "sp:10";
                 atkGearAgiText.text = "agi:15";
                 atkGearHpText.text = "hp:25";
+                atkText1.SetActive(true);
+                defText1.SetActive(true);
+                helmetText1.SetActive(true);
+                beltText1.SetActive(true);
+                ringText1.SetActive(true);
                 break;
 
             case "lvl 30 attack (equipmentObject)":
@@ -180,6 +225,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 defGearSpText.text = "";
                 defGearAgiText.text = "";
                 defGearHpText.text = "";
+                atkText2.SetActive(false);
+                defText2.SetActive(false);
+                helmetText2.SetActive(false);
+                beltText2.SetActive(false);
+                ringText2.SetActive(false);
                 break;
             case "lvl 1 def (equipmentObject)":
                 NoDefEquipTxt.SetActive(false);
@@ -190,6 +240,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 defGearSpText.text = "sp:2";
                 defGearAgiText.text = "agi:2";
                 defGearHpText.text = "hp:10";
+                atkText2.SetActive(true);
+                defText2.SetActive(true);
+                helmetText2.SetActive(true);
+                beltText2.SetActive(true);
+                ringText2.SetActive(true);
                 break;
 
             case "lvl 10 def (equipmentObject)":
@@ -201,6 +256,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 defGearSpText.text = "sp:10";
                 defGearAgiText.text = "agi:10";
                 defGearHpText.text = "hp:50";
+                atkText2.SetActive(true);
+                defText2.SetActive(true);
+                helmetText2.SetActive(true);
+                beltText2.SetActive(true);
+                ringText2.SetActive(true);
                 break;
 
             case "lvl 30 def (equipmentObject)":
@@ -226,6 +286,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 HelmetGearSpText.text = "";
                 HelmetGearAgiText.text = "";
                 HelmetGearHpText.text = "";
+                atkText3.SetActive(false);
+                defText3.SetActive(false);
+                helmetText3.SetActive(false);
+                beltText3.SetActive(false);
+                ringText3.SetActive(false);
                 break;
 
             case "lvl 1 helmet (equipmentObject)":
@@ -237,6 +302,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 HelmetGearSpText.text = "sp:2";
                 HelmetGearAgiText.text = "agi:10";
                 HelmetGearHpText.text = "hp:8";
+                atkText3.SetActive(true);
+                defText3.SetActive(true);
+                helmetText3.SetActive(true);
+                beltText3.SetActive(true);
+                ringText3.SetActive(true);
                 break;
 
             case "lvl 10 helmet (equipmentObject)":
@@ -248,6 +318,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 HelmetGearSpText.text = "sp:10";
                 HelmetGearAgiText.text = "agi:50";
                 HelmetGearHpText.text = "hp:40";
+                atkText3.SetActive(true);
+                defText3.SetActive(true);
+                helmetText3.SetActive(true);
+                beltText3.SetActive(true);
+                ringText3.SetActive(true);
                 break;
             case "lvl 30 helmet (equipmentObject)":
 
@@ -272,6 +347,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 BeltGearSpText.text = "";
                 BeltGearAgiText.text = "";
                 BeltGearHpText.text = "";
+                atkText4.SetActive(false);
+                defText4.SetActive(false);
+                helmetText4.SetActive(false);
+                beltText4.SetActive(false);
+                ringText4.SetActive(false);
                 break;
             case "lvl 1 belt (equipmentObject)":
                 NoBeltEquipTxt.SetActive(false);
@@ -282,6 +362,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 BeltGearSpText.text = "sp:10";
                 BeltGearAgiText.text = "agi:3";
                 BeltGearHpText.text = "hp:7";
+                atkText4.SetActive(true);
+                defText4.SetActive(true);
+                helmetText4.SetActive(true);
+                beltText4.SetActive(true);
+                ringText4.SetActive(true);
                 break;
 
             case "lvl 10 belt (equipmentObject)":
@@ -293,6 +378,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 BeltGearSpText.text = "sp:50";
                 BeltGearAgiText.text = "agi:15";
                 BeltGearHpText.text = "hp:35";
+                atkText4.SetActive(true);
+                defText4.SetActive(true);
+                helmetText4.SetActive(true);
+                beltText4.SetActive(true);
+                ringText4.SetActive(true);
                 break;
 
             case "lvl 30 belt (equipmentObject)":
@@ -318,6 +408,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 RingGearSpText.text = "";
                 RingGearAgiText.text = "";
                 RingGearHpText.text = "";
+                atkText5.SetActive(false);
+                defText5.SetActive(false);
+                helmetText5.SetActive(false);
+                beltText5.SetActive(false);
+                ringText5.SetActive(false);
                 break;
 
             case "lvl 1 ring (equipmentObject)":
@@ -329,6 +424,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 RingGearSpText.text = "sp:3";
                 RingGearAgiText.text = "agi:2";
                 RingGearHpText.text = "hp:50";
+                atkText5.SetActive(true);
+                defText5.SetActive(true);
+                helmetText5.SetActive(true);
+                beltText5.SetActive(true);
+                ringText5.SetActive(true);
                 break;
 
             case "lvl 10 ring (equipmentObject)":
@@ -340,6 +440,11 @@ public class LapidaryLeftSide : MonoBehaviour
                 RingGearSpText.text = "sp:15";
                 RingGearAgiText.text = "agi:10";
                 RingGearHpText.text = "hp:250";
+                atkText5.SetActive(true);
+                defText5.SetActive(true);
+                helmetText5.SetActive(true);
+                beltText5.SetActive(true);
+                ringText5.SetActive(true);
                 break;
 
             case "lvl 30 ring (equipmentObject)":
@@ -375,11 +480,11 @@ public class LapidaryLeftSide : MonoBehaviour
 
             CreateDisplay();
             refreshInv = false;
-         
+
 
         }
 
-        if(currentgear == SelectedGear.nothing)
+        if (currentgear == SelectedGear.nothing)
         {
             effect.SetActive(false);
             icon.SetActive(false);
@@ -411,6 +516,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     atkGearSpText.text = "";
                     atkGearAgiText.text = "";
                     atkGearHpText.text = "";
+                    atkText1.SetActive(false);
+                    defText1.SetActive(false);
+                    helmetText1.SetActive(false);
+                    beltText1.SetActive(false);
+                    ringText1.SetActive(false);
                     break;
 
                 case "lvl 1 attack (equipmentObject)":
@@ -422,6 +532,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     atkGearSpText.text = "sp:2";
                     atkGearAgiText.text = "agi:3";
                     atkGearHpText.text = "hp:5";
+                    atkText1.SetActive(true);
+                    defText1.SetActive(true);
+                    helmetText1.SetActive(true);
+                    beltText1.SetActive(true);
+                    ringText1.SetActive(true);
                     break;
 
                 case "lvl 10 attack (equipmentObject)":
@@ -433,6 +548,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     atkGearSpText.text = "sp:10";
                     atkGearAgiText.text = "agi:15";
                     atkGearHpText.text = "hp:25";
+                    atkText1.SetActive(true);
+                    defText1.SetActive(true);
+                    helmetText1.SetActive(true);
+                    beltText1.SetActive(true);
+                    ringText1.SetActive(true);
                     break;
 
                 case "lvl 30 attack (equipmentObject)":
@@ -458,6 +578,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     defGearSpText.text = "";
                     defGearAgiText.text = "";
                     defGearHpText.text = "";
+                    atkText2.SetActive(false);
+                    defText2.SetActive(false);
+                    helmetText2.SetActive(false);
+                    beltText2.SetActive(false);
+                    ringText2.SetActive(false);
                     break;
                 case "lvl 1 def (equipmentObject)":
                     NoDefEquipTxt.SetActive(false);
@@ -468,6 +593,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     defGearSpText.text = "sp:2";
                     defGearAgiText.text = "agi:2";
                     defGearHpText.text = "hp:10";
+                    atkText2.SetActive(true);
+                    defText2.SetActive(true);
+                    helmetText2.SetActive(true);
+                    beltText2.SetActive(true);
+                    ringText2.SetActive(true);
                     break;
 
                 case "lvl 10 def (equipmentObject)":
@@ -479,6 +609,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     defGearSpText.text = "sp:10";
                     defGearAgiText.text = "agi:10";
                     defGearHpText.text = "hp:50";
+                    atkText2.SetActive(true);
+                    defText2.SetActive(true);
+                    helmetText2.SetActive(true);
+                    beltText2.SetActive(true);
+                    ringText2.SetActive(true);
                     break;
 
                 case "lvl 30 def (equipmentObject)":
@@ -504,6 +639,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     HelmetGearSpText.text = "";
                     HelmetGearAgiText.text = "";
                     HelmetGearHpText.text = "";
+                    atkText3.SetActive(false);
+                    defText3.SetActive(false);
+                    helmetText3.SetActive(false);
+                    beltText3.SetActive(false);
+                    ringText3.SetActive(false);
                     break;
 
                 case "lvl 1 helmet (equipmentObject)":
@@ -515,6 +655,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     HelmetGearSpText.text = "sp:2";
                     HelmetGearAgiText.text = "agi:10";
                     HelmetGearHpText.text = "hp:8";
+                    atkText3.SetActive(true);
+                    defText3.SetActive(true);
+                    helmetText3.SetActive(true);
+                    beltText3.SetActive(true);
+                    ringText3.SetActive(true);
                     break;
 
                 case "lvl 10 helmet (equipmentObject)":
@@ -526,6 +671,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     HelmetGearSpText.text = "sp:10";
                     HelmetGearAgiText.text = "agi:50";
                     HelmetGearHpText.text = "hp:40";
+                    atkText3.SetActive(true);
+                    defText3.SetActive(true);
+                    helmetText3.SetActive(true);
+                    beltText3.SetActive(true);
+                    ringText3.SetActive(true);
                     break;
                 case "lvl 30 helmet (equipmentObject)":
 
@@ -550,6 +700,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     BeltGearSpText.text = "";
                     BeltGearAgiText.text = "";
                     BeltGearHpText.text = "";
+                    atkText4.SetActive(false);
+                    defText4.SetActive(false);
+                    helmetText4.SetActive(false);
+                    beltText4.SetActive(false);
+                    ringText4.SetActive(false);
                     break;
                 case "lvl 1 belt (equipmentObject)":
                     NoBeltEquipTxt.SetActive(false);
@@ -560,6 +715,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     BeltGearSpText.text = "sp:10";
                     BeltGearAgiText.text = "agi:3";
                     BeltGearHpText.text = "hp:7";
+                    atkText4.SetActive(true);
+                    defText4.SetActive(true);
+                    helmetText4.SetActive(true);
+                    beltText4.SetActive(true);
+                    ringText4.SetActive(true);
                     break;
 
                 case "lvl 10 belt (equipmentObject)":
@@ -571,6 +731,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     BeltGearSpText.text = "sp:50";
                     BeltGearAgiText.text = "agi:15";
                     BeltGearHpText.text = "hp:35";
+                    atkText4.SetActive(true);
+                    defText4.SetActive(true);
+                    helmetText4.SetActive(true);
+                    beltText4.SetActive(true);
+                    ringText4.SetActive(true);
                     break;
 
                 case "lvl 30 belt (equipmentObject)":
@@ -596,6 +761,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     RingGearSpText.text = "";
                     RingGearAgiText.text = "";
                     RingGearHpText.text = "";
+                    atkText5.SetActive(false);
+                    defText5.SetActive(false);
+                    helmetText5.SetActive(false);
+                    beltText5.SetActive(false);
+                    ringText5.SetActive(false);
                     break;
 
                 case "lvl 1 ring (equipmentObject)":
@@ -607,6 +777,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     RingGearSpText.text = "sp:3";
                     RingGearAgiText.text = "agi:2";
                     RingGearHpText.text = "hp:50";
+                    atkText5.SetActive(true);
+                    defText5.SetActive(true);
+                    helmetText5.SetActive(true);
+                    beltText5.SetActive(true);
+                    ringText5.SetActive(true);
                     break;
 
                 case "lvl 10 ring (equipmentObject)":
@@ -618,6 +793,11 @@ public class LapidaryLeftSide : MonoBehaviour
                     RingGearSpText.text = "sp:15";
                     RingGearAgiText.text = "agi:10";
                     RingGearHpText.text = "hp:250";
+                    atkText5.SetActive(true);
+                    defText5.SetActive(true);
+                    helmetText5.SetActive(true);
+                    beltText5.SetActive(true);
+                    ringText5.SetActive(true);
                     break;
 
                 case "lvl 30 ring (equipmentObject)":
@@ -815,7 +995,7 @@ public class LapidaryLeftSide : MonoBehaviour
             case "":
                 atkGemLevel.text = "";
                 break;
-         
+
             case "lvl1RedGem (gemObject)":
                 redGems.isDefGearRedGemPlaced = true;
                 atkGemLevel.text = "lvl 1";
@@ -842,11 +1022,11 @@ public class LapidaryLeftSide : MonoBehaviour
             case "":
                 defGemLevel.text = "";
                 break;
-          
+
             case "lvl1BlueGem (gemObject)":
                 blueGems.isDefGearBlueGemPlaced = true;
                 defGemLevel.text = "lvl 1";
-              
+
                 break;
             case "lvl2BlueGem (gemObject)":
                 blueGems.isDefGearBlueGemPlaced = true;
@@ -870,8 +1050,8 @@ public class LapidaryLeftSide : MonoBehaviour
             case "":
                 helmetGemLevel.text = "";
                 break;
-         
-           case "lvl1YellowGem (gemObject)":
+
+            case "lvl1YellowGem (gemObject)":
                 yellowGems.isDefGearYellowGemPlaced = true;
                 helmetGemLevel.text = "lvl 1";
                 break;
@@ -1356,7 +1536,7 @@ public class LapidaryLeftSide : MonoBehaviour
             case "":
                 ringGemLevel.text = "";
                 break;
-              case "lvl1GreenGem (gemObject)":
+            case "lvl1GreenGem (gemObject)":
                 greenGems.isRingGearGreenGemPlaced = true;
                 ringGemLevel.text = "lvl 1";
                 break;
