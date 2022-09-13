@@ -25,10 +25,131 @@ public class fishingShop : MonoBehaviour
     public ItemObject[] Fishs;
     public static string currentFish;
 
+    private int Fish1Price;
+    private int Fish2Price;
+    private int Fish3Price;
+    private int Fish4Price;
+    private int Fish5Price;
+
+    public Text fish1TodayPrice;
+    public Text fish2TodayPrice;
+    public Text fish3TodayPrice;
+    public Text fish4TodayPrice;
+    public Text fish5TodayPrice;
+
+    public GameObject[] coinImage;
+
+    public GameObject sell1;
+    public GameObject sell2;
+    public GameObject sell3;
+    public GameObject sell4;
+    public GameObject sell5;
+
+    public AudioSource coinCollect;
+
+    private int counter;
+
+    public GameObject NotEnoughFishText;
+
+    private bool reset = true;
+
     // Start is called before the first frame update
     void Start()
     {
         CreateDisplay();
+
+        Fish1Price = Random.Range(10, 21);
+        Fish2Price = Random.Range(20, 51);
+        Fish3Price = Random.Range(50, 100);
+        Fish4Price = Random.Range(100, 250);
+        Fish5Price = Random.Range(500, 1000);
+
+        int rand1 = Random.Range(0, 2);
+        int rand2 = Random.Range(0, 2);
+        int rand3 = Random.Range(0, 2);
+        int rand4 = Random.Range(0, 2);
+        int rand5 = Random.Range(0, 2);
+
+        switch (rand1)
+        {
+            case 0:
+                fish1TodayPrice.text = "todays offer : " + Fish1Price + "k  ";
+                fish1TodayPrice.color = Color.white;
+                coinImage[0].SetActive(true);
+                sell1.SetActive(true);
+                break;
+            case 1:
+                fish1TodayPrice.text = "not buying.";
+                fish1TodayPrice.color = Color.red;
+                coinImage[0].SetActive(false);
+                sell1.SetActive(false);
+                break;
+        }
+
+        switch (rand2)
+        {
+            case 0:
+                fish2TodayPrice.text = "todays offer : " + Fish2Price + "k  ";
+                fish2TodayPrice.color = Color.white;
+                coinImage[1].SetActive(true);
+                sell2.SetActive(true);
+                break;
+            case 1:
+                fish2TodayPrice.text = "not buying.";
+                fish2TodayPrice.color = Color.red;
+                coinImage[1].SetActive(false);
+                sell2.SetActive(false);
+                break;
+        }
+
+        switch (rand3)
+        {
+            case 0:
+                fish3TodayPrice.text = "todays offer : " + Fish3Price + "k  ";
+                fish3TodayPrice.color = Color.white;
+                coinImage[2].SetActive(true);
+                sell3.SetActive(true);
+                break;
+            case 1:
+                fish3TodayPrice.text = "not buying.";
+                fish3TodayPrice.color = Color.red;
+                coinImage[2].SetActive(false);
+                sell3.SetActive(false);
+                break;
+        }
+
+        switch (rand4)
+        {
+            case 0:
+                fish4TodayPrice.text = "todays offer : " + Fish4Price + "k  ";
+                fish4TodayPrice.color = Color.white;
+                coinImage[3].SetActive(true);
+                sell4.SetActive(true);
+                break;
+            case 1:
+                fish4TodayPrice.text = "not buying.";
+                fish4TodayPrice.color = Color.red;
+                coinImage[3].SetActive(false);
+                sell4.SetActive(false);
+                break;
+        }
+
+        switch (rand5)
+        {
+            case 0:
+                fish5TodayPrice.text = "todays offer : " + Fish5Price + "k  ";
+                fish5TodayPrice.color = Color.white;
+                coinImage[4].SetActive(true);
+                sell5.SetActive(true);
+                break;
+            case 1:
+                fish5TodayPrice.text = "not buying.";
+                fish5TodayPrice.color = Color.red;
+                coinImage[4].SetActive(false);
+                sell5.SetActive(false);
+                break;
+        }
+
     }
 
     // Update is called once per frame
@@ -68,6 +189,19 @@ public class fishingShop : MonoBehaviour
         if (GameController.Fish5Discovered)
         {
             fishSpriteSlot[4].sprite = fishSprites[4];
+        }
+
+        if (time.hour == 0)
+        {
+            if (reset)
+            {
+                resetFish();
+                reset = false;
+            }
+        }
+        if (time.hour == 1)
+        {
+            reset = true;
         }
 
     }
@@ -128,77 +262,262 @@ public class fishingShop : MonoBehaviour
     }
     public void ConfirmButton()
     {
-        
+
         int number = int.Parse(value.text);
         switch (currentFish)
         {
 
             case "fish1":
-
-                for (int i = 0; i < number; i++)
+                counter = 0;
+                for (int i = 0; i < inventory.Container.Count; i++)
                 {
-                    Inv.RemoveItem(Fishs[0]);
-                    inventory.RemoveItem(Fishs[0]);
-                    Inv.save();
-                    inventory.save();
-                    Inventory.refreshInv = true;
-                    refreshInv = true;
+                    if (inventory.Container[i].item.name == "DeltaSmelt")
+                    {
+                        counter = inventory.Container[i].amount;
+                    }
+                }
+                if (counter >= number)
+                {
+                    for (int i = 0; i < number; i++)
+                    {
+                        Inv.RemoveItem(Fishs[0]);
+                        inventory.RemoveItem(Fishs[0]);
+                        Inv.save();
+                        inventory.save();
+                        Inventory.refreshInv = true;
+                        refreshInv = true;
+                        GameController.coins += Fish1Price * 1000;
+                    }
+                    coinCollect.Play();
+                }
+                else
+                {
+                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                    Destroy(forgedTxt, 1f);
                 }
                 break;
 
             case "fish2":
-
-                for (int i = 0; i < number; i++)
+                counter = 0;
+                for (int i = 0; i < inventory.Container.Count; i++)
                 {
-                    Inv.RemoveItem(Fishs[1]);
-                    inventory.RemoveItem(Fishs[1]);
-                    Inv.save();
-                    inventory.save();
-                    Inventory.refreshInv = true;
-                    refreshInv = true;
+                    if (inventory.Container[i].item.name == "Sweetfish")
+                    {
+                        counter = inventory.Container[i].amount;
+                    }
+                }
+                if (counter >= number)
+                {
+                    for (int i = 0; i < number; i++)
+                    {
+                        Inv.RemoveItem(Fishs[1]);
+                        inventory.RemoveItem(Fishs[1]);
+                        Inv.save();
+                        inventory.save();
+                        Inventory.refreshInv = true;
+                        refreshInv = true;
+                        GameController.coins += Fish2Price * 1000;
+                    }
+                    coinCollect.Play();
+                }
+                else
+                {
+                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                    Destroy(forgedTxt, 1f);
                 }
                 break;
 
             case "fish3":
-
-                for (int i = 0; i < number; i++)
+                counter = 0;
+                for (int i = 0; i < inventory.Container.Count; i++)
                 {
-                    Inv.RemoveItem(Fishs[2]);
-                    inventory.RemoveItem(Fishs[2]);
-                    Inv.save();
-                    inventory.save();
-                    Inventory.refreshInv = true;
-                    refreshInv = true;
+                    if (inventory.Container[i].item.name == "Guppy")
+                    {
+                        counter = inventory.Container[i].amount;
+                    }
+                }
+                if (counter >= number)
+                {
+                    for (int i = 0; i < number; i++)
+                    {
+                        Inv.RemoveItem(Fishs[2]);
+                        inventory.RemoveItem(Fishs[2]);
+                        Inv.save();
+                        inventory.save();
+                        Inventory.refreshInv = true;
+                        refreshInv = true;
+                        GameController.coins += Fish3Price * 1000;
+                    }
+                    coinCollect.Play();
+                }
+                else
+                {
+                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                    Destroy(forgedTxt, 1f);
                 }
                 break;
 
             case "fish4":
-
-                for (int i = 0; i < number; i++)
+                counter = 0;
+                for (int i = 0; i < inventory.Container.Count; i++)
                 {
-                    Inv.RemoveItem(Fishs[3]);
-                    inventory.RemoveItem(Fishs[3]);
-                    Inv.save();
-                    inventory.save();
-                    Inventory.refreshInv = true;
-                    refreshInv = true;
+                    if (inventory.Container[i].item.name == "Rainbow Trout")
+                    {
+                        counter = inventory.Container[i].amount;
+                    }
+                }
+                if (counter >= number)
+                {
+                    for (int i = 0; i < number; i++)
+                    {
+                        Inv.RemoveItem(Fishs[3]);
+                        inventory.RemoveItem(Fishs[3]);
+                        Inv.save();
+                        inventory.save();
+                        Inventory.refreshInv = true;
+                        refreshInv = true;
+                        GameController.coins += Fish4Price * 1000;
+                    }
+                    coinCollect.Play();
+                }
+                else
+                {
+                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                    Destroy(forgedTxt, 1f);
                 }
                 break;
 
             case "fish5":
-
-                for (int i = 0; i < number; i++)
+                counter = 0;
+                for (int i = 0; i < inventory.Container.Count; i++)
                 {
-                    Inv.RemoveItem(Fishs[4]);
-                    inventory.RemoveItem(Fishs[4]);
-                    Inv.save();
-                    inventory.save();
-                    Inventory.refreshInv = true;
-                    refreshInv = true;
+                    if (inventory.Container[i].item.name == "Yellow Perch")
+                    {
+                        counter = inventory.Container[i].amount;
+                    }
+                }
+                if (counter >= number)
+                {
+                    for (int i = 0; i < number; i++)
+                    {
+                        Inv.RemoveItem(Fishs[4]);
+                        inventory.RemoveItem(Fishs[4]);
+                        Inv.save();
+                        inventory.save();
+                        Inventory.refreshInv = true;
+                        refreshInv = true;
+                        GameController.coins += Fish5Price * 1000;
+                    }
+                    coinCollect.Play();
+                }
+                else
+                {
+                    var forgedTxt = Instantiate(NotEnoughFishText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                    forgedTxt.transform.SetParent(this.gameObject.transform, false);
+                    Destroy(forgedTxt, 1f);
                 }
                 break;
         }
 
         panel.SetActive(false);
+    }
+    public void resetFish()
+    {
+       
+        Fish1Price = Random.Range(10, 21);
+        Fish2Price = Random.Range(20, 51);
+        Fish3Price = Random.Range(50, 100);
+        Fish4Price = Random.Range(100, 250);
+        Fish5Price = Random.Range(500, 1000);
+
+        int rand1 = Random.Range(0, 2);
+        int rand2 = Random.Range(0, 2);
+        int rand3 = Random.Range(0, 2);
+        int rand4 = Random.Range(0, 2);
+        int rand5 = Random.Range(0, 2);
+
+        switch (rand1)
+        {
+            case 0:
+                fish1TodayPrice.text = "todays offer : " + Fish1Price + "k  ";
+                fish1TodayPrice.color = Color.white;
+                coinImage[0].SetActive(true);
+                sell1.SetActive(true);
+                break;
+            case 1:
+                fish1TodayPrice.text = "not buying.";
+                fish1TodayPrice.color = Color.red;
+                coinImage[0].SetActive(false);
+                sell1.SetActive(false);
+                break;
+        }
+
+        switch (rand2)
+        {
+            case 0:
+                fish2TodayPrice.text = "todays offer : " + Fish2Price + "k  ";
+                fish2TodayPrice.color = Color.white;
+                coinImage[1].SetActive(true);
+                sell2.SetActive(true);
+                break;
+            case 1:
+                fish2TodayPrice.text = "not buying.";
+                fish2TodayPrice.color = Color.red;
+                coinImage[1].SetActive(false);
+                sell2.SetActive(false);
+                break;
+        }
+
+        switch (rand3)
+        {
+            case 0:
+                fish3TodayPrice.text = "todays offer : " + Fish3Price + "k  ";
+                fish3TodayPrice.color = Color.white;
+                coinImage[2].SetActive(true);
+                sell3.SetActive(true);
+                break;
+            case 1:
+                fish3TodayPrice.text = "not buying.";
+                fish3TodayPrice.color = Color.red;
+                coinImage[2].SetActive(false);
+                sell3.SetActive(false);
+                break;
+        }
+
+        switch (rand4)
+        {
+            case 0:
+                fish4TodayPrice.text = "todays offer : " + Fish4Price + "k  ";
+                fish4TodayPrice.color = Color.white;
+                coinImage[3].SetActive(true);
+                sell4.SetActive(true);
+                break;
+            case 1:
+                fish4TodayPrice.text = "not buying.";
+                fish4TodayPrice.color = Color.red;
+                coinImage[3].SetActive(false);
+                sell4.SetActive(false);
+                break;
+        }
+
+        switch (rand5)
+        {
+            case 0:
+                fish5TodayPrice.text = "todays offer : " + Fish5Price + "k  ";
+                fish5TodayPrice.color = Color.white;
+                coinImage[4].SetActive(true);
+                sell5.SetActive(true);
+                break;
+            case 1:
+                fish5TodayPrice.text = "not buying.";
+                fish5TodayPrice.color = Color.red;
+                coinImage[4].SetActive(false);
+                sell5.SetActive(false);
+                break;
+        }
     }
 }
