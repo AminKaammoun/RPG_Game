@@ -44,7 +44,7 @@ public class PlayerMovements : MonoBehaviour
 
     public InventoryObject inventory;
 
-
+    public ItemObject[] potions;
 
     public static float health;
     public static float MaxHealth;
@@ -87,6 +87,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject YellowGemStoneText;
     public GameObject GreenGemStoneText;
     public GameObject OrangeGemStoneText;
+    public GameObject HealthIsFull;
+    public GameObject panel;
 
     public GameObject volume;
     public GameObject teleport_hit;
@@ -410,6 +412,38 @@ public class PlayerMovements : MonoBehaviour
                     break;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+           
+            switch (GameController.ability1)
+            {
+                case "Big Heal Potion (potionObject)":
+                    useBigHealth();
+                    break;
+
+                case "Small Health Potion (potionObject)":
+                    useSmallHealth();
+                    break;
+
+                case "Big sheild Potion (potionObject)":
+                    useBigShield();
+                    break;
+
+                case "Small Shield Potion (potionObject)":
+                    useSmallShield();
+                    break;
+
+                case "Big Speed Potion (potionObject)":
+                    useBigSpeeded();
+                    break;
+
+                case "Small Speed Potion (potionObject)":
+                    useSmallSpeeded();
+                    break;
+
+            }
+        }
     }
 
     void FixedUpdate()
@@ -582,7 +616,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 1;
                     hurtAudio.Play();
                     isFireBallDamaged = true;
-                  
+
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Worm.attack;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
@@ -596,7 +630,7 @@ public class PlayerMovements : MonoBehaviour
             {
                 if (damagePlayer)
                 {
-                   
+
                     damagePlayer = false;
                     PlayerDamage.num = 0;
                     hurtAudio.Play();
@@ -637,7 +671,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 2;
                     hurtAudio.Play();
                     isCyclopDamaged = true;
-                  
+
                     damagePlayer = false;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = Cyclop.attack;
@@ -653,7 +687,7 @@ public class PlayerMovements : MonoBehaviour
                 if (damagePlayer)
                 {
                     damagePlayer = false;
-                  
+
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
@@ -953,4 +987,114 @@ public class PlayerMovements : MonoBehaviour
         Sp = 50 + (GameController.Level * 2) + BonusSp;
 
     }
+
+    public void useBigHealth()
+    {
+        if (!healthIsMax)
+        {
+            ArrowSpawn.canShoot = true;
+            changeCursor = true;
+            invIsOpen = false;
+            isHealed = true;
+
+            health += 50;
+            inventory.RemoveItem(potions[0]);
+            inventory.save();
+        }
+        else
+        {
+            var forgedTxt = Instantiate(HealthIsFull, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(panel.transform, false);
+            Destroy(forgedTxt, 1f);
+        }
+    }
+
+    public void useSmallHealth()
+    {
+        if (!healthIsMax)
+        {
+            ArrowSpawn.canShoot = true;
+            changeCursor = true;
+            invIsOpen = false;
+            isHealed = true;
+
+            health += 20;
+            inventory.RemoveItem(potions[1]);
+            inventory.save();
+        }
+        else
+        {
+            var forgedTxt = Instantiate(HealthIsFull, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(panel.transform, false);
+            Destroy(forgedTxt, 1f);
+        }
+    }
+
+
+    public void useSmallShield()
+    {
+        if (!PotionInUse)
+        {
+            ArrowSpawn.canShoot = true;
+            changeCursor = true;
+            invIsOpen = false;
+            isSmallSheilded = true;
+            PotionInUse = true;
+
+            inventory.RemoveItem(potions[3]);
+            inventory.save();
+
+        }
+
+    }
+    public void useBigShield()
+    {
+        if (!PotionInUse)
+        {
+            ArrowSpawn.canShoot = true;
+            changeCursor = true;
+            invIsOpen = false;
+            isBigSheilded = true;
+            PotionInUse = true;
+
+            inventory.RemoveItem(potions[2]);
+            inventory.save();
+
+        }
+
+    }
+    public void useBigSpeeded()
+    {
+        if (!PotionInUse)
+        {
+            ArrowSpawn.canShoot = true;
+            changeCursor = true;
+            invIsOpen = false;
+            isBigSpeeded = true;
+            PotionInUse = true;
+
+            inventory.RemoveItem(potions[4]);
+            inventory.save();
+
+        }
+
+    }
+
+    public void useSmallSpeeded()
+    {
+        if (!PotionInUse)
+        {
+            ArrowSpawn.canShoot = true;
+            changeCursor = true;
+            invIsOpen = false;
+            isBigSpeeded = true;
+            PotionInUse = true;
+
+            inventory.RemoveItem(potions[5]);
+            inventory.save();
+
+        }
+
+    }
+
 }

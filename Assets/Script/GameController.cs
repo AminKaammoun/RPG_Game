@@ -259,6 +259,10 @@ public class GameController : MonoBehaviour
     public static bool Fish4Discovered;
     public static bool Fish5Discovered;
 
+    public static string ability1;
+    public static string ability2;
+    public static string ability3;
+
     public Image skill;
     public Sprite[] skills;
 
