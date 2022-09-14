@@ -27,7 +27,10 @@ public class ability1DropArea : MonoBehaviour, IDropHandler
                 if (!found)
                 {
                     GameController.ability1 = "";
-                   
+                    foreach (Transform child in ability.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
                 break;
 
@@ -43,7 +46,10 @@ public class ability1DropArea : MonoBehaviour, IDropHandler
                 if (!found)
                 {
                     GameController.ability1 = "";
-                   
+                    foreach (Transform child in ability.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
                 break;
 
@@ -59,7 +65,10 @@ public class ability1DropArea : MonoBehaviour, IDropHandler
                 if (!found)
                 {
                     GameController.ability1 = "";
-                   
+                    foreach (Transform child in ability.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
                 break;
 
@@ -75,7 +84,10 @@ public class ability1DropArea : MonoBehaviour, IDropHandler
                 if (!found)
                 {
                     GameController.ability1 = "";
-                   
+                    foreach (Transform child in ability.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
                 break;
 
@@ -91,7 +103,10 @@ public class ability1DropArea : MonoBehaviour, IDropHandler
                 if (!found)
                 {
                     GameController.ability1 = "";
-                  
+                    foreach (Transform child in ability.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
                 break;
 
@@ -107,7 +122,10 @@ public class ability1DropArea : MonoBehaviour, IDropHandler
                 if (!found)
                 {
                     GameController.ability1 = "";
-                   
+                    foreach (Transform child in ability.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
                 break;
         }

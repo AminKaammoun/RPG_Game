@@ -267,7 +267,7 @@ public class GameController : MonoBehaviour
     public Sprite[] skills;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         LoadData();
 
@@ -1081,7 +1081,7 @@ public class GameController : MonoBehaviour
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         currentMap = PlayerMap.forrest;
-
+     
     }
 
     public void SaveData()
@@ -1112,6 +1112,9 @@ public class GameController : MonoBehaviour
         skill5Level = data.skill5Level;
         skillPoint = data.skillPoints;
         currentSkill = data.CurrentSkill;
+        ability1 = data.ability1;
+        ability2 = data.ability2;
+        ability3 = data.ability3;
 
         gearData data1 = saveSystem.LoadGears();
 
@@ -1178,6 +1181,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+      
         if (ultValue >= 10)
         {
             canUlt = true;

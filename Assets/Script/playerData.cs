@@ -18,6 +18,9 @@ public class playerData
     public int skill5Level;
     public int skillPoints;
     public int CurrentSkill;
+    public string ability1;
+    public string ability2;
+    public string ability3;
 
     public playerData(GameController player)
     {
@@ -26,13 +29,19 @@ public class playerData
         health = PlayerMovements.health;
         level = GameController.level.currentLevel;
         xp = GameController.level.experience;
+        
         skill1Level = GameController.skill1Level;
         skill2Level = GameController.skill2Level;
         skill3Level = GameController.skill3Level;
         skill4Level = GameController.skill4Level;
         skill5Level = GameController.skill5Level;
+       
         skillPoints = GameController.skillPoint;
         CurrentSkill = GameController.currentSkill;
+
+        ability1 = GameController.ability1;
+        ability2 = GameController.ability2;
+        ability3 = GameController.ability3;
     }
 
 }

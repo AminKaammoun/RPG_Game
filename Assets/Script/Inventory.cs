@@ -24,12 +24,20 @@ public class Inventory : MonoBehaviour
     public float YspaceBtwItems;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     public static string description;
-   
-
+    public GameObject ability1;
+    public GameObject ability2;
+    public GameObject ability3;
 
     public static bool refreshInv = false;
 
     private showInv currentInv;
+
+    public GameObject BigHealth;
+    public GameObject SmallHealth;
+    public GameObject BigShield;
+    public GameObject SmallShield;
+    public GameObject BigSpeed;
+    public GameObject SmallSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -42,14 +50,19 @@ public class Inventory : MonoBehaviour
     void Update()
     {
 
- 
+
         if (refreshInv)
         {
+            Ability1Potion.isPlaced = true;
+            Ability2Potion.isPlaced = true;
+            Ability3Potion.isPlaced = true;
+
             itemsDisplayed.Clear();
             GameObject[] potions = GameObject.FindGameObjectsWithTag("potionIcon");
             GameObject[] equipments = GameObject.FindGameObjectsWithTag("equipIcon");
             GameObject[] materials = GameObject.FindGameObjectsWithTag("materialIcon");
             GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
+            GameObject[] fishes = GameObject.FindGameObjectsWithTag("fishIcons");
 
             foreach (GameObject potion in potions)
             {
@@ -66,6 +79,10 @@ public class Inventory : MonoBehaviour
             foreach (GameObject gem in gems)
             {
                 Destroy(gem);
+            }
+            foreach (GameObject fish in fishes)
+            {
+                Destroy(fish);
             }
 
             CreateDisplay();
@@ -109,7 +126,7 @@ public class Inventory : MonoBehaviour
 
         else if (currentInv == showInv.gears)
         {
-            
+
             for (int i = 0; i < inventory.Container.Count; i++)
             {
 
@@ -119,7 +136,7 @@ public class Inventory : MonoBehaviour
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                     itemsDisplayed.Add(inventory.Container[i], obj);
-                   
+
                 }
 
             }
@@ -197,9 +214,10 @@ public class Inventory : MonoBehaviour
 
     public void CreateDisplay()
     {
+       
         if (currentInv == showInv.full)
         {
-            
+
             for (int i = 0; i < inventory.Container.Count; i++)
             {
 
@@ -216,7 +234,7 @@ public class Inventory : MonoBehaviour
         }
         else if (currentInv == showInv.gears)
         {
-           
+
             for (int i = 0; i < inventory.Container.Count; i++)
             {
                 if (inventory.Container[i].item.type == ItemType.Equipment)
@@ -225,7 +243,7 @@ public class Inventory : MonoBehaviour
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                     itemsDisplayed.Add(inventory.Container[i], obj);
-                   
+
                 }
             }
         }

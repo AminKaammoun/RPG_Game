@@ -444,6 +444,70 @@ public class PlayerMovements : MonoBehaviour
 
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+
+            switch (GameController.ability2)
+            {
+                case "Big Heal Potion (potionObject)":
+                    useBigHealth();
+                    break;
+
+                case "Small Health Potion (potionObject)":
+                    useSmallHealth();
+                    break;
+
+                case "Big sheild Potion (potionObject)":
+                    useBigShield();
+                    break;
+
+                case "Small Shield Potion (potionObject)":
+                    useSmallShield();
+                    break;
+
+                case "Big Speed Potion (potionObject)":
+                    useBigSpeeded();
+                    break;
+
+                case "Small Speed Potion (potionObject)":
+                    useSmallSpeeded();
+                    break;
+
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+
+            switch (GameController.ability3)
+            {
+                case "Big Heal Potion (potionObject)":
+                    useBigHealth();
+                    break;
+
+                case "Small Health Potion (potionObject)":
+                    useSmallHealth();
+                    break;
+
+                case "Big sheild Potion (potionObject)":
+                    useBigShield();
+                    break;
+
+                case "Small Shield Potion (potionObject)":
+                    useSmallShield();
+                    break;
+
+                case "Big Speed Potion (potionObject)":
+                    useBigSpeeded();
+                    break;
+
+                case "Small Speed Potion (potionObject)":
+                    useSmallSpeeded();
+                    break;
+
+            }
+        }
     }
 
     void FixedUpdate()
