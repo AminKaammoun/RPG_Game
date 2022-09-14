@@ -10,6 +10,8 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
 
     public InventoryObject inventory;
     public InventoryObject GemInventory;
+    public InventoryObject gearsInventory;
+
     public ItemObject gear;
 
 
@@ -80,6 +82,8 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
             inventory.AddItem(gear, 1);
             inventory.save();
 
+            gearsInventory.AddItem(gear, 1);
+            gearsInventory.save();
 
             switch (GameController.shieldRedGem)
             {
@@ -213,7 +217,7 @@ public class DefGearDraggabaleComponent : MonoBehaviour, IInitializePotentialDra
 
             }
 
-         
+
 
             switch (GameController.shieldYellowGem)
             {

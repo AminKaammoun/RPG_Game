@@ -6,6 +6,7 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
 {
     public InventoryObject inventory;
     public InventoryObject GemInventory;
+    public InventoryObject gearsInventory;
 
     public ItemObject[] itemObject;
 
@@ -433,11 +434,17 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                 {
                     inventory.AddItem(itemObject[0], 1);
                     inventory.save();
+
+                    gearsInventory.AddItem(itemObject[0], 1);
+                    gearsInventory.save();
                 }
                 else if (GameController.beltGear == "lvl 10 belt (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[1], 1);
                     inventory.save();
+
+                    gearsInventory.AddItem(itemObject[1], 1);
+                    gearsInventory.save();
                 }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 belt inventory(Clone)")
                 {
@@ -459,14 +466,14 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                         break;
 
                 }
-                //Debug.Log(PlayerPrefs.GetString("AttackGear"));
-                //Debug.Log(itemObject.ToString());
-                //AtkLevel1.destoryItem = true;
+              
                 inventory.RemoveItem(itemObject[num]);
                 inventory.save();
+
+                gearsInventory.RemoveItem(itemObject[num]);
+                gearsInventory.save();
                 LapidaryLeftSide.refresh = true;
-                //Inventory.refreshInv = true;
-                //InvDraggableComponent.isPlaced = true;
+              
                 BeltGears.isPlaced = true;
                 Vector2 add = new Vector2(-192, -16);
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + add;

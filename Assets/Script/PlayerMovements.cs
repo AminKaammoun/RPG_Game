@@ -44,6 +44,8 @@ public class PlayerMovements : MonoBehaviour
     public static PlayerWeapon currentWeapon;
 
     public InventoryObject inventory;
+    public InventoryObject MaterialsInventory;
+    public InventoryObject potionsInventory;
 
     public ItemObject[] potions;
 
@@ -1343,26 +1345,36 @@ public class PlayerMovements : MonoBehaviour
             {
                 inventory.AddItem(AutumnLeaf, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(AutumnLeaf, 1);
+                MaterialsInventory.save();
             }
             if (collision.gameObject.name == "IceLeaf(Clone)")
             {
                 inventory.AddItem(IceLeaf, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(IceLeaf, 1);
+                MaterialsInventory.save();
             }
             if (collision.gameObject.name == "FireLeaf(Clone)")
             {
                 inventory.AddItem(FireLeaf, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(FireLeaf, 1);
+                MaterialsInventory.save();
             }
             if (collision.gameObject.name == "PlantLeaf(Clone)")
             {
                 inventory.AddItem(PlantLeaf, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(PlantLeaf, 1);
+                MaterialsInventory.save();
             }
             if (collision.gameObject.name == "SakuraLeaf(Clone)")
             {
                 inventory.AddItem(SakuraLeaf, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(SakuraLeaf, 1);
+                MaterialsInventory.save();
             }
             Destroy(collision.gameObject);
         }
@@ -1372,8 +1384,10 @@ public class PlayerMovements : MonoBehaviour
             {
                 collectStoneAudio.Play();
                 inventory.AddItem(Stone, 1);
+                MaterialsInventory.AddItem(Stone, 1);
+                MaterialsInventory.save();
                 inventory.save();
-                var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
+               var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
 
             }
 
@@ -1382,6 +1396,8 @@ public class PlayerMovements : MonoBehaviour
                 collectStoneAudio.Play();
                 inventory.AddItem(IronStone, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(IronStone, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(IronStoneText, transform.position, Quaternion.identity);
 
             }
@@ -1391,6 +1407,8 @@ public class PlayerMovements : MonoBehaviour
                 collectStoneAudio.Play();
                 inventory.AddItem(CoalStone, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(CoalStone, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(CoalStoneText, transform.position, Quaternion.identity);
 
             }
@@ -1400,6 +1418,8 @@ public class PlayerMovements : MonoBehaviour
                 collectWoodAudio.Play();
                 inventory.AddItem(Wood, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(Wood, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(WoodText, transform.position, Quaternion.identity);
 
             }
@@ -1409,6 +1429,8 @@ public class PlayerMovements : MonoBehaviour
                 collectStoneAudio.Play();
                 inventory.AddItem(BlueGemStone, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(BlueGemStone, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(BlueGemStoneText, transform.position, Quaternion.identity);
 
             }
@@ -1418,6 +1440,8 @@ public class PlayerMovements : MonoBehaviour
                 collectStoneAudio.Play();
                 inventory.AddItem(GreenGemStone, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(GreenGemStone, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(GreenGemStoneText, transform.position, Quaternion.identity);
 
             }
@@ -1427,6 +1451,8 @@ public class PlayerMovements : MonoBehaviour
                 collectStoneAudio.Play();
                 inventory.AddItem(RedGemStone, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(RedGemStone, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(RedGemStoneText, transform.position, Quaternion.identity);
 
             }
@@ -1436,6 +1462,8 @@ public class PlayerMovements : MonoBehaviour
                 collectStoneAudio.Play();
                 inventory.AddItem(YellowGemStone, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(YellowGemStone, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(YellowGemStoneText, transform.position, Quaternion.identity);
 
             }
@@ -1445,6 +1473,8 @@ public class PlayerMovements : MonoBehaviour
                 collectStoneAudio.Play();
                 inventory.AddItem(OrangeGemStone, 1);
                 inventory.save();
+                MaterialsInventory.AddItem(OrangeGemStone, 1);
+                MaterialsInventory.save();
                 var stoneTxt = Instantiate(OrangeGemStoneText, transform.position, Quaternion.identity);
 
             }
@@ -1487,6 +1517,9 @@ public class PlayerMovements : MonoBehaviour
             health += 50;
             inventory.RemoveItem(potions[0]);
             inventory.save();
+
+            potionsInventory.RemoveItem(potions[0]);
+            potionsInventory.save();
         }
         else
         {
@@ -1508,6 +1541,9 @@ public class PlayerMovements : MonoBehaviour
             health += 20;
             inventory.RemoveItem(potions[1]);
             inventory.save();
+
+            potionsInventory.RemoveItem(potions[1]);
+            potionsInventory.save();
         }
         else
         {
@@ -1531,6 +1567,9 @@ public class PlayerMovements : MonoBehaviour
             inventory.RemoveItem(potions[3]);
             inventory.save();
 
+            potionsInventory.RemoveItem(potions[3]);
+            potionsInventory.save();
+
         }
 
     }
@@ -1546,6 +1585,9 @@ public class PlayerMovements : MonoBehaviour
 
             inventory.RemoveItem(potions[2]);
             inventory.save();
+
+            potionsInventory.RemoveItem(potions[2]);
+            potionsInventory.save();
 
         }
 
@@ -1563,6 +1605,9 @@ public class PlayerMovements : MonoBehaviour
             inventory.RemoveItem(potions[4]);
             inventory.save();
 
+            potionsInventory.RemoveItem(potions[4]);
+            potionsInventory.save();
+
         }
 
     }
@@ -1579,6 +1624,9 @@ public class PlayerMovements : MonoBehaviour
 
             inventory.RemoveItem(potions[5]);
             inventory.save();
+
+            potionsInventory.RemoveItem(potions[5]);
+            potionsInventory.save();
 
         }
 

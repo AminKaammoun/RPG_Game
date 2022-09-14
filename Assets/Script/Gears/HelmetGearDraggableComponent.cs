@@ -11,6 +11,8 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
 
     public InventoryObject inventory;
     public InventoryObject GemInventory;
+    public InventoryObject gearsInventory;
+
     public ItemObject gear;
 
 
@@ -80,7 +82,8 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
             inventory.AddItem(gear, 1);
             inventory.save();
 
-
+            gearsInventory.AddItem(gear, 1);
+            gearsInventory.save();
 
             switch (GameController.helmetRedGem)
             {

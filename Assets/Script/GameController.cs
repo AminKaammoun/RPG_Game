@@ -38,6 +38,10 @@ public class GameController : MonoBehaviour
     public InventoryObject Inv;
     public InventoryObject GemInv;
     public InventoryObject FishInv;
+    public InventoryObject meatInv;
+    public InventoryObject potionInv;
+    public InventoryObject materialInv;
+    public InventoryObject gearsInv;
 
     public float TimeBtwLeafSpawn;
     public float StartTime = 0.25f;
@@ -1396,6 +1400,11 @@ public class GameController : MonoBehaviour
         Inventory.description = "";
         inventory.SetActive(false);
         Inv.save();
+        materialInv.save();
+        potionInv.save();
+        GemInv.save();
+        gearsInv.save();
+        meatInv.save();
         PlayerMovements.invIsOpen = false;
         foreach (GameObject r in panel)
         {

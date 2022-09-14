@@ -9,8 +9,9 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
 
     public InventoryObject inventory;
     public InventoryObject GemInventory;
-    public ItemObject gear;
+    public InventoryObject gearsInventory;
 
+    public ItemObject gear;
 
     private CanvasGroup canvasGroup;
     public Vector3 StartPosition;
@@ -77,6 +78,9 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
         {
             inventory.AddItem(gear, 1);
             inventory.save();
+
+            gearsInventory.AddItem(gear, 1);
+            gearsInventory.save();
 
             switch (GameController.ringRedGem)
             {

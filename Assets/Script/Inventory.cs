@@ -15,6 +15,12 @@ public enum showInv
 public class Inventory : MonoBehaviour
 {
     public InventoryObject inventory;
+    public InventoryObject meatInventory;
+    public InventoryObject gemsInventory;
+    public InventoryObject gearsInventory;
+    public InventoryObject materialsInventory;
+    public InventoryObject potionsInventory;
+
     private InventoryObject inv;
 
     public int Xstart;
@@ -39,11 +45,24 @@ public class Inventory : MonoBehaviour
     public GameObject BigSpeed;
     public GameObject SmallSpeed;
 
+    public GameObject fullInventory;
+    public GameObject gearInventory;
+    public GameObject gemInventory;
+    public GameObject materialInventory;
+    public GameObject potionInventory;
+    public GameObject meatsInventory;
+
     // Start is called before the first frame update
     void Start()
     {
         CreateDisplay();
         currentInv = showInv.full;
+        fullInventory.SetActive(true);
+        gearInventory.SetActive(false);
+        materialInventory.SetActive(false);
+        gemInventory.SetActive(false);
+        meatsInventory.SetActive(false);
+        potionInventory.SetActive(false);
     }
 
     // Update is called once per frame
@@ -96,6 +115,7 @@ public class Inventory : MonoBehaviour
     {
         if (currentInv == showInv.full)
         {
+          
             for (int i = 0; i < inventory.Container.Count; i++)
             {
 
@@ -127,15 +147,15 @@ public class Inventory : MonoBehaviour
         else if (currentInv == showInv.gears)
         {
 
-            for (int i = 0; i < inventory.Container.Count; i++)
+            for (int i = 0; i < gearsInventory.Container.Count; i++)
             {
 
-                if (inventory.Container[i].item.type == ItemType.Equipment && !itemsDisplayed.ContainsKey(inventory.Container[i]))
+                if (gearsInventory.Container[i].item.type == ItemType.Equipment && !itemsDisplayed.ContainsKey(gearsInventory.Container[i]))
                 {
-                    var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                    var obj = Instantiate(gearsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                    itemsDisplayed.Add(inventory.Container[i], obj);
+                    itemsDisplayed.Add(gearsInventory.Container[i], obj);
 
                 }
 
@@ -145,30 +165,30 @@ public class Inventory : MonoBehaviour
         else if (currentInv == showInv.potions)
         {
 
-            for (int i = 0; i < inventory.Container.Count; i++)
+            for (int i = 0; i < potionsInventory.Container.Count; i++)
             {
 
-                if (itemsDisplayed.ContainsKey(inventory.Container[i]))
+                if (itemsDisplayed.ContainsKey(potionsInventory.Container[i]))
                 {
-                    if ((inventory.Container[i].item.type == ItemType.Potion) && inventory.Container[i] != null)
+                    if ((potionsInventory.Container[i].item.type == ItemType.Potion) && potionsInventory.Container[i] != null)
                     {
-                        itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
+                        itemsDisplayed[potionsInventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + potionsInventory.Container[i].amount.ToString("n0");
                     }
                 }
 
                 else
                 {
-                    if (inventory.Container[i].item.type == ItemType.Potion)
+                    if (potionsInventory.Container[i].item.type == ItemType.Potion)
                     {
-                        var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                        var obj = Instantiate(potionsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
                         obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
 
                         obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                        if (inventory.Container[i].item.type == ItemType.Potion)
+                        if (potionsInventory.Container[i].item.type == ItemType.Potion)
                         {
-                            obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
+                            obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + potionsInventory.Container[i].amount.ToString("n0");
                         }
-                        itemsDisplayed.Add(inventory.Container[i], obj);
+                        itemsDisplayed.Add(potionsInventory.Container[i], obj);
 
                     }
                 }
@@ -178,30 +198,30 @@ public class Inventory : MonoBehaviour
         else if (currentInv == showInv.materials)
         {
 
-            for (int i = 0; i < inventory.Container.Count; i++)
+            for (int i = 0; i < materialsInventory.Container.Count; i++)
             {
 
-                if (itemsDisplayed.ContainsKey(inventory.Container[i]))
+                if (itemsDisplayed.ContainsKey(materialsInventory.Container[i]))
                 {
-                    if ((inventory.Container[i].item.type == ItemType.Materiel) && inventory.Container[i] != null)
+                    if ((materialsInventory.Container[i].item.type == ItemType.Materiel) && materialsInventory.Container[i] != null)
                     {
-                        itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
+                        itemsDisplayed[materialsInventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + materialsInventory.Container[i].amount.ToString("n0");
                     }
                 }
 
                 else
                 {
-                    if (inventory.Container[i].item.type == ItemType.Materiel)
+                    if (materialsInventory.Container[i].item.type == ItemType.Materiel)
                     {
-                        var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                        var obj = Instantiate(materialsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
                         obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
 
                         obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                        if (inventory.Container[i].item.type == ItemType.Materiel)
+                        if (materialsInventory.Container[i].item.type == ItemType.Materiel)
                         {
-                            obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
+                            obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + materialsInventory.Container[i].amount.ToString("n0");
                         }
-                        itemsDisplayed.Add(inventory.Container[i], obj);
+                        itemsDisplayed.Add(materialsInventory.Container[i], obj);
 
                     }
                 }
@@ -235,14 +255,14 @@ public class Inventory : MonoBehaviour
         else if (currentInv == showInv.gears)
         {
 
-            for (int i = 0; i < inventory.Container.Count; i++)
+            for (int i = 0; i < gearsInventory.Container.Count; i++)
             {
-                if (inventory.Container[i].item.type == ItemType.Equipment)
+                if (gearsInventory.Container[i].item.type == ItemType.Equipment)
                 {
-                    var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                    var obj = Instantiate(gearsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                    itemsDisplayed.Add(inventory.Container[i], obj);
+                    itemsDisplayed.Add(gearsInventory.Container[i], obj);
 
                 }
             }
@@ -250,14 +270,14 @@ public class Inventory : MonoBehaviour
         else if (currentInv == showInv.potions)
         {
 
-            for (int i = 0; i < inventory.Container.Count; i++)
+            for (int i = 0; i < potionsInventory.Container.Count; i++)
             {
-                if (inventory.Container[i].item.type == ItemType.Potion)
+                if (potionsInventory.Container[i].item.type == ItemType.Potion)
                 {
-                    var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                    var obj = Instantiate(potionsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                    itemsDisplayed.Add(inventory.Container[i], obj);
+                    itemsDisplayed.Add(potionsInventory.Container[i], obj);
 
                 }
             }
@@ -265,14 +285,14 @@ public class Inventory : MonoBehaviour
         else if (currentInv == showInv.materials)
         {
 
-            for (int i = 0; i < inventory.Container.Count; i++)
+            for (int i = 0; i < materialsInventory.Container.Count; i++)
             {
-                if (inventory.Container[i].item.type == ItemType.Materiel)
+                if (materialsInventory.Container[i].item.type == ItemType.Materiel)
                 {
-                    var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                    var obj = Instantiate(materialsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                    itemsDisplayed.Add(inventory.Container[i], obj);
+                    itemsDisplayed.Add(materialsInventory.Container[i], obj);
 
                 }
             }
@@ -288,21 +308,53 @@ public class Inventory : MonoBehaviour
     public void ShowGears()
     {
         currentInv = showInv.gears;
+
+        fullInventory.SetActive(false);
+        gearInventory.SetActive(true);
+        materialInventory.SetActive(false);
+        gemInventory.SetActive(false);
+        meatsInventory.SetActive(false);
+        potionInventory.SetActive(false);
+
         refreshInv = true;
     }
     public void ShowAll()
     {
         currentInv = showInv.full;
+
+        fullInventory.SetActive(true);
+        gearInventory.SetActive(false);
+        materialInventory.SetActive(false);
+        gemInventory.SetActive(false);
+        meatsInventory.SetActive(false);
+        potionInventory.SetActive(false);
+
         refreshInv = true;
     }
     public void ShowPotions()
     {
         currentInv = showInv.potions;
+
+        fullInventory.SetActive(false);
+        gearInventory.SetActive(false);
+        materialInventory.SetActive(false);
+        gemInventory.SetActive(false);
+        meatsInventory.SetActive(false);
+        potionInventory.SetActive(true);
+
         refreshInv = true;
     }
     public void ShowMaterials()
     {
         currentInv = showInv.materials;
+
+        fullInventory.SetActive(false);
+        gearInventory.SetActive(false);
+        materialInventory.SetActive(true);
+        gemInventory.SetActive(false);
+        meatsInventory.SetActive(false);
+        potionInventory.SetActive(false);
+
         refreshInv = true;
     }
 }

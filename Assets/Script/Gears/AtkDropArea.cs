@@ -8,6 +8,8 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
 {
     public InventoryObject inventory;
     public InventoryObject GemInventory;
+    public InventoryObject gearsInventory;
+
     public ItemObject[] itemObject;
 
     public ItemObject lvl1RedGem;
@@ -437,11 +439,15 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                 {
                     inventory.AddItem(itemObject[0], 1);
                     inventory.save();
+                    gearsInventory.AddItem(itemObject[0], 1);
+                    gearsInventory.save();
                 }
                 else if (GameController.attackGear == "lvl 10 attack (equipmentObject)")
                 {
                     inventory.AddItem(itemObject[1], 1);
                     inventory.save();
+                    gearsInventory.AddItem(itemObject[1], 1);
+                    gearsInventory.save();
                 }
 
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 attack inventory(Clone)")
@@ -467,6 +473,9 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                 LapidaryLeftSide.refresh = true;
                 inventory.RemoveItem(itemObject[num]);
                 inventory.save();
+
+                gearsInventory.RemoveItem(itemObject[num]);
+                gearsInventory.save();
 
                 AttackGears.isPlaced = true;
                 Vector2 add = new Vector2(-192, -16);

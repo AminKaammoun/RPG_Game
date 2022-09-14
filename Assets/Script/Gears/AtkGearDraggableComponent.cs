@@ -11,6 +11,8 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
 
     public InventoryObject inventory;
     public InventoryObject GemInventory;
+    public InventoryObject gearsInventory;
+
     public ItemObject gear;
 
 
@@ -80,6 +82,9 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
         {
             inventory.AddItem(gear, 1);
             inventory.save();
+
+            gearsInventory.AddItem(gear, 1);
+            gearsInventory.save();
 
             switch (GameController.swordRedGem)
             {

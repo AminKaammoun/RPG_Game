@@ -30,6 +30,8 @@ public class ForestBlacksmith : MonoBehaviour
     public ItemObject RingGearLevel1;
 
     public InventoryObject inventory;
+    public InventoryObject materialsInventory;
+    public InventoryObject gearsInventory;
 
     public Text item1;
     public Text item2;
@@ -902,23 +904,32 @@ public class ForestBlacksmith : MonoBehaviour
             forgeSound.Play();
             inventory.RemoveItem(MagicalAutumnLeaf);
             inventory.RemoveItem(MagicalIceLeaf);
+            materialsInventory.RemoveItem(MagicalAutumnLeaf);
+            materialsInventory.RemoveItem(MagicalIceLeaf);
             for (int i = 0; i < 5; i++)
             {
 
                 inventory.RemoveItem(Wood);
+                materialsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                materialsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(IronStone);
+                materialsInventory.RemoveItem(IronStone);
             }
 
             inventory.AddItem(AtkGearLevel1, 1);
             inventory.save();
+
+            gearsInventory.AddItem(AtkGearLevel1, 1);
+            gearsInventory.save();
+
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
@@ -1134,20 +1145,30 @@ public class ForestBlacksmith : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                materialsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                materialsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(IronStone);
+                materialsInventory.RemoveItem(IronStone);
             }
             inventory.RemoveItem(MagicalIceLeaf);
             inventory.RemoveItem(MagicalSakuraLeaf);
+
+            materialsInventory.RemoveItem(MagicalIceLeaf);
+            materialsInventory.RemoveItem(MagicalSakuraLeaf);
+
             inventory.AddItem(DefGearLevel1, 1);
+            gearsInventory.AddItem(DefGearLevel1, 1);
+
             inventory.save();
+            materialsInventory.save();
         }
         else
         {
@@ -1360,21 +1381,31 @@ public class ForestBlacksmith : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                materialsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                materialsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(IronStone);
+                materialsInventory.RemoveItem(IronStone);
             }
 
             inventory.RemoveItem(MagicalFireLeaf);
             inventory.RemoveItem(MagicalAutumnLeaf);
+
+            materialsInventory.RemoveItem(MagicalFireLeaf);
+            materialsInventory.RemoveItem(MagicalAutumnLeaf);
+
             inventory.AddItem(HelmetGearLevel1, 1);
+            gearsInventory.AddItem(HelmetGearLevel1, 1);
+
             inventory.save();
+            materialsInventory.save();
         }
         else
         {
@@ -1564,21 +1595,31 @@ public class ForestBlacksmith : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                materialsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                materialsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 15; i++)
             {
                 inventory.RemoveItem(IronStone);
+                materialsInventory.RemoveItem(IronStone);
             }
 
             inventory.RemoveItem(MagicalPlantLeaf);
             inventory.RemoveItem(MagicalFireLeaf);
+
+            materialsInventory.RemoveItem(MagicalPlantLeaf);
+            materialsInventory.RemoveItem(MagicalFireLeaf);
+
             inventory.AddItem(BeltGearLevel1, 1);
+            gearsInventory.AddItem(BeltGearLevel1, 1);
+
             inventory.save();
+            materialsInventory.save();
         }
         else
         {
@@ -1765,21 +1806,31 @@ public class ForestBlacksmith : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                materialsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                materialsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(IronStone);
+                materialsInventory.RemoveItem(IronStone);
             }
 
             inventory.RemoveItem(MagicalSakuraLeaf);
             inventory.RemoveItem(MagicalPlantLeaf);
+
+            materialsInventory.RemoveItem(MagicalSakuraLeaf);
+            materialsInventory.RemoveItem(MagicalPlantLeaf);
+
             inventory.AddItem(RingGearLevel1, 1);
+            gearsInventory.AddItem(RingGearLevel1, 1);
+
             inventory.save();
+            materialsInventory.save();
         }
         else
         {
