@@ -9,7 +9,7 @@ public class Ability3DropArea : MonoBehaviour, IDropHandler
     public GameObject ability;
     public InventoryObject inventory;
     private bool found = false;
-
+    
     void Update()
     {
         switch (GameController.ability3)
@@ -26,9 +26,11 @@ public class Ability3DropArea : MonoBehaviour, IDropHandler
                 if (!found)
                 {
                     GameController.ability3 = "";
+                 
                     foreach (Transform child in ability.transform)
                     {
                         Destroy(child.gameObject);
+                       
                     }
                 }
                 break;

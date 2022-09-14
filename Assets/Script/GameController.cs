@@ -263,6 +263,7 @@ public class GameController : MonoBehaviour
     public static string ability2;
     public static string ability3;
 
+
     public Image skill;
     public Sprite[] skills;
 
@@ -1081,7 +1082,7 @@ public class GameController : MonoBehaviour
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         currentMap = PlayerMap.forrest;
-     
+
     }
 
     public void SaveData()
@@ -1181,7 +1182,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-      
+       
         if (ultValue >= 10)
         {
             canUlt = true;
@@ -1686,23 +1687,27 @@ public class GameController : MonoBehaviour
         dashTimer.text = ((int)currentTime).ToString();
         if (dashed)
         {
-            if (currentTime >= 0)
+            dashUi.SetActive(true);
+            if (currentTime <= 0)
             {
-                currentTime -= 1 * Time.deltaTime;
-                PlayerMovements.canDash = false;
+                currentTime = startTime;
+                dashUi.GetComponent<Image>().fillAmount = 1f;
+                dashUi.SetActive(false);
+                PlayerMovements.canDash = true;
+                dashed = false;
             }
             else
             {
-                currentTime = startTime;
-                dashed = false;
-                PlayerMovements.canDash = true;
-                dashUi.SetActive(false);
+                PlayerMovements.canDash = false;
+                dashUi.GetComponent<Image>().fillAmount -= 0.33f * Time.deltaTime;
+                currentTime -= Time.deltaTime;
             }
+
         }
         if (PlayerMovements.isDashButtonDown)
         {
             dashUi.SetActive(true);
-
+           
         }
 
     }

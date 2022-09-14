@@ -28,7 +28,7 @@ public class fishBar : MonoBehaviour
     {
         if (slider.value > 0 && slider.value <= 99)
         {
-            slider.value -= 0.1f;
+            slider.value -= 25f * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.E))

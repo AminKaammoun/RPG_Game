@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 public enum PlayerState
 {
     idle,
@@ -157,6 +158,19 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject OrangeGemStone;
     public ItemObject GreenGemStone;
 
+    public GameObject panelAbility1;
+    public GameObject panelAbility2;
+    public GameObject panelAbility3;
+
+    public static bool useAbility1;
+    public static bool useAbility2;
+    public static bool useAbility3;
+
+    public Text Ability1Timer;
+    public Text Ability2Timer;
+    public Text Ability3Timer;
+    private float currentTime;
+
     // Start is called before the first frame update
 
     void Start()
@@ -179,6 +193,348 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (useAbility1)
+        {
+
+            switch (GameController.ability1)
+            {
+                case "Big Heal Potion (potionObject)":
+                    Ability1Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 0.5f;
+                        panelAbility1.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility1.SetActive(false);
+                        useAbility1 = false;
+                    }
+                    else
+                    {
+                        panelAbility1.GetComponent<Image>().fillAmount -= 2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Small Health Potion (potionObject)":
+                    Ability1Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 0.5f;
+                        panelAbility1.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility1.SetActive(false);
+                        useAbility1 = false;
+                    }
+                    else
+                    {
+                        panelAbility1.GetComponent<Image>().fillAmount -= 2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Big sheild Potion (potionObject)":
+                  
+                    Ability1Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 10f;
+                        panelAbility1.GetComponent<Image>().fillAmount = 1f ;
+                        panelAbility1.SetActive(false);
+                        useAbility1 = false;
+                    }
+                    else
+                    {
+                        panelAbility1.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+
+                    break;
+
+                case "Small Shield Potion (potionObject)":
+                 
+                    Ability1Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 5f;
+                        panelAbility1.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility1.SetActive(false);
+                        useAbility1 = false;
+                    }
+                    else
+                    {
+                        panelAbility1.GetComponent<Image>().fillAmount -= 0.2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Big Speed Potion (potionObject)":
+                   
+                    Ability1Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 20f;
+                        panelAbility1.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility1.SetActive(false);
+                        useAbility1 = false;
+                    }
+                    else
+                    {
+                        panelAbility1.GetComponent<Image>().fillAmount -= 0.05f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+
+                    break;
+
+                case "Small Speed Potion (potionObject)":
+                   
+                    Ability1Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 10f;
+                        panelAbility1.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility1.SetActive(false);
+                        useAbility1 = false;
+                    }
+                    else
+                    {
+                        panelAbility1.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "":
+                    panelAbility1.SetActive(false);
+                    break;
+            }
+
+        }
+
+        if (useAbility2)
+        {
+
+            switch (GameController.ability2)
+            {
+                case "Big Heal Potion (potionObject)":
+                    Ability2Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 0.5f;
+                        panelAbility2.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility2.SetActive(false);
+                        useAbility2 = false;
+                    }
+                    else
+                    {
+                        panelAbility2.GetComponent<Image>().fillAmount -= 2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Small Health Potion (potionObject)":
+                    Ability2Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 0.5f;
+                        panelAbility2.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility2.SetActive(false);
+                        useAbility2 = false;
+                    }
+                    else
+                    {
+                        panelAbility2.GetComponent<Image>().fillAmount -= 2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Big sheild Potion (potionObject)":
+
+                    Ability2Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 10f;
+                        panelAbility2.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility2.SetActive(false);
+                        useAbility2 = false;
+                    }
+                    else
+                    {
+                        panelAbility2.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+
+                    break;
+
+                case "Small Shield Potion (potionObject)":
+
+                    Ability2Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 5f;
+                        panelAbility2.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility2.SetActive(false);
+                        useAbility2 = false;
+                    }
+                    else
+                    {
+                        panelAbility2.GetComponent<Image>().fillAmount -= 0.2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Big Speed Potion (potionObject)":
+
+                    Ability2Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 20f;
+                        panelAbility2.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility2.SetActive(false);
+                        useAbility2 = false;
+                    }
+                    else
+                    {
+                        panelAbility2.GetComponent<Image>().fillAmount -= 0.05f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+
+                    break;
+
+                case "Small Speed Potion (potionObject)":
+
+                    Ability2Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 10f;
+                        panelAbility2.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility2.SetActive(false);
+                        useAbility2 = false;
+                    }
+                    else
+                    {
+                        panelAbility2.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "":
+                    panelAbility2.SetActive(false);
+                    break;
+            }
+
+        }
+
+        if (useAbility3)
+        {
+
+            switch (GameController.ability3)
+            {
+                case "Big Heal Potion (potionObject)":
+                    Ability3Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 0.5f;
+                        panelAbility3.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility3.SetActive(false);
+                        useAbility3 = false;
+                    }
+                    else
+                    {
+                        panelAbility3.GetComponent<Image>().fillAmount -= 2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Small Health Potion (potionObject)":
+                    Ability3Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 0.5f;
+                        panelAbility3.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility3.SetActive(false);
+                        useAbility3 = false;
+                    }
+                    else
+                    {
+                        panelAbility3.GetComponent<Image>().fillAmount -= 2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Big sheild Potion (potionObject)":
+
+                    Ability3Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 10f;
+                        panelAbility3.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility3.SetActive(false);
+                        useAbility3 = false;
+                    }
+                    else
+                    {
+                        panelAbility3.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+
+                    break;
+
+                case "Small Shield Potion (potionObject)":
+
+                    Ability3Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 5f;
+                        panelAbility3.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility3.SetActive(false);
+                        useAbility3 = false;
+                    }
+                    else
+                    {
+                        panelAbility3.GetComponent<Image>().fillAmount -= 0.2f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "Big Speed Potion (potionObject)":
+
+                    Ability3Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 20f;
+                        panelAbility3.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility3.SetActive(false);
+                        useAbility3 = false;
+                    }
+                    else
+                    {
+                        panelAbility3.GetComponent<Image>().fillAmount -= 0.05f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+
+                    break;
+
+                case "Small Speed Potion (potionObject)":
+
+                    Ability3Timer.text = ((int)currentTime).ToString();
+                    if (currentTime <= 0)
+                    {
+                        currentTime = 10f;
+                        panelAbility3.GetComponent<Image>().fillAmount = 1f;
+                        panelAbility3.SetActive(false);
+                        useAbility3 = false;
+                    }
+                    else
+                    {
+                        panelAbility3.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+                        currentTime -= Time.deltaTime;
+                    }
+                    break;
+
+                case "":
+                    panelAbility3.SetActive(false);
+                    break;
+            }
+
+        }
+
         healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp);
         getStats();
 
@@ -415,30 +771,48 @@ public class PlayerMovements : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-           
+
             switch (GameController.ability1)
             {
                 case "Big Heal Potion (potionObject)":
+                    panelAbility1.SetActive(true);
+                    currentTime = 0.5f;
+                    useAbility1 = true;
                     useBigHealth();
                     break;
 
                 case "Small Health Potion (potionObject)":
+                    panelAbility1.SetActive(true);
+                    currentTime = 0.5f;
+                    useAbility1 = true;
                     useSmallHealth();
                     break;
 
                 case "Big sheild Potion (potionObject)":
+                    panelAbility1.SetActive(true);
+                    currentTime = 10f;
+                    useAbility1 = true;
                     useBigShield();
                     break;
 
                 case "Small Shield Potion (potionObject)":
+                    panelAbility1.SetActive(true);
+                    currentTime = 5f;
+                    useAbility1 = true;
                     useSmallShield();
                     break;
 
                 case "Big Speed Potion (potionObject)":
+                    panelAbility1.SetActive(true);
+                    currentTime = 20f;
+                    useAbility1 = true;
                     useBigSpeeded();
                     break;
 
                 case "Small Speed Potion (potionObject)":
+                    panelAbility1.SetActive(true);
+                    currentTime = 10f;
+                    useAbility1 = true;
                     useSmallSpeeded();
                     break;
 
@@ -451,26 +825,44 @@ public class PlayerMovements : MonoBehaviour
             switch (GameController.ability2)
             {
                 case "Big Heal Potion (potionObject)":
+                    panelAbility2.SetActive(true);
+                    currentTime = 0.5f;
+                    useAbility2 = true;
                     useBigHealth();
                     break;
 
                 case "Small Health Potion (potionObject)":
+                    panelAbility2.SetActive(true);
+                    currentTime = 0.5f;
+                    useAbility2 = true;
                     useSmallHealth();
                     break;
 
                 case "Big sheild Potion (potionObject)":
+                    panelAbility2.SetActive(true);
+                    currentTime = 10f;
+                    useAbility2 = true;
                     useBigShield();
                     break;
 
                 case "Small Shield Potion (potionObject)":
+                    panelAbility2.SetActive(true);
+                    currentTime = 5f;
+                    useAbility2 = true;
                     useSmallShield();
                     break;
 
                 case "Big Speed Potion (potionObject)":
+                    panelAbility2.SetActive(true);
+                    currentTime = 20f;
+                    useAbility2 = true;
                     useBigSpeeded();
                     break;
 
                 case "Small Speed Potion (potionObject)":
+                    panelAbility2.SetActive(true);
+                    currentTime = 10f;
+                    useAbility2 = true;
                     useSmallSpeeded();
                     break;
 
@@ -483,32 +875,51 @@ public class PlayerMovements : MonoBehaviour
             switch (GameController.ability3)
             {
                 case "Big Heal Potion (potionObject)":
+                    panelAbility3.SetActive(true);
+                    currentTime = 0.5f;
+                    useAbility3 = true;
                     useBigHealth();
                     break;
 
                 case "Small Health Potion (potionObject)":
+                    panelAbility3.SetActive(true);
+                    currentTime = 0.5f;
+                    useAbility3 = true;
                     useSmallHealth();
                     break;
 
                 case "Big sheild Potion (potionObject)":
+                    panelAbility3.SetActive(true);
+                    currentTime = 10f;
+                    useAbility3 = true;
                     useBigShield();
                     break;
 
                 case "Small Shield Potion (potionObject)":
+                    panelAbility3.SetActive(true);
+                    currentTime = 5f;
+                    useAbility3 = true;
                     useSmallShield();
                     break;
 
                 case "Big Speed Potion (potionObject)":
+                    panelAbility3.SetActive(true);
+                    currentTime = 20f;
+                    useAbility3 = true;
                     useBigSpeeded();
                     break;
 
                 case "Small Speed Potion (potionObject)":
+                    panelAbility3.SetActive(true);
+                    currentTime = 10f;
+                    useAbility3 = true;
                     useSmallSpeeded();
                     break;
 
             }
         }
     }
+
 
     void FixedUpdate()
     {
@@ -568,12 +979,18 @@ public class PlayerMovements : MonoBehaviour
             yield return new WaitForSeconds(10f);
             speed = speed / 1.5f;
             PlayerMovements.PotionInUse = false;
+            panelAbility1.SetActive(false);
+            panelAbility2.SetActive(false);
+            panelAbility3.SetActive(false);
         }
         else if (isBigSpeeded)
         {
             yield return new WaitForSeconds(20f);
             speed = speed / 1.5f;
             PlayerMovements.PotionInUse = false;
+            panelAbility1.SetActive(false);
+            panelAbility2.SetActive(false);
+            panelAbility3.SetActive(false);
         }
     }
     IEnumerator backToNormalFromSheild()
@@ -583,12 +1000,18 @@ public class PlayerMovements : MonoBehaviour
             yield return new WaitForSeconds(5f);
             canBeDamaged = true;
             PlayerMovements.PotionInUse = false;
+            panelAbility1.SetActive(false);
+            panelAbility2.SetActive(false);
+            panelAbility3.SetActive(false);
         }
         else if (isBigSheilded)
         {
             yield return new WaitForSeconds(10f);
             canBeDamaged = true;
             PlayerMovements.PotionInUse = false;
+            panelAbility1.SetActive(false);
+            panelAbility2.SetActive(false);
+            panelAbility3.SetActive(false);
         }
     }
     public void Knock(Rigidbody2D rb2d, float knockTime)
@@ -1151,7 +1574,7 @@ public class PlayerMovements : MonoBehaviour
             ArrowSpawn.canShoot = true;
             changeCursor = true;
             invIsOpen = false;
-            isBigSpeeded = true;
+            isSmallSpeeded = true;
             PotionInUse = true;
 
             inventory.RemoveItem(potions[5]);
