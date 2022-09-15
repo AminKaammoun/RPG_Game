@@ -8,6 +8,7 @@ public class fishingShop : MonoBehaviour
 {
     public InventoryObject inventory;
     public InventoryObject Inv;
+    public InventoryObject meatInventory;
     public int Xstart;
     public int Ystart;
     public float XspaceBtwItem;
@@ -284,8 +285,10 @@ public class fishingShop : MonoBehaviour
                         {
                             Inv.RemoveItem(Fishs[0]);
                             inventory.RemoveItem(Fishs[0]);
+                            meatInventory.RemoveItem(Fishs[0]);
                             Inv.save();
                             inventory.save();
+                            meatInventory.save();
                             Inventory.refreshInv = true;
                             refreshInv = true;
                             GameController.coins += Fish1Price * 1000;
@@ -315,8 +318,10 @@ public class fishingShop : MonoBehaviour
                         {
                             Inv.RemoveItem(Fishs[1]);
                             inventory.RemoveItem(Fishs[1]);
+                            meatInventory.RemoveItem(Fishs[1]);
                             Inv.save();
                             inventory.save();
+                            meatInventory.save();
                             Inventory.refreshInv = true;
                             refreshInv = true;
                             GameController.coins += Fish2Price * 1000;
@@ -346,8 +351,10 @@ public class fishingShop : MonoBehaviour
                         {
                             Inv.RemoveItem(Fishs[2]);
                             inventory.RemoveItem(Fishs[2]);
+                            meatInventory.RemoveItem(Fishs[2]);
                             Inv.save();
                             inventory.save();
+                            meatInventory.save();
                             Inventory.refreshInv = true;
                             refreshInv = true;
                             GameController.coins += Fish3Price * 1000;
@@ -377,8 +384,10 @@ public class fishingShop : MonoBehaviour
                         {
                             Inv.RemoveItem(Fishs[3]);
                             inventory.RemoveItem(Fishs[3]);
+                            meatInventory.RemoveItem(Fishs[3]);
                             Inv.save();
                             inventory.save();
+                            meatInventory.save();
                             Inventory.refreshInv = true;
                             refreshInv = true;
                             GameController.coins += Fish4Price * 1000;
@@ -408,8 +417,10 @@ public class fishingShop : MonoBehaviour
                         {
                             Inv.RemoveItem(Fishs[4]);
                             inventory.RemoveItem(Fishs[4]);
+                            meatInventory.RemoveItem(Fishs[4]);
                             Inv.save();
                             inventory.save();
+                            meatInventory.save();
                             Inventory.refreshInv = true;
                             refreshInv = true;
                             GameController.coins += Fish5Price * 1000;
@@ -430,7 +441,7 @@ public class fishingShop : MonoBehaviour
     }
     public void resetFish()
     {
-       
+
         Fish1Price = Random.Range(10, 21);
         Fish2Price = Random.Range(20, 51);
         Fish3Price = Random.Range(50, 100);

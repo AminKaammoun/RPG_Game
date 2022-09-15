@@ -37,6 +37,7 @@ public class LapidaryRightSide : MonoBehaviour
 
     public InventoryObject inventory;
     public InventoryObject GemInventory;
+    public InventoryObject MaterielsInventory;
 
     public Text item1;
     public Text item2;
@@ -646,20 +647,25 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                MaterielsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 3; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                MaterielsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 5; i++)
             {
                 inventory.RemoveItem(RedGemStone);
+                MaterielsInventory.RemoveItem(RedGemStone);
             }
 
             inventory.AddItem(RedGemItem, 1);
             GemInventory.AddItem(RedGemItem, 1);
+
             GemInventory.save();
+            MaterielsInventory.save();
             inventory.save();
         }
         else
@@ -816,21 +822,26 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                MaterielsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 3; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                MaterielsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 5; i++)
             {
                 inventory.RemoveItem(BlueGemStone);
+                MaterielsInventory.RemoveItem(BlueGemStone);
             }
 
             inventory.AddItem(BlueGemItem, 1);
             GemInventory.AddItem(BlueGemItem, 1);
+
             GemInventory.save();
             inventory.save();
+            MaterielsInventory.save();
         }
         else
         {
@@ -986,21 +997,26 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                MaterielsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 3; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                MaterielsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 5; i++)
             {
                 inventory.RemoveItem(YellowGemStone);
+                MaterielsInventory.RemoveItem(YellowGemStone);
             }
 
             inventory.AddItem(YellowGemItem, 1);
             GemInventory.AddItem(YellowGemItem, 1);
+
             GemInventory.save();
             inventory.save();
+            MaterielsInventory.save();
         }
         else
         {
@@ -1156,21 +1172,26 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                MaterielsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 3; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                MaterielsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 5; i++)
             {
                 inventory.RemoveItem(OrangeGemStone);
+                MaterielsInventory.RemoveItem(OrangeGemStone);
             }
 
             inventory.AddItem(OrangeGemItem, 1);
             GemInventory.AddItem(OrangeGemItem, 1);
+
             GemInventory.save();
             inventory.save();
+            MaterielsInventory.save();
         }
         else
         {
@@ -1326,21 +1347,26 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
                 inventory.RemoveItem(Wood);
+                MaterielsInventory.RemoveItem(Wood);
 
             }
             for (int i = 0; i < 3; i++)
             {
                 inventory.RemoveItem(CoalStone);
+                MaterielsInventory.RemoveItem(CoalStone);
             }
             for (int i = 0; i < 5; i++)
             {
                 inventory.RemoveItem(GreenGemStone);
+                MaterielsInventory.RemoveItem(GreenGemStone);
             }
 
             inventory.AddItem(GreenGemItem, 1);
             GemInventory.AddItem(GreenGemItem, 1);
+
             GemInventory.save();
             inventory.save();
+            MaterielsInventory.save();
         }
         else
         {

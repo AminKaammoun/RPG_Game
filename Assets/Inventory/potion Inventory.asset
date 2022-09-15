@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3b9c51258bcec4482ac17d8c93a18c, type: 3}
   m_Name: potion Inventory
   m_EditorClassIdentifier: 
-  savePath: 
+  savePath: /potionInventory.save
   database: {fileID: 11400000, guid: 89832b23f75f0df4d88d18477efc6e16, type: 2}
-  Container: []
+  Container:
+  - ID: 0
+    item: {fileID: 11400000, guid: c9e1b1913201ddf4f980c007987d3356, type: 2}
+    amount: 1
+  - ID: 3
+    item: {fileID: 11400000, guid: b9f75cb2844559949918f0d7fa57db9c, type: 2}
+    amount: 1
+  - ID: 1
+    item: {fileID: 11400000, guid: 7b1e68c8e557bab4987aed53cfe8e19a, type: 2}
+    amount: 1
+  - ID: 2
+    item: {fileID: 11400000, guid: 626ae0b9ff551794f93b8b67bd1a8af9, type: 2}
+    amount: 1
+  - ID: 5
+    item: {fileID: 11400000, guid: 3cb6026bba8c27044b0ad1d98a0f3591, type: 2}
+    amount: 1
   GearsContainer: []

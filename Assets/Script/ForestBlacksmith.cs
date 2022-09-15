@@ -927,8 +927,11 @@ public class ForestBlacksmith : MonoBehaviour
             inventory.AddItem(AtkGearLevel1, 1);
             inventory.save();
 
+
             gearsInventory.AddItem(AtkGearLevel1, 1);
             gearsInventory.save();
+
+            materialsInventory.save();
 
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
@@ -1167,6 +1170,7 @@ public class ForestBlacksmith : MonoBehaviour
             inventory.AddItem(DefGearLevel1, 1);
             gearsInventory.AddItem(DefGearLevel1, 1);
 
+            gearsInventory.save();
             inventory.save();
             materialsInventory.save();
         }
@@ -1404,6 +1408,7 @@ public class ForestBlacksmith : MonoBehaviour
             inventory.AddItem(HelmetGearLevel1, 1);
             gearsInventory.AddItem(HelmetGearLevel1, 1);
 
+            gearsInventory.save();
             inventory.save();
             materialsInventory.save();
         }
@@ -1618,6 +1623,7 @@ public class ForestBlacksmith : MonoBehaviour
             inventory.AddItem(BeltGearLevel1, 1);
             gearsInventory.AddItem(BeltGearLevel1, 1);
 
+            gearsInventory.save();
             inventory.save();
             materialsInventory.save();
         }
@@ -1829,6 +1835,7 @@ public class ForestBlacksmith : MonoBehaviour
             inventory.AddItem(RingGearLevel1, 1);
             gearsInventory.AddItem(RingGearLevel1, 1);
 
+            gearsInventory.save();
             inventory.save();
             materialsInventory.save();
         }

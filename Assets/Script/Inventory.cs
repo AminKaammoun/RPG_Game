@@ -9,7 +9,9 @@ public enum showInv
     full,
     gears,
     potions,
-    materials
+    materials,
+    gems,
+    meats
 }
 
 public class Inventory : MonoBehaviour
@@ -230,6 +232,76 @@ public class Inventory : MonoBehaviour
 
         }
 
+        else if (currentInv == showInv.gems)
+        {
+
+            for (int i = 0; i < gemsInventory.Container.Count; i++)
+            {
+
+                if (itemsDisplayed.ContainsKey(gemsInventory.Container[i]))
+                {
+                    if ((gemsInventory.Container[i].item.type == ItemType.Gem) && gemsInventory.Container[i] != null)
+                    {
+                        itemsDisplayed[gemsInventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + gemsInventory.Container[i].amount.ToString("n0");
+                    }
+                }
+
+                else
+                {
+                    if (gemsInventory.Container[i].item.type == ItemType.Gem)
+                    {
+                        var obj = Instantiate(gemsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                        obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
+
+                        obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                        if (gemsInventory.Container[i].item.type == ItemType.Gem)
+                        {
+                            obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + gemsInventory.Container[i].amount.ToString("n0");
+                        }
+                        itemsDisplayed.Add(gemsInventory.Container[i], obj);
+
+                    }
+                }
+
+            }
+
+        }
+
+        else if (currentInv == showInv.meats)
+        {
+
+            for (int i = 0; i < meatInventory.Container.Count; i++)
+            {
+
+                if (itemsDisplayed.ContainsKey(meatInventory.Container[i]))
+                {
+                    if ((meatInventory.Container[i].item.type == ItemType.fish) && meatInventory.Container[i] != null)
+                    {
+                        itemsDisplayed[meatInventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + meatInventory.Container[i].amount.ToString("n0");
+                    }
+                }
+
+                else
+                {
+                    if (meatInventory.Container[i].item.type == ItemType.fish)
+                    {
+                        var obj = Instantiate(meatInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                        obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
+
+                        obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                        if (meatInventory.Container[i].item.type == ItemType.fish)
+                        {
+                            obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + meatInventory.Container[i].amount.ToString("n0");
+                        }
+                        itemsDisplayed.Add(meatInventory.Container[i], obj);
+
+                    }
+                }
+
+            }
+
+        }
+
     }
 
     public void CreateDisplay()
@@ -297,6 +369,38 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+
+        else if (currentInv == showInv.gems)
+        {
+
+            for (int i = 0; i < gemsInventory.Container.Count; i++)
+            {
+                if (gemsInventory.Container[i].item.type == ItemType.Gem)
+                {
+                    var obj = Instantiate(gemsInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                    obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
+                    obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                    itemsDisplayed.Add(gemsInventory.Container[i], obj);
+
+                }
+            }
+        }
+
+        else if (currentInv == showInv.meats)
+        {
+
+            for (int i = 0; i < meatInventory.Container.Count; i++)
+            {
+                if (meatInventory.Container[i].item.type == ItemType.Gem)
+                {
+                    var obj = Instantiate(meatInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                    obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
+                    obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                    itemsDisplayed.Add(meatInventory.Container[i], obj);
+
+                }
+            }
+        }
     }
 
 
@@ -353,6 +457,34 @@ public class Inventory : MonoBehaviour
         materialInventory.SetActive(true);
         gemInventory.SetActive(false);
         meatsInventory.SetActive(false);
+        potionInventory.SetActive(false);
+
+        refreshInv = true;
+    }
+
+    public void ShowGems()
+    {
+        currentInv = showInv.gems;
+
+        fullInventory.SetActive(false);
+        gearInventory.SetActive(false);
+        materialInventory.SetActive(false);
+        gemInventory.SetActive(true);
+        meatsInventory.SetActive(false);
+        potionInventory.SetActive(false);
+
+        refreshInv = true;
+    }
+
+    public void ShowMeats()
+    {
+        currentInv = showInv.meats;
+
+        fullInventory.SetActive(false);
+        gearInventory.SetActive(false);
+        materialInventory.SetActive(false);
+        gemInventory.SetActive(false);
+        meatsInventory.SetActive(true);
         potionInventory.SetActive(false);
 
         refreshInv = true;

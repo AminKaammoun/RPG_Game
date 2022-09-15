@@ -9,6 +9,7 @@ public class fish : MonoBehaviour
     public ItemObject[] fishs;
     public InventoryObject inventory;
     public InventoryObject FishInventory;
+    public InventoryObject MeatInventory;
     public GameObject[] textPopUps;
     private GameObject player;
 
@@ -35,8 +36,10 @@ public class fish : MonoBehaviour
                 Instantiate(textPopUps[0], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[0], 1);
                 FishInventory.AddItem(fishs[0], 1);
+                MeatInventory.AddItem(fishs[0], 1);
                 inventory.save();
                 FishInventory.save();
+                MeatInventory.save();
                 Inventory.refreshInv = true;
                Destroy(this.gameObject);
             }
@@ -47,8 +50,10 @@ public class fish : MonoBehaviour
                 Instantiate(textPopUps[1], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[1], 1);
                 FishInventory.AddItem(fishs[1], 1);
+                MeatInventory.AddItem(fishs[1], 1);
                 FishInventory.save();
                 inventory.save();
+                MeatInventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
             }
@@ -59,8 +64,10 @@ public class fish : MonoBehaviour
                 Instantiate(textPopUps[2], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[2], 1);
                 FishInventory.AddItem(fishs[2], 1);
+                MeatInventory.AddItem(fishs[2], 1);
                 inventory.save();
                 FishInventory.save();
+                MeatInventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
             }
@@ -71,8 +78,10 @@ public class fish : MonoBehaviour
                 Instantiate(textPopUps[3], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[3], 1);
                 FishInventory.AddItem(fishs[3], 1);
+                MeatInventory.AddItem(fishs[3], 1);
                 inventory.save();
                 FishInventory.save();
+                MeatInventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
             }
@@ -83,8 +92,10 @@ public class fish : MonoBehaviour
                 Instantiate(textPopUps[4], player.transform.position, Quaternion.identity);
                 inventory.AddItem(fishs[4], 1);
                 FishInventory.AddItem(fishs[4], 1);
+                MeatInventory.AddItem(fishs[4], 1);
                 FishInventory.save();
                 inventory.save();
+                MeatInventory.save();
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
             }
