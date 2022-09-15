@@ -14,14 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePath: /fishInventory.data
   database: {fileID: 11400000, guid: 89832b23f75f0df4d88d18477efc6e16, type: 2}
-  Container:
-  - ID: 56
-    item: {fileID: 11400000, guid: 602e3354d553e8a44baf4f2661a210b0, type: 2}
-    amount: 3
-  - ID: 57
-    item: {fileID: 11400000, guid: 2622a03c40cbdfe43a2fadd76930cced, type: 2}
-    amount: 1
-  - ID: 55
-    item: {fileID: 11400000, guid: a6b9e0de94224e441b33de494fbd7d7a, type: 2}
-    amount: 2
+  Container: []
   GearsContainer: []
