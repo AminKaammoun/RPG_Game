@@ -233,12 +233,12 @@ public class PlayerMovements : MonoBehaviour
                     break;
 
                 case "Big sheild Potion (potionObject)":
-                  
+
                     Ability1Timer.text = ((int)currentTime).ToString();
                     if (currentTime <= 0)
                     {
                         currentTime = 10f;
-                        panelAbility1.GetComponent<Image>().fillAmount = 1f ;
+                        panelAbility1.GetComponent<Image>().fillAmount = 1f;
                         panelAbility1.SetActive(false);
                         useAbility1 = false;
                     }
@@ -251,7 +251,7 @@ public class PlayerMovements : MonoBehaviour
                     break;
 
                 case "Small Shield Potion (potionObject)":
-                 
+
                     Ability1Timer.text = ((int)currentTime).ToString();
                     if (currentTime <= 0)
                     {
@@ -268,7 +268,7 @@ public class PlayerMovements : MonoBehaviour
                     break;
 
                 case "Big Speed Potion (potionObject)":
-                   
+
                     Ability1Timer.text = ((int)currentTime).ToString();
                     if (currentTime <= 0)
                     {
@@ -286,7 +286,7 @@ public class PlayerMovements : MonoBehaviour
                     break;
 
                 case "Small Speed Potion (potionObject)":
-                   
+
                     Ability1Timer.text = ((int)currentTime).ToString();
                     if (currentTime <= 0)
                     {
@@ -1387,7 +1387,7 @@ public class PlayerMovements : MonoBehaviour
                 MaterialsInventory.AddItem(Stone, 1);
                 MaterialsInventory.save();
                 inventory.save();
-               var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
+                var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
 
             }
 
@@ -1514,7 +1514,7 @@ public class PlayerMovements : MonoBehaviour
             invIsOpen = false;
             isHealed = true;
 
-            health += 50;
+            health += (int)(health * 50 / 100);
             inventory.RemoveItem(potions[0]);
             inventory.save();
 
@@ -1538,7 +1538,7 @@ public class PlayerMovements : MonoBehaviour
             invIsOpen = false;
             isHealed = true;
 
-            health += 20;
+            health += (int)(health * 20 / 100);
             inventory.RemoveItem(potions[1]);
             inventory.save();
 
