@@ -46,6 +46,7 @@ public class PlayerMovements : MonoBehaviour
     public InventoryObject inventory;
     public InventoryObject MaterialsInventory;
     public InventoryObject potionsInventory;
+    public InventoryObject meatInventory;
 
     public ItemObject[] potions;
 
@@ -159,6 +160,7 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject YellowGemStone;
     public ItemObject OrangeGemStone;
     public ItemObject GreenGemStone;
+    public ItemObject RawGoatMeat;
 
     public GameObject panelAbility1;
     public GameObject panelAbility2;
@@ -1483,6 +1485,15 @@ public class PlayerMovements : MonoBehaviour
         if (collision.CompareTag("fish"))
         {
             fishCollect.Play();
+        }
+        if (collision.CompareTag("meat"))
+        {
+            fishCollect.Play();
+            inventory.AddItem(RawGoatMeat, 1);
+            inventory.save();
+            meatInventory.AddItem(RawGoatMeat, 1);
+            meatInventory.save();
+            Destroy(collision.gameObject);
         }
     }
     void checkIfPlayerIsMoving(float PosX, float PosY)
