@@ -7,7 +7,7 @@ public class stone : MonoBehaviour
     private float speed1 = 10f;
     private float speed2 = 20f;
     private Rigidbody2D rb;
-    private float timer = 2f;
+    private float timer;
     private Transform target;
 
     // Start is called before the first frame update
@@ -15,6 +15,7 @@ public class stone : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
+        timer = Random.Range(1f, 3f);
     }
 
     // Update is called once per frame

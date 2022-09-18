@@ -20,6 +20,8 @@ public class goat : MonoBehaviour
 
     public GameObject meat;
     private bool die = true;
+
+    public AudioClip[] clips;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +88,22 @@ public class goat : MonoBehaviour
         if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
             health--;
+            int rand1 = Random.Range(0, 4);
+            switch (rand1)
+            {
+                case 0:
+                    goatSound.clip = clips[0];
+                    break;
+                case 1:
+                    goatSound.clip = clips[1];
+                    break;
+                case 2:
+                    goatSound.clip = clips[2];
+                    break;
+                case 3:
+                    goatSound.clip = clips[3];
+                    break;
+            }
             goatSound.Play();
             hurtAudio.Play();
             animator.SetBool("run", true);

@@ -93,6 +93,9 @@ public class PlayerMovements : MonoBehaviour
     public GameObject OrangeGemStoneText;
     public GameObject HealthIsFull;
     public GameObject panel;
+    public GameObject MeatText;
+    public GameObject ChickenText;
+    public GameObject EggText;
 
     public GameObject volume;
     public GameObject teleport_hit;
@@ -161,6 +164,8 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject OrangeGemStone;
     public ItemObject GreenGemStone;
     public ItemObject RawGoatMeat;
+    public ItemObject RawChickenThigh;
+    public ItemObject RawEgg;
 
     public GameObject panelAbility1;
     public GameObject panelAbility2;
@@ -1488,11 +1493,34 @@ public class PlayerMovements : MonoBehaviour
         }
         if (collision.CompareTag("meat"))
         {
-            fishCollect.Play();
-            inventory.AddItem(RawGoatMeat, 1);
-            inventory.save();
-            meatInventory.AddItem(RawGoatMeat, 1);
-            meatInventory.save();
+            if (collision.gameObject.name == "meat(Clone)")
+            {
+                fishCollect.Play();
+                inventory.AddItem(RawGoatMeat, 1);
+                inventory.save();
+                meatInventory.AddItem(RawGoatMeat, 1);
+                meatInventory.save();
+                var stoneTxt = Instantiate(MeatText, transform.position, Quaternion.identity);
+            }
+            if (collision.gameObject.name == "egg(Clone)")
+            {
+                fishCollect.Play();
+                inventory.AddItem(RawEgg, 1);
+                inventory.save();
+                meatInventory.AddItem(RawEgg, 1);
+                meatInventory.save();
+                var stoneTxt = Instantiate(EggText, transform.position, Quaternion.identity);
+            }
+            if (collision.gameObject.name == "chickenThigh(Clone)")
+            {
+                fishCollect.Play();
+                inventory.AddItem(RawChickenThigh, 1);
+                inventory.save();
+                meatInventory.AddItem(RawChickenThigh, 1);
+                meatInventory.save();
+                var stoneTxt = Instantiate(ChickenText, transform.position, Quaternion.identity);
+            }
+
             Destroy(collision.gameObject);
         }
     }
