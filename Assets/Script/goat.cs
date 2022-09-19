@@ -74,7 +74,7 @@ public class goat : MonoBehaviour
         if (health <= 0 && die)
         {
             die = false;
-            int rand = Random.Range(1, 4);
+            int rand = Random.Range(1, 3);
             for (int i = 0; i < rand; i++)
             {
                 Instantiate(meat, transform.position, Quaternion.identity);
