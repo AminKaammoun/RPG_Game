@@ -140,7 +140,17 @@ public class forestTreesAreaSpawner : MonoBehaviour
         try
         {
             GameObject[] goats = GameObject.FindGameObjectsWithTag("goat");
-            GameObject[] chicken = GameObject.FindGameObjectsWithTag("chicken");
+            GameObject[] chickens = GameObject.FindGameObjectsWithTag("chicken");
+
+            foreach(GameObject goat in goats)
+            {
+                Destroy(goat);
+
+            }
+            foreach(GameObject chicken in chickens)
+            {
+                Destroy(chicken);
+            }
         }
         catch
         {
