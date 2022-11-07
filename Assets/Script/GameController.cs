@@ -84,6 +84,8 @@ public class GameController : MonoBehaviour
     public GameObject gainedBp;
     public GameObject skillPointPanel;
     public GameObject fishPanel;
+    public GameObject butcherPanel;
+    public GameObject eggPanel;
     public GameObject rock;
     public GameObject skulls;
     public GameObject Wind;
@@ -1518,7 +1520,25 @@ public class GameController : MonoBehaviour
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
+    public void closeButcherPanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        butcherPanel.SetActive(false);
+        meatInv.save();
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
 
+    public void closeEggPanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        eggPanel.SetActive(false);
+        meatInv.save();
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
     public void VillageTpButton()
     {
         ArrowSpawn.canShoot = true;
@@ -1597,6 +1617,22 @@ public class GameController : MonoBehaviour
         fishPanel.SetActive(true);
         fishingShop.refreshInv = true;
         ArrowSpawn.canShoot = false;
+    }
+
+    public void ButcherPanel()
+    {
+        butcherPanel.SetActive(true);
+       
+        ArrowSpawn.canShoot = false;
+
+    }
+
+    public void EggPanel()
+    {
+        eggPanel.SetActive(true);
+
+        ArrowSpawn.canShoot = false;
+
     }
     public void gemCraftingPanel()
     {
