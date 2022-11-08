@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2197047323247991949}
   - component: {fileID: 2197047323247991948}
   - component: {fileID: 2197047323247991955}
-  - component: {fileID: 2197047323247991950}
+  - component: {fileID: 5666527882479404261}
   m_Layer: 0
   m_Name: bigPetWorm
   m_TagString: Untagged
@@ -106,7 +106,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2197047323247991950
+--- !u!114 &5666527882479404261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2197047323247991954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55104ee63cda2894c929bb449641c58a, type: 3}
+  m_Script: {fileID: 11500000, guid: 23f2a10091bac57499954779e2b1cd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thunder: {fileID: 4614062996353199617, guid: d8b45f9dbbd4065479d0e3a1ce79b887, type: 3}
