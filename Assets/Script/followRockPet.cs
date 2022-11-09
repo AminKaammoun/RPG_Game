@@ -8,9 +8,11 @@ public class followRockPet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Target = GameObject.FindGameObjectWithTag("rock_pet");
+       
+            Target = GameObject.FindGameObjectWithTag("rock_pet");
+        
+    
     }
-
     // Update is called once per frame
     void Update()
     {
