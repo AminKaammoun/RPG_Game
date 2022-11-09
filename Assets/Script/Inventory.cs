@@ -128,7 +128,7 @@ public class Inventory : MonoBehaviour
 
                 if (itemsDisplayed.ContainsKey(inventory.Container[i]))
                 {
-                    if ((inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || inventory.Container[i].item.type == ItemType.Food) && inventory.Container[i] != null)
+                    if ((inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || inventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg) && inventory.Container[i] != null)
                     {
                         itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
                     }
@@ -140,7 +140,7 @@ public class Inventory : MonoBehaviour
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
 
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                    if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || meatInventory.Container[i].item.type == ItemType.Food)
+                    if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || meatInventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg)
                     {
                         obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
                     }
