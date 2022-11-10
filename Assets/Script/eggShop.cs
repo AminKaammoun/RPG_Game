@@ -55,6 +55,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[0].sprite = eggSprite[0];
             counter[0].SetActive(true);
+            usedEggs[0] = RedEgg;
             if (nestLevel[0] >= 5)
             {
                 birthButton[0].SetActive(true);
@@ -71,6 +72,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[0].sprite = eggSprite[1];
             counter[0].SetActive(true);
+            usedEggs[0] = BlueEgg;
             if (nestLevel[0] >= 5)
             {
                 birthButton[0].SetActive(true);
@@ -86,6 +88,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[0].sprite = eggSprite[2];
             counter[0].SetActive(true);
+            usedEggs[0] = YellowEgg;
             if (nestLevel[0] >= 5)
             {
                 birthButton[0].SetActive(true);
@@ -101,6 +104,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[0].sprite = eggSprite[3];
             counter[0].SetActive(true);
+            usedEggs[0] = BlackEgg;
             if (nestLevel[0] >= 5)
             {
                 birthButton[0].SetActive(true);
@@ -116,6 +120,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[0].sprite = eggSprite[4];
             counter[0].SetActive(true);
+            usedEggs[0] = GreenEgg;
             if (nestLevel[0] >= 5)
             {
                 birthButton[0].SetActive(true);
@@ -131,6 +136,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[0].sprite = eggSprite[5];
             counter[0].SetActive(true);
+            usedEggs[0] = BrownEgg;
             if (nestLevel[0] >= 5)
             {
                 birthButton[0].SetActive(true);
@@ -155,6 +161,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[1].sprite = eggSprite[0];
             counter[1].SetActive(true);
+            usedEggs[1] = RedEgg;
             if (nestLevel[1] >= 5)
             {
                 birthButton[1].SetActive(true);
@@ -170,6 +177,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[1].sprite = eggSprite[1];
             counter[1].SetActive(true);
+            usedEggs[1] = BlueEgg;
             if (nestLevel[1] >= 5)
             {
                 birthButton[1].SetActive(true);
@@ -185,6 +193,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[1].sprite = eggSprite[2];
             counter[1].SetActive(true);
+            usedEggs[1] = YellowEgg;
             if (nestLevel[1] >= 5)
             {
                 birthButton[1].SetActive(true);
@@ -199,7 +208,8 @@ public class eggShop : MonoBehaviour
         else if (eggType[1] == 4)
         {
             eggImage[1].sprite = eggSprite[3];
-            counter[1].SetActive(true);
+            counter[1].SetActive(true); 
+            usedEggs[1] = BlackEgg;
             if (nestLevel[1] >= 5)
             {
                 birthButton[1].SetActive(true);
@@ -215,6 +225,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[1].sprite = eggSprite[4];
             counter[1].SetActive(true);
+            usedEggs[1] = GreenEgg;
             if (nestLevel[1] >= 5)
             {
                 birthButton[1].SetActive(true);
@@ -230,6 +241,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[1].sprite = eggSprite[5];
             counter[1].SetActive(true);
+            usedEggs[1] = BrownEgg;
             if (nestLevel[1] >= 5)
             {
                 birthButton[1].SetActive(true);
@@ -254,6 +266,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[2].sprite = eggSprite[0];
             counter[2].SetActive(true);
+            usedEggs[2] = RedEgg;
             if (nestLevel[2] >= 5)
             {
                 birthButton[2].SetActive(true);
@@ -269,6 +282,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[2].sprite = eggSprite[1];
             counter[2].SetActive(true);
+            usedEggs[2] = BlueEgg;
             if (nestLevel[2] >= 5)
             {
                 birthButton[2].SetActive(true);
@@ -284,6 +298,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[2].sprite = eggSprite[2];
             counter[2].SetActive(true);
+            usedEggs[2] = YellowEgg;
             if (nestLevel[2] >= 5)
             {
                 birthButton[2].SetActive(true);
@@ -299,6 +314,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[2].sprite = eggSprite[3];
             counter[2].SetActive(true);
+            usedEggs[2] = BlackEgg;
             if (nestLevel[2] >= 5)
             {
                 birthButton[2].SetActive(true);
@@ -314,6 +330,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[2].sprite = eggSprite[4];
             counter[2].SetActive(true);
+            usedEggs[2] = GreenEgg;
             if (nestLevel[2] >= 5)
             {
                 birthButton[2].SetActive(true);
@@ -329,6 +346,7 @@ public class eggShop : MonoBehaviour
         {
             eggImage[2].sprite = eggSprite[5];
             counter[2].SetActive(true);
+            usedEggs[2] = BrownEgg;
             if (nestLevel[2] >= 5)
             {
                 birthButton[2].SetActive(true);
@@ -641,18 +659,21 @@ public class eggShop : MonoBehaviour
     public void BirthEgg1()
     {
         ResetEggNest1();
+        eggType[0] = -1;
         birthButton[0].SetActive(false);
     }
 
     public void BirthEgg2()
     {
         ResetEggNest2();
+        eggType[1] = -1;
         birthButton[1].SetActive(false);
     }
 
     public void BirthEgg3()
     {
         ResetEggNest3();
+        eggType[2] = -1;
         birthButton[2].SetActive(false);
     }
 

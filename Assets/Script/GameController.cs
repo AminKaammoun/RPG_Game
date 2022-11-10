@@ -1191,6 +1191,10 @@ public class GameController : MonoBehaviour
         eggShop.eggType[1] = data8.eggType[1];
         eggShop.eggType[2] = data8.eggType[2];
 
+        eggShop.requiredEggs[0] = data8.requiredEggs[0];
+        eggShop.requiredEggs[1] = data8.requiredEggs[1];
+        eggShop.requiredEggs[2] = data8.requiredEggs[2];
+
     }
 
     private void OnApplicationQuit()
