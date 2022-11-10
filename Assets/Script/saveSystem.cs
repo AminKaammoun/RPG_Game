@@ -287,4 +287,38 @@ public static class saveSystem
         }
     }
 
+    public static void SaveEggs(GameController player)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/eggs.file";
+
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        eggsData data = new eggsData(player);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+
+    }
+
+    public static eggsData LoadEggs()
+    {
+        string path = Application.persistentDataPath + "/eggs.file";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            eggsData data = formatter.Deserialize(stream) as eggsData;
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("Save File not found in " + path);
+            return null;
+        }
+    }
 }

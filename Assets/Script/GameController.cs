@@ -273,6 +273,7 @@ public class GameController : MonoBehaviour
     public Image skill;
     public Sprite[] skills;
 
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -1101,6 +1102,7 @@ public class GameController : MonoBehaviour
         saveSystem.SaveBeltGems(this);
         saveSystem.SaveRingGems(this);
         saveSystem.SaveFishs(this);
+        saveSystem.SaveEggs(this);
     }
 
     public void LoadData()
@@ -1179,16 +1181,26 @@ public class GameController : MonoBehaviour
         Fish4Discovered = data7.Fish4Discovered;
         Fish5Discovered = data7.Fish5Discovered;
 
+        eggsData data8 = saveSystem.LoadEggs();
+
+        eggShop.nestLevel[0] = data8.nestLevel[0];
+        eggShop.nestLevel[1] = data8.nestLevel[1];
+        eggShop.nestLevel[2] = data8.nestLevel[2];
+
+        eggShop.eggType[0] = data8.eggType[0];
+        eggShop.eggType[1] = data8.eggType[1];
+        eggShop.eggType[2] = data8.eggType[2];
+
     }
 
     private void OnApplicationQuit()
     {
         SaveData();
+    
     }
 
     void Update()
     {
-       
         if (ultValue >= 10)
         {
             canUlt = true;
