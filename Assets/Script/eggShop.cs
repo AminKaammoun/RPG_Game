@@ -49,7 +49,14 @@ public class eggShop : MonoBehaviour
 
     public GameObject eggsPanel;
     public GameObject petsPanel;
-    
+    public GameObject birthPanel;
+
+    public GameObject[] eggUI;
+
+    public AudioSource clickSound;
+    public AudioSource upgradeSound;
+    public AudioSource eggCrackSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -514,6 +521,7 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                clickSound.Play();
                 eggType[i] = 1;
                 eggImage[i].sprite = eggSprite[0];
                 usedEggs[i] = RedEgg;
@@ -532,6 +540,7 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                clickSound.Play();
                 eggType[i] = 2;
                 eggImage[i].sprite = eggSprite[1];
                 usedEggs[i] = BlueEgg;
@@ -550,6 +559,7 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                clickSound.Play();
                 eggType[i] = 3;
                 eggImage[i].sprite = eggSprite[2];
                 usedEggs[i] = YellowEgg;
@@ -568,6 +578,7 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                clickSound.Play();
                 eggType[i] = 4;
                 eggImage[i].sprite = eggSprite[3];
                 usedEggs[i] = BlackEgg;
@@ -586,6 +597,7 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                clickSound.Play();
                 eggType[i] = 5;
                 eggImage[i].sprite = eggSprite[4];
                 usedEggs[i] = GreenEgg;
@@ -604,6 +616,7 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                clickSound.Play();
                 eggType[i] = 6;
                 eggImage[i].sprite = eggSprite[5];
                 usedEggs[i] = BrownEgg;
@@ -617,6 +630,7 @@ public class eggShop : MonoBehaviour
     }
     public void EggFeed()
     {
+        upgradeSound.Play();
         nestLevel[0]++;
         requiredEggs[0]++;
         Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
@@ -629,6 +643,7 @@ public class eggShop : MonoBehaviour
 
     public void EggFeed2()
     {
+        upgradeSound.Play();
         nestLevel[1]++;
         requiredEggs[1]++;
         Vector3 add = new Vector3(-slot2.transform.position.x, -slot2.transform.position.y, transform.position.z);
@@ -641,6 +656,7 @@ public class eggShop : MonoBehaviour
 
     public void EggFeed3()
     {
+        upgradeSound.Play();
         nestLevel[2]++;
         requiredEggs[2]++;
         Vector3 add = new Vector3(-slot3.transform.position.x, -slot3.transform.position.y, transform.position.z);
@@ -663,22 +679,37 @@ public class eggShop : MonoBehaviour
     public void BirthEgg1()
     {
         ResetEggNest1();
-        eggType[0] = -1;
+       
         birthButton[0].SetActive(false);
+        birthPanel.SetActive(true);
+        eggCrackSound.Play();
+        eggUI[eggType[0]-1].SetActive(true); 
+        eggType[0] = -1;
+        StartCoroutine(closeBirthPanel());
     }
 
     public void BirthEgg2()
     {
         ResetEggNest2();
-        eggType[1] = -1;
+        
         birthButton[1].SetActive(false);
+        birthPanel.SetActive(true);
+        eggCrackSound.Play();
+        eggUI[eggType[1] - 1].SetActive(true);
+        eggType[1] = -1;
+        StartCoroutine(closeBirthPanel());
     }
 
     public void BirthEgg3()
     {
         ResetEggNest3();
-        eggType[2] = -1;
+       
         birthButton[2].SetActive(false);
+        birthPanel.SetActive(true); 
+        eggCrackSound.Play();
+        eggUI[eggType[2] - 1].SetActive(true);
+        eggType[2] = -1;
+        StartCoroutine(closeBirthPanel());
     }
 
     public void ResetEggNest1()
@@ -725,6 +756,16 @@ public class eggShop : MonoBehaviour
     {
         eggsPanel.SetActive(true);
         petsPanel.SetActive(false);
+    }
+
+    IEnumerator closeBirthPanel()
+    {
+        yield return new WaitForSeconds(2.5f);
+        for(int i = 0; i< 6; i++)
+        {
+            eggUI[i].SetActive(false);
+        }
+        birthPanel.SetActive(false);
     }
 
 }
