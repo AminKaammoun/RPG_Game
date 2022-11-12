@@ -46,6 +46,10 @@ public class eggShop : MonoBehaviour
 
     public static int eggsNumber;
     public static int[] requiredEggs = new int[3];
+
+    public GameObject eggsPanel;
+    public GameObject petsPanel;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -431,7 +435,7 @@ public class eggShop : MonoBehaviour
         {
             useButton[5].SetActive(false);
         }
-        Debug.Log(usedEggs[0] + " " + usedEggs[1] + " " + usedEggs[2]);
+        //Debug.Log(usedEggs[0] + " " + usedEggs[1] + " " + usedEggs[2]);
         for (int i = 0; i < inventory.Container.Count; i++)
         {
             if (inventory.Container[i].item == eggs)
@@ -711,5 +715,16 @@ public class eggShop : MonoBehaviour
     }
 
   
+    public void PetsButton()
+    {
+        eggsPanel.SetActive(false);
+        petsPanel.SetActive(true);
+    }
+
+    public void eggsButton()
+    {
+        eggsPanel.SetActive(true);
+        petsPanel.SetActive(false);
+    }
 
 }
