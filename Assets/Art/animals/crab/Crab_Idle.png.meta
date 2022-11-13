@@ -112,7 +112,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,7 +133,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,7 +175,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,6 +183,27 @@ TextureImporter:
       bones: []
       spriteID: 14525f1e6449ccd45823c7cf90fc7973
       internalID: -890547573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crab_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 10
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a8a1b9890746f40b59151722347846
+      internalID: 1703473985
       vertices: []
       indices: 
       edges: []
@@ -200,6 +221,7 @@ TextureImporter:
     nameFileIdTable:
       Crab_Idle_1: 1946562254
       Crab_Idle_0: -2094623902
+      Crab_Idle_4: 1703473985
       Crab_Idle_2: -1491119077
       Crab_Idle_3: -890547573
   spritePackingTag: 

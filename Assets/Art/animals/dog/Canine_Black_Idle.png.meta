@@ -112,7 +112,7 @@ TextureImporter:
         width: 48
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,7 +133,7 @@ TextureImporter:
         width: 48
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
         width: 48
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,7 +175,7 @@ TextureImporter:
         width: 48
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,6 +183,27 @@ TextureImporter:
       bones: []
       spriteID: 1161f5bfc7a009b43b35cab5ebc82d36
       internalID: 1721665464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Canine_Black_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f28560cfee9db6d4b82ba7cf3adbc9ae
+      internalID: 1916491673
       vertices: []
       indices: 
       edges: []
@@ -200,6 +221,7 @@ TextureImporter:
     nameFileIdTable:
       Canine_Black_Idle_1: 165295382
       Canine_Black_Idle_3: 1721665464
+      Canine_Black_Idle_4: 1916491673
       Canine_Black_Idle_0: -2056214068
       Canine_Black_Idle_2: -290196291
   spritePackingTag: 

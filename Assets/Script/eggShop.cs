@@ -56,11 +56,14 @@ public class eggShop : MonoBehaviour
     public AudioSource clickSound;
     public AudioSource upgradeSound;
     public AudioSource eggCrackSound;
+    public AudioSource eggOpen;
 
+    public Sprite[] Pets;
+    public Image animalSpawnPos;
     // Start is called before the first frame update
     void Start()
     {
-      
+
         // Nest 1
         if (eggType[0] == 1)
         {
@@ -77,7 +80,7 @@ public class eggShop : MonoBehaviour
                 feedButton[0].SetActive(true);
                 birthButton[0].SetActive(false);
             }
-          
+
         }
         else if (eggType[0] == 2)
         {
@@ -219,7 +222,7 @@ public class eggShop : MonoBehaviour
         else if (eggType[1] == 4)
         {
             eggImage[1].sprite = eggSprite[3];
-            counter[1].SetActive(true); 
+            counter[1].SetActive(true);
             usedEggs[1] = BlackEgg;
             if (nestLevel[1] >= 5)
             {
@@ -377,13 +380,13 @@ public class eggShop : MonoBehaviour
             feedButton[2].SetActive(false);
         }
     }
-  
-  
-  
+
+
+
     // Update is called once per frame
     void Update()
     {
-       
+
         nest1LevelText.text = nestLevel[0].ToString();
         nest2LevelText.text = nestLevel[1].ToString();
         nest3LevelText.text = nestLevel[2].ToString();
@@ -678,37 +681,37 @@ public class eggShop : MonoBehaviour
 
     public void BirthEgg1()
     {
+        animalSpawnPos.sprite = empty;
         ResetEggNest1();
-       
         birthButton[0].SetActive(false);
         birthPanel.SetActive(true);
         eggCrackSound.Play();
-        eggUI[eggType[0]-1].SetActive(true); 
-        eggType[0] = -1;
+        eggUI[eggType[0] - 1].SetActive(true);
+        StartCoroutine(setAniamalSprite(0));
         StartCoroutine(closeBirthPanel());
     }
 
     public void BirthEgg2()
     {
+        animalSpawnPos.sprite = empty;
         ResetEggNest2();
-        
         birthButton[1].SetActive(false);
         birthPanel.SetActive(true);
         eggCrackSound.Play();
         eggUI[eggType[1] - 1].SetActive(true);
-        eggType[1] = -1;
+        StartCoroutine(setAniamalSprite(1));
         StartCoroutine(closeBirthPanel());
     }
 
     public void BirthEgg3()
     {
+        animalSpawnPos.sprite = empty;
         ResetEggNest3();
-       
         birthButton[2].SetActive(false);
-        birthPanel.SetActive(true); 
+        birthPanel.SetActive(true);
         eggCrackSound.Play();
         eggUI[eggType[2] - 1].SetActive(true);
-        eggType[2] = -1;
+        StartCoroutine(setAniamalSprite(2));
         StartCoroutine(closeBirthPanel());
     }
 
@@ -745,7 +748,7 @@ public class eggShop : MonoBehaviour
 
     }
 
-  
+
     public void PetsButton()
     {
         eggsPanel.SetActive(false);
@@ -760,12 +763,96 @@ public class eggShop : MonoBehaviour
 
     IEnumerator closeBirthPanel()
     {
-        yield return new WaitForSeconds(2.5f);
-        for(int i = 0; i< 6; i++)
+        yield return new WaitForSeconds(3f);
+        for (int i = 0; i < 6; i++)
         {
             eggUI[i].SetActive(false);
         }
         birthPanel.SetActive(false);
+    }
+
+    IEnumerator setAniamalSprite(int i)
+    {
+        yield return new WaitForSeconds(1.25f);
+        eggOpen.Play();
+        switch (eggType[i])
+        {
+            case 1:
+                int rand = Random.Range(0, 2);
+                switch (rand)
+                {
+                    case 0:
+                        animalSpawnPos.sprite = Pets[0];
+
+                        break;
+                    case 1:
+                        animalSpawnPos.sprite = Pets[1];
+                        break;
+                }
+                break;
+            case 2:
+                int rand1 = Random.Range(0, 2);
+                switch (rand1)
+                {
+                    case 0:
+                        animalSpawnPos.sprite = Pets[2];
+                        break;
+                    case 1:
+                        animalSpawnPos.sprite = Pets[3];
+                        break;
+                }
+                break;
+            case 3:
+                int rand2 = Random.Range(0, 2);
+                switch (rand2)
+                {
+                    case 0:
+                        animalSpawnPos.sprite = Pets[4];
+                        break;
+                    case 1:
+                        animalSpawnPos.sprite = Pets[4];
+                        break;
+                }
+                break;
+            case 4:
+                int rand3 = Random.Range(0, 2);
+                switch (rand3)
+                {
+                    case 0:
+                        animalSpawnPos.sprite = Pets[5];
+                        break;
+                    case 1:
+                        animalSpawnPos.sprite = Pets[5];
+                        break;
+                }
+                break;
+            case 5:
+                int rand4 = Random.Range(0, 2);
+                switch (rand4)
+                {
+                    case 0:
+                        animalSpawnPos.sprite = Pets[6];
+                        break;
+                    case 1:
+                        animalSpawnPos.sprite = Pets[7];
+                        break;
+                }
+                break;
+            case 6:
+                int rand5 = Random.Range(0, 2);
+                switch (rand5)
+                {
+                    case 0:
+                        animalSpawnPos.sprite = Pets[8];
+                        break;
+                    case 1:
+                        animalSpawnPos.sprite = Pets[9];
+                        break;
+                }
+                break;
+        }
+        eggType[i] = -1;
+        
     }
 
 }

@@ -868,7 +868,7 @@ TextureImporter:
         width: 33
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -876,6 +876,27 @@ TextureImporter:
       bones: []
       spriteID: fb4251ecc6cc3804ebc29ff55a4b5157
       internalID: 1169942060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_worm_37
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 15
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5203d0160723142ae92b3c10f695bd
+      internalID: 774834886
       vertices: []
       indices: 
       edges: []
@@ -910,6 +931,7 @@ TextureImporter:
       small_worm_33: -340664295
       small_worm_25: -2115622254
       small_worm_20: 506238693
+      small_worm_37: 774834886
       small_worm_3: -766193275
       small_worm_0: -352793499
       small_worm_4: -1313564447
