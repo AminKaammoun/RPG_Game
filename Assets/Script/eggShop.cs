@@ -65,9 +65,17 @@ public class eggShop : MonoBehaviour
     //pet
 
     public Text petName;
+    public Text petLevel;
     public Image petImage;
     public Text petCount;
+    public Text FoodXpCounter;
 
+    bool check = false;
+
+    public GameObject foodLevels;
+    public GameObject feedUIButton;
+
+    public foodBar FoodBar;
     void Start()
     {
 
@@ -395,8 +403,14 @@ public class eggShop : MonoBehaviour
     {
         if (GameController.petList.Count > 0)
         {
+            foodLevels.SetActive(true);
+            feedUIButton.SetActive(true);
+
             petCount.text = index + "/" + GameController.petList.Count;
             petName.text = GameController.petList[index][0];
+            petLevel.text = GameController.petList[index][1];
+            FoodXpCounter.text = GameController.petList[index][2] + "/" + GameController.petList[index][3];
+
             switch (GameController.petList[index][0])
             {
                 case "Jack-O-Lantern":
@@ -430,6 +444,11 @@ public class eggShop : MonoBehaviour
                     petImage.sprite = Pets[9];
                     break;
             }
+        }
+        else
+        {
+            foodLevels.SetActive(false);
+            feedUIButton.SetActive(false);
         }
        
         nest1LevelText.text = nestLevel[0].ToString();
@@ -798,8 +817,12 @@ public class eggShop : MonoBehaviour
     {
         eggsPanel.SetActive(false);
         petsPanel.SetActive(true);
+        if (GameController.petList.Count == 1)
+        {
+            FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
+            FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
+        }
     }
-
     public void eggsButton()
     {
         eggsPanel.SetActive(true);
@@ -828,11 +851,37 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[0];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Jack-O-Lantern", "1" });
+                       
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if(pet.Value[0] == "Jack-O-Lantern")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Jack-O-Lantern", "1" , "0" ,"10"});
+                        }
+                        check = false;
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[1];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Claws", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Claws")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Claws", "1" ,"0" , "10"});
+                        }
+                        check = false;
                         break;
                 }
                 break;
@@ -842,11 +891,36 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[2];
-                         GameController.petList.Add(++GameController.numberOfPets, new string[] { "Golem", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Golem")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Golem", "1" ,"0", "10" });
+                        }
+                        check = false;
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[3];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Snow Wolf", "1" });
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Snow Wolf")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Snow Wolf", "1" ,"0", "10" });
+                        }
+                        check = false;
                         break;
                 }
                 break;
@@ -856,11 +930,37 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[4];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Buzz")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1","0", "10" });
+                        }
+                        check = false;
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[4];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Buzz")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1","0", "10" });
+                        }
+                        check = false;
                         break;
                 }
                 break;
@@ -870,11 +970,37 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[5];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Night Wolf")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1","0", "10" });
+                        }
+                        check = false;
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[5];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Night Wolf")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1" ,"0", "10" });
+                        }
+                        check = false;
                         break;
                 }
                 break;
@@ -884,11 +1010,37 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[6];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Rumryss", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Rumryss")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Rumryss", "1","0", "10" });
+                        }
+                        check = false;
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[7];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Wyvernldle", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Wyvernldle")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Wyvernldle", "1","0", "10" });
+                        }
+                        check = false;
                         break;
                 }
                 break;
@@ -898,11 +1050,36 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[8];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Dread Biter", "1" });
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "Dread Biter")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Dread Biter", "1","0", "10" });
+                        }
+                        check = false;
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[9];
-                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "One Eye", "1" });
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "One Eye")
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "One Eye", "1","0", "10" });
+                        }
+                        check = false;
                         break;
                 }
                 break;
@@ -921,7 +1098,10 @@ public class eggShop : MonoBehaviour
         else
         {
             index--;
+      
         }
+        FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
+        FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
     }
     public void nextPetButton()
     {
@@ -934,6 +1114,33 @@ public class eggShop : MonoBehaviour
         else
         {
             index++;
+           
+        }
+        FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
+        FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
+    }
+
+    public void FeedButton()
+    {
+        int a = int.Parse(GameController.petList[index][2]);
+        a += 10;
+        if (a >= int.Parse(GameController.petList[index][3]))
+        {
+            a = 0;
+            int maxFood = int.Parse(GameController.petList[index][3]);
+            maxFood += 10;
+            GameController.petList[index][3] = maxFood.ToString();
+            FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
+            GameController.petList[index][2] = "0";
+            FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
+            int level = int.Parse(GameController.petList[index][1]);
+            level++;
+            GameController.petList[index][1] = level.ToString();
+        }
+        else
+        {
+            GameController.petList[index][2] = a.ToString();
+            FoodBar.SetFood(a);
         }
     }
 }

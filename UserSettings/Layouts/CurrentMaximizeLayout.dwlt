@@ -223,10 +223,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6ea2feff10fbffff7e7b0000048100005692000066a80000d6ad0000b0b80000
+      scrollPos: {x: 0, y: 299}
+      m_SelectedIDs: 72a80000
+      m_LastClickedID: 43122
+      m_ExpandedIDs: 90adffff10fbffffac7c000004810000e88f00005692000072a80000e2ad0000dab80000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2419,9 +2419,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 465.45532, y: 255.35942, z: 3.77187}
+    m_Target: {x: 471.77585, y: 253.48177, z: 10.658832}
     speed: 2
-    m_Value: {x: 465.45532, y: 255.35942, z: 3.77187}
+    m_Value: {x: 471.77585, y: 253.48177, z: 10.658832}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2472,9 +2472,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 355.62204
+    m_Target: 227.80476
     speed: 2
-    m_Value: 355.62204
+    m_Value: 227.80476
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -2509,7 +2509,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimationWindow
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -2520,14 +2520,14 @@ MonoBehaviour:
     height: 276
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
   - {fileID: 14}
   - {fileID: 15}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 3
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2586,7 +2586,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -338228
+  m_LastSelectedObjectID: 43122
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2651,7 +2651,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SearchFilter:
-    m_NameFilter: eggshop
+    m_NameFilter: bar
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -2663,22 +2663,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/animals/dog
+    - Assets/Script
     m_Globs: []
-    m_OriginalText: eggshop
+    m_OriginalText: bar
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/animals/dog
+  - Assets/Script
   m_LastFoldersGridSize: 64
   m_LastProjectPath: E:\Unity projects\RPG Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 149}
-    m_SelectedIDs: a4330100
-    m_LastClickedID: 78756
-    m_ExpandedIDs: 000000003c3301003e33010040330100423301004433010046330100483301004a3301004c3301004e33010050330100523301005433010056330100583301005a3301005c3301005e33010060330100623301006433010066330100683301006a3301006c3301006e3301007033010072330100743301007633010000ca9a3b
+    scrollPos: {x: 0, y: 965}
+    m_SelectedIDs: 74330100
+    m_LastClickedID: 78708
+    m_ExpandedIDs: 000000006e33010070330100723301007433010076330100783301007a3301007c3301007e33010080330100823301008433010086330100883301008a3301008c3301008e33010090330100923301009433010096330100983301009a3301009c3301009e330100a0330100a2330100a4330100a6330100a833010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2706,7 +2706,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c3301003e33010040330100423301004433010046330100483301004a3301004c3301004e33010050330100523301005433010056330100583301005a3301005c3301005e33010060330100623301006433010066330100683301006a3301006c3301006e3301007033010072330100743301007633010000ca9a3b
+    m_ExpandedIDs: 000000006e33010070330100723301007433010076330100783301007a3301007c3301007e33010080330100823301008433010086330100883301008a3301008c3301008e33010090330100923301009433010096330100983301009a3301009c3301009e330100a0330100a2330100a4330100a6330100a833010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2731,9 +2731,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 66a80000
-    m_LastClickedInstanceID: 43110
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: ba950000
+    m_LastClickedInstanceID: 38330
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300000000000078c000002cd200004ed3000072e60000a8610000e06100009efb000076620000b89100008a6900001eca000078630000906f00008e6f0000ee970000f46802003070000048700000929900009e8600009a8600006e7000006a700000f8990000027200001a720000eaad01002c72000092780200987802008c74000070740000e2770000f2740100d86b0100444a0200a0d40000628801002893000010930000d8d20000cef60000048500000682040096cd0000d6760500748a00002c970000408a0900608a0900d49a0000d4020300c6a2000016a3000014a3000048a30000a2a3000084710200f20a05002ea30100d2a50000eaa6000060ae08008ac1000006e20000060c03005289120056a700008ca6000024d9020016b3000010b70000d6b50000bab60000eeb90000ecb90000b4ba0000c2bb0000c0bb000044fa00004efa00003afa0000e4bb00000abc0000f4f90000ea361200e6361200e2361200f2361200ee36120078f4020084ae0300c6c10000c4c10000e6c5000034ce0a006ac600006ec600006ac70000b22d0400fa2d0400002e0400c46d0600ce740c0098c8000086740c00880c010004cc0000f40c0100d6ca0000faca0000d472030002cc000098cd00009ccd00003a1301002acf00003cce00005ac8010034d20000343a0100ae3c0400ee3c04002ac902009a190100224d020074d30000902c0d00121a050028450100201d06004e45010030e506009c6b0900a06b0900fa6e0a000ed800008cd800005a330100ded80000dcd800008ade0000c0b1010080d501002873010076720100627b01006ca00100484e0100e4460100e4680100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2750,7 +2750,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
