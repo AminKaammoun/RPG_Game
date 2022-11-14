@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 using TMPro;
 using System;
 using Random = UnityEngine.Random;
+using System.Collections.Generic;
 
 public enum PlayerMap
 {
@@ -273,13 +274,16 @@ public class GameController : MonoBehaviour
     public Image skill;
     public Sprite[] skills;
 
+    
+    public static Dictionary<int, string[]> petList = new Dictionary<int, string[]>();
+    public static int numberOfPets = 0;
 
     // Start is called before the first frame update
     void Awake()
     {
         LoadData();
-
-        //Gears
+       
+        //gears
         switch (attackGear)
         {
             case "lvl 1 attack (equipmentObject)":
@@ -1205,6 +1209,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+
         if (ultValue >= 10)
         {
             canUlt = true;

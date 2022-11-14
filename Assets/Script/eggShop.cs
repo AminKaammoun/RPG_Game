@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class eggShop : MonoBehaviour
 {
-
+    //egg
     public GameObject effect;
     public GameObject slot;
     public GameObject slot2;
@@ -42,8 +42,7 @@ public class eggShop : MonoBehaviour
     public Text nest2LevelText;
     public Text nest3LevelText;
     public Text[] CounterText;
-
-
+  
     public static int eggsNumber;
     public static int[] requiredEggs = new int[3];
 
@@ -60,7 +59,15 @@ public class eggShop : MonoBehaviour
 
     public Sprite[] Pets;
     public Image animalSpawnPos;
-    // Start is called before the first frame update
+    public static int index = 1;
+
+
+    //pet
+
+    public Text petName;
+    public Image petImage;
+    public Text petCount;
+
     void Start()
     {
 
@@ -386,7 +393,45 @@ public class eggShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GameController.petList.Count > 0)
+        {
+            petCount.text = index + "/" + GameController.petList.Count;
+            petName.text = GameController.petList[index][0];
+            switch (GameController.petList[index][0])
+            {
+                case "Jack-O-Lantern":
+                    petImage.sprite = Pets[0];
+                    break;
+                case "Claws":
+                    petImage.sprite = Pets[1];
+                    break;
+                case "Golem":
+                    petImage.sprite = Pets[2];
+                    break;
+                case "Snow Wolf":
+                    petImage.sprite = Pets[3];
+                    break;
+                case "Buzz":
+                    petImage.sprite = Pets[4];
+                    break;
+                case "Night Wolf":
+                    petImage.sprite = Pets[5];
+                    break;
+                case "Rumryss":
+                    petImage.sprite = Pets[6];
+                    break;
+                case "Wyvernldle":
+                    petImage.sprite = Pets[7];
+                    break;
+                case "Dread Biter":
+                    petImage.sprite = Pets[8];
+                    break;
+                case "One Eye":
+                    petImage.sprite = Pets[9];
+                    break;
+            }
+        }
+       
         nest1LevelText.text = nestLevel[0].ToString();
         nest2LevelText.text = nestLevel[1].ToString();
         nest3LevelText.text = nestLevel[2].ToString();
@@ -783,10 +828,11 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[0];
-
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Jack-O-Lantern", "1" });
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[1];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Claws", "1" });
                         break;
                 }
                 break;
@@ -796,9 +842,11 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[2];
+                         GameController.petList.Add(++GameController.numberOfPets, new string[] { "Golem", "1" });
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[3];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Snow Wolf", "1" });
                         break;
                 }
                 break;
@@ -808,9 +856,11 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[4];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1" });
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[4];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1" });
                         break;
                 }
                 break;
@@ -820,9 +870,11 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[5];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1" });
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[5];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1" });
                         break;
                 }
                 break;
@@ -832,9 +884,11 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[6];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Rumryss", "1" });
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[7];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Wyvernldle", "1" });
                         break;
                 }
                 break;
@@ -844,9 +898,11 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[8];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "Dread Biter", "1" });
                         break;
                     case 1:
                         animalSpawnPos.sprite = Pets[9];
+                        GameController.petList.Add(++GameController.numberOfPets, new string[] { "One Eye", "1" });
                         break;
                 }
                 break;
@@ -855,4 +911,29 @@ public class eggShop : MonoBehaviour
         
     }
 
+    public void previousPetButton()
+    {
+        clickSound.Play();
+        if (index == 1)
+        {
+            index = GameController.petList.Count;
+        }
+        else
+        {
+            index--;
+        }
+    }
+    public void nextPetButton()
+    {
+
+        clickSound.Play();
+        if (index == GameController.petList.Count)
+        {
+            index = 1;
+        }
+        else
+        {
+            index++;
+        }
+    }
 }
