@@ -21,6 +21,7 @@ public class playerData
     public string ability1;
     public string ability2;
     public string ability3;
+    public string petName;
 
     public playerData(GameController player)
     {
@@ -42,6 +43,8 @@ public class playerData
         ability1 = GameController.ability1;
         ability2 = GameController.ability2;
         ability3 = GameController.ability3;
+
+        petName = GameController.petName;
     }
 
 }

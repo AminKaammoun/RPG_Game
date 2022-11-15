@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4501714448471624099}
   - component: {fileID: 4501714448471624098}
   - component: {fileID: 4501714448471624093}
-  - component: {fileID: 4501714448471624096}
+  - component: {fileID: 4907605179651213035}
   m_Layer: 0
   m_Name: ultraBigEye
-  m_TagString: eye_Pet
+  m_TagString: pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4501714448471624096
+--- !u!114 &4907605179651213035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4501714448471624092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02a27d9b515446c43aac47b06a8227b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 53eb8db67abd95649ac3a18166770fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thunder: {fileID: 4614062996353199617, guid: 5bdfc56764b988c41a463cbc9b371af6, type: 3}

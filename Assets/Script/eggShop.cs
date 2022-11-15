@@ -74,8 +74,15 @@ public class eggShop : MonoBehaviour
 
     public GameObject foodLevels;
     public GameObject feedUIButton;
+    public GameObject equipUIButton;
 
     public foodBar FoodBar;
+    public GameObject[] animals = new GameObject[30];
+
+    public GameObject player;
+    public GameObject levelUpEffect;
+    public AudioSource levelUpSound;
+
     void Start()
     {
 
@@ -405,6 +412,7 @@ public class eggShop : MonoBehaviour
         {
             foodLevels.SetActive(true);
             feedUIButton.SetActive(true);
+            equipUIButton.SetActive(true);
 
             petCount.text = index + "/" + GameController.petList.Count;
             petName.text = GameController.petList[index][0];
@@ -449,6 +457,7 @@ public class eggShop : MonoBehaviour
         {
             foodLevels.SetActive(false);
             feedUIButton.SetActive(false);
+            equipUIButton.SetActive(false);
         }
        
         nest1LevelText.text = nestLevel[0].ToString();
@@ -1126,6 +1135,10 @@ public class eggShop : MonoBehaviour
         a += 10;
         if (a >= int.Parse(GameController.petList[index][3]))
         {
+            GameObject effect = Instantiate(levelUpEffect, petImage.transform.position, Quaternion.identity) as GameObject;
+            effect.transform.SetParent(this.gameObject.transform);
+            levelUpSound.Play();
+            Destroy(effect, 1f);
             a = 0;
             int maxFood = int.Parse(GameController.petList[index][3]);
             maxFood += 10;
@@ -1142,5 +1155,64 @@ public class eggShop : MonoBehaviour
             GameController.petList[index][2] = a.ToString();
             FoodBar.SetFood(a);
         }
+    }
+
+    public void EquipButton()
+    {
+        GameObject pet = GameObject.FindGameObjectWithTag("pet");
+        Destroy(pet);
+        switch (GameController.petList[index][0])
+        {
+            case "Jack-O-Lantern":
+                Instantiate(animals[0], player.transform.position, Quaternion.identity);
+                GameController.petName = "pumpkin";
+                break;
+
+            case "Claws":
+                Instantiate(animals[3], player.transform.position, Quaternion.identity);
+                GameController.petName = "crab";
+                break;
+
+            case "Golem":
+                Instantiate(animals[6], player.transform.position, Quaternion.identity);
+                GameController.petName = "golem";
+                break;
+
+            case "Snow Wolf":
+                Instantiate(animals[9], player.transform.position, Quaternion.identity);
+                GameController.petName = "snow wolf";
+                break;
+
+            case "Buzz":
+                Instantiate(animals[12], player.transform.position, Quaternion.identity);
+                GameController.petName = "bee";
+                break;
+
+            case "Night Wolf":
+                Instantiate(animals[15], player.transform.position, Quaternion.identity);
+                GameController.petName = "night wolf";
+                break;
+
+            case "Rumryss":
+                Instantiate(animals[18], player.transform.position, Quaternion.identity);
+                GameController.petName = "snake";
+                break;
+
+            case "Wyvernldle":
+                Instantiate(animals[21], player.transform.position, Quaternion.identity);
+                GameController.petName = "dragon";
+                break;
+
+            case "Dread Biter":
+                Instantiate(animals[24], player.transform.position, Quaternion.identity);
+                GameController.petName = "worm";
+                break;
+
+            case "One Eye":
+                Instantiate(animals[27], player.transform.position, Quaternion.identity);
+                GameController.petName = "eye ball";
+                break;
+        }
+        this.gameObject.SetActive(false);
     }
 }

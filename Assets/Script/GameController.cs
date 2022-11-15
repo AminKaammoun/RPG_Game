@@ -278,6 +278,8 @@ public class GameController : MonoBehaviour
     public static Dictionary<int, string[]> petList = new Dictionary<int, string[]>();
     public static int numberOfPets = 0;
 
+    public static string petName = "";
+
     // Start is called before the first frame update
     void Awake()
     {
