@@ -26,6 +26,7 @@ public class eggShop : MonoBehaviour
     public ItemObject GreenEgg;
     public ItemObject BrownEgg;
     public ItemObject eggs;
+    public ItemObject meat;
 
     public static ItemObject[] usedEggs = new ItemObject[3];
     public static int[] eggType = new int[3];
@@ -69,6 +70,7 @@ public class eggShop : MonoBehaviour
     public Image petImage;
     public Text petCount;
     public Text FoodXpCounter;
+    public Text meatNumberText;
 
     bool check = false;
 
@@ -81,7 +83,11 @@ public class eggShop : MonoBehaviour
 
     public GameObject player;
     public GameObject levelUpEffect;
+
     public AudioSource levelUpSound;
+    public AudioSource eatSound;
+
+    private int meatNumber;
 
     void Start()
     {
@@ -526,8 +532,18 @@ public class eggShop : MonoBehaviour
                 eggsNumber = inventory.Container[i].amount;
                 break;
             }
-
         }
+
+        for (int i = 0; i < inventory.Container.Count; i++)
+        {
+            if (inventory.Container[i].item == meat)
+            {
+                meatNumber = inventory.Container[i].amount;
+                break;
+            }
+        }
+        meatNumberText.text = meatNumber.ToString();
+
         CounterText[0].text = eggsNumber.ToString() + "/" + requiredEggs[0].ToString();
         CounterText[1].text = eggsNumber.ToString() + "/" + requiredEggs[1].ToString();
         CounterText[2].text = eggsNumber.ToString() + "/" + requiredEggs[2].ToString();
@@ -1153,6 +1169,7 @@ public class eggShop : MonoBehaviour
         else
         {
             GameController.petList[index][2] = a.ToString();
+            eatSound.Play();
             FoodBar.SetFood(a);
         }
     }
