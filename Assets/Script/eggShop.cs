@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class eggShop : MonoBehaviour
 {
     /* egg add to dic
-     * 0 : name / 1 : level / 2 : xp / 3 : MaxXpNeeded / 4 : stars / 5 : BaseAtk / 6 : BaseDef / 7 : BaseSp / 8 : BaseAgi / 9 : BaseHp 
+     * 0 : name / 1 : level / 2 : xp / 3 : MaxXpNeeded / 4 : stars / 5 : BaseAtk / 6 : BaseDef / 7 : BaseSp / 8 : BaseAgi / 9 : BaseHp / 10: stats points /11 : BonusAtk / 12 : BonusDef / 13 : BonusSp / 14 : BonusAgi / 15 : BonusHp
     */
     //egg
     public GameObject effect;
@@ -46,7 +46,7 @@ public class eggShop : MonoBehaviour
     public Text nest2LevelText;
     public Text nest3LevelText;
     public Text[] CounterText;
-  
+
     public static int eggsNumber;
     public static int[] requiredEggs = new int[3];
 
@@ -100,10 +100,23 @@ public class eggShop : MonoBehaviour
     public Text BaseAtkText;
     public Text BaseDefText;
     public Text BaseSpText;
-    public Text BaseAgiText; 
+    public Text BaseAgiText;
     public Text BaseHpText;
+    public Text points;
 
-    public AtkBar atkbar; 
+    public Text BonusAtkText;
+    public Text BonusDefText;
+    public Text BonusSpText;
+    public Text BonusAgiText;
+    public Text BonusHpText;
+
+    public GameObject BonusAtk;
+    public GameObject BonusDef;
+    public GameObject BonusSp;
+    public GameObject BonusAgi;
+    public GameObject BonusHp;
+
+    public AtkBar atkbar;
     public DefBar defbar;
     public SpBar spbar;
     public AgiBar agibar;
@@ -450,34 +463,88 @@ public class eggShop : MonoBehaviour
             BaseSpText.text = GameController.petList[index][7].ToString() + "/10";
             BaseAgiText.text = GameController.petList[index][8].ToString() + "/10";
             BaseHpText.text = GameController.petList[index][9].ToString() + "/10";
-            atkbar.SetAtk(int.Parse(GameController.petList[index][5]));
-            defbar.SetDef(int.Parse(GameController.petList[index][6]));
-            spbar.SetSp(int.Parse(GameController.petList[index][7]));
-            agibar.SetAgi(int.Parse(GameController.petList[index][8]));
-            Hpbar.SetHp(int.Parse(GameController.petList[index][9]));
+            points.text = "stats points : " + GameController.petList[index][10].ToString();
+           
+            if(int.Parse(GameController.petList[index][11]) > 0)
+            {
+                BonusAtk.SetActive(true);
+                BonusAtkText.text = "+" + GameController.petList[index][11];
+            }
+            else
+            {
+                BonusAtk.SetActive(false);   
+            }
 
-            switch (GameController.petList[index][4]){
+            if (int.Parse(GameController.petList[index][12]) > 0)
+            {
+                BonusDef.SetActive(true);
+                BonusDefText.text = "+" + GameController.petList[index][12];
+            }
+            else
+            {
+                BonusDef.SetActive(false);
+            }
+
+            if (int.Parse(GameController.petList[index][13]) > 0)
+            {
+                BonusSp.SetActive(true);
+                BonusSpText.text = "+" + GameController.petList[index][13];
+            }
+            else
+            {
+                BonusSp.SetActive(false);
+            }
+
+            if (int.Parse(GameController.petList[index][14]) > 0)
+            {
+                BonusAgi.SetActive(true);
+                BonusAgiText.text = "+" + GameController.petList[index][14];
+            }
+            else
+            {
+                BonusAgi.SetActive(false);
+            }
+
+            if (int.Parse(GameController.petList[index][15]) > 0)
+            {
+                BonusHp.SetActive(true);
+                BonusHpText.text = "+" + GameController.petList[index][15];
+            }
+            else
+            {
+                BonusHp.SetActive(false);
+            }
+
+            atkbar.SetAtk(int.Parse(GameController.petList[index][5]) + int.Parse(GameController.petList[index][11]));
+            defbar.SetDef(int.Parse(GameController.petList[index][6]) + int.Parse(GameController.petList[index][12]));
+            spbar.SetSp(int.Parse(GameController.petList[index][7]) + int.Parse(GameController.petList[index][13]));
+            agibar.SetAgi(int.Parse(GameController.petList[index][8]) + int.Parse(GameController.petList[index][14]));
+            Hpbar.SetHp(int.Parse(GameController.petList[index][9]) + int.Parse(GameController.petList[index][15]));
+
+
+            switch (GameController.petList[index][4])
+            {
                 case "2":
                     grade2Stars.SetActive(true);
                     grade3Stars.SetActive(false);
                     grade4Stars.SetActive(false);
                     grade5Stars.SetActive(false);
                     break;
-               
+
                 case "3":
                     grade3Stars.SetActive(true);
                     grade2Stars.SetActive(false);
                     grade4Stars.SetActive(false);
                     grade5Stars.SetActive(false);
                     break;
-                 
+
                 case "4":
                     grade4Stars.SetActive(true);
                     grade3Stars.SetActive(false);
                     grade2Stars.SetActive(false);
                     grade5Stars.SetActive(false);
                     break;
-               
+
                 case "5":
                     grade5Stars.SetActive(true);
                     grade3Stars.SetActive(false);
@@ -527,7 +594,7 @@ public class eggShop : MonoBehaviour
             equipUIButton.SetActive(false);
             statsPanel.SetActive(false);
         }
-       
+
         nest1LevelText.text = nestLevel[0].ToString();
         nest2LevelText.text = nestLevel[1].ToString();
         nest3LevelText.text = nestLevel[2].ToString();
@@ -938,10 +1005,10 @@ public class eggShop : MonoBehaviour
                 {
                     case 0:
                         animalSpawnPos.sprite = Pets[0];
-                       
+
                         foreach (KeyValuePair<int, string[]> pet in GameController.petList)
                         {
-                            if(pet.Value[0] == "Jack-O-Lantern")
+                            if (pet.Value[0] == "Jack-O-Lantern")
                             {
                                 check = true;
                                 break;
@@ -949,7 +1016,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Jack-O-Lantern", "1" , "0" ,"10","4","5","6","3","2","4"});
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Jack-O-Lantern", "1", "0", "10", "4", "5", "6", "3", "2", "4", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -966,7 +1033,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Claws", "1" ,"0" , "10", "2", "2", "1", "3", "1", "2" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Claws", "1", "0", "10", "2", "2", "1", "3", "1", "2", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -989,7 +1056,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Golem", "1" ,"0", "10", "3", "3", "2", "4", "2", "4" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Golem", "1", "0", "10", "3", "3", "2", "4", "2", "4", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1005,7 +1072,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Snow Wolf", "1" ,"0", "10", "3", "4", "2", "3", "2", "1" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Snow Wolf", "1", "0", "10", "3", "4", "2", "3", "2", "1", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1028,7 +1095,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1","0", "10", "2", "1", "2", "1", "3", "3" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1045,7 +1112,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1","0", "10", "2", "1", "2", "1", "3", "3" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1068,7 +1135,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1","0", "10", "3", "4", "2", "3", "1", "5" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1085,7 +1152,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1" ,"0", "10", "3", "4", "2", "3", "1", "5" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1108,7 +1175,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Rumryss", "1","0", "10", "2", "1", "2", "3", "3", "1" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Rumryss", "1", "0", "10", "2", "1", "2", "3", "3", "1", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1125,7 +1192,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Wyvernldle", "1","0", "10", "4", "5", "4", "3", "4", "4" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Wyvernldle", "1", "0", "10", "4", "5", "4", "3", "4", "4", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1148,7 +1215,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Dread Biter", "1","0", "10", "4", "6", "2", "3", "4", "5" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Dread Biter", "1", "0", "10", "4", "6", "2", "3", "4", "5", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
@@ -1164,15 +1231,15 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "One Eye", "1","0", "10", "3", "3", "2", "4", "1", "5" });
+                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "One Eye", "1", "0", "10", "3", "3", "2", "4", "1", "5", "0", "0", "0", "0", "0", "0" });
                         }
                         check = false;
                         break;
                 }
                 break;
-    }
-    eggType[i] = -1;
-        
+        }
+        eggType[i] = -1;
+
     }
 
     public void previousPetButton()
@@ -1185,7 +1252,7 @@ public class eggShop : MonoBehaviour
         else
         {
             index--;
-      
+
         }
         FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
         FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
@@ -1201,7 +1268,7 @@ public class eggShop : MonoBehaviour
         else
         {
             index++;
-           
+
         }
         FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
         FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
@@ -1213,6 +1280,9 @@ public class eggShop : MonoBehaviour
         a += 10;
         if (a >= int.Parse(GameController.petList[index][3]))
         {
+            int points = int.Parse(GameController.petList[index][10]) + 1;
+            GameController.petList[index][10] = points.ToString();
+            eatSound.Play();
             GameObject effect = Instantiate(levelUpEffect, petImage.transform.position, Quaternion.identity) as GameObject;
             effect.transform.SetParent(this.gameObject.transform);
             levelUpSound.Play();
@@ -1293,5 +1363,70 @@ public class eggShop : MonoBehaviour
                 break;
         }
         this.gameObject.SetActive(false);
+    }
+
+    public void atkPlusButton()
+    {
+        if (int.Parse(GameController.petList[index][10]) > 0 && int.Parse(GameController.petList[index][11]) + int.Parse(GameController.petList[index][5]) < 10)
+        {
+            clickSound.Play();
+            int points = int.Parse(GameController.petList[index][10]) - 1;
+            GameController.petList[index][10] = points.ToString();
+            
+            int bonusAtk = int.Parse(GameController.petList[index][11]) + 1;
+            GameController.petList[index][11] = bonusAtk.ToString();
+        }
+    }
+
+    public void defPlusButton()
+    {
+        if (int.Parse(GameController.petList[index][10]) > 0 && int.Parse(GameController.petList[index][12]) + int.Parse(GameController.petList[index][6]) < 10)
+        {
+            clickSound.Play();
+            int points = int.Parse(GameController.petList[index][10]) - 1;
+            GameController.petList[index][10] = points.ToString();
+
+            int bonusAtk = int.Parse(GameController.petList[index][12]) + 1;
+            GameController.petList[index][12] = bonusAtk.ToString();
+        }
+    }
+
+    public void spPlusButton()
+    {
+        if (int.Parse(GameController.petList[index][10]) > 0 && int.Parse(GameController.petList[index][13]) + int.Parse(GameController.petList[index][7]) < 10)
+        {
+            clickSound.Play();
+            int points = int.Parse(GameController.petList[index][10]) - 1;
+            GameController.petList[index][10] = points.ToString();
+         
+            int bonusAtk = int.Parse(GameController.petList[index][13]) + 1;
+            GameController.petList[index][13] = bonusAtk.ToString();
+        }
+    }
+
+    public void agiPlusButton()
+    {
+        if (int.Parse(GameController.petList[index][10]) > 0 && int.Parse(GameController.petList[index][14]) + int.Parse(GameController.petList[index][8]) < 10)
+        {
+            clickSound.Play();
+            int points = int.Parse(GameController.petList[index][10]) - 1;
+            GameController.petList[index][10] = points.ToString();
+      
+            int bonusAtk = int.Parse(GameController.petList[index][14]) + 1;
+            GameController.petList[index][14] = bonusAtk.ToString();
+        }
+    }
+
+    public void hpPlusButton()
+    {
+        if (int.Parse(GameController.petList[index][10]) > 0 && int.Parse(GameController.petList[index][15]) + int.Parse(GameController.petList[index][9]) < 10)
+        {
+            clickSound.Play();
+            int points = int.Parse(GameController.petList[index][10]) - 1;
+            GameController.petList[index][10] = points.ToString();
+     
+            int bonusAtk = int.Parse(GameController.petList[index][15]) + 1;
+            GameController.petList[index][15] = bonusAtk.ToString();
+        }
     }
 }

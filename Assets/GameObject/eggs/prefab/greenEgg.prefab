@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0010375977, y: -2.1}
+  m_AnchoredPosition: {x: -0.0010375977, y: 10.752121}
   m_SizeDelta: {x: 165.78, y: 2.0335}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1896372736435326384
@@ -365,7 +365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.93408203, y: 6.48806}
+  m_AnchoredPosition: {x: 0.93408203, y: 19.340181}
   m_SizeDelta: {x: 66.3905, y: 15.1435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7273226553686723148
@@ -546,7 +546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.182999, y: 21.788061}
+  m_AnchoredPosition: {x: -25.182999, y: 34.640182}
   m_SizeDelta: {x: 118.62, y: 15.1435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7939330503589349689
@@ -626,8 +626,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.7984009, y: -15.411938}
-  m_SizeDelta: {x: 151.9393, y: 20.662}
+  m_AnchoredPosition: {x: 2.7984009, y: -16.1}
+  m_SizeDelta: {x: 151.9393, y: 47.7423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8603366815932992702
 CanvasRenderer:
@@ -670,7 +670,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A magical egg that can be upgraded to a magical pet.
+  m_Text: 'A magical egg that can be upgraded to a magical pet.
+
+
+    You can obtain
+    :
+
+    2 STARS - Rumryss
+
+    4 Stars - Wyvernldle'
 --- !u!1 &6645035037565220502
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52.668, y: 29.088045}
+  m_AnchoredPosition: {x: 52.668, y: 41.940166}
   m_SizeDelta: {x: 37.0782, y: 37.0782}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5057835078922631586
@@ -782,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -59.2, y: 6.488041}
+  m_AnchoredPosition: {x: -59.2, y: 19.340162}
   m_SizeDelta: {x: 53.8777, y: 15.1435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3276666973325362948
@@ -870,7 +878,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -74.4, y: 86.5}
-  m_SizeDelta: {x: 132.2739, y: 23.128}
+  m_SizeDelta: {x: 132.2739, y: 52.3513}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8126146800159971438
 CanvasRenderer:
