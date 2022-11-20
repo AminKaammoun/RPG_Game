@@ -260,6 +260,31 @@ public class GameController : MonoBehaviour
     public static int ringSpGemBonus;
     public static int ringHpGemBonus;
 
+    public static int petAtkBonus;
+    public static int pet1AtkBonus;
+    public static int pet2AtkBonus;
+    public static int pet3AtkBonus;
+
+    public static int petDefBonus;
+    public static int pet1DefBonus;
+    public static int pet2DefBonus;
+    public static int pet3DefBonus;
+
+    public static int petSpBonus;
+    public static int pet1SpBonus;
+    public static int pet2SpBonus;
+    public static int pet3SpBonus;
+
+    public static int petAgiBonus;
+    public static int pet1AgiBonus;
+    public static int pet2AgiBonus;
+    public static int pet3AgiBonus;
+
+    public static int petHpBonus;
+    public static int pet1HpBonus;
+    public static int pet2HpBonus;
+    public static int pet3HpBonus;
+
     public static bool Fish1Discovered;
     public static bool Fish2Discovered;
     public static bool Fish3Discovered;
@@ -1075,6 +1100,7 @@ public class GameController : MonoBehaviour
                 ringHpGemBonus = 2025;
                 break;
         }
+
 
         int a = PlayerPrefs.GetInt("swapGems");
         if (a == 1)
