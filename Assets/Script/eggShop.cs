@@ -52,6 +52,7 @@ public class eggShop : MonoBehaviour
 
     public GameObject eggsPanel;
     public GameObject petsPanel;
+    public GameObject statPanel;
     public GameObject birthPanel;
 
     public GameObject[] eggUI;
@@ -121,6 +122,14 @@ public class eggShop : MonoBehaviour
     public SpBar spbar;
     public AgiBar agibar;
     public hpBar Hpbar;
+
+    // stats 
+
+    public Image[] petsImage;
+    public static Dictionary<int, string[]> usedPetList = new Dictionary<int, string[]>();
+    int usedPetListIndex = 0;
+    public Image[] usedPetsImage;
+    public GameObject[] useButtons;
 
     void Start()
     {
@@ -971,6 +980,7 @@ public class eggShop : MonoBehaviour
     {
         eggsPanel.SetActive(false);
         petsPanel.SetActive(true);
+        statPanel.SetActive(false);
         if (GameController.petList.Count == 1)
         {
             FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
@@ -981,6 +991,14 @@ public class eggShop : MonoBehaviour
     {
         eggsPanel.SetActive(true);
         petsPanel.SetActive(false);
+        statPanel.SetActive(false);
+    }
+
+    public void statsButton()
+    {
+        eggsPanel.SetActive(false);
+        petsPanel.SetActive(false);
+        statPanel.SetActive(true);
     }
 
     IEnumerator closeBirthPanel()
@@ -1016,7 +1034,10 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
+                            
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Jack-O-Lantern", "1", "0", "10", "4", "5", "6", "3", "2", "4", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count-1].sprite = Pets[0];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1034,6 +1055,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Claws", "1", "0", "10", "2", "2", "1", "3", "1", "2", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[1];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1057,6 +1080,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Golem", "1", "0", "10", "3", "3", "2", "4", "2", "4", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[2];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1073,6 +1098,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Snow Wolf", "1", "0", "10", "3", "4", "2", "3", "2", "1", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[3];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1096,6 +1123,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[4];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1113,6 +1142,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[4];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1136,6 +1167,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[5];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1153,6 +1186,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[5];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1176,6 +1211,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Rumryss", "1", "0", "10", "2", "1", "2", "3", "3", "1", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[6];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1193,6 +1230,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Wyvernldle", "1", "0", "10", "4", "5", "4", "3", "4", "4", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[7];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1216,6 +1255,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "Dread Biter", "1", "0", "10", "4", "6", "2", "3", "4", "5", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[8];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1232,6 +1273,8 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
                             GameController.petList.Add(++GameController.numberOfPets, new string[] { "One Eye", "1", "0", "10", "3", "3", "2", "4", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[9];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
@@ -1427,6 +1470,16 @@ public class eggShop : MonoBehaviour
      
             int bonusAtk = int.Parse(GameController.petList[index][15]) + 1;
             GameController.petList[index][15] = bonusAtk.ToString();
+        }
+    }
+
+    public void usePetButton(int a)
+    {
+        if (usedPetList.Count < 3)
+        {
+            clickSound.Play();
+            usedPetList.Add(++usedPetListIndex, GameController.petList[a + 1]);
+            usedPetsImage[usedPetListIndex - 1].sprite = petsImage[a].sprite;
         }
     }
 }
