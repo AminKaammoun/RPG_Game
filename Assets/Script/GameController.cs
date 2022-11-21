@@ -1990,11 +1990,11 @@ public class GameController : MonoBehaviour
         SpValue.text = PlayerMovements.Sp.ToString();
         HpValue.text = PlayerMovements.hp.ToString();
 
-        attackBonus.text = "+(" + PlayerMovements.BonusAttack.ToString() + ")";
-        defBonus.text = "+(" + PlayerMovements.BonusDefence.ToString() + ")";
-        agilityBonus.text = "+(" + PlayerMovements.BonusAgility.ToString() + ")";
-        SpBonus.text = "+(" + PlayerMovements.BonusSp.ToString() + ")";
-        HpBonus.text = "+(" + PlayerMovements.BonusHp.ToString() + ")";
+        attackBonus.text = "+(" + (PlayerMovements.BonusAttack + petAtkBonus).ToString() + ")";
+        defBonus.text = "+(" + (PlayerMovements.BonusDefence + petDefBonus).ToString() + ")";
+        agilityBonus.text = "+(" + (PlayerMovements.BonusAgility + petAgiBonus).ToString() + ")";
+        SpBonus.text = "+(" + (PlayerMovements.BonusSp + petSpBonus).ToString() + ")";
+        HpBonus.text = "+(" + (PlayerMovements.BonusHp + petHpBonus).ToString() + ")";
 
         BattlePower = (int)(PlayerMovements.attack * 4 + PlayerMovements.defence / 2 + PlayerMovements.agility / 2 + PlayerMovements.hp / 2 + PlayerMovements.Sp * 2);
         battlePowerText.text = BattlePower.ToString() + " BP.";

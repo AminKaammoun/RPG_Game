@@ -1536,11 +1536,11 @@ public class PlayerMovements : MonoBehaviour
     public void getStats()
     {
 
-        attack = 100 + (GameController.Level * 5) + BonusAttack;
-        defence = 50 + (GameController.Level * 4) + BonusDefence;
-        agility = 30 + (GameController.Level * 2) + BonusAgility;
-        hp = 100 + (GameController.Level * 10) + BonusHp;
-        Sp = 50 + (GameController.Level * 2) + BonusSp;
+        attack = 100 + (GameController.Level * 5) + BonusAttack + GameController.petAtkBonus;
+        defence = 50 + (GameController.Level * 4) + BonusDefence + GameController.petDefBonus;
+        agility = 30 + (GameController.Level * 2) + BonusAgility + GameController.petAgiBonus;
+        hp = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
+        Sp = 50 + (GameController.Level * 2) + BonusSp + GameController.petSpBonus;
 
     }
 

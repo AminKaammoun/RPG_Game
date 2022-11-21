@@ -156,6 +156,12 @@ public class eggShop : MonoBehaviour
     private int Hp4starsPet = 20;
     private int Hp5starsPet = 30;
 
+    public Text petAtkBonusText;
+    public Text petDefBonusText;
+    public Text petAgiBonusText;
+    public Text petSpBonusText;
+    public Text petHpBonusText;
+
     void Start()
     {
 
@@ -690,7 +696,7 @@ public class eggShop : MonoBehaviour
                             GameController.pet3SpBonus = int.Parse(usedPetList[3][7]) * Sp3starsPet + int.Parse(usedPetList[3][13]) * Sp3starsPet;
                             GameController.pet3AgiBonus = int.Parse(usedPetList[3][8]) * Agi3starsPet + int.Parse(usedPetList[3][14]) * Agi3starsPet;
                             GameController.pet3HpBonus = int.Parse(usedPetList[3][9]) * Hp3starsPet + int.Parse(usedPetList[3][15]) * Hp3starsPet;
-                      
+
                             break;
                         case "4":
                             GameController.pet3AtkBonus = int.Parse(usedPetList[3][5]) * Atk4starsPet + int.Parse(usedPetList[3][11]) * Atk4starsPet;
@@ -698,7 +704,7 @@ public class eggShop : MonoBehaviour
                             GameController.pet3SpBonus = int.Parse(usedPetList[3][7]) * Sp4starsPet + int.Parse(usedPetList[3][13]) * Sp4starsPet;
                             GameController.pet3AgiBonus = int.Parse(usedPetList[3][8]) * Agi4starsPet + int.Parse(usedPetList[3][14]) * Agi4starsPet;
                             GameController.pet3HpBonus = int.Parse(usedPetList[3][9]) * Hp4starsPet + int.Parse(usedPetList[3][15]) * Hp4starsPet;
-                       
+
                             break;
                         case "5":
                             GameController.pet3AtkBonus = int.Parse(usedPetList[3][5]) * Atk5starsPet + int.Parse(usedPetList[3][11]) * Atk5starsPet;
@@ -711,12 +717,18 @@ public class eggShop : MonoBehaviour
                     }
                     break;
             }
+
             GameController.petAtkBonus = GameController.pet1AtkBonus + GameController.pet2AtkBonus + GameController.pet3AtkBonus;
             GameController.petDefBonus = GameController.pet1DefBonus + GameController.pet2DefBonus + GameController.pet3DefBonus;
             GameController.petSpBonus = GameController.pet1SpBonus + GameController.pet2SpBonus + GameController.pet3SpBonus;
             GameController.petAgiBonus = GameController.pet1AgiBonus + GameController.pet2AgiBonus + GameController.pet3AgiBonus;
             GameController.petHpBonus = GameController.pet1HpBonus + GameController.pet2HpBonus + GameController.pet3HpBonus;
-           
+
+            petAtkBonusText.text = GameController.petAtkBonus.ToString();
+            petDefBonusText.text = GameController.petDefBonus.ToString();
+            petSpBonusText.text = GameController.petSpBonus.ToString();
+            petAgiBonusText.text = GameController.petAgiBonus.ToString();
+            petHpBonusText.text = GameController.petHpBonus.ToString();
 
             Debug.Log(GameController.petAtkBonus + " " + GameController.petDefBonus + " " + GameController.petSpBonus + " " + GameController.petAgiBonus + " " + GameController.petHpBonus);
 
@@ -1728,17 +1740,10 @@ public class eggShop : MonoBehaviour
             clickSound.Play();
             usedPetList.Add(++usedPetListIndex, GameController.petList[a + 1]);
             usedPetsImage[usedPetListIndex - 1].sprite = petsImage[a].sprite;
-            //UpdateStats();
+            
+            
         }
-    }
+    } 
 
-    public void UpdateStats()
-    {
-        PlayerMovements.BonusAttack += GameController.petAtkBonus;
-        PlayerMovements.BonusDefence += GameController.petDefBonus;
-        PlayerMovements.BonusAgility += GameController.petSpBonus;
-        PlayerMovements.BonusSp += GameController.petAgiBonus;
-        PlayerMovements.BonusHp += GameController.petHpBonus;
-    }
     
 }
