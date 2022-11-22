@@ -162,6 +162,10 @@ public class eggShop : MonoBehaviour
     public Text petSpBonusText;
     public Text petHpBonusText;
 
+    public GameObject[] removeButton;
+    public GameObject[] effects;
+    public GameObject[] staticEffects;
+
     void Start()
     {
 
@@ -507,6 +511,13 @@ public class eggShop : MonoBehaviour
 
             switch (usedPetList.Count)
             {
+                case 0:
+                    GameController.petAtkBonus = 0;
+                    GameController.petDefBonus = 0;
+                    GameController.petSpBonus = 0;
+                    GameController.petAgiBonus = 0;
+                    GameController.petHpBonus = 0;
+                    break;
                 case 1:
 
                     switch (usedPetList[1][4])
@@ -730,7 +741,8 @@ public class eggShop : MonoBehaviour
             petAgiBonusText.text = GameController.petAgiBonus.ToString();
             petHpBonusText.text = GameController.petHpBonus.ToString();
 
-            Debug.Log(GameController.petAtkBonus + " " + GameController.petDefBonus + " " + GameController.petSpBonus + " " + GameController.petAgiBonus + " " + GameController.petHpBonus);
+            //Debug.Log(GameController.petAtkBonus + " " + GameController.petDefBonus + " " + GameController.petSpBonus + " " + GameController.petAgiBonus + " " + GameController.petHpBonus);
+            Debug.Log(usedPetList.Count);
 
             if (int.Parse(GameController.petList[index][11]) > 0)
             {
@@ -1737,13 +1749,93 @@ public class eggShop : MonoBehaviour
     {
         if (usedPetList.Count < 3)
         {
+            effects[a].SetActive(true);
+            staticEffects[a].SetActive(false);
             clickSound.Play();
             usedPetList.Add(++usedPetListIndex, GameController.petList[a + 1]);
             usedPetsImage[usedPetListIndex - 1].sprite = petsImage[a].sprite;
-            
+            useButtons[a].SetActive(false);
+            removeButton[usedPetListIndex - 1].SetActive(true);
             
         }
     } 
 
-    
+    public void removePetButton(int a)
+    {
+        clickSound.Play();
+        removeButton[a].SetActive(false);
+        effects[a].SetActive(false);
+        staticEffects[a].SetActive(true);
+        if (usedPetList.Count == 1)
+        {
+            usedPetList.Remove(1);
+        }
+        else
+        {
+            usedPetList.Remove(a + 1);
+            
+        }
+
+        usedPetsImage[a].sprite = empty;
+        
+        GameController.pet1AtkBonus = 0;
+        GameController.pet1DefBonus = 0;
+        GameController.pet1SpBonus = 0;
+        GameController.pet1AgiBonus = 0;
+        GameController.pet1HpBonus = 0;
+
+        GameController.pet2AtkBonus = 0;
+        GameController.pet2DefBonus = 0;
+        GameController.pet2SpBonus = 0;
+        GameController.pet2AgiBonus = 0;
+        GameController.pet2HpBonus = 0;
+
+        GameController.pet3AtkBonus = 0;
+        GameController.pet3DefBonus = 0;
+        GameController.pet3SpBonus = 0;
+        GameController.pet3AgiBonus = 0;
+        GameController.pet3HpBonus = 0;
+       
+        if (usedPetList.Count > 0) {
+            foreach (KeyValuePair<int, string[]> kvp in usedPetList)
+            {
+                switch (usedPetList.Count)
+                {
+                    case 1:
+                        switch (kvp.Key)
+                        {
+                            case 2:
+                                string[] value = usedPetList[2];
+                                usedPetList.Clear();
+                                usedPetList.Add(1, value);
+
+                                break;
+                            case 3:
+                                string[] value1 = usedPetList[3];
+                                usedPetList.Clear();
+                                usedPetList.Add(1, value1);
+                                break;
+                        }
+                        break;
+                    case 2:
+                        if(usedPetList.ContainsKey(1) && usedPetList.ContainsKey(3))
+                        {
+                            string[] value = usedPetList[1];
+                            string[] value1 = usedPetList[3];
+                            usedPetList.Clear();
+                            usedPetList.Add(1, value);
+                            usedPetList.Add(2, value1);
+                        }else if (usedPetList.ContainsKey(2) && usedPetList.ContainsKey(3))
+                        {
+                            string[] value = usedPetList[2];
+                            string[] value1 = usedPetList[3];
+                            usedPetList.Clear();
+                            usedPetList.Add(1, value);
+                            usedPetList.Add(2, value1);
+                        }
+                        break;
+                }
+            } 
+        }
+    }
 }
