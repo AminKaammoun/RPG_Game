@@ -742,7 +742,13 @@ public class eggShop : MonoBehaviour
             petHpBonusText.text = GameController.petHpBonus.ToString();
 
             //Debug.Log(GameController.petAtkBonus + " " + GameController.petDefBonus + " " + GameController.petSpBonus + " " + GameController.petAgiBonus + " " + GameController.petHpBonus);
-            Debug.Log(usedPetList.Count);
+            //Debug.Log(usedPetList.Count);
+
+            if(usedPetsImage[0].sprite == empty && usedPetsImage[1].sprite == empty && usedPetsImage[2].sprite == empty)
+            {
+                usedPetList.Clear();
+            }
+
 
             if (int.Parse(GameController.petList[index][11]) > 0)
             {
@@ -1749,8 +1755,8 @@ public class eggShop : MonoBehaviour
     {
         if (usedPetList.Count < 3)
         {
-            effects[a].SetActive(true);
-            staticEffects[a].SetActive(false);
+            effects[usedPetListIndex].SetActive(true);
+            staticEffects[usedPetListIndex].SetActive(false);
             clickSound.Play();
             usedPetList.Add(++usedPetListIndex, GameController.petList[a + 1]);
             usedPetsImage[usedPetListIndex - 1].sprite = petsImage[a].sprite;
@@ -1763,6 +1769,7 @@ public class eggShop : MonoBehaviour
     public void removePetButton(int a)
     {
         clickSound.Play();
+        usedPetListIndex--;
         removeButton[a].SetActive(false);
         effects[a].SetActive(false);
         staticEffects[a].SetActive(true);
@@ -1775,9 +1782,113 @@ public class eggShop : MonoBehaviour
             usedPetList.Remove(a + 1);
             
         }
-
+        Debug.Log(usedPetsImage[a].sprite.name);
+        switch (usedPetsImage[a].sprite.name)
+        {
+            case "pumpking_24":
+                for(int i = 0; i < petsImage.Length; i++)
+                {
+                    if(petsImage[i].sprite.name == "pumpking_24")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "Crab_Idle_4":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "Crab_Idle_4")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "Golem_IdleB_4":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "Golem_IdleB_4")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "Canine_White_Idle_4":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "Canine_White_Idle_4")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "bee_spritesheet_0":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "bee_spritesheet_0")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "Canine_Black_Idle_4":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "Canine_Black_Idle_4")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "snake_28":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "snake_28")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "GreatWyvernIdleSide_0":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "GreatWyvernIdleSide_0")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "small_worm_37":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "small_worm_37")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "eyeball_28":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "eyeball_28")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+        }
         usedPetsImage[a].sprite = empty;
         
+
         GameController.pet1AtkBonus = 0;
         GameController.pet1DefBonus = 0;
         GameController.pet1SpBonus = 0;
@@ -1808,12 +1919,28 @@ public class eggShop : MonoBehaviour
                                 string[] value = usedPetList[2];
                                 usedPetList.Clear();
                                 usedPetList.Add(1, value);
-
+                                usedPetsImage[0].sprite = usedPetsImage[1].sprite;
+                                usedPetsImage[1].sprite = empty;
+                                removeButton[0].SetActive(true);
+                                removeButton[1].SetActive(false);
+                                staticEffects[1].SetActive(true);
+                                effects[1].SetActive(false);
+                                staticEffects[0].SetActive(false);
+                                effects[0].SetActive(true);
                                 break;
+
                             case 3:
                                 string[] value1 = usedPetList[3];
                                 usedPetList.Clear();
                                 usedPetList.Add(1, value1);
+                                usedPetsImage[0].sprite = usedPetsImage[2].sprite;
+                                usedPetsImage[2].sprite = empty;
+                                removeButton[0].SetActive(true);
+                                removeButton[2].SetActive(false);
+                                staticEffects[2].SetActive(true);
+                                effects[2].SetActive(false);
+                                staticEffects[0].SetActive(false);
+                                effects[0].SetActive(true);
                                 break;
                         }
                         break;
@@ -1825,13 +1952,39 @@ public class eggShop : MonoBehaviour
                             usedPetList.Clear();
                             usedPetList.Add(1, value);
                             usedPetList.Add(2, value1);
-                        }else if (usedPetList.ContainsKey(2) && usedPetList.ContainsKey(3))
+                       
+                            usedPetsImage[1].sprite = usedPetsImage[2].sprite;
+                            usedPetsImage[2].sprite = empty;
+                            removeButton[0].SetActive(true);
+                            removeButton[1].SetActive(true);
+                            removeButton[2].SetActive(false);
+                            staticEffects[0].SetActive(false);
+                            effects[0].SetActive(true);
+                            staticEffects[1].SetActive(false);
+                            effects[1].SetActive(true);
+                            staticEffects[2].SetActive(true);
+                            effects[2].SetActive(false);
+                        }
+                        else if (usedPetList.ContainsKey(2) && usedPetList.ContainsKey(3))
                         {
                             string[] value = usedPetList[2];
                             string[] value1 = usedPetList[3];
                             usedPetList.Clear();
                             usedPetList.Add(1, value);
                             usedPetList.Add(2, value1);
+                            usedPetsImage[0].sprite = usedPetsImage[1].sprite;
+                            usedPetsImage[1].sprite = empty;
+                            usedPetsImage[1].sprite = usedPetsImage[2].sprite;
+                            usedPetsImage[2].sprite = empty;
+                            removeButton[0].SetActive(true);
+                            removeButton[1].SetActive(true);
+                            removeButton[2].SetActive(false);
+                            staticEffects[0].SetActive(false);
+                            effects[0].SetActive(true);
+                            staticEffects[1].SetActive(false);
+                            effects[1].SetActive(true);
+                            staticEffects[2].SetActive(true);
+                            effects[2].SetActive(false);
                         }
                         break;
                 }
