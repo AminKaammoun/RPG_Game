@@ -2021,7 +2021,17 @@ public class GameController : MonoBehaviour
                 }
                 catch (NullReferenceException e1)
                 {
-                    Debug.Log(e1);
+                    try
+                    {
+                        var gainedTxt = Instantiate(gainedBp, new Vector3(70f, -26f, 0f), Quaternion.identity) as GameObject;
+                        gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("eggShop").transform, false);
+                        gainedTxt.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                        Debug.Log(e1);
+                    }
+                    catch (NullReferenceException e2)
+                    {
+                        Debug.Log(e2);
+                    }
                 }
             }
             PlayerPrefs.SetInt("BattlePower", (int)GameController.BattlePower);
