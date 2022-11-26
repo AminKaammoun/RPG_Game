@@ -299,17 +299,19 @@ public class GameController : MonoBehaviour
     public Image skill;
     public Sprite[] skills;
 
-    
+
     public static Dictionary<int, string[]> petList = new Dictionary<int, string[]>();
     public static int numberOfPets = 0;
 
     public static string petName = "";
 
+    public GameObject statsPanel;
+
     // Start is called before the first frame update
     void Awake()
     {
         LoadData();
-       
+
         //gears
         switch (attackGear)
         {
@@ -1232,7 +1234,7 @@ public class GameController : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveData();
-    
+
     }
 
     void Update()
@@ -1671,7 +1673,7 @@ public class GameController : MonoBehaviour
     public void ButcherPanel()
     {
         butcherPanel.SetActive(true);
-       
+
         ArrowSpawn.canShoot = false;
 
     }
@@ -1801,7 +1803,7 @@ public class GameController : MonoBehaviour
         if (PlayerMovements.isDashButtonDown)
         {
             dashUi.SetActive(true);
-           
+
         }
 
     }
@@ -2023,10 +2025,21 @@ public class GameController : MonoBehaviour
                 {
                     try
                     {
-                        var gainedTxt = Instantiate(gainedBp, new Vector3(70f, -26f, 0f), Quaternion.identity) as GameObject;
-                        gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("eggShop").transform, false);
-                        gainedTxt.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-                        Debug.Log(e1);
+                        if (statsPanel.activeSelf)
+                        {
+                            var gainedTxt = Instantiate(gainedBp, new Vector3(70f, -26f, 0f), Quaternion.identity) as GameObject;
+                            gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("eggShop").transform, false);
+                            gainedTxt.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                            Debug.Log(e1);
+                        }
+                        else
+                        {
+                            var gainedTxt = Instantiate(gainedBp, new Vector3(-120f, 0f, 0f), Quaternion.identity) as GameObject;
+                            gainedTxt.transform.SetParent(GameObject.FindGameObjectWithTag("eggShop").transform, false);
+                            gainedTxt.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                            Debug.Log(e1);
+                        }
+
                     }
                     catch (NullReferenceException e2)
                     {
@@ -2057,4 +2070,5 @@ public class GameController : MonoBehaviour
             StartCoroutine(removeCock());
         }
     }
+
 }

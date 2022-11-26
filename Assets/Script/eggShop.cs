@@ -165,7 +165,8 @@ public class eggShop : MonoBehaviour
     public GameObject[] removeButton;
     public GameObject[] effects;
     public GameObject[] staticEffects;
-
+    public GameObject alert1;
+    public GameObject notEnoughText;
     void Start()
     {
 
@@ -1990,5 +1991,43 @@ public class eggShop : MonoBehaviour
                 }
             } 
         }
+    }
+    public void resetButton()
+    {
+        alert1.SetActive(true);
+    }
+    public void ConfirmReset()
+    {
+        if (GameController.diamonds > 99)
+        {
+            GameController.diamonds -= 100;
+            int atk = int.Parse(GameController.petList[index][11]);
+            int def = int.Parse(GameController.petList[index][12]);
+            int sp = int.Parse(GameController.petList[index][13]);
+            int agi = int.Parse(GameController.petList[index][14]);
+            int hp = int.Parse(GameController.petList[index][15]);
+
+            int point = atk + def + sp + agi + hp;
+            Debug.Log(point);
+            GameController.petList[index][10] = (int.Parse(GameController.petList[index][10]) + point).ToString();
+            GameController.petList[index][11] = "0";
+            GameController.petList[index][12] = "0";
+            GameController.petList[index][13] = "0";
+            GameController.petList[index][14] = "0";
+            GameController.petList[index][15] = "0";
+            alert1.SetActive(false);
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(petsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
+        }
+    }
+
+    public void closeAlert()
+    {
+        alert1.SetActive(false);
     }
 }
