@@ -307,11 +307,13 @@ public class GameController : MonoBehaviour
 
     public GameObject statsPanel;
 
+    public Image[] usedPetImage;
+
     // Start is called before the first frame update
     void Awake()
     {
         LoadData();
-
+     
         //gears
         switch (attackGear)
         {
@@ -1137,6 +1139,7 @@ public class GameController : MonoBehaviour
         saveSystem.SaveRingGems(this);
         saveSystem.SaveFishs(this);
         saveSystem.SaveEggs(this);
+        saveSystem.SavePets(this);
     }
 
     public void LoadData()
@@ -1229,7 +1232,34 @@ public class GameController : MonoBehaviour
         eggShop.requiredEggs[1] = data8.requiredEggs[1];
         eggShop.requiredEggs[2] = data8.requiredEggs[2];
 
-    }
+        petsData data9 = saveSystem.LoadPets();
+
+       
+            switch (data9.usedPetName.Length)
+            {
+
+                case 1:
+                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0] });
+                    break;
+                case 2:
+                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0] });
+                    eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1] });
+                    break;
+                case 3:
+                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0] });
+                    eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1] });
+                    eggShop.savedUsedPetList.Add(3, new string[] { data9.usedPetName[2], data9.usedPetLevel[2], data9.usedXp[2], data9.usedMaxXp[2], data9.usedStars[2], data9.usedBaseAtk[2], data9.usedBaseDef[2], data9.usedBaseSp[2], data9.usedBaseAgi[2], data9.usedBaseHp[2], data9.usedStatsPoint[2], data9.usedBonusAtk[2], data9.usedBonusDef[2], data9.usedBonusSp[2], data9.usedBonusAgi[2], data9.usedBonusHp[2] });
+                    break;
+            }
+       
+
+        for (int i = 1; i<= data9.length; i++)
+        {
+            petList.Add(i, new string[] { data9.petName[i-1], data9.petLevel[i-1], data9.xp[i - 1], data9.maxXp[i - 1], data9.stars[i - 1], data9.BaseAtk[i - 1], data9.BaseDef[i - 1], data9.BaseSp[i - 1], data9.BaseAgi[i - 1], data9.BaseHp[i - 1], data9.statsPoint[i - 1], data9.BonusAtk[i - 1], data9.BonusDef[i - 1], data9.BonusSp[i - 1], data9.BonusAgi[i - 1], data9.BonusHp[i - 1] });
+        }
+
+        }
+    
 
     private void OnApplicationQuit()
     {

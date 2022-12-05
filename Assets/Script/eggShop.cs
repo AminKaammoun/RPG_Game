@@ -22,6 +22,7 @@ public class eggShop : MonoBehaviour
     public GameObject[] birthButton;
 
     public InventoryObject inventory;
+    public InventoryObject meatInventory;
     public ItemObject RedEgg;
     public ItemObject BlueEgg;
     public ItemObject YellowEgg;
@@ -127,7 +128,8 @@ public class eggShop : MonoBehaviour
 
     public Image[] petsImage;
     public static Dictionary<int, string[]> usedPetList = new Dictionary<int, string[]>();
-    int usedPetListIndex = 0;
+    public static Dictionary<int, string[]> savedUsedPetList = new Dictionary<int, string[]>();
+    public static int usedPetListIndex = 0;
     public Image[] usedPetsImage;
     public GameObject[] useButtons;
 
@@ -167,8 +169,511 @@ public class eggShop : MonoBehaviour
     public GameObject[] staticEffects;
     public GameObject alert1;
     public GameObject notEnoughText;
+    public GameObject alert;
+
+
+
     void Start()
     {
+        //savedUsedPetList.Clear();
+        //usedPetList.Clear();
+        //GameController.petList.Clear();
+        //pets
+
+        if (GameController.petList.Count > 0) {
+            for (int i = 1; i <= GameController.petList.Count; i++)
+            {
+                useButtons[i-1].SetActive(true);
+                switch (GameController.petList[i][0])
+                {
+                    case "Jack-O-Lantern":
+                        petsImage[i - 1].sprite = Pets[0];
+                        break;
+                    case "Claws":
+                        petsImage[i - 1].sprite = Pets[1];
+                        break;
+                    case "Golem":
+                        petsImage[i - 1].sprite = Pets[2];
+                        break;
+                    case "Snow Wolf":
+                        petsImage[i - 1].sprite = Pets[3];
+                        break;
+                    case "Buzz":
+                        petsImage[i - 1].sprite = Pets[4];
+                        break;
+                    case "Night Wolf":
+                        petsImage[i - 1].sprite = Pets[5];
+                        break;
+                    case "Rumryss":
+                        petsImage[i - 1].sprite = Pets[6];
+                        break;
+                    case "Wyvernldle":
+                        petsImage[i - 1].sprite = Pets[7];
+                        break;
+                    case "Dread Biter":
+                        petsImage[i - 1].sprite = Pets[8];
+                        break;
+                    case "One Eye":
+                        petsImage[i - 1].sprite = Pets[9];
+                        break;
+
+                }
+            }
+        }
+
+        if (savedUsedPetList[1][0] != null && savedUsedPetList[2][0] == null && savedUsedPetList[3][0] == null)
+        {
+            usedPetList.Add(1, savedUsedPetList[1]);
+
+
+            if (usedPetList[1][0] == "Jack-O-Lantern")
+            {
+                usedPetsImage[0].sprite = Pets[0];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Claws")
+            {
+                usedPetsImage[0].sprite = Pets[1];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Golem")
+            {
+                usedPetsImage[0].sprite = Pets[2];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Snow Wolf")
+            {
+                usedPetsImage[0].sprite = Pets[3];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Buzz")
+            {
+                usedPetsImage[0].sprite = Pets[4];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Night Wolf")
+            {
+                usedPetsImage[0].sprite = Pets[5];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Rumryss")
+            {
+                usedPetsImage[0].sprite = Pets[6];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Wyvernldle")
+            {
+                usedPetsImage[0].sprite = Pets[7];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Dread Biter")
+            {
+                usedPetsImage[0].sprite = Pets[8];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "One Eye")
+            {
+                usedPetsImage[0].sprite = Pets[9];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+        }
+        else if (savedUsedPetList[1][0] != null && savedUsedPetList[2][0] != null && savedUsedPetList[3][0] == null)
+        {
+            usedPetList.Add(1, savedUsedPetList[1]);
+            usedPetList.Add(2, savedUsedPetList[2]);
+
+            if (usedPetList[1][0] == "Jack-O-Lantern")
+            {
+                usedPetsImage[0].sprite = Pets[0];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Claws")
+            {
+                usedPetsImage[0].sprite = Pets[1];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Golem")
+            {
+                usedPetsImage[0].sprite = Pets[2];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Snow Wolf")
+            {
+                usedPetsImage[0].sprite = Pets[3];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Buzz")
+            {
+                usedPetsImage[0].sprite = Pets[4];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Night Wolf")
+            {
+                usedPetsImage[0].sprite = Pets[5];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Rumryss")
+            {
+                usedPetsImage[0].sprite = Pets[6];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Wyvernldle")
+            {
+                usedPetsImage[0].sprite = Pets[7];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Dread Biter")
+            {
+                usedPetsImage[0].sprite = Pets[8];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "One Eye")
+            {
+                usedPetsImage[0].sprite = Pets[9];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            if (usedPetList[2][0] == "Jack-O-Lantern")
+            {
+                usedPetsImage[1].sprite = Pets[0];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Claws")
+            {
+                usedPetsImage[1].sprite = Pets[1];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Golem")
+            {
+                usedPetsImage[1].sprite = Pets[2];
+                removeButton[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Snow Wolf")
+            {
+                usedPetsImage[1].sprite = Pets[3];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Buzz")
+            {
+                usedPetsImage[1].sprite = Pets[4];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Night Wolf")
+            {
+                usedPetsImage[1].sprite = Pets[5];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Rumryss")
+            {
+                usedPetsImage[1].sprite = Pets[6];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Wyvernldle")
+            {
+                usedPetsImage[1].sprite = Pets[7];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Dread Biter")
+            {
+                usedPetsImage[1].sprite = Pets[8];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "One Eye")
+            {
+                usedPetsImage[1].sprite = Pets[9];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+        }
+        else if (savedUsedPetList[1][0] != null && savedUsedPetList[2][0] != null && savedUsedPetList[3][0] != null)
+        {
+            usedPetList.Add(1, savedUsedPetList[1]);
+            usedPetList.Add(2, savedUsedPetList[2]);
+            usedPetList.Add(3, savedUsedPetList[3]);
+
+            if (usedPetList[1][0] == "Jack-O-Lantern")
+            {
+                usedPetsImage[0].sprite = Pets[0];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Claws")
+            {
+                usedPetsImage[0].sprite = Pets[1];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Golem")
+            {
+                usedPetsImage[0].sprite = Pets[2];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Snow Wolf")
+            {
+                usedPetsImage[0].sprite = Pets[3];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Buzz")
+            {
+                usedPetsImage[0].sprite = Pets[4];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Night Wolf")
+            {
+                usedPetsImage[0].sprite = Pets[5];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Rumryss")
+            {
+                usedPetsImage[0].sprite = Pets[6];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Wyvernldle")
+            {
+                usedPetsImage[0].sprite = Pets[7];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "Dread Biter")
+            {
+                usedPetsImage[0].sprite = Pets[8];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            else if (usedPetList[1][0] == "One Eye")
+            {
+                usedPetsImage[0].sprite = Pets[9];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
+            if (usedPetList[2][0] == "Jack-O-Lantern")
+            {
+                usedPetsImage[1].sprite = Pets[0];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Claws")
+            {
+                usedPetsImage[1].sprite = Pets[1];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Golem")
+            {
+                usedPetsImage[1].sprite = Pets[2];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Snow Wolf")
+            {
+                usedPetsImage[1].sprite = Pets[3];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Buzz")
+            {
+                usedPetsImage[1].sprite = Pets[4];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Night Wolf")
+            {
+                usedPetsImage[1].sprite = Pets[5];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Rumryss")
+            {
+                usedPetsImage[1].sprite = Pets[6];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Wyvernldle")
+            {
+                usedPetsImage[1].sprite = Pets[7];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "Dread Biter")
+            {
+                usedPetsImage[1].sprite = Pets[8];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "One Eye")
+            {
+                usedPetsImage[1].sprite = Pets[9];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            if (usedPetList[3][0] == "Jack-O-Lantern")
+            {
+                usedPetsImage[2].sprite = Pets[0];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Claws")
+            {
+                usedPetsImage[2].sprite = Pets[1];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Golem")
+            {
+                usedPetsImage[2].sprite = Pets[2];
+                removeButton[2].SetActive(true);
+                  staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Snow Wolf")
+            {
+                usedPetsImage[2].sprite = Pets[3];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Buzz")
+            {
+                usedPetsImage[2].sprite = Pets[4];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Night Wolf")
+            {
+                usedPetsImage[2].sprite = Pets[5];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Rumryss")
+            {
+                usedPetsImage[2].sprite = Pets[6];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Wyvernldle")
+            {
+                usedPetsImage[2].sprite = Pets[7];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "Dread Biter")
+            {
+                usedPetsImage[2].sprite = Pets[8];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+            else if (usedPetList[3][0] == "One Eye")
+            {
+                usedPetsImage[2].sprite = Pets[9];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
+        }
+
+        //usedPetList.Add(2, savedUsedPetList[2]);
+        //usedPetList.Add(3, savedUsedPetList[3]);
+        /* break;
+     case 2:
+         usedPetList.Add(1, eggShop.savedUsedPetList[1]);
+         usedPetList.Add(2, eggShop.savedUsedPetList[2]);
+         break;
+     case 3:
+         usedPetList.Add(1, eggShop.savedUsedPetList[1]);
+         usedPetList.Add(2, eggShop.savedUsedPetList[2]);
+         usedPetList.Add(3, eggShop.savedUsedPetList[3]);
+         break;*/
+
+        foreach (KeyValuePair<int, string[]> kvp in usedPetList)
+            Debug.Log("Key = " + kvp.Key +" " + "value = "+ kvp.Value[5]);
 
         // Nest 1
         if (eggType[0] == 1)
@@ -494,6 +999,7 @@ public class eggShop : MonoBehaviour
     {
         if (GameController.petList.Count > 0)
         {
+            usedPetListIndex = usedPetList.Count;
             foodLevels.SetActive(true);
             feedUIButton.SetActive(true);
             equipUIButton.SetActive(true);
@@ -735,7 +1241,7 @@ public class eggShop : MonoBehaviour
             GameController.petSpBonus = GameController.pet1SpBonus + GameController.pet2SpBonus + GameController.pet3SpBonus;
             GameController.petAgiBonus = GameController.pet1AgiBonus + GameController.pet2AgiBonus + GameController.pet3AgiBonus;
             GameController.petHpBonus = GameController.pet1HpBonus + GameController.pet2HpBonus + GameController.pet3HpBonus;
-
+          
             petAtkBonusText.text = GameController.petAtkBonus.ToString();
             petDefBonusText.text = GameController.petDefBonus.ToString();
             petSpBonusText.text = GameController.petSpBonus.ToString();
@@ -745,7 +1251,7 @@ public class eggShop : MonoBehaviour
             //Debug.Log(GameController.petAtkBonus + " " + GameController.petDefBonus + " " + GameController.petSpBonus + " " + GameController.petAgiBonus + " " + GameController.petHpBonus);
             //Debug.Log(usedPetList.Count);
 
-            if(usedPetsImage[0].sprite == empty && usedPetsImage[1].sprite == empty && usedPetsImage[2].sprite == empty)
+            if (usedPetsImage[0].sprite == empty && usedPetsImage[1].sprite == empty && usedPetsImage[2].sprite == empty)
             {
                 usedPetList.Clear();
             }
@@ -1286,6 +1792,7 @@ public class eggShop : MonoBehaviour
             eggUI[i].SetActive(false);
         }
         birthPanel.SetActive(false);
+
     }
 
     IEnumerator setAniamalSprite(int i)
@@ -1306,13 +1813,16 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Jack-O-Lantern")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 40);
+                                meatInventory.AddItem(meat, 40);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
 
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Jack-O-Lantern", "1", "0", "10", "4", "5", "6", "3", "2", "4", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Jack-O-Lantern", "1", "0", "10", "4", "5", "6", "3", "2", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[0];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1326,18 +1836,23 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Claws")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 20);
+                                meatInventory.AddItem(meat, 20);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Claws", "1", "0", "10", "2", "2", "1", "3", "1", "2", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Claws", "1", "0", "10", "2", "2", "1", "3", "1", "2", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[1];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
                 }
+                inventory.save();
+                meatInventory.save();
                 break;
             case 2:
                 int rand1 = Random.Range(0, 2);
@@ -1351,12 +1866,15 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Golem")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 30);
+                                meatInventory.AddItem(meat, 30);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Golem", "1", "0", "10", "3", "3", "2", "4", "2", "4", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Golem", "1", "0", "10", "3", "3", "2", "4", "2", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[2];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1369,18 +1887,23 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Snow Wolf")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 30);
+                                meatInventory.AddItem(meat, 30);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Snow Wolf", "1", "0", "10", "3", "4", "2", "3", "2", "1", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Snow Wolf", "1", "0", "10", "3", "4", "2", "3", "2", "1", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[3];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
                 }
+                inventory.save();
+                meatInventory.save();
                 break;
             case 3:
                 int rand2 = Random.Range(0, 2);
@@ -1394,12 +1917,15 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Buzz")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 20);
+                                meatInventory.AddItem(meat, 20);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[4];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1413,18 +1939,23 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Buzz")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 20);
+                                meatInventory.AddItem(meat, 20);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[4];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
                 }
+                inventory.save();
+                meatInventory.save();
                 break;
             case 4:
                 int rand3 = Random.Range(0, 2);
@@ -1438,12 +1969,15 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Night Wolf")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 30);
+                                meatInventory.AddItem(meat, 30);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[5];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1457,18 +1991,23 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Night Wolf")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 30);
+                                meatInventory.AddItem(meat, 30);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[5];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
                 }
+                inventory.save();
+                meatInventory.save();
                 break;
             case 5:
                 int rand4 = Random.Range(0, 2);
@@ -1482,12 +2021,15 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Rumryss")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 20);
+                                meatInventory.AddItem(meat, 20);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Rumryss", "1", "0", "10", "2", "1", "2", "3", "3", "1", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Rumryss", "1", "0", "10", "2", "1", "2", "3", "3", "1", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[6];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1501,18 +2043,23 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Wyvernldle")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 40);
+                                meatInventory.AddItem(meat, 40);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Wyvernldle", "1", "0", "10", "4", "5", "4", "3", "4", "4", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Wyvernldle", "1", "0", "10", "4", "5", "4", "3", "4", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[7];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
                 }
+                inventory.save();
+                meatInventory.save();
                 break;
             case 6:
                 int rand5 = Random.Range(0, 2);
@@ -1526,12 +2073,15 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "Dread Biter")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 40);
+                                meatInventory.AddItem(meat, 40);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "Dread Biter", "1", "0", "10", "4", "6", "2", "3", "4", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "Dread Biter", "1", "0", "10", "4", "6", "2", "3", "4", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[8];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1544,18 +2094,23 @@ public class eggShop : MonoBehaviour
                             if (pet.Value[0] == "One Eye")
                             {
                                 check = true;
+                                inventory.AddItem(meat, 30);
+                                meatInventory.AddItem(meat, 30);
+                                alert.SetActive(true);
                                 break;
                             }
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++GameController.numberOfPets, new string[] { "One Eye", "1", "0", "10", "3", "3", "2", "4", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++usedPetListIndex, new string[] { "One Eye", "1", "0", "10", "3", "3", "2", "4", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[9];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
                         check = false;
                         break;
                 }
+                inventory.save();
+                meatInventory.save();
                 break;
         }
         eggType[i] = -1;
@@ -1695,7 +2250,7 @@ public class eggShop : MonoBehaviour
 
             int bonusAtk = int.Parse(GameController.petList[index][11]) + 1;
             GameController.petList[index][11] = bonusAtk.ToString();
-            
+
         }
     }
 
@@ -1763,9 +2318,9 @@ public class eggShop : MonoBehaviour
             usedPetsImage[usedPetListIndex - 1].sprite = petsImage[a].sprite;
             useButtons[a].SetActive(false);
             removeButton[usedPetListIndex - 1].SetActive(true);
-            
+
         }
-    } 
+    }
 
     public void removePetButton(int a)
     {
@@ -1781,15 +2336,15 @@ public class eggShop : MonoBehaviour
         else
         {
             usedPetList.Remove(a + 1);
-            
+
         }
         Debug.Log(usedPetsImage[a].sprite.name);
         switch (usedPetsImage[a].sprite.name)
         {
             case "pumpking_24":
-                for(int i = 0; i < petsImage.Length; i++)
+                for (int i = 0; i < petsImage.Length; i++)
                 {
-                    if(petsImage[i].sprite.name == "pumpking_24")
+                    if (petsImage[i].sprite.name == "pumpking_24")
                     {
                         useButtons[i].SetActive(true);
                         break;
@@ -1888,7 +2443,7 @@ public class eggShop : MonoBehaviour
                 break;
         }
         usedPetsImage[a].sprite = empty;
-        
+
 
         GameController.pet1AtkBonus = 0;
         GameController.pet1DefBonus = 0;
@@ -1907,8 +2462,9 @@ public class eggShop : MonoBehaviour
         GameController.pet3SpBonus = 0;
         GameController.pet3AgiBonus = 0;
         GameController.pet3HpBonus = 0;
-       
-        if (usedPetList.Count > 0) {
+
+        if (usedPetList.Count > 0)
+        {
             foreach (KeyValuePair<int, string[]> kvp in usedPetList)
             {
                 switch (usedPetList.Count)
@@ -1946,14 +2502,14 @@ public class eggShop : MonoBehaviour
                         }
                         break;
                     case 2:
-                        if(usedPetList.ContainsKey(1) && usedPetList.ContainsKey(3))
+                        if (usedPetList.ContainsKey(1) && usedPetList.ContainsKey(3))
                         {
                             string[] value = usedPetList[1];
                             string[] value1 = usedPetList[3];
                             usedPetList.Clear();
                             usedPetList.Add(1, value);
                             usedPetList.Add(2, value1);
-                       
+
                             usedPetsImage[1].sprite = usedPetsImage[2].sprite;
                             usedPetsImage[2].sprite = empty;
                             removeButton[0].SetActive(true);
@@ -1989,7 +2545,7 @@ public class eggShop : MonoBehaviour
                         }
                         break;
                 }
-            } 
+            }
         }
     }
     public void resetButton()
@@ -2029,5 +2585,15 @@ public class eggShop : MonoBehaviour
     public void closeAlert()
     {
         alert1.SetActive(false);
+    }
+    public void CloseAlert()
+    {
+        alert.SetActive(false);
+    }
+
+    IEnumerator showAlert()
+    {
+        yield return new WaitForSeconds(3f);
+        alert.SetActive(true);
     }
 }

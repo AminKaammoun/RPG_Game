@@ -321,4 +321,39 @@ public static class saveSystem
             return null;
         }
     }
+
+    public static void SavePets(GameController player)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/pets.file";
+
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        petsData data = new petsData(player);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+
+    }
+
+    public static petsData LoadPets()
+    {
+        string path = Application.persistentDataPath + "/pets.file";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            petsData data = formatter.Deserialize(stream) as petsData;
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("Save File not found in " + path);
+            return null;
+        }
+    }
 }
