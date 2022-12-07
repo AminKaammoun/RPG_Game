@@ -1329,7 +1329,7 @@ public class GameController : MonoBehaviour
         }
         checkForCockSound();
         SetStats();
-        Hp.text = PlayerMovements.health.ToString() + "/" + ((100 + Level * 10) + PlayerMovements.BonusHp).ToString();
+        Hp.text = PlayerMovements.health.ToString() + "/" + ((100 + Level * 10) + PlayerMovements.BonusHp + petHpBonus).ToString();
         resetForestDoors();
 
 

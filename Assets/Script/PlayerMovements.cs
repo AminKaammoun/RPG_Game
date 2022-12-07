@@ -180,6 +180,8 @@ public class PlayerMovements : MonoBehaviour
     public Text Ability3Timer;
     private float currentTime;
 
+    private bool firstTime = true;
+
     // Start is called before the first frame update
 
     void Start()
@@ -193,8 +195,8 @@ public class PlayerMovements : MonoBehaviour
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
 
-        health = 100 + (GameController.Level * 10) + BonusHp;
-        healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp);
+        health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
+        healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus);
 
     }
 
@@ -202,6 +204,11 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (firstTime)
+        {
+            health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
+            firstTime = false;
+        }
         if (useAbility1)
         {
 
@@ -544,14 +551,14 @@ public class PlayerMovements : MonoBehaviour
 
         }
 
-        healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp);
+        healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus);
         getStats();
 
         Vector3 add = new Vector3(0f, 2f, 0f);
         xpText.transform.position = transform.position + add;
-        if (health >= 100 + (GameController.Level * 10) + BonusHp)
+        if (health >= 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus)
         {
-            health = 100 + (GameController.Level * 10) + BonusHp;
+            health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
             healthIsMax = true;
         }
         else

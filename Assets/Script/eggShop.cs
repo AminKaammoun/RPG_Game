@@ -169,9 +169,13 @@ public class eggShop : MonoBehaviour
     public GameObject[] staticEffects;
     public GameObject alert1;
     public GameObject notEnoughText;
+    public GameObject notEnoughEggsText;
+    public GameObject notEnoughRawMeatText;
     public GameObject alert;
 
-
+    public int petListIndex;
+    private bool firstTime = true;
+ 
 
     void Start()
     {
@@ -180,6 +184,9 @@ public class eggShop : MonoBehaviour
         //GameController.petList.Clear();
         //pets
 
+        FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
+        FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
+     
         if (GameController.petList.Count > 0) {
             for (int i = 1; i <= GameController.petList.Count; i++)
             {
@@ -997,9 +1004,24 @@ public class eggShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (firstTime)
+        {
+            for (int i = 1; i <= GameController.petList.Count; i++)
+            {
+                for (int j = 1; j <= usedPetList.Count; j++)
+                {
+                    if (GameController.petList[i][0] == usedPetList[j][0])
+                    {
+                        useButtons[i - 1].SetActive(false);
+                    }
+                }
+            }
+            firstTime = false;
+        }
+        petListIndex = GameController.petList.Count;
+        usedPetListIndex = usedPetList.Count;
         if (GameController.petList.Count > 0)
         {
-            usedPetListIndex = usedPetList.Count;
             foodLevels.SetActive(true);
             feedUIButton.SetActive(true);
             equipUIButton.SetActive(true);
@@ -1235,7 +1257,7 @@ public class eggShop : MonoBehaviour
                     }
                     break;
             }
-
+            
             GameController.petAtkBonus = GameController.pet1AtkBonus + GameController.pet2AtkBonus + GameController.pet3AtkBonus;
             GameController.petDefBonus = GameController.pet1DefBonus + GameController.pet2DefBonus + GameController.pet3DefBonus;
             GameController.petSpBonus = GameController.pet1SpBonus + GameController.pet2SpBonus + GameController.pet3SpBonus;
@@ -1451,10 +1473,11 @@ public class eggShop : MonoBehaviour
             if (inventory.Container[i].item == eggs)
             {
                 eggsNumber = inventory.Container[i].amount;
+                
                 break;
             }
         }
-
+     
         for (int i = 0; i < inventory.Container.Count; i++)
         {
             if (inventory.Container[i].item == meat)
@@ -1534,6 +1557,8 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                inventory.RemoveItem(RedEgg);
+                inventory.save();
                 clickSound.Play();
                 eggType[i] = 1;
                 eggImage[i].sprite = eggSprite[0];
@@ -1553,6 +1578,8 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                inventory.RemoveItem(BlueEgg);
+                inventory.save();
                 clickSound.Play();
                 eggType[i] = 2;
                 eggImage[i].sprite = eggSprite[1];
@@ -1572,6 +1599,8 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                inventory.RemoveItem(YellowEgg);
+                inventory.save();
                 clickSound.Play();
                 eggType[i] = 3;
                 eggImage[i].sprite = eggSprite[2];
@@ -1591,6 +1620,8 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                inventory.RemoveItem(BlackEgg);
+                inventory.save();
                 clickSound.Play();
                 eggType[i] = 4;
                 eggImage[i].sprite = eggSprite[3];
@@ -1610,6 +1641,8 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                inventory.RemoveItem(GreenEgg);
+                inventory.save();
                 clickSound.Play();
                 eggType[i] = 5;
                 eggImage[i].sprite = eggSprite[4];
@@ -1629,6 +1662,8 @@ public class eggShop : MonoBehaviour
         {
             if (usedEggs[i] == null)
             {
+                inventory.RemoveItem(BrownEgg);
+                inventory.save();
                 clickSound.Play();
                 eggType[i] = 6;
                 eggImage[i].sprite = eggSprite[5];
@@ -1643,41 +1678,104 @@ public class eggShop : MonoBehaviour
     }
     public void EggFeed()
     {
-        upgradeSound.Play();
-        nestLevel[0]++;
-        requiredEggs[0]++;
-        Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
-        var Effect = Instantiate(effect, slot.transform.position + add, Quaternion.identity) as GameObject;
-        Effect.transform.SetParent(slot.transform, false);
-        Destroy(Effect, 1f);
-        egg1SwitchAnim.SetBool("Press", true);
-        StartCoroutine(backSwitch());
+        if (eggsNumber >= requiredEggs[0])
+        {
+            for (int i = 0; i < requiredEggs[0]; i++)
+            {
+                inventory.RemoveItem(eggs);
+                meatInventory.RemoveItem(eggs);
+                inventory.save();
+                meatInventory.save();
+            }
+            if(eggsNumber == requiredEggs[0])
+            {
+                eggsNumber = 0;
+            }
+            upgradeSound.Play();
+            nestLevel[0]++;
+            requiredEggs[0]++;
+            Vector3 add = new Vector3(-slot.transform.position.x, -slot.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot.transform, false);
+            Destroy(Effect, 1f);
+            egg1SwitchAnim.SetBool("Press", true);
+            StartCoroutine(backSwitch());
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughEggsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(eggsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
 
     public void EggFeed2()
     {
-        upgradeSound.Play();
-        nestLevel[1]++;
-        requiredEggs[1]++;
-        Vector3 add = new Vector3(-slot2.transform.position.x, -slot2.transform.position.y, transform.position.z);
-        var Effect = Instantiate(effect, slot2.transform.position + add, Quaternion.identity) as GameObject;
-        Effect.transform.SetParent(slot2.transform, false);
-        Destroy(Effect, 1f);
-        egg2SwitchAnim.SetBool("Press", true);
-        StartCoroutine(backSwitch());
+        if (eggsNumber >= requiredEggs[1])
+        {
+            for (int i = 0; i < requiredEggs[1]; i++)
+            {
+                inventory.RemoveItem(eggs);
+                meatInventory.RemoveItem(eggs);
+                inventory.save();
+                meatInventory.save();
+            }
+            if (eggsNumber == requiredEggs[1])
+            {
+                eggsNumber = 0;
+            }
+            upgradeSound.Play();
+            nestLevel[1]++;
+            requiredEggs[1]++;
+            Vector3 add = new Vector3(-slot2.transform.position.x, -slot2.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot2.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot2.transform, false);
+            Destroy(Effect, 1f);
+            egg2SwitchAnim.SetBool("Press", true);
+            StartCoroutine(backSwitch());
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughEggsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(eggsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
 
     public void EggFeed3()
     {
-        upgradeSound.Play();
-        nestLevel[2]++;
-        requiredEggs[2]++;
-        Vector3 add = new Vector3(-slot3.transform.position.x, -slot3.transform.position.y, transform.position.z);
-        var Effect = Instantiate(effect, slot3.transform.position + add, Quaternion.identity) as GameObject;
-        Effect.transform.SetParent(slot3.transform, false);
-        Destroy(Effect, 1f);
-        egg3SwitchAnim.SetBool("Press", true);
-        StartCoroutine(backSwitch());
+        if (eggsNumber >= requiredEggs[2])
+        {
+            for (int i = 0; i < requiredEggs[2]; i++)
+            {
+                inventory.RemoveItem(eggs);
+                meatInventory.RemoveItem(eggs);
+                inventory.save();
+                meatInventory.save();
+            }
+            if (eggsNumber == requiredEggs[2])
+            {
+                eggsNumber = 0;
+            }
+            upgradeSound.Play();
+            nestLevel[2]++;
+            requiredEggs[2]++;
+            Vector3 add = new Vector3(-slot3.transform.position.x, -slot3.transform.position.y, transform.position.z);
+            var Effect = Instantiate(effect, slot3.transform.position + add, Quaternion.identity) as GameObject;
+            Effect.transform.SetParent(slot3.transform, false);
+            Destroy(Effect, 1f);
+            egg3SwitchAnim.SetBool("Press", true);
+            StartCoroutine(backSwitch());
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughEggsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(eggsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
 
 
@@ -1691,38 +1789,101 @@ public class eggShop : MonoBehaviour
 
     public void BirthEgg1()
     {
-        animalSpawnPos.sprite = empty;
-        ResetEggNest1();
-        birthButton[0].SetActive(false);
-        birthPanel.SetActive(true);
-        eggCrackSound.Play();
-        eggUI[eggType[0] - 1].SetActive(true);
-        StartCoroutine(setAniamalSprite(0));
-        StartCoroutine(closeBirthPanel());
+        if (eggsNumber >= requiredEggs[0])
+        {
+            for (int i = 0; i < requiredEggs[0]; i++)
+            {
+                inventory.RemoveItem(eggs);
+                meatInventory.RemoveItem(eggs);
+                inventory.save();
+                meatInventory.save();
+            }
+            if (eggsNumber == requiredEggs[0])
+            {
+                eggsNumber = 0;
+            }
+            animalSpawnPos.sprite = empty;
+            ResetEggNest1();
+            birthButton[0].SetActive(false);
+            birthPanel.SetActive(true);
+            eggCrackSound.Play();
+            eggUI[eggType[0] - 1].SetActive(true);
+            StartCoroutine(setAniamalSprite(0));
+            StartCoroutine(closeBirthPanel());
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughEggsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(eggsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
 
     public void BirthEgg2()
     {
-        animalSpawnPos.sprite = empty;
-        ResetEggNest2();
-        birthButton[1].SetActive(false);
-        birthPanel.SetActive(true);
-        eggCrackSound.Play();
-        eggUI[eggType[1] - 1].SetActive(true);
-        StartCoroutine(setAniamalSprite(1));
-        StartCoroutine(closeBirthPanel());
+        if (eggsNumber >= requiredEggs[1])
+        {
+            for (int i = 0; i < requiredEggs[1]; i++)
+            {
+                inventory.RemoveItem(eggs);
+                meatInventory.RemoveItem(eggs);
+                inventory.save();
+                meatInventory.save();
+            }
+            if (eggsNumber == requiredEggs[1])
+            {
+                eggsNumber = 0;
+            }
+            animalSpawnPos.sprite = empty;
+            ResetEggNest2();
+            birthButton[1].SetActive(false);
+            birthPanel.SetActive(true);
+            eggCrackSound.Play();
+            eggUI[eggType[1] - 1].SetActive(true);
+            StartCoroutine(setAniamalSprite(1));
+            StartCoroutine(closeBirthPanel());
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughEggsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(eggsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
 
     public void BirthEgg3()
     {
-        animalSpawnPos.sprite = empty;
-        ResetEggNest3();
-        birthButton[2].SetActive(false);
-        birthPanel.SetActive(true);
-        eggCrackSound.Play();
-        eggUI[eggType[2] - 1].SetActive(true);
-        StartCoroutine(setAniamalSprite(2));
-        StartCoroutine(closeBirthPanel());
+        if (eggsNumber >= requiredEggs[2])
+        {
+            for (int i = 0; i < requiredEggs[2]; i++)
+            {
+                inventory.RemoveItem(eggs);
+                meatInventory.RemoveItem(eggs);
+                inventory.save();
+                meatInventory.save();
+            }
+            if (eggsNumber == requiredEggs[2])
+            {
+                eggsNumber = 0;
+            }
+            animalSpawnPos.sprite = empty;
+            ResetEggNest3();
+            birthButton[2].SetActive(false);
+            birthPanel.SetActive(true);
+            eggCrackSound.Play();
+            eggUI[eggType[2] - 1].SetActive(true);
+            StartCoroutine(setAniamalSprite(2));
+            StartCoroutine(closeBirthPanel());
+        }
+        else
+        {
+            var forgedTxt = Instantiate(notEnoughEggsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(eggsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
+        }
     }
 
     public void ResetEggNest1()
@@ -1822,7 +1983,7 @@ public class eggShop : MonoBehaviour
                         if (!check)
                         {
 
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Jack-O-Lantern", "1", "0", "10", "4", "5", "6", "3", "2", "4", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Jack-O-Lantern", "1", "0", "10", "4", "5", "6", "3", "2", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[0];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1844,7 +2005,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Claws", "1", "0", "10", "2", "2", "1", "3", "1", "2", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Claws", "1", "0", "10", "2", "2", "1", "3", "1", "2", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[1];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1874,7 +2035,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Golem", "1", "0", "10", "3", "3", "2", "4", "2", "4", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Golem", "1", "0", "10", "3", "3", "2", "4", "2", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[2];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1895,7 +2056,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Snow Wolf", "1", "0", "10", "3", "4", "2", "3", "2", "1", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Snow Wolf", "1", "0", "10", "3", "4", "2", "3", "2", "1", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[3];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1925,7 +2086,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[4];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1947,7 +2108,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[4];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1977,7 +2138,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[5];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -1999,7 +2160,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[5];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -2029,7 +2190,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Rumryss", "1", "0", "10", "2", "1", "2", "3", "3", "1", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Rumryss", "1", "0", "10", "2", "1", "2", "3", "3", "1", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[6];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -2051,7 +2212,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Wyvernldle", "1", "0", "10", "4", "5", "4", "3", "4", "4", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Wyvernldle", "1", "0", "10", "4", "5", "4", "3", "4", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[7];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -2081,7 +2242,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "Dread Biter", "1", "0", "10", "4", "6", "2", "3", "4", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "Dread Biter", "1", "0", "10", "4", "6", "2", "3", "4", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[8];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -2102,7 +2263,7 @@ public class eggShop : MonoBehaviour
                         }
                         if (!check)
                         {
-                            GameController.petList.Add(++usedPetListIndex, new string[] { "One Eye", "1", "0", "10", "3", "3", "2", "4", "1", "5", "0", "0", "0", "0", "0", "0" });
+                            GameController.petList.Add(++petListIndex, new string[] { "One Eye", "1", "0", "10", "3", "3", "2", "4", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[9];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
                         }
@@ -2151,33 +2312,54 @@ public class eggShop : MonoBehaviour
 
     public void FeedButton()
     {
-        int a = int.Parse(GameController.petList[index][2]);
-        a += 10;
-        if (a >= int.Parse(GameController.petList[index][3]))
+        if (meatNumber >= 10)
         {
-            int points = int.Parse(GameController.petList[index][10]) + 1;
-            GameController.petList[index][10] = points.ToString();
-            eatSound.Play();
-            GameObject effect = Instantiate(levelUpEffect, petImage.transform.position, Quaternion.identity) as GameObject;
-            effect.transform.SetParent(this.gameObject.transform);
-            levelUpSound.Play();
-            Destroy(effect, 1f);
-            a = 0;
-            int maxFood = int.Parse(GameController.petList[index][3]);
-            maxFood += 10;
-            GameController.petList[index][3] = maxFood.ToString();
-            FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
-            GameController.petList[index][2] = "0";
-            FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
-            int level = int.Parse(GameController.petList[index][1]);
-            level++;
-            GameController.petList[index][1] = level.ToString();
+            int a = int.Parse(GameController.petList[index][2]);
+            a += 10;
+            for (int i = 0; i < 10; i++)
+            {
+                inventory.RemoveItem(meat);
+                meatInventory.RemoveItem(meat);
+                inventory.save();
+                meatInventory.save();
+            }
+            if (meatNumber == 10)
+            {
+                meatNumber = 0;
+            }
+            if (a >= int.Parse(GameController.petList[index][3]))
+            {
+                
+                int points = int.Parse(GameController.petList[index][10]) + 1;
+                GameController.petList[index][10] = points.ToString();
+                eatSound.Play();
+                GameObject effect = Instantiate(levelUpEffect, petImage.transform.position, Quaternion.identity) as GameObject;
+                effect.transform.SetParent(this.gameObject.transform);
+                levelUpSound.Play();
+                Destroy(effect, 1f);
+                a = 0;
+                int maxFood = int.Parse(GameController.petList[index][3]);
+                maxFood += 10;
+                GameController.petList[index][3] = maxFood.ToString();
+                FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
+                GameController.petList[index][2] = "0";
+                FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
+                int level = int.Parse(GameController.petList[index][1]);
+                level++;
+                GameController.petList[index][1] = level.ToString();
+            }
+            else
+            {
+                GameController.petList[index][2] = a.ToString();
+                eatSound.Play();
+                FoodBar.SetFood(a);
+            }
         }
-        else
-        {
-            GameController.petList[index][2] = a.ToString();
-            eatSound.Play();
-            FoodBar.SetFood(a);
+        else{
+            var forgedTxt = Instantiate(notEnoughRawMeatText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+            forgedTxt.transform.SetParent(petsPanel.transform, false);
+            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+            Destroy(forgedTxt, 0.5f);
         }
     }
 
@@ -2250,7 +2432,13 @@ public class eggShop : MonoBehaviour
 
             int bonusAtk = int.Parse(GameController.petList[index][11]) + 1;
             GameController.petList[index][11] = bonusAtk.ToString();
-
+            for(int i = 1; i<= usedPetList.Count; i++)
+            {
+                if (usedPetList[i][0] == GameController.petList[index][0])
+                {
+                    usedPetList[i][11] = bonusAtk.ToString();
+                }
+            }
         }
     }
 
@@ -2264,6 +2452,13 @@ public class eggShop : MonoBehaviour
 
             int bonusAtk = int.Parse(GameController.petList[index][12]) + 1;
             GameController.petList[index][12] = bonusAtk.ToString();
+            for (int i = 1; i <= usedPetList.Count; i++)
+            {
+                if (usedPetList[i][0] == GameController.petList[index][0])
+                {
+                    usedPetList[i][12] = bonusAtk.ToString();
+                }
+            }
         }
     }
 
@@ -2277,6 +2472,13 @@ public class eggShop : MonoBehaviour
 
             int bonusAtk = int.Parse(GameController.petList[index][13]) + 1;
             GameController.petList[index][13] = bonusAtk.ToString();
+            for (int i = 1; i <= usedPetList.Count; i++)
+            {
+                if (usedPetList[i][0] == GameController.petList[index][0])
+                {
+                    usedPetList[i][13] = bonusAtk.ToString();
+                }
+            }
         }
     }
 
@@ -2290,6 +2492,13 @@ public class eggShop : MonoBehaviour
 
             int bonusAtk = int.Parse(GameController.petList[index][14]) + 1;
             GameController.petList[index][14] = bonusAtk.ToString();
+            for (int i = 1; i <= usedPetList.Count; i++)
+            {
+                if (usedPetList[i][0] == GameController.petList[index][0])
+                {
+                    usedPetList[i][14] = bonusAtk.ToString();
+                }
+            }
 
         }
     }
@@ -2304,6 +2513,13 @@ public class eggShop : MonoBehaviour
 
             int bonusAtk = int.Parse(GameController.petList[index][15]) + 1;
             GameController.petList[index][15] = bonusAtk.ToString();
+            for (int i = 1; i <= usedPetList.Count; i++)
+            {
+                if (usedPetList[i][0] == GameController.petList[index][0])
+                {
+                    usedPetList[i][15] = bonusAtk.ToString();
+                }
+            }
         }
     }
 
