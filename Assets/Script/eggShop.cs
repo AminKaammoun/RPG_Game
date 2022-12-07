@@ -29,6 +29,7 @@ public class eggShop : MonoBehaviour
     public ItemObject BlackEgg;
     public ItemObject GreenEgg;
     public ItemObject BrownEgg;
+    public ItemObject RedDragonEgg;
     public ItemObject eggs;
     public ItemObject meat;
 
@@ -223,6 +224,9 @@ public class eggShop : MonoBehaviour
                     case "One Eye":
                         petsImage[i - 1].sprite = Pets[9];
                         break;
+                    case "red dragon":
+                        petsImage[i - 1].sprite = Pets[10];
+                        break;
 
                 }
             }
@@ -303,6 +307,13 @@ public class eggShop : MonoBehaviour
                 staticEffects[0].SetActive(false);
                 effects[0].SetActive(true);
             }
+            else if (usedPetList[1][0] == "red dragon")
+            {
+                usedPetsImage[0].sprite = Pets[10];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
         }
         else if (savedUsedPetList[1][0] != null && savedUsedPetList[2][0] != null && savedUsedPetList[3][0] == null)
         {
@@ -379,6 +390,13 @@ public class eggShop : MonoBehaviour
                 staticEffects[0].SetActive(false);
                 effects[0].SetActive(true);
             }
+            else if (usedPetList[1][0] == "red dragon")
+            {
+                usedPetsImage[0].sprite = Pets[10];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
             if (usedPetList[2][0] == "Jack-O-Lantern")
             {
                 usedPetsImage[1].sprite = Pets[0];
@@ -443,6 +461,13 @@ public class eggShop : MonoBehaviour
             else if (usedPetList[2][0] == "One Eye")
             {
                 usedPetsImage[1].sprite = Pets[9];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "red dragon")
+            {
+                usedPetsImage[1].sprite = Pets[10];
                 removeButton[1].SetActive(true);
                 staticEffects[1].SetActive(false);
                 effects[1].SetActive(true);
@@ -524,6 +549,13 @@ public class eggShop : MonoBehaviour
                 staticEffects[0].SetActive(false);
                 effects[0].SetActive(true);
             }
+            else if (usedPetList[1][0] == "red dragon")
+            {
+                usedPetsImage[0].sprite = Pets[10];
+                removeButton[0].SetActive(true);
+                staticEffects[0].SetActive(false);
+                effects[0].SetActive(true);
+            }
             if (usedPetList[2][0] == "Jack-O-Lantern")
             {
                 usedPetsImage[1].sprite = Pets[0];
@@ -590,6 +622,13 @@ public class eggShop : MonoBehaviour
             else if (usedPetList[2][0] == "One Eye")
             {
                 usedPetsImage[1].sprite = Pets[9];
+                removeButton[1].SetActive(true);
+                staticEffects[1].SetActive(false);
+                effects[1].SetActive(true);
+            }
+            else if (usedPetList[2][0] == "red dragon")
+            {
+                usedPetsImage[1].sprite = Pets[10];
                 removeButton[1].SetActive(true);
                 staticEffects[1].SetActive(false);
                 effects[1].SetActive(true);
@@ -664,23 +703,15 @@ public class eggShop : MonoBehaviour
                 staticEffects[2].SetActive(false);
                 effects[2].SetActive(true);
             }
+            else if (usedPetList[3][0] == "red dragon")
+            {
+                usedPetsImage[2].sprite = Pets[10];
+                removeButton[2].SetActive(true);
+                staticEffects[2].SetActive(false);
+                effects[2].SetActive(true);
+            }
         }
 
-        //usedPetList.Add(2, savedUsedPetList[2]);
-        //usedPetList.Add(3, savedUsedPetList[3]);
-        /* break;
-     case 2:
-         usedPetList.Add(1, eggShop.savedUsedPetList[1]);
-         usedPetList.Add(2, eggShop.savedUsedPetList[2]);
-         break;
-     case 3:
-         usedPetList.Add(1, eggShop.savedUsedPetList[1]);
-         usedPetList.Add(2, eggShop.savedUsedPetList[2]);
-         usedPetList.Add(3, eggShop.savedUsedPetList[3]);
-         break;*/
-
-        foreach (KeyValuePair<int, string[]> kvp in usedPetList)
-            Debug.Log("Key = " + kvp.Key +" " + "value = "+ kvp.Value[5]);
 
         // Nest 1
         if (eggType[0] == 1)
@@ -767,6 +798,22 @@ public class eggShop : MonoBehaviour
         else if (eggType[0] == 6)
         {
             eggImage[0].sprite = eggSprite[5];
+            counter[0].SetActive(true);
+            usedEggs[0] = BrownEgg;
+            if (nestLevel[0] >= 5)
+            {
+                birthButton[0].SetActive(true);
+                feedButton[0].SetActive(false);
+            }
+            else
+            {
+                feedButton[0].SetActive(true);
+                birthButton[0].SetActive(false);
+            }
+        }
+        else if (eggType[0] == 7)
+        {
+            eggImage[0].sprite = eggSprite[6];
             counter[0].SetActive(true);
             usedEggs[0] = BrownEgg;
             if (nestLevel[0] >= 5)
@@ -1399,6 +1446,9 @@ public class eggShop : MonoBehaviour
                 case "One Eye":
                     petImage.sprite = Pets[9];
                     break;
+                case "red dragon":
+                    petImage.sprite = Pets[10];
+                    break;
             }
         }
         else
@@ -1466,6 +1516,15 @@ public class eggShop : MonoBehaviour
         else
         {
             useButton[5].SetActive(false);
+        }
+
+        if (checkExist(inventory, RedDragonEgg))
+        {
+            useButton[6].SetActive(true);
+        }
+        else
+        {
+            useButton[6].SetActive(false);
         }
         //Debug.Log(usedEggs[0] + " " + usedEggs[1] + " " + usedEggs[2]);
         for (int i = 0; i < inventory.Container.Count; i++)
@@ -1676,6 +1735,27 @@ public class eggShop : MonoBehaviour
             }
         }
     }
+
+    public void useRedDragon()
+    {
+        for (int i = 0; i < usedEggs.Length; i++)
+        {
+            if (usedEggs[i] == null)
+            {
+                inventory.RemoveItem(RedDragonEgg);
+                inventory.save();
+                clickSound.Play();
+                eggType[i] = 7;
+                eggImage[i].sprite = eggSprite[6];
+                usedEggs[i] = RedDragonEgg;
+                nestLevel[i]++;
+                counter[i].SetActive(true);
+                feedButton[i].SetActive(true);
+                requiredEggs[i] = 1;
+                break;
+            }
+        }
+    } 
     public void EggFeed()
     {
         if (eggsNumber >= requiredEggs[0])
@@ -2273,6 +2353,58 @@ public class eggShop : MonoBehaviour
                 inventory.save();
                 meatInventory.save();
                 break;
+
+            case 7:
+                int rand6 = Random.Range(0, 2);
+                switch (rand6)
+                {
+                    case 0:
+                        animalSpawnPos.sprite = Pets[10];
+
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "red dragon")
+                            {
+                                check = true;
+                                inventory.AddItem(meat, 100);
+                                meatInventory.AddItem(meat, 100);
+                                alert.SetActive(true);
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++petListIndex, new string[] { "red dragon", "1", "0", "10", "5", "6", "7", "4", "6", "7", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[10];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
+                        }
+                        check = false;
+                        break;
+                    case 1:
+                        animalSpawnPos.sprite = Pets[10];
+                        foreach (KeyValuePair<int, string[]> pet in GameController.petList)
+                        {
+                            if (pet.Value[0] == "red dragon")
+                            {
+                                check = true;
+                                inventory.AddItem(meat, 30);
+                                meatInventory.AddItem(meat, 30);
+                                alert.SetActive(true);
+                                break;
+                            }
+                        }
+                        if (!check)
+                        {
+                            GameController.petList.Add(++petListIndex, new string[] { "red dragon", "1", "0", "10", "5", "6", "7", "4", "6", "7", "0", "0", "0", "0", "0", "0" });
+                            petsImage[GameController.petList.Count - 1].sprite = Pets[10];
+                            useButtons[GameController.petList.Count - 1].SetActive(true);
+                        }
+                        check = false;
+                        break;
+                }
+                inventory.save();
+                meatInventory.save();
+                break;
         }
         eggType[i] = -1;
 
@@ -2417,6 +2549,10 @@ public class eggShop : MonoBehaviour
             case "One Eye":
                 Instantiate(animals[27], player.transform.position, Quaternion.identity);
                 GameController.petName = "eye ball";
+                break;
+            case "red dragon":
+                Instantiate(animals[30], player.transform.position, Quaternion.identity);
+                GameController.petName = "red dragon";
                 break;
         }
         this.gameObject.SetActive(false);
@@ -2651,6 +2787,16 @@ public class eggShop : MonoBehaviour
                 for (int i = 0; i < petsImage.Length; i++)
                 {
                     if (petsImage[i].sprite.name == "eyeball_28")
+                    {
+                        useButtons[i].SetActive(true);
+                        break;
+                    }
+                }
+                break;
+            case "reddragonfly_7":
+                for (int i = 0; i < petsImage.Length; i++)
+                {
+                    if (petsImage[i].sprite.name == "reddragonfly_7")
                     {
                         useButtons[i].SetActive(true);
                         break;
