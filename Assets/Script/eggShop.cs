@@ -176,7 +176,14 @@ public class eggShop : MonoBehaviour
 
     public int petListIndex;
     private bool firstTime = true;
- 
+
+    //book
+
+    public GameObject book;
+    public GameObject animalPanel;
+    public GameObject[] page;
+    private int BookIndex = 0;
+    public AudioSource flipSound;
 
     void Start()
     {
@@ -184,6 +191,19 @@ public class eggShop : MonoBehaviour
         //usedPetList.Clear();
         //GameController.petList.Clear();
         //pets
+
+        page[0].SetActive(true);
+        page[1].SetActive(true);
+        page[2].SetActive(false);
+        page[3].SetActive(true);
+        page[4].SetActive(false);
+        page[5].SetActive(true);
+        page[6].SetActive(false);
+        page[7].SetActive(true);
+        page[8].SetActive(false);
+        page[9].SetActive(true);
+        page[10].SetActive(false);
+        page[11].SetActive(true);
 
         FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
         FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
@@ -2002,6 +2022,8 @@ public class eggShop : MonoBehaviour
 
     public void PetsButton()
     {
+        animalPanel.SetActive(true);
+        book.SetActive(false);
         eggsPanel.SetActive(false);
         petsPanel.SetActive(true);
         statPanel.SetActive(false);
@@ -2013,6 +2035,8 @@ public class eggShop : MonoBehaviour
     }
     public void eggsButton()
     {
+        animalPanel.SetActive(true);
+        book.SetActive(false);
         eggsPanel.SetActive(true);
         petsPanel.SetActive(false);
         statPanel.SetActive(false);
@@ -2020,6 +2044,8 @@ public class eggShop : MonoBehaviour
 
     public void statsButton()
     {
+        animalPanel.SetActive(true);
+        book.SetActive(false);
         eggsPanel.SetActive(false);
         petsPanel.SetActive(false);
         statPanel.SetActive(true);
@@ -2957,5 +2983,177 @@ public class eggShop : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         alert.SetActive(true);
+    }
+
+    public void bookButton()
+    {
+        book.SetActive(true);
+        animalPanel.SetActive(false);
+    }
+    public void bookNextButton()
+    {
+        if(BookIndex < 5 && BookIndex >= 0) {
+            flipSound.Play();
+            BookIndex++;
+            switch (BookIndex)
+            {
+                case 1:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(true);
+                    page[4].SetActive(false);
+                    page[5].SetActive(true);
+                    page[6].SetActive(false);
+                    page[7].SetActive(true);
+                    page[8].SetActive(false);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+
+                    break;
+                case 2:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(false);
+                    page[4].SetActive(true);
+                    page[5].SetActive(true);
+                    page[6].SetActive(false);
+                    page[7].SetActive(true);
+                    page[8].SetActive(false);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+                    break;
+                case 3:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(false);
+                    page[4].SetActive(true);
+                    page[5].SetActive(false);
+                    page[6].SetActive(true);
+                    page[7].SetActive(true);
+                    page[8].SetActive(false);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+                    break;
+                case 4:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(false);
+                    page[4].SetActive(true);
+                    page[5].SetActive(false);
+                    page[6].SetActive(true);
+                    page[7].SetActive(false);
+                    page[8].SetActive(true);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+                    break;
+                case 5:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(false);
+                    page[4].SetActive(true);
+                    page[5].SetActive(false);
+                    page[6].SetActive(true);
+                    page[7].SetActive(false);
+                    page[8].SetActive(true);
+                    page[9].SetActive(false);
+                    page[10].SetActive(true);
+                    page[11].SetActive(true);
+                    break;
+            }
+        }
+       
+    }
+    public void bookPreviousButton()
+    {
+        if (BookIndex <= 5 && BookIndex > 0)
+        {
+            flipSound.Play();
+            BookIndex--;
+            switch (BookIndex)
+            {
+                case 0:
+                    page[0].SetActive(true);
+                    page[1].SetActive(true);
+                    page[2].SetActive(false);
+                    page[3].SetActive(true);
+                    page[4].SetActive(false);
+                    page[5].SetActive(true);
+                    page[6].SetActive(false);
+                    page[7].SetActive(true);
+                    page[8].SetActive(false);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+                    break;
+                case 1:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(true);
+                    page[4].SetActive(false);
+                    page[5].SetActive(true);
+                    page[6].SetActive(false);
+                    page[7].SetActive(true);
+                    page[8].SetActive(false);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+
+                    break;
+                case 2:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(false);
+                    page[4].SetActive(true);
+                    page[5].SetActive(true);
+                    page[6].SetActive(false);
+                    page[7].SetActive(true);
+                    page[8].SetActive(false);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+                    break;
+                case 3:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(false);
+                    page[4].SetActive(true);
+                    page[5].SetActive(false);
+                    page[6].SetActive(true);
+                    page[7].SetActive(true);
+                    page[8].SetActive(false);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+                    break;
+                case 4:
+                    page[0].SetActive(true);
+                    page[1].SetActive(false);
+                    page[2].SetActive(true);
+                    page[3].SetActive(false);
+                    page[4].SetActive(true);
+                    page[5].SetActive(false);
+                    page[6].SetActive(true);
+                    page[7].SetActive(false);
+                    page[8].SetActive(true);
+                    page[9].SetActive(true);
+                    page[10].SetActive(false);
+                    page[11].SetActive(true);
+                    break;
+                
+            }
+        }
+
     }
 }
