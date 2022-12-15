@@ -184,13 +184,68 @@ public class eggShop : MonoBehaviour
     public GameObject[] page;
     private int BookIndex = 0;
     public AudioSource flipSound;
-
+  
+    public GameObject[] locked;
     void Start()
     {
         //savedUsedPetList.Clear();
         //usedPetList.Clear();
         //GameController.petList.Clear();
         //pets
+
+        locked[0].SetActive(true);
+        locked[1].SetActive(true);
+        locked[2].SetActive(true);
+        locked[3].SetActive(true);
+        locked[4].SetActive(true);
+        locked[5].SetActive(true);
+        locked[6].SetActive(true);
+        locked[7].SetActive(true);
+        locked[8].SetActive(true);
+        locked[9].SetActive(true);
+        locked[10].SetActive(true);
+
+        for (int i = 1; i <= GameController.petList.Count; i++)
+        {
+            switch (GameController.petList[i][0])
+            {
+                case "Jack-O-Lantern":
+                    locked[7].SetActive(false);
+                    break;
+                case "Claws":
+                    locked[0].SetActive(false);
+                    break;
+                case "Golem":
+                    locked[6].SetActive(false);
+                    break;
+                case "Snow Wolf":
+                    locked[3].SetActive(false);
+                    break;
+                case "Buzz":
+                    locked[1].SetActive(false);
+                    break;
+                case "Night Wolf":
+                    locked[4].SetActive(false);
+                    break;
+                case "Rumryss":
+                    locked[2].SetActive(false);
+                    break;
+                case "Wyvernldle":
+                    locked[8].SetActive(false);
+                    break;
+                case "Dread Biter":
+                    locked[9].SetActive(false);
+                    break;
+                case "One Eye":
+                    locked[5].SetActive(false);
+                    break;
+                case "red dragon":
+                    locked[10].SetActive(false);
+                    break;
+
+            }
+        }
+
 
         page[0].SetActive(true);
         page[1].SetActive(true);
@@ -2092,6 +2147,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Jack-O-Lantern", "1", "0", "10", "4", "5", "6", "3", "2", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[0];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[7].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2114,6 +2170,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Claws", "1", "0", "10", "2", "2", "1", "3", "1", "2", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[1];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[0].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2144,6 +2201,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Golem", "1", "0", "10", "3", "3", "2", "4", "2", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[2];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[6].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2165,6 +2223,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Snow Wolf", "1", "0", "10", "3", "4", "2", "3", "2", "1", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[3];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[3].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2195,6 +2254,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[4];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[1].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2217,6 +2277,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Buzz", "1", "0", "10", "2", "1", "2", "1", "3", "3", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[4];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[1].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2247,6 +2308,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[5];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[4].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2269,6 +2331,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Night Wolf", "1", "0", "10", "3", "4", "2", "3", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[5];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[4].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2299,6 +2362,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Rumryss", "1", "0", "10", "2", "1", "2", "3", "3", "1", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[6];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[2].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2321,6 +2385,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Wyvernldle", "1", "0", "10", "4", "5", "4", "3", "4", "4", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[7];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[8].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2351,6 +2416,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "Dread Biter", "1", "0", "10", "4", "6", "2", "3", "4", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[8];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[9].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2372,6 +2438,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "One Eye", "1", "0", "10", "3", "3", "2", "4", "1", "5", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[9];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[5].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2403,6 +2470,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "red dragon", "1", "0", "10", "5", "6", "7", "4", "6", "7", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[10];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[10].SetActive(false);
                         }
                         check = false;
                         break;
@@ -2424,6 +2492,7 @@ public class eggShop : MonoBehaviour
                             GameController.petList.Add(++petListIndex, new string[] { "red dragon", "1", "0", "10", "5", "6", "7", "4", "6", "7", "0", "0", "0", "0", "0", "0" });
                             petsImage[GameController.petList.Count - 1].sprite = Pets[10];
                             useButtons[GameController.petList.Count - 1].SetActive(true);
+                            locked[10].SetActive(false);
                         }
                         check = false;
                         break;
