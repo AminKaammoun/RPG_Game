@@ -11,7 +11,7 @@ public class followCrabPet : MonoBehaviour
     {
 
         Target = GameObject.FindGameObjectWithTag("crab_Pet");
-        add = new Vector3(0.05f, -0.25f, 0);
+        add = new Vector3(0, -0.4f, 0);
 
     }
     // Update is called once per frame

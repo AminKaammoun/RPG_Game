@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class eggShop : MonoBehaviour
 {
@@ -125,6 +126,10 @@ public class eggShop : MonoBehaviour
     public AgiBar agibar;
     public hpBar Hpbar;
 
+    public GameObject petPanelEffect;
+    public TextMeshProUGUI PetBattlePowerText;
+    private int BattlePower;
+
     // stats 
 
     public Image[] petsImage;
@@ -177,6 +182,7 @@ public class eggShop : MonoBehaviour
     public int petListIndex;
     private bool firstTime = true;
 
+
     //book
 
     public GameObject book;
@@ -184,7 +190,7 @@ public class eggShop : MonoBehaviour
     public GameObject[] page;
     private int BookIndex = 0;
     public AudioSource flipSound;
-  
+
     public GameObject[] locked;
     void Start()
     {
@@ -262,11 +268,12 @@ public class eggShop : MonoBehaviour
 
         FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
         FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
-     
-        if (GameController.petList.Count > 0) {
+
+        if (GameController.petList.Count > 0)
+        {
             for (int i = 1; i <= GameController.petList.Count; i++)
             {
-                useButtons[i-1].SetActive(true);
+                useButtons[i - 1].SetActive(true);
                 switch (GameController.petList[i][0])
                 {
                     case "Jack-O-Lantern":
@@ -389,7 +396,7 @@ public class eggShop : MonoBehaviour
         }
         else if (savedUsedPetList[1][0] != null && savedUsedPetList[2][0] != null && savedUsedPetList[3][0] == null)
         {
-          
+
 
             if (usedPetList[1][0] == "Jack-O-Lantern")
             {
@@ -719,7 +726,7 @@ public class eggShop : MonoBehaviour
             {
                 usedPetsImage[2].sprite = Pets[2];
                 removeButton[2].SetActive(true);
-                  staticEffects[2].SetActive(false);
+                staticEffects[2].SetActive(false);
                 effects[2].SetActive(true);
             }
             else if (usedPetList[3][0] == "Snow Wolf")
@@ -1119,6 +1126,23 @@ public class eggShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (GameController.petList[index][4])
+        {
+            case "2":
+                BattlePower = (int)1+((int.Parse(GameController.petList[index][5]) + int.Parse(GameController.petList[index][11])) * Atk2starsPet * 4 + ((int.Parse(GameController.petList[index][6]) + int.Parse(GameController.petList[index][12])) * Def2starsPet) / 2 + ((int.Parse(GameController.petList[index][7]) + int.Parse(GameController.petList[index][13])) * Sp2starsPet) * 2 + ((int.Parse(GameController.petList[index][8]) + int.Parse(GameController.petList[index][14])) * Agi2starsPet) / 2 + (int.Parse(GameController.petList[index][9]) + int.Parse(GameController.petList[index][15])) * Hp2starsPet / 2);
+                break;
+            case "3":
+                BattlePower = (int)1+((int.Parse(GameController.petList[index][5]) + int.Parse(GameController.petList[index][11])) * Atk3starsPet * 4 + ((int.Parse(GameController.petList[index][6]) + int.Parse(GameController.petList[index][12])) * Def3starsPet) / 2 + ((int.Parse(GameController.petList[index][7]) + int.Parse(GameController.petList[index][13])) * Sp3starsPet) * 2 + ((int.Parse(GameController.petList[index][8]) + int.Parse(GameController.petList[index][14])) * Agi3starsPet) / 2 + (int.Parse(GameController.petList[index][9]) + int.Parse(GameController.petList[index][15])) * Hp3starsPet / 2);
+                break;
+            case "4":
+                BattlePower = (int)1+((int.Parse(GameController.petList[index][5]) + int.Parse(GameController.petList[index][11])) * Atk4starsPet * 4 + ((int.Parse(GameController.petList[index][6]) + int.Parse(GameController.petList[index][12])) * Def4starsPet) / 2 + ((int.Parse(GameController.petList[index][7]) + int.Parse(GameController.petList[index][13])) * Sp4starsPet) * 2 + ((int.Parse(GameController.petList[index][8]) + int.Parse(GameController.petList[index][14])) * Agi4starsPet) / 2 + (int.Parse(GameController.petList[index][9]) + int.Parse(GameController.petList[index][15])) * Hp4starsPet / 2);
+                break;
+            case "5":
+                BattlePower = (int)1+((int.Parse(GameController.petList[index][5]) + int.Parse(GameController.petList[index][11])) * Atk5starsPet * 4 + ((int.Parse(GameController.petList[index][6]) + int.Parse(GameController.petList[index][12])) * Def5starsPet) / 2 + ((int.Parse(GameController.petList[index][7]) + int.Parse(GameController.petList[index][13])) * Sp5starsPet) * 2 + ((int.Parse(GameController.petList[index][8]) + int.Parse(GameController.petList[index][14])) * Agi5starsPet) / 2 + (int.Parse(GameController.petList[index][9]) + int.Parse(GameController.petList[index][15])) * Hp5starsPet / 2);
+                break;
+        }
+        PetBattlePowerText.text = BattlePower.ToString() + " BP.";
+
         if (firstTime)
         {
             for (int i = 1; i <= GameController.petList.Count; i++)
@@ -1145,7 +1169,15 @@ public class eggShop : MonoBehaviour
             petCount.text = index + "/" + GameController.petList.Count;
             petName.text = GameController.petList[index][0];
             petLevel.text = GameController.petList[index][1];
-            FoodXpCounter.text = GameController.petList[index][2] + "/" + GameController.petList[index][3];
+            if(int.Parse(GameController.petList[index][1]) == 10)
+            {
+                FoodXpCounter.text = "MAX!";
+            }
+            else
+            {
+                FoodXpCounter.text = GameController.petList[index][2] + "/" + GameController.petList[index][3];
+            }
+            
             BaseAtkText.text = GameController.petList[index][5].ToString() + "/10";
             BaseDefText.text = GameController.petList[index][6].ToString() + "/10";
             BaseSpText.text = GameController.petList[index][7].ToString() + "/10";
@@ -1153,8 +1185,8 @@ public class eggShop : MonoBehaviour
             BaseHpText.text = GameController.petList[index][9].ToString() + "/10";
             points.text = "stats points : " + GameController.petList[index][10].ToString();
 
-          
-          
+
+
             petAtkBonusText.text = GameController.petAtkBonus.ToString();
             petDefBonusText.text = GameController.petDefBonus.ToString();
             petSpBonusText.text = GameController.petSpBonus.ToString();
@@ -1261,36 +1293,201 @@ public class eggShop : MonoBehaviour
             switch (GameController.petList[index][0])
             {
                 case "Jack-O-Lantern":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }else if(int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[0];
                     break;
                 case "Claws":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[1];
                     break;
                 case "Golem":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[2];
                     break;
                 case "Snow Wolf":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[3];
                     break;
                 case "Buzz":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[4];
                     break;
                 case "Night Wolf":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[5];
                     break;
                 case "Rumryss":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[6];
                     break;
                 case "Wyvernldle":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[7];
                     break;
                 case "Dread Biter":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[8];
                     break;
                 case "One Eye":
+                    if (int.Parse(GameController.petList[index][1]) >= 5)
+                        if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                        {
+                            petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                            petPanelEffect.SetActive(false);
+                        }
+                        else if (int.Parse(GameController.petList[index][1]) >= 10)
+                        {
+                            petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                            petPanelEffect.SetActive(true);
+                        }
+                        else
+                        {
+                            petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                            petPanelEffect.SetActive(false);
+                        }
                     petImage.sprite = Pets[9];
                     break;
                 case "red dragon":
+                    if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(false);
+                    }
+                    else if (int.Parse(GameController.petList[index][1]) >= 10)
+                    {
+                        petImage.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                        petPanelEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        petImage.transform.localScale = new Vector3(1f, 1f, 1f);
+                        petPanelEffect.SetActive(false);
+                    }
                     petImage.sprite = Pets[10];
                     break;
             }
@@ -1376,11 +1573,11 @@ public class eggShop : MonoBehaviour
             if (inventory.Container[i].item == eggs)
             {
                 eggsNumber = inventory.Container[i].amount;
-                
+
                 break;
             }
         }
-     
+
         for (int i = 0; i < inventory.Container.Count; i++)
         {
             if (inventory.Container[i].item == meat)
@@ -1599,7 +1796,7 @@ public class eggShop : MonoBehaviour
                 break;
             }
         }
-    } 
+    }
     public void EggFeed()
     {
         if (eggsNumber >= requiredEggs[0])
@@ -1611,7 +1808,7 @@ public class eggShop : MonoBehaviour
                 inventory.save();
                 meatInventory.save();
             }
-            if(eggsNumber == requiredEggs[0])
+            if (eggsNumber == requiredEggs[0])
             {
                 eggsNumber = 0;
             }
@@ -2308,114 +2505,273 @@ public class eggShop : MonoBehaviour
 
     public void FeedButton()
     {
-        if (meatNumber >= 10)
+        if (int.Parse(GameController.petList[index][1]) < 10)
         {
-            int a = int.Parse(GameController.petList[index][2]);
-            a += 10;
-            for (int i = 0; i < 10; i++)
+            if (meatNumber >= 10)
             {
-                inventory.RemoveItem(meat);
-                meatInventory.RemoveItem(meat);
-                inventory.save();
-                meatInventory.save();
-            }
-            if (meatNumber == 10)
-            {
-                meatNumber = 0;
-            }
-            if (a >= int.Parse(GameController.petList[index][3]))
-            {
-                
-                int points = int.Parse(GameController.petList[index][10]) + 1;
-                GameController.petList[index][10] = points.ToString();
-                eatSound.Play();
-                GameObject effect = Instantiate(levelUpEffect, petImage.transform.position, Quaternion.identity) as GameObject;
-                effect.transform.SetParent(this.gameObject.transform);
-                levelUpSound.Play();
-                Destroy(effect, 1f);
-                a = 0;
-                int maxFood = int.Parse(GameController.petList[index][3]);
-                maxFood += 10;
-                GameController.petList[index][3] = maxFood.ToString();
-                FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
-                GameController.petList[index][2] = "0";
-                FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
-                int level = int.Parse(GameController.petList[index][1]);
-                level++;
-                GameController.petList[index][1] = level.ToString();
+
+                int a = int.Parse(GameController.petList[index][2]);
+                a += 10;
+                for (int i = 0; i < 10; i++)
+                {
+                    inventory.RemoveItem(meat);
+                    meatInventory.RemoveItem(meat);
+                    inventory.save();
+                    meatInventory.save();
+                }
+                if (meatNumber == 10)
+                {
+                    meatNumber = 0;
+                }
+                if (a >= int.Parse(GameController.petList[index][3]))
+                {
+
+                    int points = int.Parse(GameController.petList[index][10]) + 1;
+                    GameController.petList[index][10] = points.ToString();
+                    eatSound.Play();
+                    GameObject effect = Instantiate(levelUpEffect, petImage.transform.position, Quaternion.identity) as GameObject;
+                    effect.transform.SetParent(this.gameObject.transform);
+                    levelUpSound.Play();
+                    Destroy(effect, 1f);
+                    a = 0;
+                    int maxFood = int.Parse(GameController.petList[index][3]);
+                    maxFood += 10;
+                    GameController.petList[index][3] = maxFood.ToString();
+                    FoodBar.SetMaxFood(int.Parse(GameController.petList[index][3]));
+                    GameController.petList[index][2] = "0";
+                    FoodBar.SetFood(int.Parse(GameController.petList[index][2]));
+                    int level = int.Parse(GameController.petList[index][1]);
+                    level++;
+                    GameController.petList[index][1] = level.ToString();
+                }
+                else
+                {
+                    GameController.petList[index][2] = a.ToString();
+                    eatSound.Play();
+                    FoodBar.SetFood(a);
+                }
             }
             else
             {
-                GameController.petList[index][2] = a.ToString();
-                eatSound.Play();
-                FoodBar.SetFood(a);
+                var forgedTxt = Instantiate(notEnoughRawMeatText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(petsPanel.transform, false);
+                forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+                Destroy(forgedTxt, 0.5f);
             }
-        }
-        else{
-            var forgedTxt = Instantiate(notEnoughRawMeatText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-            forgedTxt.transform.SetParent(petsPanel.transform, false);
-            forgedTxt.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
-            Destroy(forgedTxt, 0.5f);
         }
     }
 
     public void EquipButton()
     {
         GameObject pet = GameObject.FindGameObjectWithTag("pet");
+        GameObject pet1 = GameObject.FindGameObjectWithTag("pumpkin_Pet"); 
+        GameObject pet2 = GameObject.FindGameObjectWithTag("eye_Pet");
+        GameObject pet3 = GameObject.FindGameObjectWithTag("crab_Pet");
+        GameObject pet4 = GameObject.FindGameObjectWithTag("greenDragon_Pet");
+        GameObject pet5 = GameObject.FindGameObjectWithTag("dog_Pet");
+        GameObject pet6 = GameObject.FindGameObjectWithTag("snowDog_Pet");
+        GameObject pet7 = GameObject.FindGameObjectWithTag("rock_pet");
+        GameObject pet8 = GameObject.FindGameObjectWithTag("snake_Pet");
+        GameObject pet9 = GameObject.FindGameObjectWithTag("worm_Pet");
+        GameObject pet10 = GameObject.FindGameObjectWithTag("bee_Pet");
+        GameObject pet11 = GameObject.FindGameObjectWithTag("red_dragon");
         Destroy(pet);
+        Destroy(pet1);
+        Destroy(pet2);
+        Destroy(pet3);
+        Destroy(pet4);
+        Destroy(pet5);
+        Destroy(pet6);
+        Destroy(pet7);
+        Destroy(pet8);
+        Destroy(pet9);
+        Destroy(pet10);
+        Destroy(pet11);
         switch (GameController.petList[index][0])
         {
             case "Jack-O-Lantern":
-                Instantiate(animals[0], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[1], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[2], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[0], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "pumpkin";
                 break;
 
             case "Claws":
-                Instantiate(animals[3], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[4], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[5], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[3], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "crab";
                 break;
 
             case "Golem":
-                Instantiate(animals[6], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[7], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[8], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[6], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "golem";
                 break;
 
             case "Snow Wolf":
-                Instantiate(animals[9], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[10], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[11], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[9], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "snow wolf";
                 break;
 
             case "Buzz":
-                Instantiate(animals[12], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[13], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[14], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[12], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "bee";
                 break;
 
             case "Night Wolf":
-                Instantiate(animals[15], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[16], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[17], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[15], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "night wolf";
                 break;
 
             case "Rumryss":
-                Instantiate(animals[18], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[19], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[20], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[18], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "snake";
                 break;
 
             case "Wyvernldle":
-                Instantiate(animals[21], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[22], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[23], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[21], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "dragon";
                 break;
 
             case "Dread Biter":
-                Instantiate(animals[24], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[25], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[26], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[24], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "worm";
                 break;
 
             case "One Eye":
-                Instantiate(animals[27], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[28], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[29], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[27], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "eye ball";
                 break;
             case "red dragon":
-                Instantiate(animals[30], player.transform.position, Quaternion.identity);
+                if (int.Parse(GameController.petList[index][1]) >= 5 && int.Parse(GameController.petList[index][1]) < 10)
+                {
+                    Instantiate(animals[31], player.transform.position, Quaternion.identity);
+                }
+                else if (int.Parse(GameController.petList[index][1]) >= 10)
+                {
+                    Instantiate(animals[32], player.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(animals[30], player.transform.position, Quaternion.identity);
+                }
+
                 GameController.petName = "red dragon";
                 break;
         }
@@ -2432,7 +2788,7 @@ public class eggShop : MonoBehaviour
 
             int bonusAtk = int.Parse(GameController.petList[index][11]) + 1;
             GameController.petList[index][11] = bonusAtk.ToString();
-            for(int i = 1; i<= usedPetList.Count; i++)
+            for (int i = 1; i <= usedPetList.Count; i++)
             {
                 if (usedPetList[i][0] == GameController.petList[index][0])
                 {
@@ -2830,7 +3186,8 @@ public class eggShop : MonoBehaviour
     }
     public void bookNextButton()
     {
-        if(BookIndex < 5 && BookIndex >= 0) {
+        if (BookIndex < 5 && BookIndex >= 0)
+        {
             flipSound.Play();
             BookIndex++;
             switch (BookIndex)
@@ -2908,7 +3265,7 @@ public class eggShop : MonoBehaviour
                     break;
             }
         }
-       
+
     }
     public void bookPreviousButton()
     {
@@ -2989,7 +3346,7 @@ public class eggShop : MonoBehaviour
                     page[10].SetActive(false);
                     page[11].SetActive(true);
                     break;
-                
+
             }
         }
 
