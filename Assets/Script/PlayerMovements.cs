@@ -181,7 +181,7 @@ public class PlayerMovements : MonoBehaviour
     private float currentTime;
 
     private bool firstTime = true;
-
+    public AudioSource weaponSwitchAudio;
     // Start is called before the first frame update
 
     void Start()
@@ -676,12 +676,14 @@ public class PlayerMovements : MonoBehaviour
                 changeCursor = true;
                 currentWeapon = PlayerWeapon.sword;
                 Bow.SetActive(false);
+                weaponSwitchAudio.Play();
             }
             else if (Input.GetKeyDown("2"))
             {
                 changeCursor = true;
                 currentWeapon = PlayerWeapon.bow;
                 Bow.SetActive(true);
+                weaponSwitchAudio.Play();
             }
 
             change = Vector3.zero;

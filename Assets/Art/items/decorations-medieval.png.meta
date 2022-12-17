@@ -532,7 +532,7 @@ TextureImporter:
         width: 80
         height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -553,7 +553,7 @@ TextureImporter:
         width: 52
         height: 79
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -574,7 +574,7 @@ TextureImporter:
         width: 31
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -582,6 +582,27 @@ TextureImporter:
       bones: []
       spriteID: fe0b06dc416b40e4a9c19f95c9d3bd47
       internalID: 1485822209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decorations-medieval_23
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 1984
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7c19bb1ea66a44fb5233b25154f8cc
+      internalID: 440618674
       vertices: []
       indices: 
       edges: []
@@ -608,6 +629,7 @@ TextureImporter:
       decorations-medieval_21: 346070919
       decorations-medieval_2: 961336079
       decorations-medieval_22: 1485822209
+      decorations-medieval_23: 440618674
       decorations-medieval_15: -1764298460
       decorations-medieval_0: -418816531
       decorations-medieval_20: 1625534874

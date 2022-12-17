@@ -308,12 +308,38 @@ public class GameController : MonoBehaviour
     public GameObject statsPanel;
 
     public Image[] usedPetImage;
+    public GameObject[] highlight;
+    public GameObject eggShopPanel;
 
     // Start is called before the first frame update
+
     void Awake()
     {
         LoadData();
-     
+        //pets 
+        if (eggShop.savedUsedPetList[1][0] != null && eggShop.savedUsedPetList[2][0] == null && eggShop.savedUsedPetList[3][0] == null)
+        {
+            eggShop.usedPetList.Add(1, eggShop.savedUsedPetList[1]);
+
+
+        }
+        else if (eggShop.savedUsedPetList[1][0] != null && eggShop.savedUsedPetList[2][0] != null && eggShop.savedUsedPetList[3][0] == null)
+        {
+            eggShop.usedPetList.Add(1, eggShop.savedUsedPetList[1]);
+            eggShop.usedPetList.Add(2, eggShop.savedUsedPetList[2]);
+
+
+        }
+        else if (eggShop.savedUsedPetList[1][0] != null && eggShop.savedUsedPetList[2][0] != null && eggShop.savedUsedPetList[3][0] != null)
+        {
+            eggShop.usedPetList.Add(1, eggShop.savedUsedPetList[1]);
+            eggShop.usedPetList.Add(2, eggShop.savedUsedPetList[2]);
+            eggShop.usedPetList.Add(3, eggShop.savedUsedPetList[3]);
+
+        }
+
+
+
         //gears
         switch (attackGear)
         {
@@ -1270,6 +1296,250 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
+        switch (eggShop.usedPetList.Count)
+        {
+            case 0:
+                GameController.petAtkBonus = 0;
+                GameController.petDefBonus = 0;
+                GameController.petSpBonus = 0;
+                GameController.petAgiBonus = 0;
+                GameController.petHpBonus = 0;
+                break;
+            case 1:
+
+                switch (eggShop.usedPetList[1][4])
+                {
+                    case "2":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk2starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk2starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def2starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def2starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp2starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp2starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi2starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi2starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp2starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp2starsPet;
+                        break;
+                    case "3":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk3starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk3starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def3starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def3starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp3starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp3starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi3starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi3starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp3starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp3starsPet;
+                        break;
+                    case "4":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk4starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk4starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def4starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def4starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp4starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp4starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi4starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi4starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp4starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp4starsPet;
+                        break;
+                    case "5":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk5starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk5starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def5starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def5starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp5starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp5starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi5starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi5starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp5starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp5starsPet;
+                        break;
+
+                }
+
+                break;
+
+            case 2:
+
+                switch (eggShop.usedPetList[1][4])
+                {
+                    case "2":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk2starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk2starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def2starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def2starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp2starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp2starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi2starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi2starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp2starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp2starsPet;
+                        break;
+                    case "3":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk3starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk3starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def3starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def3starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp3starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp3starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi3starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi3starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp3starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp3starsPet;
+                        break;
+                    case "4":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk4starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk4starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def4starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def4starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp4starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp4starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi4starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi4starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp4starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp4starsPet;
+                        break;
+                    case "5":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk5starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk5starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def5starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def5starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp5starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp5starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi5starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi5starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp5starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp5starsPet;
+                        break;
+
+                }
+
+
+                switch (eggShop.usedPetList[2][4])
+                {
+                    case "2":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk2starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk2starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def2starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def2starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp2starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp2starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi2starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi2starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp2starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp2starsPet;
+                        break;
+                    case "3":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk3starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk3starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def3starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def3starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp3starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp3starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi3starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi3starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp3starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp3starsPet;
+                        break;
+                    case "4":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk4starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk4starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def4starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def4starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp4starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp4starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi4starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi4starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp4starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp4starsPet;
+                        break;
+                    case "5":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk5starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk5starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def5starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def5starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp5starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp5starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi5starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi5starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp5starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp5starsPet;
+                        break;
+
+                }
+                break;
+
+            case 3:
+
+                switch (eggShop.usedPetList[1][4])
+                {
+                    case "2":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk2starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk2starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def2starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def2starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp2starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp2starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi2starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi2starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp2starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp2starsPet;
+                        break;
+                    case "3":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk3starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk3starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def3starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def3starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp3starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp3starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi3starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi3starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp3starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp3starsPet;
+                        break;
+                    case "4":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk4starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk4starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def4starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def4starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp4starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp4starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi4starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi4starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp4starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp4starsPet;
+                        break;
+                    case "5":
+                        GameController.pet1AtkBonus = int.Parse(eggShop.usedPetList[1][5]) * eggShop.Atk5starsPet + int.Parse(eggShop.usedPetList[1][11]) * eggShop.Atk5starsPet;
+                        GameController.pet1DefBonus = int.Parse(eggShop.usedPetList[1][6]) * eggShop.Def5starsPet + int.Parse(eggShop.usedPetList[1][12]) * eggShop.Def5starsPet;
+                        GameController.pet1SpBonus = int.Parse(eggShop.usedPetList[1][7]) * eggShop.Sp5starsPet + int.Parse(eggShop.usedPetList[1][13]) * eggShop.Sp5starsPet;
+                        GameController.pet1AgiBonus = int.Parse(eggShop.usedPetList[1][8]) * eggShop.Agi5starsPet + int.Parse(eggShop.usedPetList[1][14]) * eggShop.Agi5starsPet;
+                        GameController.pet1HpBonus = int.Parse(eggShop.usedPetList[1][9]) * eggShop.Hp5starsPet + int.Parse(eggShop.usedPetList[1][15]) * eggShop.Hp5starsPet;
+                        break;
+                }
+
+
+                switch (eggShop.usedPetList[2][4])
+                {
+                    case "2":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk2starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk2starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def2starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def2starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp2starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp2starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi2starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi2starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp2starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp2starsPet;
+                        break;
+                    case "3":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk3starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk3starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def3starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def3starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp3starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp3starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi3starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi3starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp3starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp3starsPet;
+                        break;
+                    case "4":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk4starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk4starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def4starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def4starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp4starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp4starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi4starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi4starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp4starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp4starsPet;
+                        break;
+                    case "5":
+                        GameController.pet2AtkBonus = int.Parse(eggShop.usedPetList[2][5]) * eggShop.Atk5starsPet + int.Parse(eggShop.usedPetList[2][11]) * eggShop.Atk5starsPet;
+                        GameController.pet2DefBonus = int.Parse(eggShop.usedPetList[2][6]) * eggShop.Def5starsPet + int.Parse(eggShop.usedPetList[2][12]) * eggShop.Def5starsPet;
+                        GameController.pet2SpBonus = int.Parse(eggShop.usedPetList[2][7]) * eggShop.Sp5starsPet + int.Parse(eggShop.usedPetList[2][13]) * eggShop.Sp5starsPet;
+                        GameController.pet2AgiBonus = int.Parse(eggShop.usedPetList[2][8]) * eggShop.Agi5starsPet + int.Parse(eggShop.usedPetList[2][14]) * eggShop.Agi5starsPet;
+                        GameController.pet2HpBonus = int.Parse(eggShop.usedPetList[2][9]) * eggShop.Hp5starsPet + int.Parse(eggShop.usedPetList[2][15]) * eggShop.Hp5starsPet;
+                        break;
+                }
+                switch (eggShop.usedPetList[3][4])
+                {
+
+                    case "2":
+                        GameController.pet3AtkBonus = int.Parse(eggShop.usedPetList[3][5]) * eggShop.Atk2starsPet + int.Parse(eggShop.usedPetList[3][11]) * eggShop.Atk2starsPet;
+                        GameController.pet3DefBonus = int.Parse(eggShop.usedPetList[3][6]) * eggShop.Def2starsPet + int.Parse(eggShop.usedPetList[3][12]) * eggShop.Def2starsPet;
+                        GameController.pet3SpBonus = int.Parse(eggShop.usedPetList[3][7]) * eggShop.Sp2starsPet + int.Parse(eggShop.usedPetList[3][13]) * eggShop.Sp2starsPet;
+                        GameController.pet3AgiBonus = int.Parse(eggShop.usedPetList[3][8]) * eggShop.Agi2starsPet + int.Parse(eggShop.usedPetList[3][14]) * eggShop.Agi2starsPet;
+                        GameController.pet3HpBonus = int.Parse(eggShop.usedPetList[3][9]) * eggShop.Hp2starsPet + int.Parse(eggShop.usedPetList[3][15]) * eggShop.Hp2starsPet;
+                        break;
+                    case "3":
+                        GameController.pet3AtkBonus = int.Parse(eggShop.usedPetList[3][5]) * eggShop.Atk3starsPet + int.Parse(eggShop.usedPetList[3][11]) * eggShop.Atk3starsPet;
+                        GameController.pet3DefBonus = int.Parse(eggShop.usedPetList[3][6]) * eggShop.Def3starsPet + int.Parse(eggShop.usedPetList[3][12]) * eggShop.Def3starsPet;
+                        GameController.pet3SpBonus = int.Parse(eggShop.usedPetList[3][7]) * eggShop.Sp3starsPet + int.Parse(eggShop.usedPetList[3][13]) * eggShop.Sp3starsPet;
+                        GameController.pet3AgiBonus = int.Parse(eggShop.usedPetList[3][8]) * eggShop.Agi3starsPet + int.Parse(eggShop.usedPetList[3][14]) * eggShop.Agi3starsPet;
+                        GameController.pet3HpBonus = int.Parse(eggShop.usedPetList[3][9]) * eggShop.Hp3starsPet + int.Parse(eggShop.usedPetList[3][15]) * eggShop.Hp3starsPet;
+
+                        break;
+                    case "4":
+                        GameController.pet3AtkBonus = int.Parse(eggShop.usedPetList[3][5]) * eggShop.Atk4starsPet + int.Parse(eggShop.usedPetList[3][11]) * eggShop.Atk4starsPet;
+                        GameController.pet3DefBonus = int.Parse(eggShop.usedPetList[3][6]) * eggShop.Def4starsPet + int.Parse(eggShop.usedPetList[3][12]) * eggShop.Def4starsPet;
+                        GameController.pet3SpBonus = int.Parse(eggShop.usedPetList[3][7]) * eggShop.Sp4starsPet + int.Parse(eggShop.usedPetList[3][13]) * eggShop.Sp4starsPet;
+                        GameController.pet3AgiBonus = int.Parse(eggShop.usedPetList[3][8]) * eggShop.Agi4starsPet + int.Parse(eggShop.usedPetList[3][14]) * eggShop.Agi4starsPet;
+                        GameController.pet3HpBonus = int.Parse(eggShop.usedPetList[3][9]) * eggShop.Hp4starsPet + int.Parse(eggShop.usedPetList[3][15]) * eggShop.Hp4starsPet;
+
+                        break;
+                    case "5":
+                        GameController.pet3AtkBonus = int.Parse(eggShop.usedPetList[3][5]) * eggShop.Atk5starsPet + int.Parse(eggShop.usedPetList[3][11]) * eggShop.Atk5starsPet;
+                        GameController.pet3DefBonus = int.Parse(eggShop.usedPetList[3][6]) * eggShop.Def5starsPet + int.Parse(eggShop.usedPetList[3][12]) * eggShop.Def5starsPet;
+                        GameController.pet3SpBonus = int.Parse(eggShop.usedPetList[3][7]) * eggShop.Sp5starsPet + int.Parse(eggShop.usedPetList[3][13]) * eggShop.Sp5starsPet;
+                        GameController.pet3AgiBonus = int.Parse(eggShop.usedPetList[3][8]) * eggShop.Agi5starsPet + int.Parse(eggShop.usedPetList[3][14]) * eggShop.Agi5starsPet;
+                        GameController.pet3HpBonus = int.Parse(eggShop.usedPetList[3][9]) * eggShop.Hp5starsPet + int.Parse(eggShop.usedPetList[3][15]) * eggShop.Hp5starsPet;
+                        break;
+
+                }
+                break;
+        }
+
+        GameController.petAtkBonus = GameController.pet1AtkBonus + GameController.pet2AtkBonus + GameController.pet3AtkBonus;
+        GameController.petDefBonus = GameController.pet1DefBonus + GameController.pet2DefBonus + GameController.pet3DefBonus;
+        GameController.petSpBonus = GameController.pet1SpBonus + GameController.pet2SpBonus + GameController.pet3SpBonus;
+        GameController.petAgiBonus = GameController.pet1AgiBonus + GameController.pet2AgiBonus + GameController.pet3AgiBonus;
+        GameController.petHpBonus = GameController.pet1HpBonus + GameController.pet2HpBonus + GameController.pet3HpBonus;
+
+
+        switch (PlayerMovements.currentWeapon)
+        {
+            case PlayerWeapon.sword:
+                highlight[0].SetActive(true);
+                highlight[1].SetActive(false);
+                highlight[2].SetActive(false);
+                highlight[3].SetActive(false);
+                highlight[4].SetActive(false);
+                break;
+            case PlayerWeapon.bow:
+                highlight[0].SetActive(false);
+                highlight[1].SetActive(true);
+                highlight[2].SetActive(false);
+                highlight[3].SetActive(false);
+                highlight[4].SetActive(false);
+                break;
+        }
         if (ultValue >= 10)
         {
             canUlt = true;
