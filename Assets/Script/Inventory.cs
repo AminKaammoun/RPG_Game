@@ -140,10 +140,10 @@ public class Inventory : MonoBehaviour
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
 
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                    if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || meatInventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg)
+                   /* if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || meatInventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg)
                     {
                         obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
-                    }
+                    }*/
                     itemsDisplayed.Add(inventory.Container[i], obj);
 
                 }

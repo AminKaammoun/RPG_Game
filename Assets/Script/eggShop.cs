@@ -130,6 +130,7 @@ public class eggShop : MonoBehaviour
     public TextMeshProUGUI PetBattlePowerText;
     private int BattlePower;
     public GameObject bp;
+    public GameObject usedMeatText;
 
     // stats 
 
@@ -2511,7 +2512,9 @@ public class eggShop : MonoBehaviour
         {
             if (meatNumber >= 10)
             {
-
+                var txt = Instantiate(usedMeatText, feedUIButton.transform.position, Quaternion.identity) as GameObject;
+                txt.transform.SetParent(GameObject.FindGameObjectWithTag("petPanel").transform, false);
+                Destroy(txt, 1f);
                 int a = int.Parse(GameController.petList[index][2]);
                 a += 10;
                 for (int i = 0; i < 10; i++)
@@ -2562,11 +2565,10 @@ public class eggShop : MonoBehaviour
             }
         }
     }
-
-    public void EquipButton()
+    public void UnequipPetButton()
     {
         GameObject pet = GameObject.FindGameObjectWithTag("pet");
-        GameObject pet1 = GameObject.FindGameObjectWithTag("pumpkin_Pet"); 
+        GameObject pet1 = GameObject.FindGameObjectWithTag("pumpkin_Pet");
         GameObject pet2 = GameObject.FindGameObjectWithTag("eye_Pet");
         GameObject pet3 = GameObject.FindGameObjectWithTag("crab_Pet");
         GameObject pet4 = GameObject.FindGameObjectWithTag("greenDragon_Pet");
@@ -2589,6 +2591,11 @@ public class eggShop : MonoBehaviour
         Destroy(pet9);
         Destroy(pet10);
         Destroy(pet11);
+        this.gameObject.SetActive(false);
+    }
+    public void EquipButton()
+    {
+        UnequipPetButton();
         switch (GameController.petList[index][0])
         {
             case "Jack-O-Lantern":

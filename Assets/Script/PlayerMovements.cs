@@ -671,14 +671,14 @@ public class PlayerMovements : MonoBehaviour
         healthbar.SetHealth(health);
         if (!invIsOpen || !GameController.wantTp)
         {
-            if (Input.GetKeyDown("1"))
+            if (Input.GetKeyDown("1") && currentWeapon != PlayerWeapon.sword)
             {
                 changeCursor = true;
                 currentWeapon = PlayerWeapon.sword;
                 Bow.SetActive(false);
                 weaponSwitchAudio.Play();
             }
-            else if (Input.GetKeyDown("2"))
+            else if (Input.GetKeyDown("2") && currentWeapon != PlayerWeapon.bow)
             {
                 changeCursor = true;
                 currentWeapon = PlayerWeapon.bow;
