@@ -129,6 +129,7 @@ public class eggShop : MonoBehaviour
     public GameObject petPanelEffect;
     public TextMeshProUGUI PetBattlePowerText;
     private int BattlePower;
+    public GameObject bp;
 
     // stats 
 
@@ -1165,6 +1166,7 @@ public class eggShop : MonoBehaviour
             feedUIButton.SetActive(true);
             equipUIButton.SetActive(true);
             statsPanel.SetActive(true);
+            bp.SetActive(true);
 
             petCount.text = index + "/" + GameController.petList.Count;
             petName.text = GameController.petList[index][0];

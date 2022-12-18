@@ -145,12 +145,16 @@ public class LapidaryLeftSide : MonoBehaviour
     public GameObject helmetText5;
     public GameObject beltText5;
     public GameObject ringText5;
+    public GameObject[] slot;
+    public GameObject[] slotTxt;
+    public GameObject[] GearButton;
+    private int counter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         CreateDisplay();
-
+        currentgear = SelectedGear.nothing;
 
         switch (GameController.attackGear)
         {
@@ -465,10 +469,24 @@ public class LapidaryLeftSide : MonoBehaviour
     void Update()
     {
 
+        for(int i = 0; i < 5;i++)
+        {
+            if (GearButton[i].activeSelf)
+            {
+                counter++;
+            }
+        }
+        if(counter == 0)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                slot[i].SetActive(false);
+                slotTxt[i].SetActive(false);
+            }
+        }
+
         if (refreshInv)
         {
-
-
             itemsDisplayed.Clear();
             GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
 
@@ -498,6 +516,11 @@ public class LapidaryLeftSide : MonoBehaviour
             helmetGemLevel.text = "";
             beltGemLevel.text = "";
             ringGemLevel.text = "";
+            for (int i = 0; i < 5; i++)
+            {
+                slot[i].SetActive(false);
+                slotTxt[i].SetActive(false);
+            }
         }
 
         if (refresh)
@@ -834,6 +857,11 @@ public class LapidaryLeftSide : MonoBehaviour
 
     public void swordGear()
     {
+        for(int i = 0; i<5; i++)
+        {
+            slot[i].SetActive(true);
+            slotTxt[i].SetActive(true);
+        }
         effect.SetActive(true);
         icon.SetActive(true);
         currentgear = SelectedGear.sword;
@@ -978,6 +1006,11 @@ public class LapidaryLeftSide : MonoBehaviour
     }
     public void ShieldGear()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            slot[i].SetActive(true);
+            slotTxt[i].SetActive(true);
+        }
         effect.SetActive(true);
         icon.SetActive(true);
         currentgear = SelectedGear.shield;
@@ -1127,6 +1160,11 @@ public class LapidaryLeftSide : MonoBehaviour
     }
     public void helmetAgiGear()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            slot[i].SetActive(true);
+            slotTxt[i].SetActive(true);
+        }
         effect.SetActive(true);
         icon.SetActive(true);
         currentgear = SelectedGear.helmet;
@@ -1272,6 +1310,11 @@ public class LapidaryLeftSide : MonoBehaviour
     }
     public void beltSpGear()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            slot[i].SetActive(true);
+            slotTxt[i].SetActive(true);
+        }
         effect.SetActive(true);
         icon.SetActive(true);
         currentgear = SelectedGear.belt;
@@ -1416,6 +1459,11 @@ public class LapidaryLeftSide : MonoBehaviour
     }
     public void ringHpGear()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            slot[i].SetActive(true);
+            slotTxt[i].SetActive(true);
+        }
         effect.SetActive(true);
         icon.SetActive(true);
         currentgear = SelectedGear.ring;

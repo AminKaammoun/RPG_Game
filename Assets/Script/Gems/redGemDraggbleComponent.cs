@@ -19,7 +19,7 @@ public class redGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragHa
 
     private void Awake()
     {
-
+        
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
@@ -370,8 +370,6 @@ public class redGemDraggbleComponent : MonoBehaviour, IInitializePotentialDragHa
             LapidaryLeftSide.refreshInv = true;
             Inventory.refreshInv = true;
         }
-
-      
 
         Destroy(this.gameObject);
     }
