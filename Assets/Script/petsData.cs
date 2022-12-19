@@ -25,6 +25,7 @@ public class petsData
     public string[] BonusSp = new string[12];
     public string[] BonusAgi = new string[12];
     public string[] BonusHp = new string[12];
+    public string[] Element = new string[12];
     public int length;
     public int index;
 
@@ -44,6 +45,7 @@ public class petsData
     public string[] usedBonusSp = new string[3];
     public string[] usedBonusAgi = new string[3];
     public string[] usedBonusHp = new string[3];
+    public string[] usedElement = new string[3];
     public string[] usedImage = new string[3];
 
     public petsData(GameController player)
@@ -68,7 +70,7 @@ public class petsData
             usedBonusSp[i - 1] = eggShop.usedPetList[i][13];
             usedBonusAgi[i - 1] = eggShop.usedPetList[i][14];
             usedBonusHp[i - 1] = eggShop.usedPetList[i][15];
-
+            usedElement[i - 1] = eggShop.usedPetList[i][16]; 
         }
         length = GameController.petList.Count;
         for (int i =1;i<= GameController.petList.Count; i++)
@@ -89,6 +91,7 @@ public class petsData
             BonusSp[i-1] = GameController.petList[i][13];
             BonusAgi[i-1] = GameController.petList[i][14];
             BonusHp[i-1] = GameController.petList[i][15];
+            Element[i - 1] = GameController.petList[i][16];
         }
     }
     

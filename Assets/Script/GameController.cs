@@ -1281,12 +1281,12 @@ public class GameController : MonoBehaviour
 
         for (int i = 1; i<= data9.length; i++)
         {
-            petList.Add(i, new string[] { data9.petName[i-1], data9.petLevel[i-1], data9.xp[i - 1], data9.maxXp[i - 1], data9.stars[i - 1], data9.BaseAtk[i - 1], data9.BaseDef[i - 1], data9.BaseSp[i - 1], data9.BaseAgi[i - 1], data9.BaseHp[i - 1], data9.statsPoint[i - 1], data9.BonusAtk[i - 1], data9.BonusDef[i - 1], data9.BonusSp[i - 1], data9.BonusAgi[i - 1], data9.BonusHp[i - 1] });
+            petList.Add(i, new string[] { data9.petName[i-1], data9.petLevel[i-1], data9.xp[i - 1], data9.maxXp[i - 1], data9.stars[i - 1], data9.BaseAtk[i - 1], data9.BaseDef[i - 1], data9.BaseSp[i - 1], data9.BaseAgi[i - 1], data9.BaseHp[i - 1], data9.statsPoint[i - 1], data9.BonusAtk[i - 1], data9.BonusDef[i - 1], data9.BonusSp[i - 1], data9.BonusAgi[i - 1], data9.BonusHp[i - 1], data9.Element[i -1] });
         }
 
         }
     
-
+    
     private void OnApplicationQuit()
     {
         SaveData();
