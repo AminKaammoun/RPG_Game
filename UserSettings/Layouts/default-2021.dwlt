@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 300}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
-  controlID: 71
+  controlID: 17267
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 300}
   m_MaxSize: {x: 16192, y: 24288}
   vertical: 1
-  controlID: 110
+  controlID: 17268
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 111
+  controlID: 17269
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 79
+  controlID: 17281
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -266,16 +266,16 @@ MonoBehaviour:
     y: 0
     width: 1158
     height: 714
-  m_MinSize: {x: 102, y: 121}
+  m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 19}
   - {fileID: 14}
-  m_Selected: 3
-  m_LastSelected: 0
+  m_Selected: 2
+  m_LastSelected: 3
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimationWindow
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -297,13 +297,13 @@ MonoBehaviour:
     height: 233
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
   - {fileID: 21}
   - {fileID: 22}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,8 +350,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 413
-    y: 73
+    x: 414
+    y: 19
     width: 1156
     height: 693
   m_ViewDataDictionary: {fileID: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -453,9 +453,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 94d20000
       m_LastClickedID: 0
-      m_ExpandedIDs: 10fbffff
+      m_ExpandedIDs: e426fcff10fbffffe2840000cc9b0000eeb900000ac10000aacf0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -520,22 +520,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animation/Text
+    - Assets/Art/animals
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Animation/Text
+  - Assets/Art/animals
   m_LastFoldersGridSize: 64
   m_LastProjectPath: E:\Unity projects\RPG Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 799}
-    m_SelectedIDs: 02650100
-    m_LastClickedID: 91394
-    m_ExpandedIDs: 000000002c6401002e64010030640100326401003464010036640100386401003a6401003c6401003e64010040640100426401004464010046640100486401004a6401004c6401004e64010050640100526401005464010056640100586401005a6401005c6401005e640100606401006a64010000ca9a3b
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 6c640100
+    m_LastClickedID: 91244
+    m_ExpandedIDs: 000000002c6401002e64010030640100326401003464010036640100386401003a6401003c6401003e64010040640100426401004464010046640100486401004a6401004c6401004e640100506401005264010054640100566401005e640100606401006c640100b4640100b66401000465010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -563,7 +563,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002c6401002e64010030640100326401003464010036640100386401003a6401003c6401003e64010040640100426401004464010046640100486401004a6401004c6401004e64010050640100526401005464010056640100586401005a6401005c6401005e64010060640100
+    m_ExpandedIDs: 000000002c6401002e64010030640100326401003464010036640100386401003a6401003c6401003e64010040640100426401004464010046640100486401004a6401004c6401004e640100506401005264010054640100566401005e640100606401006c640100b4640100b66401000465010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -591,7 +591,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c62300000000000078c000002cd200004ed3000072e60000a8610000e06100009efb000076620000b89100008a6900001eca000078630000906f00008e6f0000ee970000f46802003070000048700000929900009e8600009a8600006e7000006a700000f8990000027200001a720000eaad01002c72000092780200987802008c74000070740000e2770000f2740100d86b0100444a0200a0d40000628801002893000010930000d8d20000cef60000048500000682040096cd0000d6760500748a00002c970000408a0900608a0900d49a0000d4020300c6a2000016a3000014a3000048a30000a2a3000084710200f20a05002ea30100d2a50000eaa6000060ae08008ac1000006e20000060c03005289120056a700008ca6000024d9020016b3000010b70000d6b50000bab60000eeb90000ecb90000b4ba0000c2bb0000c0bb000044fa00004efa00003afa0000e4bb00000abc0000f4f90000ea361200e6361200e2361200f2361200ee36120078f4020084ae0300c6c10000c4c10000e6c5000034ce0a006ac600006ec600006ac70000b22d0400fa2d0400002e0400c46d0600ce740c0098c8000086740c00880c010004cc0000f40c0100d6ca0000faca0000d472030002cc000098cd00009ccd00003a1301002acf00003cce00005ac8010034d20000343a0100ae3c0400ee3c04002ac902009a190100224d020074d30000902c0d00121a050028450100201d06004e45010030e506009c6b0900a06b0900fa6e0a000ed800008cd800005a330100ded80000dcd800008ade0000c0b1010080d501002873010076720100627b01006ca00100484e0100e4460100e4680100ac1f010010ba0600c8dc0000c6dc000040df00003edf000004e6000006e6000048e1000030560100d8e000006ce20100a4e90000e8e30000eae30000aae9000002ec0000feeb000008ec0000fceb0000faeb000004ec0000082f0100123c0100103a01009c39010020c00100
+    m_ExpandedInstanceIDs: c62300000000000078c000002cd200004ed3000072e60000a8610000e06100009efb000076620000b89100008a6900001eca000078630000906f00008e6f0000ee970000f46802003070000048700000929900009e8600009a8600006e7000006a700000f8990000027200001a720000eaad01002c72000092780200987802008c74000070740000e2770000f2740100d86b0100444a0200a0d40000628801002893000010930000d8d20000cef60000048500000682040096cd0000d6760500748a00002c970000408a0900608a0900d49a0000d4020300c6a2000016a3000014a3000048a30000a2a3000084710200f20a05002ea30100d2a50000eaa6000060ae08008ac1000006e20000060c03005289120056a700008ca6000024d9020016b3000010b70000d6b50000bab60000eeb90000ecb90000b4ba0000c2bb0000c0bb000044fa00004efa00003afa0000e4bb00000abc0000f4f90000ea361200e6361200e2361200f2361200ee36120078f4020084ae0300c6c10000c4c10000e6c5000034ce0a006ac600006ec600006ac70000b22d0400fa2d0400002e0400c46d0600ce740c0098c8000086740c00880c010004cc0000f40c0100d6ca0000faca0000d472030002cc000098cd00009ccd00003a1301002acf00003cce00005ac8010034d20000343a0100ae3c0400ee3c04002ac902009a190100224d020074d30000902c0d00121a050028450100201d06004e45010030e506009c6b0900a06b0900fa6e0a000ed800008cd800005a330100ded80000dcd800008ade0000c0b1010080d501002873010076720100627b01006ca00100484e0100e4460100e4680100ac1f010010ba0600c8dc0000c6dc000040df00003edf000004e6000006e6000048e1000030560100d8e000006ce20100a4e90000e8e30000eae30000aae9000002ec0000feeb000008ec0000fceb0000faeb000004ec0000082f0100123c0100103a01009c39010020c001003a6602000e0a08002af1000028f10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -615,7 +615,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 345}
+    m_ScrollPosition: {x: 0, y: 740}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 217
@@ -762,6 +762,7 @@ MonoBehaviour:
     - {fileID: -7458067420872198059, guid: bbfdbb59e310cb949add7dedea2eebbe, type: 2}
     - {fileID: 6249767554041684565, guid: cca6ab779db549643a3bd338512224ef, type: 2}
     - {fileID: 808352820549945271, guid: 8d04d936f96b70b49bbc5bd8625a4d79, type: 2}
+    - {fileID: -781086330552652688, guid: 970dcaad3ed6f354fa0259ce472f7811, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.8385013
       e01: 0
@@ -2571,10 +2572,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 8d04d936f96b70b49bbc5bd8625a4d79, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 970dcaad3ed6f354fa0259ce472f7811, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 808352820549945271, guid: 8d04d936f96b70b49bbc5bd8625a4d79, type: 2}
+  - m_Target: {fileID: -781086330552652688, guid: 970dcaad3ed6f354fa0259ce472f7811, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -2649,7 +2666,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -101, y: -1}
+      snapOffsetDelta: {x: -101, y: -26}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -2682,7 +2699,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 1
       id: unity-search-toolbar
       index: 1
@@ -2693,7 +2710,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Open Tile Palette
       index: 2
@@ -2702,7 +2719,7 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -2737,7 +2754,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Light Settings
       index: 0
@@ -2748,7 +2765,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Camera
       index: 1
@@ -2759,7 +2776,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Cloth Constraints
       index: 2
@@ -2770,7 +2787,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Cloth Collisions
       index: 3
@@ -2781,7 +2798,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Navmesh Display
       index: 4
@@ -2792,7 +2809,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Agent Display
       index: 5
@@ -2803,7 +2820,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Obstacle Display
       index: 6
@@ -2814,7 +2831,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Occlusion Culling
       index: 7
@@ -2825,7 +2842,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Physics Debugger
       index: 8
@@ -2836,7 +2853,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Scene Visibility
       index: 9
@@ -2847,7 +2864,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
       index: 10
@@ -2858,7 +2875,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Visual Effect Model
       index: 11
@@ -2869,7 +2886,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Visual Effect
       index: 12
@@ -2880,7 +2897,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Visual Effect Event Tester
       index: 13
@@ -2895,9 +2912,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 695.95917, y: 310.99518, z: -0.42456836}
+    m_Target: {x: 570.1899, y: 379.04095, z: -1.4889046}
     speed: 2
-    m_Value: {x: 695.95917, y: 310.99518, z: -0.42456836}
+    m_Value: {x: 570.1899, y: 379.04095, z: -1.4889046}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2948,9 +2965,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 319.54596
+    m_Target: 406.43155
     speed: 2
-    m_Value: 319.54596
+    m_Value: 406.43155
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -3068,7 +3085,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -772158
+  m_LastSelectedObjectID: 47598
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -3104,7 +3121,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 911
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

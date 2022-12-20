@@ -67,6 +67,7 @@ public class eggShop : MonoBehaviour
     public AudioSource eggOpen;
 
     public Sprite[] Pets;
+    public Sprite grownWorm;
     public Image animalSpawnPos;
     public static int index = 1;
 
@@ -136,6 +137,8 @@ public class eggShop : MonoBehaviour
     public GameObject Smoke;
     public Sprite[] elements;
     public Image elementSlot;
+
+    public AudioSource usePetAudio;
 
     // stats 
 
@@ -1135,6 +1138,11 @@ public class eggShop : MonoBehaviour
     {
         if (GameController.petList.Count > 0)
         {
+            if (GameController.petList[index][0] == "Dread Biter" && int.Parse(GameController.petList[index][1]) >= 5)
+            {
+                Pets[8] = grownWorm;
+            }
+
             switch (GameController.petList[index][16])
             {
                 case "0":
@@ -2587,7 +2595,9 @@ public class eggShop : MonoBehaviour
                         var smoke = Instantiate(Smoke, feedUIButton.transform.position, Quaternion.identity) as GameObject;
                         smoke.transform.SetParent(GameObject.FindGameObjectWithTag("petPanel").transform, false);
                         Destroy(smoke, 1f);
+                        
                     }
+                  
                     GameController.petList[index][1] = level.ToString();
                 }
                 else
@@ -2608,6 +2618,7 @@ public class eggShop : MonoBehaviour
     }
     public void UnequipPetButton()
     {
+        usePetAudio.Play();
         GameObject pet = GameObject.FindGameObjectWithTag("pet");
         GameObject pet1 = GameObject.FindGameObjectWithTag("pumpkin_Pet");
         GameObject pet2 = GameObject.FindGameObjectWithTag("eye_Pet");
