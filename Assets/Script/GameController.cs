@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
     public GameObject crow;
     public GameObject dashUi;
     public GameObject player;
+    private GameObject pet;
     public GameObject loadingPanel;
     public GameObject tpPanel;
     public GameObject Dun1Panel;
@@ -1265,16 +1266,16 @@ public class GameController : MonoBehaviour
             {
 
                 case 1:
-                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0] });
+                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
                     break;
                 case 2:
-                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0] });
+                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
                     eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1] });
                     break;
                 case 3:
-                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0] });
-                    eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1] });
-                    eggShop.savedUsedPetList.Add(3, new string[] { data9.usedPetName[2], data9.usedPetLevel[2], data9.usedXp[2], data9.usedMaxXp[2], data9.usedStars[2], data9.usedBaseAtk[2], data9.usedBaseDef[2], data9.usedBaseSp[2], data9.usedBaseAgi[2], data9.usedBaseHp[2], data9.usedStatsPoint[2], data9.usedBonusAtk[2], data9.usedBonusDef[2], data9.usedBonusSp[2], data9.usedBonusAgi[2], data9.usedBonusHp[2] });
+                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
+                    eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1], data9.usedElement[1] });
+                    eggShop.savedUsedPetList.Add(3, new string[] { data9.usedPetName[2], data9.usedPetLevel[2], data9.usedXp[2], data9.usedMaxXp[2], data9.usedStars[2], data9.usedBaseAtk[2], data9.usedBaseDef[2], data9.usedBaseSp[2], data9.usedBaseAgi[2], data9.usedBaseHp[2], data9.usedStatsPoint[2], data9.usedBonusAtk[2], data9.usedBonusDef[2], data9.usedBonusSp[2], data9.usedBonusAgi[2], data9.usedBonusHp[2], data9.usedElement[2] });
                     break;
             }
        
@@ -1900,6 +1901,36 @@ public class GameController : MonoBehaviour
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(21.36f, 0.56f, 0f);
+        try
+        {
+            pet = GameObject.FindGameObjectWithTag("pet");
+            pet.transform.position = new Vector3(21.36f, 0.56f, 0f);
+        }
+        catch (System.NullReferenceException)
+        {
+
+            try
+            {
+                pet = GameObject.FindGameObjectWithTag("pumpkin_Pet");
+                pet = GameObject.FindGameObjectWithTag("eye_Pet");
+                pet = GameObject.FindGameObjectWithTag("crab_Pet");
+                pet = GameObject.FindGameObjectWithTag("greenDragon_Pet");
+                pet = GameObject.FindGameObjectWithTag("dog_Pet");
+                pet = GameObject.FindGameObjectWithTag("snowDog_Pet");
+                pet = GameObject.FindGameObjectWithTag("rock_pet");
+                pet = GameObject.FindGameObjectWithTag("snake_Pet");
+                pet = GameObject.FindGameObjectWithTag("worm_Pet");
+                pet = GameObject.FindGameObjectWithTag("bee_Pet");
+                pet = GameObject.FindGameObjectWithTag("red_dragon");
+                pet.transform.position = new Vector3(21.36f, 0.56f, 0f);
+            }
+            catch (System.NullReferenceException)
+            {
+
+            }
+
+        }
+
         currentMap = PlayerMap.Village;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());
@@ -1924,6 +1955,36 @@ public class GameController : MonoBehaviour
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(47.66f, 3.1f, 0f);
+
+        try
+        {
+            pet = GameObject.FindGameObjectWithTag("pet");
+            pet.transform.position = new Vector3(47.66f, 3.1f, 0f);
+        }
+        catch (System.NullReferenceException)
+        {
+
+            try
+            {
+                pet = GameObject.FindGameObjectWithTag("pumpkin_Pet");
+                pet = GameObject.FindGameObjectWithTag("eye_Pet");
+                pet = GameObject.FindGameObjectWithTag("crab_Pet");
+                pet = GameObject.FindGameObjectWithTag("greenDragon_Pet");
+                pet = GameObject.FindGameObjectWithTag("dog_Pet");
+                pet = GameObject.FindGameObjectWithTag("snowDog_Pet");
+                pet = GameObject.FindGameObjectWithTag("rock_pet");
+                pet = GameObject.FindGameObjectWithTag("snake_Pet");
+                pet = GameObject.FindGameObjectWithTag("worm_Pet");
+                pet = GameObject.FindGameObjectWithTag("bee_Pet");
+                pet = GameObject.FindGameObjectWithTag("red_dragon");
+                pet.transform.position = new Vector3(47.66f, 3.1f, 0f);
+            }
+            catch (System.NullReferenceException)
+            {
+
+            }
+
+        }
         currentMap = PlayerMap.forrest;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());
@@ -1940,6 +2001,35 @@ public class GameController : MonoBehaviour
         tpPanel.SetActive(false);
         wantTp = false;
         player.transform.position = new Vector3(68.16f, 129.6f, 0f);
+        try
+        {
+            pet = GameObject.FindGameObjectWithTag("pet");
+            pet.transform.position = new Vector3(68.16f, 129.6f, 0f);
+        }
+        catch (System.NullReferenceException)
+        {
+
+            try
+            {
+                pet = GameObject.FindGameObjectWithTag("pumpkin_Pet");
+                pet = GameObject.FindGameObjectWithTag("eye_Pet");
+                pet = GameObject.FindGameObjectWithTag("crab_Pet");
+                pet = GameObject.FindGameObjectWithTag("greenDragon_Pet");
+                pet = GameObject.FindGameObjectWithTag("dog_Pet");
+                pet = GameObject.FindGameObjectWithTag("snowDog_Pet");
+                pet = GameObject.FindGameObjectWithTag("rock_pet");
+                pet = GameObject.FindGameObjectWithTag("snake_Pet");
+                pet = GameObject.FindGameObjectWithTag("worm_Pet");
+                pet = GameObject.FindGameObjectWithTag("bee_Pet");
+                pet = GameObject.FindGameObjectWithTag("red_dragon");
+                pet.transform.position = new Vector3(68.16f, 129.6f, 0f);
+            }
+            catch (System.NullReferenceException)
+            {
+
+            }
+
+        }
         currentMap = PlayerMap.beach;
         loadingPanel.SetActive(true);
         StartCoroutine(removeLoadingPanel());

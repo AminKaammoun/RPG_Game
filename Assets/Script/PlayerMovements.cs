@@ -36,6 +36,7 @@ public class PlayerMovements : MonoBehaviour
     public static float hp;
     public static float Sp;
 
+    private float TimeBtwSwings;
     private Rigidbody2D rb2D;
     public Rigidbody2D bow;
     public static Animator animator;
@@ -204,7 +205,12 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (firstTime)
+        if (TimeBtwSwings > 0)
+        {
+            TimeBtwSwings -= Time.deltaTime;
+        }
+
+            if (firstTime)
         {
             health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
             firstTime = false;
@@ -695,8 +701,12 @@ public class PlayerMovements : MonoBehaviour
             {
                 if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
                 {
-                    swingAudio.Play();
-                    StartCoroutine(waitAttack());
+                    if (TimeBtwSwings <= 0)
+                    {
+                        swingAudio.Play();
+                        StartCoroutine(waitAttack());
+                        TimeBtwSwings = 0.5f;
+                    }
                 }
             }
         }
@@ -971,6 +981,7 @@ public class PlayerMovements : MonoBehaviour
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(0.33f);
         currentState = PlayerState.walk;
+        
     }
 
     IEnumerator waitdash()

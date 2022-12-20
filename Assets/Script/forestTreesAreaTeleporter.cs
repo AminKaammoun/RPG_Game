@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class forestTreesAreaTeleporter : MonoBehaviour
 {
@@ -15,9 +16,10 @@ public class forestTreesAreaTeleporter : MonoBehaviour
     public AudioClip forestMusic;
     public AudioClip forestNightAudio;
 
+   
+    
 
-
-
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -27,7 +29,7 @@ public class forestTreesAreaTeleporter : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 player.transform.position = new Vector3(198.4f, 30.57f, 0f);
-                GameController.currentMap = PlayerMap.forrestTreesArea;
+                
             }
         }
 
@@ -47,6 +49,7 @@ public class forestTreesAreaTeleporter : MonoBehaviour
                 }
 
                 player.transform.position = new Vector3(198.4f, 26.41f, 0f);
+                
                 GameController.currentMap = PlayerMap.forrest;
             }
         }
