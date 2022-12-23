@@ -15,7 +15,7 @@ public class Slime : Enemy
     public GameObject slashEff;
     public GameObject xp;
     public GameObject coin;
-    public GameObject damageText;
+    public GameObject DamageText;
     public GameObject[] splash;
     public GameObject splashBlood;
 
@@ -109,24 +109,82 @@ public class Slime : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
+        if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow") || collision.gameObject.CompareTag("ultSlash") || collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5") || collision.gameObject.CompareTag("windUlt") || collision.gameObject.CompareTag("thunderStrike"))
         {
             if (canBeDamaged)
             {
                 if (collision.gameObject.CompareTag("hitBox"))
                 {
+                    damageText.num = 0;
                     defence = 300;
+                    float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    TakeDamage((int)damage);
+                    GameController.ultValue += 0.5f;
                 }
                 else if (collision.gameObject.CompareTag("Arrow"))
                 {
+                    damageText.num = 0;
                     defence = 900;
+                    float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    TakeDamage((int)damage);
+                    GameController.ultValue += 0.5f;
                 }
-                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-                float damage = attack * (100 / (100 + defence));
-                TakeDamage((int)damage);
+                else if (collision.gameObject.CompareTag("ultSlash"))
+                {
+                    damageText.num = -1;
+                    defence = 300;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage + damage * (GameController.skill1Level / 100);
+                    TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("rockUlt"))
+                {
+                    damageText.num = -2;
+                    defence = 300;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage + damage * (GameController.skill2Level / 100);
+                    TakeDamage((int)damage);
+
+                }
+                else if (collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5"))
+                {
+                    damageText.num = -3;
+                    defence = 300;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.2f;
+                    damage = damage + damage * (GameController.skill3Level / 100) * 1.2f;
+                    TakeDamage((int)damage);
+
+                }
+                else if (collision.gameObject.CompareTag("windUlt"))
+                {
+                    damageText.num = -4;
+                    defence = 300;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.2f;
+                    damage = damage + damage * (GameController.skill4Level / 100) * 1.2f;
+                    TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("thunderStrike"))
+                {
+                    damageText.num = -5;
+                    defence = 300;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.5f;
+                    damage = damage + damage * (GameController.skill5Level / 100) * 1.5f;
+                    TakeDamage((int)damage);
+                }
+
 
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);
-                Instantiate(damageText, transform.position + add, Quaternion.identity);
+                Instantiate(DamageText, transform.position + add, Quaternion.identity);
 
                 canBeDamaged = false;
                 if (health <= 0)

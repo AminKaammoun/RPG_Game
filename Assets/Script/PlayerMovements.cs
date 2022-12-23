@@ -750,7 +750,8 @@ public class PlayerMovements : MonoBehaviour
             slowMotionSound.Play();
             CameraMovement.longUltShake = true;
             GameController.ultPressed = true;
-
+            ArrowSpawn.canShoot = false;
+            StartCoroutine(backToArrowShoot());
             Time.timeScale = 0.25f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
             var Volumes = volume.GetComponent<Volume>();
@@ -1689,6 +1690,12 @@ public class PlayerMovements : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator backToArrowShoot()
+    {
+        yield return new WaitForSeconds(1f);
+        ArrowSpawn.canShoot = true;
     }
 
 }
