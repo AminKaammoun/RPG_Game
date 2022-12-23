@@ -15,7 +15,7 @@ public class bat : Enemy
 
     public SpriteRenderer Bat;
 
-    public GameObject damageText;
+    public GameObject DamageText;
    
     public GameObject blood;
     public AudioSource BowHurtAudio;
@@ -39,6 +39,8 @@ public class bat : Enemy
         if (isHurt && PlayerMovements.currentWeapon == PlayerWeapon.bow)
         {
             BowHurtAudio.Play();
+            GameObject Blood = Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(Blood, 5f);
             isHurt = false;
         }
 
@@ -76,19 +78,74 @@ public class bat : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Arrow"))
+        if (collision.gameObject.CompareTag("Arrow") || collision.gameObject.CompareTag("ultSlash") || collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5") || collision.gameObject.CompareTag("windUlt") || collision.gameObject.CompareTag("thunderStrike"))
         {
+
             if (canBeDamaged)
             {
-                defence = 500;
+                if (collision.gameObject.CompareTag("Arrow"))
+                {
+                    damageText.num = 0;
+                    defence = 500;
+                    GameController.ultValue += 0.5f;
+                    float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("ultSlash"))
+                {
+                    damageText.num = -1;
+                    defence = 500;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage + damage * (GameController.skill1Level / 100);
+                    TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("rockUlt"))
+                {
+                    damageText.num = -2;
+                    defence = 500;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage + damage * (GameController.skill2Level / 100);
+                    TakeDamage((int)damage);
 
-                float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
-                float damage = attack * (100 / (100 + defence));
-                TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5"))
+                {
+                    damageText.num = -3;
+                    defence = 500;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.2f;
+                    damage = damage + damage * (GameController.skill3Level / 100) * 1.2f;
+                    TakeDamage((int)damage);
+
+                }
+                else if (collision.gameObject.CompareTag("windUlt"))
+                {
+                    damageText.num = -4;
+                    defence = 500;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.2f;
+                    damage = damage + damage * (GameController.skill4Level / 100) * 1.2f;
+                    TakeDamage((int)damage);
+                }
+                else if (collision.gameObject.CompareTag("thunderStrike"))
+                {
+                    damageText.num = -5;
+                    defence = 500;
+                    float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+                    float damage = attack * (100 / (100 + defence));
+                    damage = damage * 1.5f;
+                    damage = damage + damage * (GameController.skill5Level / 100) * 1.5f;
+                    TakeDamage((int)damage);
+                }
 
                 Vector3 add = new Vector3(0.1f, 0.1f, 0f);
-                Instantiate(damageText, transform.position + add, Quaternion.identity);
-               
+                Instantiate(DamageText, transform.position + add, Quaternion.identity);
+
                 canBeDamaged = false;
                 if (health <= 0)
                 {
@@ -99,26 +156,27 @@ public class bat : Enemy
                     Bat.color = new Color(255f, 0f, 0f, 255f);
                     StartCoroutine(waitAfterDead());
                     currentState = EnemyState.dead;
-                   
+
                     Destroy(gameObject, 5f);
                     for (int i = 0; i < 6; i++)
                     {
-                       // Instantiate(parts[i], transform.position, Quaternion.identity);
+                        // Instantiate(parts[i], transform.position, Quaternion.identity);
                     }
                     //var smokes = Instantiate(smoke, transform.position, Quaternion.identity);
                     //Destroy(smokes, 0.5f);
                 }
+
+
                 else
                 {
 
                     Bat.color = new Color(255f, 0f, 0f, 255f);
                     isHurt = true;
                     StartCoroutine(waitAfterHurt());
-                    currentState = EnemyState.stagger;
+
 
                 }
-                GameObject Blood = Instantiate(blood, transform.position, Quaternion.identity);
-                Destroy(Blood, 5f);
+
             }
         }
     }
@@ -127,6 +185,7 @@ public class bat : Enemy
         yield return new WaitForSeconds(0.25f);
         Bat.color = new Color(255f, 255f, 255f, 255f);
         canBeDamaged = true;
+       
     }
 
 }

@@ -115,6 +115,7 @@ public class Treant : Enemy
                     defence = 600;
                     float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
                     float damage = attack * (100 / (100 + defence));
+                    GameController.ultValue += 0.5f;
                     TakeDamage((int)damage);
                 }
                 else if (collision.gameObject.CompareTag("ultSlash"))
