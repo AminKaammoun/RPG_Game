@@ -88,5 +88,17 @@ public class damageText : MonoBehaviour
             float damage = attack * (100 / (100 + Cyclop.defence));
             textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
+        else if (num == 5)
+        {
+            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+            float damage = attack * (100 / (100 + lizard.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+        else if (num == 6)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + lizard.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
     }
 }

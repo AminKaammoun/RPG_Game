@@ -9,7 +9,13 @@ public class blood : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("worm").transform;
+        try
+        {
+            target = GameObject.FindGameObjectWithTag("worm").transform;
+        }catch(System.NullReferenceException e)
+        {
+            target = GameObject.FindGameObjectWithTag("lizard").transform;
+        }
         Destroy(this.gameObject, 0.5f);
     }
 

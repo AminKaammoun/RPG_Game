@@ -1315,6 +1315,9 @@ public class PlayerMovements : MonoBehaviour
             else if (collision.CompareTag("crab"))
             {
                 hurtWithShieldAudio.Play();
+            }else if (collision.CompareTag("fireBall1"))
+            {
+                hurtWithShieldAudio.Play();
             }
         }
         if (collision.CompareTag("xpLvl1"))
