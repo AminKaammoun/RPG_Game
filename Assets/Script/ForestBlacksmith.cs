@@ -52,6 +52,7 @@ public class ForestBlacksmith : MonoBehaviour
     public GameObject BeltForgeButton;
     public GameObject RingForgeButton;
     public GameObject notEnoughMatierlsText;
+    public GameObject notEnoughCoinsText;
     public GameObject secondCanvas;
 
     public GameObject forgeEffect;
@@ -939,10 +940,19 @@ public class ForestBlacksmith : MonoBehaviour
         }
         else
         {
+            if (GameController.coins >= 50000)
+            {
+                var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
+            else
+            {
+                var forgedTxt = Instantiate(notEnoughCoinsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
             ErrorAudio.Play();
-            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-            forgedTxt.transform.SetParent(secondCanvas.transform, false);
-            Destroy(forgedTxt, 0.5f);
         }
 
         item1Found = false;
@@ -1176,10 +1186,19 @@ public class ForestBlacksmith : MonoBehaviour
         }
         else
         {
+            if (GameController.coins >= 50000)
+            {
+                var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
+            else
+            {
+                var forgedTxt = Instantiate(notEnoughCoinsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
             ErrorAudio.Play();
-            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-            forgedTxt.transform.SetParent(secondCanvas.transform, false);
-            Destroy(forgedTxt, 0.5f);
         }
 
         item1Found = false;
@@ -1414,10 +1433,19 @@ public class ForestBlacksmith : MonoBehaviour
         }
         else
         {
+            if (GameController.coins >= 50000)
+            {
+                var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
+            else
+            {
+                var forgedTxt = Instantiate(notEnoughCoinsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
             ErrorAudio.Play();
-            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-            forgedTxt.transform.SetParent(secondCanvas.transform, false);
-            Destroy(forgedTxt, 0.5f);
         }
 
         item1Found = false;
@@ -1608,7 +1636,7 @@ public class ForestBlacksmith : MonoBehaviour
                 inventory.RemoveItem(CoalStone);
                 materialsInventory.RemoveItem(CoalStone);
             }
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 10; i++)
             {
                 inventory.RemoveItem(IronStone);
                 materialsInventory.RemoveItem(IronStone);
@@ -1629,10 +1657,19 @@ public class ForestBlacksmith : MonoBehaviour
         }
         else
         {
+            if (GameController.coins >= 50000)
+            {
+                var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
+            else
+            {
+                var forgedTxt = Instantiate(notEnoughCoinsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
             ErrorAudio.Play();
-            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-            forgedTxt.transform.SetParent(secondCanvas.transform, false);
-            Destroy(forgedTxt, 0.5f);
         }
 
         item1Found = false;
@@ -1841,10 +1878,19 @@ public class ForestBlacksmith : MonoBehaviour
         }
         else
         {
+            if (GameController.coins >= 50000)
+            {
+                var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
+            else
+            {
+                var forgedTxt = Instantiate(notEnoughCoinsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
+                forgedTxt.transform.SetParent(secondCanvas.transform, false);
+                Destroy(forgedTxt, 0.5f);
+            }
             ErrorAudio.Play();
-            var forgedTxt = Instantiate(notEnoughMatierlsText, new Vector3(5.2f, -166.8f, 0f), Quaternion.identity) as GameObject;
-            forgedTxt.transform.SetParent(secondCanvas.transform, false);
-            Destroy(forgedTxt, 0.5f);
         }
 
         item1Found = false;

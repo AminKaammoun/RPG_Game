@@ -26,6 +26,7 @@ public class playerData
     public playerData(GameController player)
     {
         coins = GameController.coins;
+        
         diamonds = GameController.diamonds;
         health = PlayerMovements.health;
         level = GameController.level.currentLevel;

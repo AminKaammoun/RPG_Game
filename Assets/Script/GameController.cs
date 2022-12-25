@@ -74,6 +74,7 @@ public class GameController : MonoBehaviour
     public GameObject theBeach;
     public GameObject cockAudio;
     public GameObject BlackSmithPanel;
+    public GameObject BeachBlackSmithPanel;
     public GameObject GemCraftingPanel;
     public GameObject volume;
     public GameObject ultDirection;
@@ -1151,7 +1152,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.beachDun4;
+        currentMap = PlayerMap.beach;
 
     }
 
@@ -1805,6 +1806,15 @@ public class GameController : MonoBehaviour
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
+    public void closeBeachBlackSmithPanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        BeachBlackSmithPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void closeSkillPointsPanel()
     {
         ArrowSpawn.canShoot = true;
@@ -2048,6 +2058,11 @@ public class GameController : MonoBehaviour
         ArrowSpawn.canShoot = false;
     }
 
+    public void beachBlackSmithPanel()
+    {
+        BeachBlackSmithPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
+    }
     public void SkillPointsPanel()
     {
         skillPointPanel.SetActive(true);
