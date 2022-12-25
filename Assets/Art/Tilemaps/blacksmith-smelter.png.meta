@@ -5631,11 +5631,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 576
-        width: 32
-        height: 32
+        y: 544
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -6084,27 +6084,6 @@ TextureImporter:
       bones: []
       spriteID: 62a3499596355cf40a9e7c05b1276762
       internalID: -1632093148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blacksmith-smelter_285
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 544
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 489bb3413cdb19a488ea6cd9b38d5ef5
-      internalID: 1798729372
       vertices: []
       indices: 
       edges: []
@@ -9142,7 +9121,7 @@ TextureImporter:
         width: 104
         height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
