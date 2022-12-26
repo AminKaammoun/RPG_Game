@@ -31,6 +31,7 @@ public class lizard : MonoBehaviour
     public GameObject damage;
     public GameObject slashEff;
     public GameObject Blood;
+    public GameObject chest;
     
     private bool canBeDamaged = false;
     private bool firstBatSpawned = false;
@@ -167,8 +168,11 @@ public class lizard : MonoBehaviour
         }
         if(health <= 0)
         {
+            Instantiate(chest, transform.position, Quaternion.identity);
+            beachDungeon1.dunCleared = true;
             health = 1;
             currentState = LizardState.dead;
+            beachDungeon1.wavesAreCleared = true;
             deathAudio.Play();
             anim.SetBool("death", true);
             Instantiate(Blood, transform.position, Quaternion.identity);

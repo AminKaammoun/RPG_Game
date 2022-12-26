@@ -14,6 +14,7 @@ public class beachDungeon1 : MonoBehaviour
     public GameObject[] waves;
     public GameObject wall;
     public GameObject wall1;
+    public GameObject lizard;
 
     public GameObject WaterFallSound;
 
@@ -30,6 +31,7 @@ public class beachDungeon1 : MonoBehaviour
     private bool instantiateEnemys = false;
     private int currentWave = 0;
     private int SpawnedLogs = 0;
+    public static bool dunCleared = false;
 
     Vector3 pos;
     //public static bool DunLvl1Clear = false;
@@ -43,7 +45,12 @@ public class beachDungeon1 : MonoBehaviour
     void Update()
     {
 
-
+        if (dunCleared)
+        {
+            wall1.SetActive(false);
+            wall.SetActive(false);
+            dunCleared = false;
+        }
         GameObject[] crabs = GameObject.FindGameObjectsWithTag("crab");
         GameObject[] slimes = GameObject.FindGameObjectsWithTag("Enemy");
         if (slimes.Length + crabs.Length == 0 && currentWave != 0 && currentWave < 3)
@@ -143,6 +150,7 @@ public class beachDungeon1 : MonoBehaviour
                 GameController.changeBGS(beachSound, audioSource);
                 player.transform.position = new Vector3(104.49f, 149.52f, 0f);
                 GameController.currentMap = PlayerMap.beach;
+                wavesAreCleared = false;
             }
         }
         //Teleport from main to level 1
@@ -197,11 +205,12 @@ public class beachDungeon1 : MonoBehaviour
             {
                 WaterFallSound.SetActive(false);
                 player.transform.position = new Vector3(87.5f, 205.63f, 0f);
-                wall.SetActive(true);
+               
 
 
                 if (!wavesAreCleared)
-                {
+                { 
+                    wall.SetActive(true);
                     //wall1.SetActive(true);
                     GameController.changeBGM(fightMusic, musicSource);
                     musicSource.loop = true;
@@ -229,6 +238,7 @@ public class beachDungeon1 : MonoBehaviour
             if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp6")
             {
                 GameController.ultValue = 0;
+                Instantiate(lizard, new Vector3(79.45f, 245.32f,0f), Quaternion.identity);
                 wall1.SetActive(true);
                 player.transform.position = new Vector3(85.52f, 233.95f, 0f);
                 GameController.currentMap = PlayerMap.beachDun4;

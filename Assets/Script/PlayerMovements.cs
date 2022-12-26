@@ -155,6 +155,11 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject FireLeaf;
     public ItemObject PlantLeaf;
     public ItemObject SakuraLeaf;
+    public ItemObject AutumnShell;
+    public ItemObject IceShell;
+    public ItemObject FireShell;
+    public ItemObject PlantShell;
+    public ItemObject SakuraShell;
     public ItemObject Stone;
     public ItemObject IronStone;
     public ItemObject CoalStone;
@@ -1409,7 +1414,46 @@ public class PlayerMovements : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
-        if (collision.CompareTag("minerals"))
+        if (collision.CompareTag("Shell"))
+        {
+            if (collision.gameObject.name == "AutumnShell(Clone)")
+            {
+                inventory.AddItem(AutumnShell, 1);
+                inventory.save();
+                MaterialsInventory.AddItem(AutumnShell, 1);
+                MaterialsInventory.save();
+            }
+            if (collision.gameObject.name == "IceShell(Clone)")
+            {
+                inventory.AddItem(IceShell, 1);
+                inventory.save();
+                MaterialsInventory.AddItem(IceShell, 1);
+                MaterialsInventory.save();
+            }
+            if (collision.gameObject.name == "FireShell(Clone)")
+            {
+                inventory.AddItem(FireShell, 1);
+                inventory.save();
+                MaterialsInventory.AddItem(FireShell, 1);
+                MaterialsInventory.save();
+            }
+            if (collision.gameObject.name == "PlantShell(Clone)")
+            {
+                inventory.AddItem(PlantShell, 1);
+                inventory.save();
+                MaterialsInventory.AddItem(PlantShell, 1);
+                MaterialsInventory.save();
+            }
+            if (collision.gameObject.name == "SakuraShell(Clone)")
+            {
+                inventory.AddItem(SakuraShell, 1);
+                inventory.save();
+                MaterialsInventory.AddItem(SakuraShell, 1);
+                MaterialsInventory.save();
+            }
+            Destroy(collision.gameObject);
+        }
+            if (collision.CompareTag("minerals"))
         {
             if (collision.gameObject.name == "Stone(Clone)")
             {
