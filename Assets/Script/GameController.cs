@@ -11,6 +11,7 @@ using System.Collections.Generic;
 public enum PlayerMap
 {
     Village,
+    Village1,
     forrest,
     beach,
     forrestDungeon,
@@ -1152,7 +1153,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.beachDun4;
+        currentMap = PlayerMap.Village;
 
     }
 
@@ -2309,6 +2310,13 @@ public class GameController : MonoBehaviour
 
 
         }
+        else if (currentMap == PlayerMap.Village1)
+        {
+            CameraMovement.minPosition = new Vector2(-37.68f, 21.51f);
+            CameraMovement.maxPosition = new Vector2(-18.38f, 64f);
+
+
+        }
         else if (currentMap == PlayerMap.forrestDungeon2nd)
         {
             CameraMovement.maxPosition = new Vector2(167.38f, 55.65f);
@@ -2374,6 +2382,7 @@ public class GameController : MonoBehaviour
 
 
         }
+       
     }
     public static void changeBGS(AudioClip music, AudioSource source)
     {
