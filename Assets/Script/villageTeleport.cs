@@ -21,6 +21,13 @@ public class villageTeleport : MonoBehaviour
                 player.transform.position = new Vector3(-27.98f, 17.7f, 0f);
                 GameController.currentMap = PlayerMap.Village1;
             }
+        }else if(GameController.currentMap == PlayerMap.Village1)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                player.transform.position = new Vector3(-27.98f, 5.76f, 0f);
+                GameController.currentMap = PlayerMap.Village;
+            }
         }
     }
     

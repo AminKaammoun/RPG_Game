@@ -28,7 +28,8 @@ public enum PlayerMap
     beachDun2,
     beachDun3,
     beachDun4,
-    Library
+    Library,
+    castle1
 
 
 }
@@ -114,6 +115,7 @@ public class GameController : MonoBehaviour
     public AudioClip villageSound;
     public AudioClip villageMusic;
     public AudioClip LibraryMusic;
+    public AudioClip CaslteMusic;
     public AudioClip forestMusic;
     public AudioClip dunMusic;
     public AudioClip beachMusic;
@@ -193,6 +195,8 @@ public class GameController : MonoBehaviour
     public static bool gearExist = false;
     public static bool enterLibrary = false;
     public static bool quitLibrary = false;
+    public static bool enterCastle = false;
+    public static bool quitCastle = false;
     public static bool canUlt = false;
 
     private Vector2 cursorHotspot;
@@ -1153,7 +1157,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
-        currentMap = PlayerMap.Village;
+        currentMap = PlayerMap.Village1;
 
     }
 
@@ -1588,6 +1592,18 @@ public class GameController : MonoBehaviour
             changeBGM(villageMusic, musicSource);
             changeBGS(villageSound, audioSource);
             quitLibrary = false;
+        }
+        if (enterCastle)
+        {
+            changeBGM(CaslteMusic, musicSource);
+            changeBGS(dunMusic, audioSource);
+            enterCastle = false;
+        }
+        if (quitCastle)
+        {
+            changeBGM(villageMusic, musicSource);
+            changeBGS(villageSound, audioSource);
+            quitCastle = false;
         }
 
         if (swapGemsToggle.isOn)
@@ -2381,8 +2397,13 @@ public class GameController : MonoBehaviour
             CameraMovement.maxPosition = new Vector2(-25.45f, -20.38f);
 
 
+        }else if (currentMap == PlayerMap.castle1)
+        {
+            CameraMovement.minPosition = new Vector2(-29.7f, 80.01f);
+            CameraMovement.maxPosition = new Vector2(-24.26f, 92.89f);
         }
-       
+
+
     }
     public static void changeBGS(AudioClip music, AudioSource source)
     {
