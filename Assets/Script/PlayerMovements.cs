@@ -192,7 +192,6 @@ public class PlayerMovements : MonoBehaviour
 
     void Start()
     {
-
         currentState = PlayerState.idle;
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -1053,9 +1052,9 @@ public class PlayerMovements : MonoBehaviour
     {
         StartCoroutine(KnockCo(rb2d, knockTime));
 
-        rend.material.color = colorToTurnTo;
+        //rend.material.color = colorToTurnTo;
 
-        StartCoroutine(returnColor());
+        //StartCoroutine(returnColor());
     }
 
     private IEnumerator KnockCo(Rigidbody2D rb2d, float KnockTime)
