@@ -2351,7 +2351,7 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.beach)
         {
             CameraMovement.minPosition = new Vector2(78.23f, 100f);
-            CameraMovement.maxPosition = new Vector2(175.6f, 146.94f);
+            CameraMovement.maxPosition = new Vector2(175.6f, 166.5f);
 
             if (TimeBtwCrows <= 0)
             {

@@ -45,7 +45,7 @@ public class KnockBack : MonoBehaviour
                     }
                     hit.transform.Translate(force * Time.deltaTime * 10f);
                     hit.GetComponent<PlayerMovements>().currentState = PlayerState.stagger;
-                    //collision.GetComponent<PlayerMovements>().Knock(hit, knockTime);
+                    collision.GetComponent<PlayerMovements>().Knock(hit, knockTime);
 
                 }
                 if ((collision.gameObject.CompareTag("babyCyclop") || collision.gameObject.CompareTag("bat")) && collision.isTrigger)

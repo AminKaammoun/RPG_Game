@@ -29,7 +29,7 @@ public class forestTreesAreaTeleporter : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 player.transform.position = new Vector3(198.4f, 30.57f, 0f);
-                
+                GameController.currentMap = PlayerMap.forrestTreesArea;
             }
         }
 

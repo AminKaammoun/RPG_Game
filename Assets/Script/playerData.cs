@@ -29,10 +29,10 @@ public class playerData
         
         diamonds = GameController.diamonds;
         health = PlayerMovements.health;
-        //level = GameController.level.currentLevel;
-        //xp = GameController.level.experience;
-        level = 1;
-        xp = 0;
+        level = GameController.level.currentLevel;
+        xp = GameController.level.experience;
+        //level = 1;
+        //xp = 0;
 
         skill1Level = GameController.skill1Level;
         skill2Level = GameController.skill2Level;

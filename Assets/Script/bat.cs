@@ -153,7 +153,7 @@ public class bat : Enemy
                     canBeDamaged = false;
                     isHurt = true;
                     int rand = Random.Range(0, 2);
-                    Bat.color = new Color(255f, 0f, 0f, 255f);
+                    Bat.color = new Color(1f, 0f, 0f, 1f);
                     StartCoroutine(waitAfterDead());
                     currentState = EnemyState.dead;
 
@@ -170,7 +170,7 @@ public class bat : Enemy
                 else
                 {
 
-                    Bat.color = new Color(255f, 0f, 0f, 255f);
+                    Bat.color = new Color(1f, 0f, 0f, 1f);
                     isHurt = true;
                     StartCoroutine(waitAfterHurt());
 
@@ -183,7 +183,7 @@ public class bat : Enemy
     IEnumerator waitAfterHurt()
     {
         yield return new WaitForSeconds(0.25f);
-        Bat.color = new Color(255f, 255f, 255f, 255f);
+        Bat.color = new Color(1f, 1f, 1f, 1f);
         canBeDamaged = true;
        
     }
