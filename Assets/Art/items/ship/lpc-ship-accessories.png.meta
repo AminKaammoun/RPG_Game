@@ -138,7 +138,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -188,10 +188,10 @@ TextureImporter:
       name: lpc-ship-accessories_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 927
-        width: 40
-        height: 97
+        x: 0
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: lpc-ship-accessories_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 927
-        width: 34
-        height: 97
+        x: 32
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +230,10 @@ TextureImporter:
       name: lpc-ship-accessories_2
       rect:
         serializedVersion: 2
-        x: 127
-        y: 991
-        width: 34
-        height: 33
+        x: 64
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +251,10 @@ TextureImporter:
       name: lpc-ship-accessories_3
       rect:
         serializedVersion: 2
-        x: 395
-        y: 952
-        width: 17
-        height: 55
+        x: 128
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: lpc-ship-accessories_4
       rect:
         serializedVersion: 2
-        x: 417
-        y: 942
-        width: 9
-        height: 63
+        x: 384
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,10 +293,10 @@ TextureImporter:
       name: lpc-ship-accessories_5
       rect:
         serializedVersion: 2
-        x: 427
-        y: 952
-        width: 17
-        height: 55
+        x: 416
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +314,10 @@ TextureImporter:
       name: lpc-ship-accessories_6
       rect:
         serializedVersion: 2
-        x: 452
-        y: 952
-        width: 17
-        height: 55
+        x: 448
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,10 +335,10 @@ TextureImporter:
       name: lpc-ship-accessories_7
       rect:
         serializedVersion: 2
-        x: 470
-        y: 942
-        width: 9
-        height: 63
+        x: 480
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,10 +356,10 @@ TextureImporter:
       name: lpc-ship-accessories_8
       rect:
         serializedVersion: 2
-        x: 484
-        y: 952
-        width: 17
-        height: 55
+        x: 0
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -377,10 +377,10 @@ TextureImporter:
       name: lpc-ship-accessories_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 607
-        width: 449
-        height: 322
+        x: 32
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,10 +398,10 @@ TextureImporter:
       name: lpc-ship-accessories_10
       rect:
         serializedVersion: 2
-        x: 127
-        y: 927
-        width: 34
-        height: 57
+        x: 64
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,10 +419,10 @@ TextureImporter:
       name: lpc-ship-accessories_11
       rect:
         serializedVersion: 2
-        x: 447
-        y: 895
-        width: 65
-        height: 34
+        x: 128
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,10 +440,10 @@ TextureImporter:
       name: lpc-ship-accessories_12
       rect:
         serializedVersion: 2
-        x: 447
-        y: 863
-        width: 65
-        height: 34
+        x: 384
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,9 +461,9 @@ TextureImporter:
       name: lpc-ship-accessories_13
       rect:
         serializedVersion: 2
-        x: 1
-        y: 575
-        width: 94
+        x: 416
+        y: 960
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -482,10 +482,10 @@ TextureImporter:
       name: lpc-ship-accessories_14
       rect:
         serializedVersion: 2
-        x: 97
-        y: 589
-        width: 62
-        height: 18
+        x: 448
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -503,10 +503,10 @@ TextureImporter:
       name: lpc-ship-accessories_15
       rect:
         serializedVersion: 2
-        x: 161
-        y: 575
-        width: 9
-        height: 30
+        x: 480
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -524,10 +524,10 @@ TextureImporter:
       name: lpc-ship-accessories_16
       rect:
         serializedVersion: 2
-        x: 214
-        y: 575
-        width: 9
-        height: 30
+        x: 0
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -545,9 +545,9 @@ TextureImporter:
       name: lpc-ship-accessories_17
       rect:
         serializedVersion: 2
-        x: 246
-        y: 575
-        width: 20
+        x: 32
+        y: 928
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -566,10 +566,10 @@ TextureImporter:
       name: lpc-ship-accessories_18
       rect:
         serializedVersion: 2
-        x: 1
-        y: 481
-        width: 94
-        height: 73
+        x: 64
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -587,10 +587,10 @@ TextureImporter:
       name: lpc-ship-accessories_19
       rect:
         serializedVersion: 2
-        x: 97
-        y: 536
-        width: 62
-        height: 18
+        x: 128
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -608,10 +608,10 @@ TextureImporter:
       name: lpc-ship-accessories_20
       rect:
         serializedVersion: 2
-        x: 161
-        y: 481
-        width: 9
-        height: 73
+        x: 384
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -629,10 +629,10 @@ TextureImporter:
       name: lpc-ship-accessories_21
       rect:
         serializedVersion: 2
-        x: 214
-        y: 481
-        width: 9
-        height: 73
+        x: 416
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -650,10 +650,10 @@ TextureImporter:
       name: lpc-ship-accessories_22
       rect:
         serializedVersion: 2
-        x: 246
-        y: 543
-        width: 20
-        height: 11
+        x: 448
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -671,10 +671,10 @@ TextureImporter:
       name: lpc-ship-accessories_23
       rect:
         serializedVersion: 2
-        x: 451
-        y: 535
-        width: 9
-        height: 9
+        x: 480
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -692,10 +692,10 @@ TextureImporter:
       name: lpc-ship-accessories_24
       rect:
         serializedVersion: 2
-        x: 451
-        y: 520
-        width: 9
-        height: 15
+        x: 256
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -713,10 +713,10 @@ TextureImporter:
       name: lpc-ship-accessories_25
       rect:
         serializedVersion: 2
-        x: 463
-        y: 514
-        width: 11
-        height: 28
+        x: 288
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -734,10 +734,10 @@ TextureImporter:
       name: lpc-ship-accessories_26
       rect:
         serializedVersion: 2
-        x: 492
-        y: 529
-        width: 9
-        height: 9
+        x: 320
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -755,10 +755,10 @@ TextureImporter:
       name: lpc-ship-accessories_27
       rect:
         serializedVersion: 2
-        x: 492
-        y: 517
-        width: 10
-        height: 9
+        x: 352
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -776,10 +776,10 @@ TextureImporter:
       name: lpc-ship-accessories_28
       rect:
         serializedVersion: 2
-        x: 97
-        y: 481
-        width: 62
-        height: 18
+        x: 384
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -797,9 +797,9 @@ TextureImporter:
       name: lpc-ship-accessories_29
       rect:
         serializedVersion: 2
-        x: 246
-        y: 481
-        width: 20
+        x: 416
+        y: 896
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -814,17 +814,3281 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_30
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 896
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e864f0de7b6dc3e4c916870db1ed3c81
+      internalID: -269955130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_31
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 896
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318c81e96cc9086438faa246e45fc8af
+      internalID: -1655860056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e59491773a0b5409f1096fe13cc172
+      internalID: 1388020044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98eda95461442b346a6cad604aa951d5
+      internalID: -1895570807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd91a9c42b46a84db0b637e6a64f03f
+      internalID: 1407158599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7775da2b3182654bb7a2cd80f8eb5c7
+      internalID: -1624478848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_36
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c26b6cf2e7a0d874a9af3da70b854131
+      internalID: 298259824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa73b07948aa96a4f811db4f37ed1916
+      internalID: -669012905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a41ab964ae60840bdebeaf9f00f6da
+      internalID: 1681957140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_39
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f7c85e5fc84664a8551c6eed2fac3f
+      internalID: 1866796571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_40
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c705ef098700434439862aeef03740f8
+      internalID: 1927892548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_41
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd58705e27dd43d4c949acef6cd3f40a
+      internalID: -1608798889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d09b5eebe5924f4fbac1de79d9763f4
+      internalID: -546652882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_43
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f396d817d018d438d6d577c2a142ba
+      internalID: -352668806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_44
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b53c2e520b3ae4b97f595d4b73b5db
+      internalID: -1775363231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_45
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d768e6761a28413468e0fcaee2d26fb6
+      internalID: 825971496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913d8862ab58986439ea0a2469dbd4f1
+      internalID: -1906785418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_47
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef64272be4aa864b9a758de5d7a6c88
+      internalID: 1646324186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_48
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c3473f9ed56c6409460129356ffa8b
+      internalID: -1178735629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_49
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2547de4e3e4e30a41bcaa7439ca3a09e
+      internalID: 720377597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f60e1583d9ed94d81fb05962d14a59
+      internalID: -1040887789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_51
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145c556114c4fcf449ef3362100bf1fa
+      internalID: 1851396841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_52
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8225361868ca81b4a94fa31434191bc9
+      internalID: -1478144001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_53
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd2e8df3100edd04eaaf7adc7191f2d4
+      internalID: 1847746975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_54
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d915efc6c0d10e644928ef2c9a72f70f
+      internalID: 1139583112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_55
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7239ff18715dd409b17a2728dc8565
+      internalID: -2055648187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_56
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cca957edf8a4f943890b620e20d0b48
+      internalID: 1780698497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_57
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5599b3b49ccb74cb982426abb2fecd
+      internalID: 1132992515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_58
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1dbcb193c9497b4e988320b67ff54c3
+      internalID: -150087535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_59
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 800
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a840a6bf84ad3294d8f4b13bc4c98ea5
+      internalID: 1427472335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_60
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 800
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281f851690bc8ff448695a9dc8ddabff
+      internalID: 1775442395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_61
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 800
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba272609f49352438acaeb3ccfba55e
+      internalID: 6526270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_62
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 800
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6cbe11833630d045ab438c4a0a497b6
+      internalID: 1952947410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_63
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 800
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72221a07ba76a6942b2a3c27cb6ffdf0
+      internalID: -655312122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_64
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 800
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e38788935da5ed46ae484bc5d126f8f
+      internalID: -838214580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c6f64ec825d98042b8ace58c95d26e7
+      internalID: -1509978364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_66
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70520c97c787a5d47b1cf18932b35913
+      internalID: -1302661377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_67
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be68d9a47817fda41a1b6d4177449be4
+      internalID: 966932898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_68
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dffb29e5054aea40a45a0f2fdaca46e
+      internalID: 1147096161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_69
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc3cfa013732d9498c012ccd22b17ac
+      internalID: 1254351727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_70
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0961b1fabd08972449a14adbe654151b
+      internalID: 1966902961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_71
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ba57872e9846e42b6b083bc49f21c3
+      internalID: 1287761662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_72
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d01de88fbf53cb845bcb5bf1bd58ac35
+      internalID: 1671115976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_73
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af617d0f4562d1142aad395bdd39d611
+      internalID: -1673322431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_74
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0208be82cd1efac4f9935311811283fa
+      internalID: 1846656303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_75
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca656cd318315045ad4267ce134fa76
+      internalID: -1777511668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_76
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 542e1112a9f5ac94a931d2ac733ab854
+      internalID: -74658378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_77
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed7c183d6438d504081fc9a6da625644
+      internalID: -1519078099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_78
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0b0f462fe2f1d4bb505d219bf98a14
+      internalID: 314448962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b149fdab8bd0d428fd83413c1fcfc5
+      internalID: 1926352623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_80
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98543c588085a7b4f87080a13e2df851
+      internalID: 404184253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c98ed09f42c7675439f8412a866019a9
+      internalID: -915538025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_82
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d104d51cf2566f4a9bffb93d79c1043
+      internalID: -316838400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_83
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5686ad2b96e3efa4595a830267c46a87
+      internalID: 1954734703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_84
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ff7170efaa56f4a88f2cde8384dd32
+      internalID: 1817426859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_85
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31e1dc8a25fefc48a408ea1d12941e9
+      internalID: -350522183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_86
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebfb90beed878f44db5a4990a718ace8
+      internalID: -2045585253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_87
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74192bbfdfc56843954d26ee6446731
+      internalID: 1253384826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_88
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677f10c2ccd8f2e479fbfcf702549516
+      internalID: 753635289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_89
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4f38e676188ae439353847188ec389
+      internalID: 1262564187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_90
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d79a56e23c0c4246b83db66fa3d0dc2
+      internalID: 142720621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_91
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb3512f18e8175409c94c3a3b0ace3b
+      internalID: -999888916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_92
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 736
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a6fd2e723e84e4eb4effb89546c820
+      internalID: -964552453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_93
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2974b8268ca3e746bf694050618ce33
+      internalID: -1507704806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_94
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64c59b43c271dc74ba73236be0685ba1
+      internalID: 1336169427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_95
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 232206188e094114ba9036fa8fbff12e
+      internalID: 1814083429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_96
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e93504cc611f6e4ba0ea0cfbab6eb30
+      internalID: 1145161878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_97
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f8d1dcb30b32c46bf795f575e3e95a
+      internalID: -1990777154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_98
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3171aa0509603b64ea7a14349799138e
+      internalID: 193150824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_99
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec27ffd9c8bc2e4eb8274052d21c1f0
+      internalID: -1927187134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_100
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb12543e9446504595f79ed897df727
+      internalID: 2012324243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_101
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d49ba42482c25c41a10e87cecb67087
+      internalID: 1130299171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_102
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20644ccc00fb8334c87abfd8c6be9898
+      internalID: 827078186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_103
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9336f865dbf814a93feec89b114a31
+      internalID: 147806996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_104
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb29df29124c154a8d6669d58f2944f
+      internalID: 843909827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_105
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1687f513f6a5f6f4785e25f9e89c035d
+      internalID: -1366801161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_106
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 704
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5063656348dd67e4c9e72612061feaa4
+      internalID: 37707033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_107
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c0f93dc023e5b4f895a1ac7dfda3d1
+      internalID: 1926908725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_108
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001d82de2ff235046810db843df11cc4
+      internalID: 622142351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_109
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b0a3c0e48f92f54eb4d9c49c894d042
+      internalID: -2021725084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_110
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a767a733faf340f4381a77e67fd536b9
+      internalID: 2069138501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_111
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c7bd52d6f017c4793fbf4a208cd0a8
+      internalID: -1860026157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_112
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4bbb51d584d2b4990ace01d6f56ca0
+      internalID: 1011477378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_113
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b086c19e3d80b43a4dc1131d2f8c22
+      internalID: 521774739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_114
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28eb42d02c940da47aad0e6d133bc809
+      internalID: 453158626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_115
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a766f90fd93f29b4bb1aca47c92c94d5
+      internalID: 1601912420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_116
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 672
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a42427e2fa532140abd816eb6de50f0
+      internalID: 807478301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_117
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0cbc014023e1143840095d5385f31d
+      internalID: -552984601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_118
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c021c938960f3f24faa72be653bf7b32
+      internalID: 1734107635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_119
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe1453bdbca28d429e6bb81ffd9ce59
+      internalID: -424889304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_120
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07fc96530ff0754385e18d49e3128bc
+      internalID: -588509085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_121
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a80d12d2e09334a8cfc30b4b3160c8
+      internalID: -9897552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_122
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbda75d91440acb4086e37598ae87ccd
+      internalID: 1686864746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_123
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f5f802a1f6afb43a34ef0ae695b5c5
+      internalID: -1408246458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_124
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fee360e2adb32942a615d878460ea6a
+      internalID: 259282307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_125
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fdd2da0b9878164cae2b0b07af2d7b6
+      internalID: -207633446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_126
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eafb68ecd886604695627d2c840bd36
+      internalID: -2093746845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_127
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acdf072cf5a1f5b40b202b8150a9d34e
+      internalID: 1719932208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_128
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1c845707422314fab3583d8d804885
+      internalID: 670695342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_129
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f521ba56e965c64083633b60de0b230
+      internalID: 1277592190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_130
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc3e839e0ed4e649b8f7c3067d6d851
+      internalID: 382867290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_131
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12af8232f6249c499f24be0f7c5088d
+      internalID: -213839135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_132
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8893fa7e0d0f8841a40f5581ee40c5a
+      internalID: -584952402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_133
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2049106f86a9a43905ed4f2a48f552
+      internalID: -1843673909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_134
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96ad80926cad8146b2053cf4a59171d
+      internalID: -1503232185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_135
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49412fa010113343bbf0aa4cb703346
+      internalID: -2135587364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_136
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1d238f45eb221442bdd351b82d64bf5
+      internalID: -908164236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_137
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9e864df446db44098f903a6a30c657
+      internalID: -654419357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_138
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b3a533f0c91eb449a8866e7c44fda8
+      internalID: 297799192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_139
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33972a55028b27548af2eaa1b1f5ab24
+      internalID: 865646876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_140
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485002eeac516964db67f32ad0d03113
+      internalID: 281899410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_141
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 231108de533aaba428113f147b7e3aef
+      internalID: -618903094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_142
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198eee789283c4a4b91507315fb7eb0e
+      internalID: 2080215430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_143
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14bdde799eab6964982ae7928b436b48
+      internalID: 1883308673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_144
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6266d4caa9b583e46840b9cc0f851329
+      internalID: -189508342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_145
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7413628efb4ccb848b5c410a6cd749de
+      internalID: -2133476294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_146
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aee984511dd0d643a0df47c2ad2867a
+      internalID: 1226533953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_147
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd70676b4bbe6c458800925d7734d5a
+      internalID: -2008762847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_148
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54abcf5023f86f4a8d5933a3429df21
+      internalID: 1423605187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_149
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9444ea3d94d087f4dbd3e3365d6cba5b
+      internalID: 630775912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_150
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8b56135ed71f04981ae0bf207b3dba
+      internalID: 831868351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_151
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c723c0de062fb5c4a8c47110831c96be
+      internalID: 629500678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_152
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957e5274e05fb1349b42357552451188
+      internalID: -2039435493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_153
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f45537c9f369be4eba1586ebd61ea0a
+      internalID: -1593440079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_154
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc674117522733408e5797c1091429e
+      internalID: 1028355204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_155
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c140469870db7b74bbc5f1c6f7996f67
+      internalID: -691670981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_156
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440c01c6e138afa42a34123b5a276fca
+      internalID: 1449891941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_157
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487cc6082f6ac6441bb1bc6eaf97749b
+      internalID: -1013325239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_158
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd11f6675e1a3c34f93a0a12a7d56898
+      internalID: -1641893011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_159
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb69fad08a91ae41a9329d0e82fdede
+      internalID: -1173696972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_160
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdf0110b68b3c748a4c39093e6a7e89
+      internalID: -994655446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_161
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa60378de683fa146ac377cc95a41420
+      internalID: 216621803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_162
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73aa043152bd65d48a2a1f0d839808b4
+      internalID: -1879483106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_163
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a31f1417ade5e4292ca0ff6b742ae8
+      internalID: 1157384858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_164
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12508e7655ca0e2479799214d540aed6
+      internalID: -638862690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_165
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0076e31671da29549aef320c873396b4
+      internalID: -535362206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_166
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d0fc78c8bf23e4e9893ae3f6fd7f5c
+      internalID: -132060721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_167
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f50594cf1630c4eb0ee9bf7ed80149
+      internalID: -666871163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_168
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fa209792633fb4286765efe8308b70
+      internalID: -562004065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_169
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fe73f81b5610747a99134e74d15d65
+      internalID: 1008720423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_170
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d638d73eeeab2044eaf9aa0fac27f2c8
+      internalID: -1304190757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_171
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e471418c14c3d46b30e57458394dc0
+      internalID: 2084110951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_172
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f19e5bc8a0cfd74183bafb7ba183148
+      internalID: -2106221806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_173
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6c5196873fdd24aa3c168ee0a56fc8
+      internalID: 72476137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_174
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c001e7d2b8f7494a8b621fc97c14676
+      internalID: -1615360435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_175
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0f24f6c55165546b42dee03deb3622
+      internalID: -600680762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-ship-accessories_176
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4911b970840756f499869c34938d9d55
+      internalID: 1431232440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a2a172576e10a3a468efa9edb669a3fa
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lpc-ship-accessories_0: 7623746891817259517
+      lpc-ship-accessories_1: 2116483426634536928
+      lpc-ship-accessories_10: 8430149712186950482
+      lpc-ship-accessories_100: 2012324243
+      lpc-ship-accessories_101: 1130299171
+      lpc-ship-accessories_102: 827078186
+      lpc-ship-accessories_103: 147806996
+      lpc-ship-accessories_104: 843909827
+      lpc-ship-accessories_105: -1366801161
+      lpc-ship-accessories_106: 37707033
+      lpc-ship-accessories_107: 1926908725
+      lpc-ship-accessories_108: 622142351
+      lpc-ship-accessories_109: -2021725084
+      lpc-ship-accessories_11: 947197957364705139
+      lpc-ship-accessories_110: 2069138501
+      lpc-ship-accessories_111: -1860026157
+      lpc-ship-accessories_112: 1011477378
+      lpc-ship-accessories_113: 521774739
+      lpc-ship-accessories_114: 453158626
+      lpc-ship-accessories_115: 1601912420
+      lpc-ship-accessories_116: 807478301
+      lpc-ship-accessories_117: -552984601
+      lpc-ship-accessories_118: 1734107635
+      lpc-ship-accessories_119: -424889304
+      lpc-ship-accessories_12: -2775385481226173698
+      lpc-ship-accessories_120: -588509085
+      lpc-ship-accessories_121: -9897552
+      lpc-ship-accessories_122: 1686864746
+      lpc-ship-accessories_123: -1408246458
+      lpc-ship-accessories_124: 259282307
+      lpc-ship-accessories_125: -207633446
+      lpc-ship-accessories_126: -2093746845
+      lpc-ship-accessories_127: 1719932208
+      lpc-ship-accessories_128: 670695342
+      lpc-ship-accessories_129: 1277592190
+      lpc-ship-accessories_13: -8304487359059976580
+      lpc-ship-accessories_130: 382867290
+      lpc-ship-accessories_131: -213839135
+      lpc-ship-accessories_132: -584952402
+      lpc-ship-accessories_133: -1843673909
+      lpc-ship-accessories_134: -1503232185
+      lpc-ship-accessories_135: -2135587364
+      lpc-ship-accessories_136: -908164236
+      lpc-ship-accessories_137: -654419357
+      lpc-ship-accessories_138: 297799192
+      lpc-ship-accessories_139: 865646876
+      lpc-ship-accessories_14: -8601796580878404891
+      lpc-ship-accessories_140: 281899410
+      lpc-ship-accessories_141: -618903094
+      lpc-ship-accessories_142: 2080215430
+      lpc-ship-accessories_143: 1883308673
+      lpc-ship-accessories_144: -189508342
+      lpc-ship-accessories_145: -2133476294
+      lpc-ship-accessories_146: 1226533953
+      lpc-ship-accessories_147: -2008762847
+      lpc-ship-accessories_148: 1423605187
+      lpc-ship-accessories_149: 630775912
+      lpc-ship-accessories_15: -1667773042113829017
+      lpc-ship-accessories_150: 831868351
+      lpc-ship-accessories_151: 629500678
+      lpc-ship-accessories_152: -2039435493
+      lpc-ship-accessories_153: -1593440079
+      lpc-ship-accessories_154: 1028355204
+      lpc-ship-accessories_155: -691670981
+      lpc-ship-accessories_156: 1449891941
+      lpc-ship-accessories_157: -1013325239
+      lpc-ship-accessories_158: -1641893011
+      lpc-ship-accessories_159: -1173696972
+      lpc-ship-accessories_16: 4270390863714163910
+      lpc-ship-accessories_160: -994655446
+      lpc-ship-accessories_161: 216621803
+      lpc-ship-accessories_162: -1879483106
+      lpc-ship-accessories_163: 1157384858
+      lpc-ship-accessories_164: -638862690
+      lpc-ship-accessories_165: -535362206
+      lpc-ship-accessories_166: -132060721
+      lpc-ship-accessories_167: -666871163
+      lpc-ship-accessories_168: -562004065
+      lpc-ship-accessories_169: 1008720423
+      lpc-ship-accessories_17: -7245386809449687178
+      lpc-ship-accessories_170: -1304190757
+      lpc-ship-accessories_171: 2084110951
+      lpc-ship-accessories_172: -2106221806
+      lpc-ship-accessories_173: 72476137
+      lpc-ship-accessories_174: -1615360435
+      lpc-ship-accessories_175: -600680762
+      lpc-ship-accessories_176: 1431232440
+      lpc-ship-accessories_18: 7628785018332145446
+      lpc-ship-accessories_19: -7086953320118578985
+      lpc-ship-accessories_2: 9114541542617371449
+      lpc-ship-accessories_20: 6904568166737894337
+      lpc-ship-accessories_21: 3886915112717191966
+      lpc-ship-accessories_22: -9116258200373329304
+      lpc-ship-accessories_23: 6150425695416619529
+      lpc-ship-accessories_24: -6808354349983533961
+      lpc-ship-accessories_25: 187611817766829095
+      lpc-ship-accessories_26: 4733390971608266719
+      lpc-ship-accessories_27: 6969186296584070819
+      lpc-ship-accessories_28: -791377611299049357
+      lpc-ship-accessories_29: -3113778159822494006
+      lpc-ship-accessories_3: -6471033556849190060
+      lpc-ship-accessories_30: -269955130
+      lpc-ship-accessories_31: -1655860056
+      lpc-ship-accessories_32: 1388020044
+      lpc-ship-accessories_33: -1895570807
+      lpc-ship-accessories_34: 1407158599
+      lpc-ship-accessories_35: -1624478848
+      lpc-ship-accessories_36: 298259824
+      lpc-ship-accessories_37: -669012905
+      lpc-ship-accessories_38: 1681957140
+      lpc-ship-accessories_39: 1866796571
+      lpc-ship-accessories_4: 1090545132760836461
+      lpc-ship-accessories_40: 1927892548
+      lpc-ship-accessories_41: -1608798889
+      lpc-ship-accessories_42: -546652882
+      lpc-ship-accessories_43: -352668806
+      lpc-ship-accessories_44: -1775363231
+      lpc-ship-accessories_45: 825971496
+      lpc-ship-accessories_46: -1906785418
+      lpc-ship-accessories_47: 1646324186
+      lpc-ship-accessories_48: -1178735629
+      lpc-ship-accessories_49: 720377597
+      lpc-ship-accessories_5: 8340830605583806173
+      lpc-ship-accessories_50: -1040887789
+      lpc-ship-accessories_51: 1851396841
+      lpc-ship-accessories_52: -1478144001
+      lpc-ship-accessories_53: 1847746975
+      lpc-ship-accessories_54: 1139583112
+      lpc-ship-accessories_55: -2055648187
+      lpc-ship-accessories_56: 1780698497
+      lpc-ship-accessories_57: 1132992515
+      lpc-ship-accessories_58: -150087535
+      lpc-ship-accessories_59: 1427472335
+      lpc-ship-accessories_6: -6027057197488265637
+      lpc-ship-accessories_60: 1775442395
+      lpc-ship-accessories_61: 6526270
+      lpc-ship-accessories_62: 1952947410
+      lpc-ship-accessories_63: -655312122
+      lpc-ship-accessories_64: -838214580
+      lpc-ship-accessories_65: -1509978364
+      lpc-ship-accessories_66: -1302661377
+      lpc-ship-accessories_67: 966932898
+      lpc-ship-accessories_68: 1147096161
+      lpc-ship-accessories_69: 1254351727
+      lpc-ship-accessories_7: -583643368925102745
+      lpc-ship-accessories_70: 1966902961
+      lpc-ship-accessories_71: 1287761662
+      lpc-ship-accessories_72: 1671115976
+      lpc-ship-accessories_73: -1673322431
+      lpc-ship-accessories_74: 1846656303
+      lpc-ship-accessories_75: -1777511668
+      lpc-ship-accessories_76: -74658378
+      lpc-ship-accessories_77: -1519078099
+      lpc-ship-accessories_78: 314448962
+      lpc-ship-accessories_79: 1926352623
+      lpc-ship-accessories_8: 8727767196421706061
+      lpc-ship-accessories_80: 404184253
+      lpc-ship-accessories_81: -915538025
+      lpc-ship-accessories_82: -316838400
+      lpc-ship-accessories_83: 1954734703
+      lpc-ship-accessories_84: 1817426859
+      lpc-ship-accessories_85: -350522183
+      lpc-ship-accessories_86: -2045585253
+      lpc-ship-accessories_87: 1253384826
+      lpc-ship-accessories_88: 753635289
+      lpc-ship-accessories_89: 1262564187
+      lpc-ship-accessories_9: -5101788931748198530
+      lpc-ship-accessories_90: 142720621
+      lpc-ship-accessories_91: -999888916
+      lpc-ship-accessories_92: -964552453
+      lpc-ship-accessories_93: -1507704806
+      lpc-ship-accessories_94: 1336169427
+      lpc-ship-accessories_95: 1814083429
+      lpc-ship-accessories_96: 1145161878
+      lpc-ship-accessories_97: -1990777154
+      lpc-ship-accessories_98: 193150824
+      lpc-ship-accessories_99: -1927187134
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

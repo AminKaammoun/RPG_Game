@@ -204,7 +204,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -254,10 +254,10 @@ TextureImporter:
       name: ship-cannon_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 481
-        width: 37
-        height: 31
+        x: 0
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: ship-cannon_1
       rect:
         serializedVersion: 2
-        x: 77
-        y: 481
-        width: 37
-        height: 31
+        x: 32
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,10 +296,10 @@ TextureImporter:
       name: ship-cannon_2
       rect:
         serializedVersion: 2
-        x: 141
-        y: 481
-        width: 37
-        height: 31
+        x: 64
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: ship-cannon_3
       rect:
         serializedVersion: 2
-        x: 205
-        y: 476
-        width: 40
-        height: 36
+        x: 96
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +338,10 @@ TextureImporter:
       name: ship-cannon_4
       rect:
         serializedVersion: 2
-        x: 263
-        y: 475
-        width: 47
-        height: 37
+        x: 128
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +359,10 @@ TextureImporter:
       name: ship-cannon_5
       rect:
         serializedVersion: 2
-        x: 273
-        y: 473
-        width: 9
-        height: 9
+        x: 160
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,10 +380,10 @@ TextureImporter:
       name: ship-cannon_6
       rect:
         serializedVersion: 2
-        x: 330
-        y: 481
-        width: 43
-        height: 31
+        x: 192
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,10 +401,10 @@ TextureImporter:
       name: ship-cannon_7
       rect:
         serializedVersion: 2
-        x: 397
-        y: 481
-        width: 37
-        height: 31
+        x: 224
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -422,10 +422,10 @@ TextureImporter:
       name: ship-cannon_8
       rect:
         serializedVersion: 2
-        x: 11
-        y: 400
-        width: 43
-        height: 39
+        x: 256
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -443,10 +443,10 @@ TextureImporter:
       name: ship-cannon_9
       rect:
         serializedVersion: 2
-        x: 75
-        y: 400
-        width: 43
-        height: 39
+        x: 288
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -464,10 +464,10 @@ TextureImporter:
       name: ship-cannon_10
       rect:
         serializedVersion: 2
-        x: 139
-        y: 400
-        width: 43
-        height: 39
+        x: 320
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -485,10 +485,10 @@ TextureImporter:
       name: ship-cannon_11
       rect:
         serializedVersion: 2
-        x: 203
-        y: 396
-        width: 43
-        height: 43
+        x: 352
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -506,10 +506,10 @@ TextureImporter:
       name: ship-cannon_12
       rect:
         serializedVersion: 2
-        x: 263
-        y: 393
-        width: 47
-        height: 46
+        x: 384
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,10 +527,10 @@ TextureImporter:
       name: ship-cannon_13
       rect:
         serializedVersion: 2
-        x: 331
-        y: 400
-        width: 43
-        height: 39
+        x: 416
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -548,10 +548,10 @@ TextureImporter:
       name: ship-cannon_14
       rect:
         serializedVersion: 2
-        x: 395
-        y: 401
-        width: 41
-        height: 35
+        x: 192
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -569,10 +569,10 @@ TextureImporter:
       name: ship-cannon_15
       rect:
         serializedVersion: 2
-        x: 459
-        y: 400
-        width: 41
-        height: 36
+        x: 224
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -590,10 +590,10 @@ TextureImporter:
       name: ship-cannon_16
       rect:
         serializedVersion: 2
-        x: 263
-        y: 338
-        width: 8
-        height: 12
+        x: 256
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -611,10 +611,10 @@ TextureImporter:
       name: ship-cannon_17
       rect:
         serializedVersion: 2
-        x: 273
-        y: 350
-        width: 9
-        height: 9
+        x: 288
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -632,10 +632,10 @@ TextureImporter:
       name: ship-cannon_18
       rect:
         serializedVersion: 2
-        x: 292
-        y: 348
-        width: 9
-        height: 9
+        x: 0
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -653,10 +653,10 @@ TextureImporter:
       name: ship-cannon_19
       rect:
         serializedVersion: 2
-        x: 459
-        y: 336
-        width: 41
-        height: 36
+        x: 32
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -674,10 +674,10 @@ TextureImporter:
       name: ship-cannon_20
       rect:
         serializedVersion: 2
-        x: 13
-        y: 319
-        width: 37
-        height: 19
+        x: 64
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -695,10 +695,10 @@ TextureImporter:
       name: ship-cannon_21
       rect:
         serializedVersion: 2
-        x: 77
-        y: 319
-        width: 37
-        height: 22
+        x: 96
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -716,10 +716,10 @@ TextureImporter:
       name: ship-cannon_22
       rect:
         serializedVersion: 2
-        x: 141
-        y: 319
-        width: 37
-        height: 26
+        x: 128
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -737,10 +737,10 @@ TextureImporter:
       name: ship-cannon_23
       rect:
         serializedVersion: 2
-        x: 205
-        y: 319
-        width: 40
-        height: 24
+        x: 160
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -758,10 +758,10 @@ TextureImporter:
       name: ship-cannon_24
       rect:
         serializedVersion: 2
-        x: 214
-        y: 338
-        width: 8
-        height: 10
+        x: 192
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -779,10 +779,10 @@ TextureImporter:
       name: ship-cannon_25
       rect:
         serializedVersion: 2
-        x: 227
-        y: 338
-        width: 8
-        height: 10
+        x: 224
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -800,10 +800,10 @@ TextureImporter:
       name: ship-cannon_26
       rect:
         serializedVersion: 2
-        x: 269
-        y: 319
-        width: 37
-        height: 19
+        x: 256
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -821,10 +821,10 @@ TextureImporter:
       name: ship-cannon_27
       rect:
         serializedVersion: 2
-        x: 303
-        y: 338
-        width: 7
-        height: 9
+        x: 288
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -842,10 +842,10 @@ TextureImporter:
       name: ship-cannon_28
       rect:
         serializedVersion: 2
-        x: 263
-        y: 290
-        width: 8
-        height: 12
+        x: 320
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -863,10 +863,10 @@ TextureImporter:
       name: ship-cannon_29
       rect:
         serializedVersion: 2
-        x: 273
-        y: 302
-        width: 9
-        height: 9
+        x: 352
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -884,10 +884,10 @@ TextureImporter:
       name: ship-cannon_30
       rect:
         serializedVersion: 2
-        x: 292
-        y: 300
-        width: 9
-        height: 9
+        x: 384
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -905,10 +905,10 @@ TextureImporter:
       name: ship-cannon_31
       rect:
         serializedVersion: 2
-        x: 13
-        y: 271
-        width: 37
-        height: 19
+        x: 416
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -926,10 +926,10 @@ TextureImporter:
       name: ship-cannon_32
       rect:
         serializedVersion: 2
-        x: 77
-        y: 271
-        width: 37
-        height: 22
+        x: 448
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -947,10 +947,10 @@ TextureImporter:
       name: ship-cannon_33
       rect:
         serializedVersion: 2
-        x: 141
-        y: 271
-        width: 37
-        height: 26
+        x: 480
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -968,10 +968,10 @@ TextureImporter:
       name: ship-cannon_34
       rect:
         serializedVersion: 2
-        x: 205
-        y: 271
-        width: 40
-        height: 24
+        x: 0
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -989,10 +989,10 @@ TextureImporter:
       name: ship-cannon_35
       rect:
         serializedVersion: 2
-        x: 214
-        y: 290
-        width: 8
-        height: 10
+        x: 32
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1010,10 +1010,10 @@ TextureImporter:
       name: ship-cannon_36
       rect:
         serializedVersion: 2
-        x: 227
-        y: 290
-        width: 8
-        height: 10
+        x: 64
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1031,10 +1031,10 @@ TextureImporter:
       name: ship-cannon_37
       rect:
         serializedVersion: 2
-        x: 269
-        y: 271
-        width: 37
-        height: 19
+        x: 96
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1052,10 +1052,10 @@ TextureImporter:
       name: ship-cannon_38
       rect:
         serializedVersion: 2
-        x: 303
-        y: 290
-        width: 7
-        height: 9
+        x: 128
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1073,10 +1073,10 @@ TextureImporter:
       name: ship-cannon_39
       rect:
         serializedVersion: 2
-        x: 0
-        y: 209
-        width: 14
-        height: 27
+        x: 160
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1094,10 +1094,10 @@ TextureImporter:
       name: ship-cannon_40
       rect:
         serializedVersion: 2
-        x: 63
-        y: 209
-        width: 19
-        height: 27
+        x: 192
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1115,10 +1115,10 @@ TextureImporter:
       name: ship-cannon_41
       rect:
         serializedVersion: 2
-        x: 127
-        y: 207
-        width: 27
-        height: 36
+        x: 224
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1136,10 +1136,10 @@ TextureImporter:
       name: ship-cannon_42
       rect:
         serializedVersion: 2
-        x: 191
-        y: 209
-        width: 16
-        height: 27
+        x: 256
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1157,10 +1157,10 @@ TextureImporter:
       name: ship-cannon_43
       rect:
         serializedVersion: 2
-        x: 204
-        y: 232
-        width: 11
-        height: 13
+        x: 288
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1178,10 +1178,10 @@ TextureImporter:
       name: ship-cannon_44
       rect:
         serializedVersion: 2
-        x: 255
-        y: 207
-        width: 19
-        height: 30
+        x: 320
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1199,10 +1199,10 @@ TextureImporter:
       name: ship-cannon_45
       rect:
         serializedVersion: 2
-        x: 269
-        y: 235
-        width: 13
-        height: 12
+        x: 352
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1220,10 +1220,10 @@ TextureImporter:
       name: ship-cannon_46
       rect:
         serializedVersion: 2
-        x: 279
-        y: 226
-        width: 7
-        height: 10
+        x: 384
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1241,10 +1241,10 @@ TextureImporter:
       name: ship-cannon_47
       rect:
         serializedVersion: 2
-        x: 209
-        y: 224
-        width: 10
-        height: 9
+        x: 416
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1262,10 +1262,10 @@ TextureImporter:
       name: ship-cannon_48
       rect:
         serializedVersion: 2
-        x: 208
-        y: 215
-        width: 11
-        height: 8
+        x: 448
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1283,10 +1283,10 @@ TextureImporter:
       name: ship-cannon_49
       rect:
         serializedVersion: 2
-        x: 280
-        y: 212
-        width: 7
-        height: 11
+        x: 480
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1304,10 +1304,10 @@ TextureImporter:
       name: ship-cannon_50
       rect:
         serializedVersion: 2
-        x: 207
-        y: 203
-        width: 11
-        height: 9
+        x: 256
+        y: 352
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1325,10 +1325,10 @@ TextureImporter:
       name: ship-cannon_51
       rect:
         serializedVersion: 2
-        x: 275
-        y: 200
-        width: 10
-        height: 9
+        x: 288
+        y: 352
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1342,17 +1342,1037 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ship-cannon_52
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c86626acae9cae40a5d5c4d316b2661
+      internalID: 1861093500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_53
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e3fc8d3d0d970a46b80357d5ce8c086
+      internalID: 1805767414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02e2cf3daee63644b4576f7c93dc097
+      internalID: -1630021718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_55
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90cfce47fa34bdd439a9d13b5db2bf9f
+      internalID: -932006056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_56
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a34b359950e23f4a9fc0f83905e03bd
+      internalID: 584669266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_57
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e0fa3e783a04f4d8542d367c6cbc7d
+      internalID: 1993712164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_58
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5908c147ed45d4440b753e764545e260
+      internalID: 1707543747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_59
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba4fcd2a53b7c7b4295e9f9cb67c8f15
+      internalID: -2027079765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_60
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5fcb53a34579d4fabfdaf98e861dc7
+      internalID: -450275093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_61
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dea25490b9b1024887acfd36c8af17b
+      internalID: -417986752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086b517fa7afd8245a0485decffc326d
+      internalID: 12351319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_63
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e050575933d95ee41b4c3c96e75c76d2
+      internalID: 2088582222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_64
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf399ace6ed4f2419e16b4e0a50a57d
+      internalID: 1642261064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_65
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4d48e21288dce4b8ded4f88e1771f6
+      internalID: 320862006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c0a476b54a86e14aac5b61e0001f040
+      internalID: 962281579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_67
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b7ecdf6a1855c4996695442e006bcc
+      internalID: -1428574997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_68
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4fb4fb548e98ca478c14a521f41a110
+      internalID: -989115321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_69
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e1b221f6588d240bd3450fcf393a56
+      internalID: 205902581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_70
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53abdfce04179974c8df932eb780b2eb
+      internalID: -1776319738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_71
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a037c002a724394287d89d4fa0d4d6f
+      internalID: -930673777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_72
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3321090f94d96114aaadb5f9f71fd775
+      internalID: 36481795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_73
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e08eddab848f07479d96ae26338c04c
+      internalID: 1680409785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_74
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d8140f55658eb419287dea662b4d3d
+      internalID: 326264641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_75
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9ec758b2b637644b218e1a0293ad03
+      internalID: 372478331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72127f079c4267a4c895cbfe550d69e9
+      internalID: 1186100123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_77
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008cf7a98e769d3449209cfaaf65eb37
+      internalID: 1457258582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_78
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d766e4fb2824e4e8af4811b190250f
+      internalID: 140198017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_79
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce4ec8396b6c1b48b523aa79822f334
+      internalID: 1335693870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_80
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d62f3b7f3bd31b4987e94f0aaec4273
+      internalID: -271438915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_81
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e03c443a893fb4bb4dc0522d120e72
+      internalID: -769305666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_82
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf441b583ee4c054e9654aefc1dba884
+      internalID: -291631419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_83
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d49ce49140bbc340943ba862ea0f287
+      internalID: -1418664303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_84
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1528d067498d948aaa3678f15bfb46
+      internalID: 1089872756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_85
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb994f84cc5997d4d868de570dd667e2
+      internalID: -2052168845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa913d6823f072f48b99c15069bd1335
+      internalID: -709697186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_87
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b0918aa59d5034c82b0bc704e4d065
+      internalID: -815299642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_88
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d15c50a0083784984931d59b943cec
+      internalID: -565695703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_89
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420ac593039c16d44b515a2691d50b97
+      internalID: -823482695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_90
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c6ca7b17fd7ff4990a56dea0de9859
+      internalID: -512355448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b88ef8661a3a34eb56d4a68d01fc6d
+      internalID: -2098898176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_92
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4daee34a1adaad54c92ebcf7c3ad8563
+      internalID: -781044315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_93
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbcd39d7ebef174db17399ca24efa01
+      internalID: -1181121484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_94
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c96bbe0bd8744dc43a8f379acd861aab
+      internalID: 400639402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-cannon_95
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ecb96336efdda64bb87ec3550287e99
+      internalID: 432302369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9accb3fb4c1199249a3c31cbe930dcbd
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ship-cannon_0: 3342049441765246471
+      ship-cannon_1: 2143016466768965776
+      ship-cannon_10: -6164872828583726040
+      ship-cannon_11: -8644721564318671665
+      ship-cannon_12: -2613212779455800397
+      ship-cannon_13: 3694854382157577631
+      ship-cannon_14: -2503920233439725659
+      ship-cannon_15: 5044401693169573310
+      ship-cannon_16: -3543005002522848497
+      ship-cannon_17: -2343013994105594436
+      ship-cannon_18: -5912508229533517507
+      ship-cannon_19: 2063855350047904852
+      ship-cannon_2: 643604819391023466
+      ship-cannon_20: -3250019785123976485
+      ship-cannon_21: 2733323742100960350
+      ship-cannon_22: -9051266960290254795
+      ship-cannon_23: 4851505121404196918
+      ship-cannon_24: -9184888713959571019
+      ship-cannon_25: 8055721589653363574
+      ship-cannon_26: -8995413525360001907
+      ship-cannon_27: 7603367474267214989
+      ship-cannon_28: -8952290727354936702
+      ship-cannon_29: -6019022092532338255
+      ship-cannon_3: 1297953036002132780
+      ship-cannon_30: 8361200165790157337
+      ship-cannon_31: 7960267660125251661
+      ship-cannon_32: -4469656769306661125
+      ship-cannon_33: -1274865115654872288
+      ship-cannon_34: 8123525787582799306
+      ship-cannon_35: 4556200916875534974
+      ship-cannon_36: -165857985576195535
+      ship-cannon_37: -6736019183608788160
+      ship-cannon_38: -5180714096934645705
+      ship-cannon_39: 9046125770053364022
+      ship-cannon_4: -4201278538454253745
+      ship-cannon_40: -5634408958242684974
+      ship-cannon_41: 7349401877119821437
+      ship-cannon_42: 7545208082878530557
+      ship-cannon_43: 7031358135044983271
+      ship-cannon_44: -1093723192189316112
+      ship-cannon_45: -1440678515768263511
+      ship-cannon_46: -5714393189897061881
+      ship-cannon_47: -6525917382717481491
+      ship-cannon_48: 570875968320620328
+      ship-cannon_49: 7072152809751432179
+      ship-cannon_5: -3184671651740547074
+      ship-cannon_50: -1848177447124891435
+      ship-cannon_51: -7448997473010921629
+      ship-cannon_52: 1861093500
+      ship-cannon_53: 1805767414
+      ship-cannon_54: -1630021718
+      ship-cannon_55: -932006056
+      ship-cannon_56: 584669266
+      ship-cannon_57: 1993712164
+      ship-cannon_58: 1707543747
+      ship-cannon_59: -2027079765
+      ship-cannon_6: -7123747235918854372
+      ship-cannon_60: -450275093
+      ship-cannon_61: -417986752
+      ship-cannon_62: 12351319
+      ship-cannon_63: 2088582222
+      ship-cannon_64: 1642261064
+      ship-cannon_65: 320862006
+      ship-cannon_66: 962281579
+      ship-cannon_67: -1428574997
+      ship-cannon_68: -989115321
+      ship-cannon_69: 205902581
+      ship-cannon_7: -1308196515773209745
+      ship-cannon_70: -1776319738
+      ship-cannon_71: -930673777
+      ship-cannon_72: 36481795
+      ship-cannon_73: 1680409785
+      ship-cannon_74: 326264641
+      ship-cannon_75: 372478331
+      ship-cannon_76: 1186100123
+      ship-cannon_77: 1457258582
+      ship-cannon_78: 140198017
+      ship-cannon_79: 1335693870
+      ship-cannon_8: -677979755549227633
+      ship-cannon_80: -271438915
+      ship-cannon_81: -769305666
+      ship-cannon_82: -291631419
+      ship-cannon_83: -1418664303
+      ship-cannon_84: 1089872756
+      ship-cannon_85: -2052168845
+      ship-cannon_86: -709697186
+      ship-cannon_87: -815299642
+      ship-cannon_88: -565695703
+      ship-cannon_89: -823482695
+      ship-cannon_9: 1552007650947934793
+      ship-cannon_90: -512355448
+      ship-cannon_91: -2098898176
+      ship-cannon_92: -781044315
+      ship-cannon_93: -1181121484
+      ship-cannon_94: 400639402
+      ship-cannon_95: 432302369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
