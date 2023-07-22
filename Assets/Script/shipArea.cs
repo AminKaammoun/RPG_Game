@@ -12,26 +12,26 @@ public class shipArea : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        //Teleport from the forest to trees area
-        if (GameController.currentMap == PlayerMap.forrest)
+        //Teleport from the beach to shipoutside
+        if (GameController.currentMap == PlayerMap.beach)
         {
-            if (collision.CompareTag("Player"))
+            if (collision.CompareTag("Player") && this.gameObject.tag == "shiptp1")
             {
-                player.transform.position = new Vector3(198.4f, 30.57f, 0f);
-                GameController.currentMap = PlayerMap.forrestTreesArea;
+                player.transform.position = new Vector3(169.58f, 170.7f, 0f);
+                GameController.currentMap = PlayerMap.shipOutside;
             }
         }
 
-        //teleport back from trees area to forrest
-        if (GameController.currentMap == PlayerMap.forrestTreesArea)
+        //teleport back shipoutside to beach
+        if (GameController.currentMap == PlayerMap.shipOutside)
         {
-            if (collision.CompareTag("Player") && this.gameObject.tag == "Dun1Tp1")
+            if (collision.CompareTag("Player") && this.gameObject.tag == "shiptp")
             {
                 
 
-                player.transform.position = new Vector3(198.4f, 26.41f, 0f);
+                player.transform.position = new Vector3(169.45f, 165.36f, 0f);
 
-                GameController.currentMap = PlayerMap.forrest;
+                GameController.currentMap = PlayerMap.beach;
             }
         }
     }
