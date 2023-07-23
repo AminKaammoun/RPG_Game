@@ -89,7 +89,8 @@ public class GameController : MonoBehaviour
     public GameObject thunder;
     public GameObject gainedBp;
     public GameObject skillPointPanel;
-    public GameObject fishPanel;
+    public GameObject ForestfishPanel;
+    public GameObject BeachFishPanel;
     public GameObject butcherPanel;
     public GameObject eggPanel;
     public GameObject rock;
@@ -1887,7 +1888,8 @@ public class GameController : MonoBehaviour
     {
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
-        fishPanel.SetActive(false);
+        ForestfishPanel.SetActive(false);
+        BeachFishPanel.SetActive(false);
         FishInv.save();
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
@@ -2100,7 +2102,14 @@ public class GameController : MonoBehaviour
     }
     public void FishPanel()
     {
-        fishPanel.SetActive(true);
+        ForestfishPanel.SetActive(true);
+        fishingShop.refreshInv = true;
+        ArrowSpawn.canShoot = false;
+    }
+
+    public void BeachfishPanel()
+    {
+        BeachFishPanel.SetActive(true);
         fishingShop.refreshInv = true;
         ArrowSpawn.canShoot = false;
     }

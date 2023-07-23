@@ -58,99 +58,100 @@ public class fishingShop : MonoBehaviour
     void Start()
     {
         CreateDisplay();
+      
+            Fish1Price = Random.Range(10, 21);
+            Fish2Price = Random.Range(20, 51);
+            Fish3Price = Random.Range(50, 100);
+            Fish4Price = Random.Range(100, 250);
+            Fish5Price = Random.Range(500, 1000);
 
-        Fish1Price = Random.Range(10, 21);
-        Fish2Price = Random.Range(20, 51);
-        Fish3Price = Random.Range(50, 100);
-        Fish4Price = Random.Range(100, 250);
-        Fish5Price = Random.Range(500, 1000);
+            int rand1 = Random.Range(0, 2);
+            int rand2 = Random.Range(0, 2);
+            int rand3 = Random.Range(0, 2);
+            int rand4 = Random.Range(0, 2);
+            int rand5 = Random.Range(0, 2);
 
-        int rand1 = Random.Range(0, 2);
-        int rand2 = Random.Range(0, 2);
-        int rand3 = Random.Range(0, 2);
-        int rand4 = Random.Range(0, 2);
-        int rand5 = Random.Range(0, 2);
+            switch (rand1)
+            {
+                case 0:
+                    fish1TodayPrice.text = "todays offer : " + Fish1Price + "k  ";
+                    fish1TodayPrice.color = Color.white;
+                    coinImage[0].SetActive(true);
+                    sell1.SetActive(true);
+                    break;
+                case 1:
+                    fish1TodayPrice.text = "not buying.";
+                    fish1TodayPrice.color = Color.red;
+                    coinImage[0].SetActive(false);
+                    sell1.SetActive(false);
+                    break;
+            }
 
-        switch (rand1)
-        {
-            case 0:
-                fish1TodayPrice.text = "todays offer : " + Fish1Price + "k  ";
-                fish1TodayPrice.color = Color.white;
-                coinImage[0].SetActive(true);
-                sell1.SetActive(true);
-                break;
-            case 1:
-                fish1TodayPrice.text = "not buying.";
-                fish1TodayPrice.color = Color.red;
-                coinImage[0].SetActive(false);
-                sell1.SetActive(false);
-                break;
-        }
+            switch (rand2)
+            {
+                case 0:
+                    fish2TodayPrice.text = "todays offer : " + Fish2Price + "k  ";
+                    fish2TodayPrice.color = Color.white;
+                    coinImage[1].SetActive(true);
+                    sell2.SetActive(true);
+                    break;
+                case 1:
+                    fish2TodayPrice.text = "not buying.";
+                    fish2TodayPrice.color = Color.red;
+                    coinImage[1].SetActive(false);
+                    sell2.SetActive(false);
+                    break;
+            }
 
-        switch (rand2)
-        {
-            case 0:
-                fish2TodayPrice.text = "todays offer : " + Fish2Price + "k  ";
-                fish2TodayPrice.color = Color.white;
-                coinImage[1].SetActive(true);
-                sell2.SetActive(true);
-                break;
-            case 1:
-                fish2TodayPrice.text = "not buying.";
-                fish2TodayPrice.color = Color.red;
-                coinImage[1].SetActive(false);
-                sell2.SetActive(false);
-                break;
-        }
+            switch (rand3)
+            {
+                case 0:
+                    fish3TodayPrice.text = "todays offer : " + Fish3Price + "k  ";
+                    fish3TodayPrice.color = Color.white;
+                    coinImage[2].SetActive(true);
+                    sell3.SetActive(true);
+                    break;
+                case 1:
+                    fish3TodayPrice.text = "not buying.";
+                    fish3TodayPrice.color = Color.red;
+                    coinImage[2].SetActive(false);
+                    sell3.SetActive(false);
+                    break;
+            }
 
-        switch (rand3)
-        {
-            case 0:
-                fish3TodayPrice.text = "todays offer : " + Fish3Price + "k  ";
-                fish3TodayPrice.color = Color.white;
-                coinImage[2].SetActive(true);
-                sell3.SetActive(true);
-                break;
-            case 1:
-                fish3TodayPrice.text = "not buying.";
-                fish3TodayPrice.color = Color.red;
-                coinImage[2].SetActive(false);
-                sell3.SetActive(false);
-                break;
-        }
+            switch (rand4)
+            {
+                case 0:
+                    fish4TodayPrice.text = "todays offer : " + Fish4Price + "k  ";
+                    fish4TodayPrice.color = Color.white;
+                    coinImage[3].SetActive(true);
+                    sell4.SetActive(true);
+                    break;
+                case 1:
+                    fish4TodayPrice.text = "not buying.";
+                    fish4TodayPrice.color = Color.red;
+                    coinImage[3].SetActive(false);
+                    sell4.SetActive(false);
+                    break;
+            }
 
-        switch (rand4)
-        {
-            case 0:
-                fish4TodayPrice.text = "todays offer : " + Fish4Price + "k  ";
-                fish4TodayPrice.color = Color.white;
-                coinImage[3].SetActive(true);
-                sell4.SetActive(true);
-                break;
-            case 1:
-                fish4TodayPrice.text = "not buying.";
-                fish4TodayPrice.color = Color.red;
-                coinImage[3].SetActive(false);
-                sell4.SetActive(false);
-                break;
-        }
-
-        switch (rand5)
-        {
-            case 0:
-                fish5TodayPrice.text = "todays offer : " + Fish5Price + "k  ";
-                fish5TodayPrice.color = Color.white;
-                coinImage[4].SetActive(true);
-                sell5.SetActive(true);
-                break;
-            case 1:
-                fish5TodayPrice.text = "not buying.";
-                fish5TodayPrice.color = Color.red;
-                coinImage[4].SetActive(false);
-                sell5.SetActive(false);
-                break;
-        }
-
+            switch (rand5)
+            {
+                case 0:
+                    fish5TodayPrice.text = "todays offer : " + Fish5Price + "k  ";
+                    fish5TodayPrice.color = Color.white;
+                    coinImage[4].SetActive(true);
+                    sell5.SetActive(true);
+                    break;
+                case 1:
+                    fish5TodayPrice.text = "not buying.";
+                    fish5TodayPrice.color = Color.red;
+                    coinImage[4].SetActive(false);
+                    sell5.SetActive(false);
+                    break;
+            }
+        
+       
     }
 
     // Update is called once per frame
