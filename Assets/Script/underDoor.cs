@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class underDoor : MonoBehaviour
 {
@@ -10,6 +11,13 @@ public class underDoor : MonoBehaviour
     public bool playerInRange;
     public GameObject key;  
     public bool keyPressed;
+    public GameObject tpPanel;
+    public Text loading;
+    public AudioSource doorAudio;
+
+    public AudioClip dunSound;
+    public AudioClip beachSound;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +33,30 @@ public class underDoor : MonoBehaviour
         {
 
             key.SetActive(true);
-        }
-        else if (playerInRange && keyPressed == true)
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                tpPanel.SetActive(true); 
+                doorAudio.Play();
+                StartCoroutine(removeLoadingPanelToShip1());
+                //teleport from outsideShip to ship1
+                if (GameController.currentMap == PlayerMap.shipOutside)
+                {
+                    player.transform.position = new Vector3(210.89f, 193.78f, 0f);
+                    GameController.changeBGS(dunSound, audioSource);
+                    GameController.currentMap = PlayerMap.ship1;
+                   
+                    //teleport from ship1 to outsideShip
+                }else if (GameController.currentMap == PlayerMap.ship1)
+                {
+                    GameController.changeBGS(beachSound, audioSource);
+                    player.transform.position = new Vector3(181.54f, 171.91f, 0f);
+                    GameController.currentMap = PlayerMap.shipOutside;
+                }
+             
+
+            }
+            }
+            else if (playerInRange && keyPressed == true)
         {
             key.SetActive(false);
             //
@@ -58,4 +88,11 @@ public class underDoor : MonoBehaviour
         }
     }
 
+    IEnumerator removeLoadingPanelToShip1()
+    {
+        yield return new WaitForSeconds(1f);
+        loading.text = "LOADING";
+        tpPanel.SetActive(false);
+        //GameController.enterLibrary = true;
+    }
 }
