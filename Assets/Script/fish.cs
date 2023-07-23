@@ -99,6 +99,76 @@ public class fish : MonoBehaviour
                 Inventory.refreshInv = true;
                 Destroy(this.gameObject);
             }
+            else if (this.gameObject.name == "Fish6(Clone)")
+            {
+                GameController.Fish6Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[5], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[5], 1);
+                FishInventory.AddItem(fishs[5], 1);
+                MeatInventory.AddItem(fishs[5], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish7(Clone)")
+            {
+                GameController.Fish7Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[6], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[6], 1);
+                FishInventory.AddItem(fishs[6], 1);
+                MeatInventory.AddItem(fishs[6], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish8(Clone)")
+            {
+                GameController.Fish8Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[7], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[7], 1);
+                FishInventory.AddItem(fishs[7], 1);
+                MeatInventory.AddItem(fishs[7], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish9(Clone)")
+            {
+                GameController.Fish9Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[8], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[8], 1);
+                FishInventory.AddItem(fishs[8], 1);
+                MeatInventory.AddItem(fishs[8], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish10(Clone)")
+            {
+                GameController.Fish10Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[9], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[9], 1);
+                FishInventory.AddItem(fishs[9], 1);
+                MeatInventory.AddItem(fishs[9], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
         }
     }
 }

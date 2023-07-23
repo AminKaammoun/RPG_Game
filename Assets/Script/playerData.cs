@@ -41,6 +41,7 @@ public class playerData
         skill5Level = GameController.skill5Level;
        
         skillPoints = GameController.skillPoint;
+        //skillPoints = 100;
         CurrentSkill = GameController.currentSkill;
 
         ability1 = GameController.ability1;

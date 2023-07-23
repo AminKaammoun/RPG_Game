@@ -12,6 +12,7 @@ public class fishBar : MonoBehaviour
     public GameObject bobber;
     public GameObject[] fishs;
     public AudioSource fishcatch;
+   
 
     public void SetFish(float value)
     {
@@ -41,27 +42,54 @@ public class fishBar : MonoBehaviour
             fishingArea.instantiateFish = false;
             fishcatch.Stop();
             animator.SetBool("collect", true);
-            int rand = Random.Range(0, 100);
+            if (GameController.currentMap == PlayerMap.forrest)
+            {
+                int rand = Random.Range(0, 100);
 
-            if (rand >= 0 && rand < 50)
+                if (rand >= 0 && rand < 50)
+                {
+                    Instantiate(fishs[0], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 50 && rand < 70)
+                {
+                    Instantiate(fishs[1], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 70 && rand < 85)
+                {
+                    Instantiate(fishs[2], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 85 && rand < 95)
+                {
+                    Instantiate(fishs[3], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 95 && rand < 100)
+                {
+                    Instantiate(fishs[4], bobber.transform.position, Quaternion.identity);
+                }
+            }else if (GameController.currentMap == PlayerMap.beach)
             {
-                Instantiate(fishs[0], bobber.transform.position, Quaternion.identity);
-            }
-            else if (rand >= 50 && rand < 70)
-            {
-                Instantiate(fishs[1], bobber.transform.position, Quaternion.identity);
-            }
-            else if (rand >= 70 && rand < 85)
-            {
-                Instantiate(fishs[2], bobber.transform.position, Quaternion.identity);
-            }
-            else if (rand >= 85 && rand < 95)
-            {
-                Instantiate(fishs[3], bobber.transform.position, Quaternion.identity);
-            }
-            else if (rand >= 95 && rand < 100)
-            {
-                Instantiate(fishs[4], bobber.transform.position, Quaternion.identity);
+                int rand = Random.Range(0, 100);
+
+                if (rand >= 0 && rand < 50)
+                {
+                    Instantiate(fishs[5], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 50 && rand < 70)
+                {
+                    Instantiate(fishs[6], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 70 && rand < 85)
+                {
+                    Instantiate(fishs[7], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 85 && rand < 95)
+                {
+                    Instantiate(fishs[8], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 95 && rand < 100)
+                {
+                    Instantiate(fishs[9], bobber.transform.position, Quaternion.identity);
+                }
             }
         }
 

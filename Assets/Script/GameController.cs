@@ -299,6 +299,12 @@ public class GameController : MonoBehaviour
     public static bool Fish4Discovered;
     public static bool Fish5Discovered;
 
+    public static bool Fish6Discovered;
+    public static bool Fish7Discovered;
+    public static bool Fish8Discovered;
+    public static bool Fish9Discovered;
+    public static bool Fish10Discovered;
+
     public static string ability1;
     public static string ability2;
     public static string ability3;
@@ -1251,6 +1257,12 @@ public class GameController : MonoBehaviour
         Fish3Discovered = data7.Fish3Discovered;
         Fish4Discovered = data7.Fish4Discovered;
         Fish5Discovered = data7.Fish5Discovered;
+
+        Fish6Discovered = data7.Fish6Discovered;
+        Fish7Discovered = data7.Fish7Discovered;
+        Fish8Discovered = data7.Fish8Discovered;
+        Fish9Discovered = data7.Fish9Discovered;
+        Fish10Discovered = data7.Fish10Discovered;
 
         eggsData data8 = saveSystem.LoadEggs();
 
