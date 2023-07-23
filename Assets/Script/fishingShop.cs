@@ -159,7 +159,7 @@ public class fishingShop : MonoBehaviour
     {
         if (refreshInv)
         {
-
+           
             itemsDisplayed.Clear();
             GameObject[] fishs = GameObject.FindGameObjectsWithTag("fishIcons");
 

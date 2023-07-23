@@ -159,7 +159,6 @@ public class BeachFishingShop : MonoBehaviour
     {
         if (refreshInv)
         {
-
             itemsDisplayed.Clear();
             GameObject[] fishs = GameObject.FindGameObjectsWithTag("fishIcons");
 

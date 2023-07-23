@@ -2110,7 +2110,7 @@ public class GameController : MonoBehaviour
     public void BeachfishPanel()
     {
         BeachFishPanel.SetActive(true);
-        fishingShop.refreshInv = true;
+        BeachFishingShop.refreshInv = true;
         ArrowSpawn.canShoot = false;
     }
 
