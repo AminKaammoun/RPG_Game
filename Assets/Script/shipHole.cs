@@ -15,6 +15,10 @@ public class shipHole : MonoBehaviour
     public Text loading;
     public AudioSource jumpAudio;
 
+    public AudioClip underWaterSound;
+    //public AudioClip beachSound;
+    public AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +43,10 @@ public class shipHole : MonoBehaviour
                 
                 if (GameController.currentMap == PlayerMap.ship2)
                 {
-                    //player.transform.position = new Vector3(204.49f, 192.66f, 0f);
-
-                    //GameController.currentMap = PlayerMap.water1;
-
-                 
+                    player.transform.position = new Vector3(214.58f, 228.41f, 0f);
+                    GameController.changeBGS(underWaterSound, audioSource);
+                    GameController.currentMap = PlayerMap.water1;
+                    PlayerMovements.speed /= 2;
                 }
             
 

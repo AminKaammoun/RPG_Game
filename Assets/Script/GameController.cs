@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour
     public InventoryObject gearsInv;
 
     public float TimeBtwLeafSpawn;
+    public float TimeBtwBubbleSpawn;
     public float StartTime = 0.25f;
 
     public Camera mainCamera;
@@ -60,9 +61,11 @@ public class GameController : MonoBehaviour
     public GameObject inventory;
     public GameObject[] leafSpawner;
     public GameObject[] crowSpawner;
+    public GameObject[] bubbleSpawner;
     public GameObject alert;
     public GameObject[] panel;
     public GameObject leaf;
+    public GameObject[] bubble;
     public GameObject crow;
     public GameObject dashUi;
     public GameObject player;
@@ -1168,6 +1171,7 @@ public class GameController : MonoBehaviour
         TimeBtwCrows = startCrowTime;
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
+        bubbleSpawner = GameObject.FindGameObjectsWithTag("BubbleSpawner");
         currentMap = PlayerMap.beach;
 
     }
@@ -1314,6 +1318,13 @@ public class GameController : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveData();
+
+    }
+
+
+    void FixedUpdate()
+    {
+
 
     }
 
@@ -2453,6 +2464,24 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(206.31f, 213.76f);
             CameraMovement.maxPosition = new Vector2(213.7f, 214.13f);
+        }
+        else if (currentMap == PlayerMap.water1)
+        {
+            CameraMovement.minPosition = new Vector2(213.37f, 234.14f);
+            CameraMovement.maxPosition = new Vector2(223.59f, 241.92f);
+            
+            if (TimeBtwBubbleSpawn <= 0)
+            {
+                int rand = Random.Range(0, 30);
+                int rand1 = Random.Range(0,5);
+
+                Instantiate(bubble[rand1], bubbleSpawner[rand].transform.position, Quaternion.identity);
+                TimeBtwBubbleSpawn = StartTime;
+            }
+            else
+            {
+                TimeBtwBubbleSpawn -= Time.deltaTime;
+            }
         }
 
 

@@ -41,7 +41,7 @@ public class PlayerMovements : MonoBehaviour
     public Rigidbody2D bow;
     public static Animator animator;
     public PlayerState currentState;
-    public float speed = 5f;
+    public static float speed = 5f;
     public static PlayerWeapon currentWeapon;
 
     public InventoryObject inventory;
@@ -975,7 +975,8 @@ public class PlayerMovements : MonoBehaviour
             tr.emitting = true;
             StartCoroutine(waitdash());
         }
-
+       
+        
     }
 
     IEnumerator waitAttack()
