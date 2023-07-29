@@ -3,7 +3,7 @@ guid: 7a38c05eabacf19409f3886b12e8af50
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -763,7 +766,7 @@ TextureImporter:
         width: 25
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -771,6 +774,27 @@ TextureImporter:
       bones: []
       spriteID: f5fefdb7470d63b4fa226c974b72991b
       internalID: -965191824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_split_32
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 72
+        width: 102
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6472ae9d043c0fb45bb58e19b70e583d
+      internalID: 602813980
       vertices: []
       indices: 
       edges: []
@@ -786,41 +810,41 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui_split_26: -1438556053
-      ui_split_24: 982682633
-      ui_split_7: -1409105906
-      ui_split_3: 1771257256
-      ui_split_20: -1911017254
       ui_split_0: -1624509022
-      ui_split_29: -1712976507
-      ui_split_21: 933172035
-      ui_split_19: 1874102712
-      ui_split_18: -1961617475
-      ui_split_22: 1885505305
-      ui_split_27: -1149870001
-      ui_split_5: 1459950403
       ui_split_1: -988877863
-      ui_split_12: 2048754400
-      ui_split_14: -480121976
-      ui_split_16: 675041542
-      ui_split_15: 1658196971
-      ui_split_23: -1408876444
-      ui_split_11: 828901765
-      ui_split_30: -418066140
-      ui_split_2: -113476029
-      ui_split_9: -873027880
-      ui_split_8: 873974399
-      ui_split_31: -965191824
-      ui_split_25: -720791384
       ui_split_10: 1684068571
-      ui_split_6: 1054081302
-      ui_split_17: 1480214997
+      ui_split_11: 828901765
+      ui_split_12: 2048754400
       ui_split_13: 506528905
+      ui_split_14: -480121976
+      ui_split_15: 1658196971
+      ui_split_16: 675041542
+      ui_split_17: 1480214997
+      ui_split_18: -1961617475
+      ui_split_19: 1874102712
+      ui_split_2: -113476029
+      ui_split_20: -1911017254
+      ui_split_21: 933172035
+      ui_split_22: 1885505305
+      ui_split_23: -1408876444
+      ui_split_24: 982682633
+      ui_split_25: -720791384
+      ui_split_26: -1438556053
+      ui_split_27: -1149870001
       ui_split_28: -1735809296
+      ui_split_29: -1712976507
+      ui_split_3: 1771257256
+      ui_split_30: -418066140
+      ui_split_31: -965191824
+      ui_split_32: 602813980
       ui_split_4: 1342281168
-  spritePackingTag: 
+      ui_split_5: 1459950403
+      ui_split_6: 1054081302
+      ui_split_7: -1409105906
+      ui_split_8: 873974399
+      ui_split_9: -873027880
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

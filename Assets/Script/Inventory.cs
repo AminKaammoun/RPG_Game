@@ -54,6 +54,8 @@ public class Inventory : MonoBehaviour
     public GameObject potionInventory;
     public GameObject meatsInventory;
 
+    public GameObject toolsMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -493,5 +495,15 @@ public class Inventory : MonoBehaviour
         potionInventory.SetActive(false);
 
         refreshInv = true;
+    }
+
+    public void showgears()
+    {
+        toolsMenu.SetActive(false);
+    }
+
+    public void showTools()
+    {
+        toolsMenu.SetActive(true);
     }
 }

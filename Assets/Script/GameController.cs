@@ -2475,7 +2475,7 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(213.37f, 234.14f);
             CameraMovement.maxPosition = new Vector2(223.59f, 241.92f);
-            
+            PlayerMovements.spawnDivingGear = true;
             if (TimeBtwBubbleSpawn <= 0)
             {
                 int rand = Random.Range(0, 30);
