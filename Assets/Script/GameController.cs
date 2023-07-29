@@ -196,6 +196,7 @@ public class GameController : MonoBehaviour
     private int value;
     public static bool showAlert = false;
     public static bool returnDunMusic = false;
+    public static bool returnBeachMusic = false;
     public static bool enemyBeaten = false;
     public static bool ultPressed = false;
     private bool openUltimate = false;
@@ -1771,6 +1772,11 @@ public class GameController : MonoBehaviour
         {
             changeBGM(dunMusic, musicSource);
             returnDunMusic = false;
+        }
+        if (returnBeachMusic)
+        {
+            changeBGM(beachMusic, musicSource);
+            returnBeachMusic = false;
         }
         if (chest.playChestAudio)
         {

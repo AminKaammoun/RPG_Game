@@ -170,6 +170,7 @@ public class lizard : MonoBehaviour
         {
             Instantiate(chest, transform.position, Quaternion.identity);
             beachDungeon1.dunCleared = true;
+            GameController.returnBeachMusic = true;
             health = 1;
             currentState = LizardState.dead;
             beachDungeon1.wavesAreCleared = true;
