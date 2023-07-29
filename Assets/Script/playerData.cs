@@ -22,6 +22,7 @@ public class playerData
     public string ability2;
     public string ability3;
     public string petName;
+    
 
     public playerData(GameController player)
     {

@@ -14,7 +14,10 @@ public class underDoor1 : MonoBehaviour
     public GameObject tpPanel;
     public Text loading;
     public AudioSource doorAudio;
-
+    public GameObject Board;
+    public GameObject usableItems;
+    public GameObject cacodaemon;
+    public AudioSource earthquake;
 
     // Start is called before the first frame update
     void Start()
@@ -39,16 +42,28 @@ public class underDoor1 : MonoBehaviour
                 if (GameController.currentMap == PlayerMap.ship2)
                 {
                     player.transform.position = new Vector3(204.49f, 192.66f, 0f);
-                  
+
                     GameController.currentMap = PlayerMap.ship1;
 
                     //teleport from ship1 to outsideShip
                 }
                 else if (GameController.currentMap == PlayerMap.ship1)
                 {
-                   
                     player.transform.position = new Vector3(204.14f, 210.95f, 0f);
                     GameController.currentMap = PlayerMap.ship2;
+
+                    if (PlayerPrefs.GetInt("CacoShowed") == 0)
+                    {
+                     
+                        earthquake.Play();
+                        Board.SetActive(false);
+                        usableItems.SetActive(false);
+                        Instantiate(cacodaemon, transform.position, Quaternion.identity);
+                        PlayerPrefs.SetInt("CacoShowed", 1);
+                        StartCoroutine(startShaking());
+                        StartCoroutine(returnTheUis());
+                    }
+                  
                 }
 
 
@@ -92,5 +107,18 @@ public class underDoor1 : MonoBehaviour
         loading.text = "LOADING";
         tpPanel.SetActive(false);
         //GameController.enterLibrary = true;
+    }
+
+    IEnumerator startShaking()
+    {
+        yield return new WaitForSeconds(0.5f);
+        CameraMovement.longShakeEnemy = true;
+    }
+
+    IEnumerator returnTheUis()
+    {
+        yield return new WaitForSeconds(3f);
+        Board.SetActive(true);
+        usableItems.SetActive(true);
     }
 }

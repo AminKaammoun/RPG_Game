@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class CameraMovement : MonoBehaviour
     public static bool bigShake = false;
     public static bool longUltShake = false;
     public static bool SuperLongUltShake = false;
+    public static bool longShakeEnemy = false;
+    private Camera cam;
+
+    void Start()
+    {
+        cam = GetComponent<Camera>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -32,6 +40,12 @@ public class CameraMovement : MonoBehaviour
         {
             StartCoroutine(SoftShake(1.5f));
             longUltShake = false;
+        }
+        if (longShakeEnemy)
+        {
+            StartCoroutine(SoftShake(2.5f));
+            cam.orthographicSize = 1f;
+            longShakeEnemy = false;
         }
         if (SuperLongUltShake)
         {

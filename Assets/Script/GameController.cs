@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour
     public GameObject[] crowSpawner;
     public GameObject[] bubbleSpawner;
     public GameObject alert;
+    public GameObject kitAlert;
     public GameObject[] panel;
     public GameObject leaf;
     public GameObject[] bubble;
@@ -338,6 +339,9 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         LoadData();
+        //PlayerPrefs.SetInt("CacoShowed", 0);
+        //PlayerPrefs.SetInt("haveDivingMask", 0);
+       
         //pets 
         if (eggShop.savedUsedPetList[1][0] != null && eggShop.savedUsedPetList[2][0] == null && eggShop.savedUsedPetList[3][0] == null)
         {
@@ -1824,6 +1828,14 @@ public class GameController : MonoBehaviour
     {
 
         alert.SetActive(false);
+        showAlert = false;
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+    public void closeKitAlertButton()
+    {
+
+        kitAlert.SetActive(false);
         showAlert = false;
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);

@@ -218,7 +218,7 @@ public class PlayerMovements : MonoBehaviour
 
         health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
         healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus);
-
+       
     }
 
 
@@ -1691,6 +1691,11 @@ public class PlayerMovements : MonoBehaviour
                 var stoneTxt = Instantiate(ChickenText, transform.position, Quaternion.identity);
             }
 
+            Destroy(collision.gameObject);
+        }
+        if(collision.CompareTag("divingKit"))
+        {
+            PlayerPrefs.SetInt("haveDivingMask", 1);
             Destroy(collision.gameObject);
         }
     }

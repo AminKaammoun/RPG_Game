@@ -55,6 +55,8 @@ public class Inventory : MonoBehaviour
     public GameObject meatsInventory;
 
     public GameObject toolsMenu;
+    public GameObject gearsMenu;
+    public GameObject divingKit;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +74,14 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(PlayerPrefs.GetInt("haveDivingMask") == 1)
+        {
+            divingKit.SetActive(true);
+        }
+        else
+        {
+            divingKit.SetActive(false);
+        }
 
         if (refreshInv)
         {
@@ -500,10 +509,12 @@ public class Inventory : MonoBehaviour
     public void showgears()
     {
         toolsMenu.SetActive(false);
+        gearsMenu.SetActive(true); 
     }
 
     public void showTools()
     {
         toolsMenu.SetActive(true);
+        gearsMenu.SetActive(false);
     }
 }

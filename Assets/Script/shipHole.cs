@@ -18,7 +18,9 @@ public class shipHole : MonoBehaviour
     public AudioClip underWaterSound;
     //public AudioClip beachSound;
     public AudioSource audioSource;
-
+    public GameObject Error;
+    public AudioSource ErrorSound;
+    public AudioSource HoleSound;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,7 @@ public class shipHole : MonoBehaviour
         {
 
             key.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("haveDivingMask") == 1)
             {
                 tpPanel.SetActive(true);
                 jumpAudio.Play();
@@ -51,6 +53,10 @@ public class shipHole : MonoBehaviour
             
 
 
+            }else if (Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("haveDivingMask") == 0)
+            {
+               Error.SetActive(true);
+                ErrorSound.Play();
             }
         }
         else if (playerInRange && keyPressed == true)
@@ -75,6 +81,13 @@ public class shipHole : MonoBehaviour
         {
             playerInRange = true;
         }
+        if (collision.CompareTag("Cacodaemon"))
+        {
+            PlayerPrefs.SetInt("CacoShowed", 1);
+           HoleSound.Play();
+            Destroy(collision.gameObject,3f);
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
