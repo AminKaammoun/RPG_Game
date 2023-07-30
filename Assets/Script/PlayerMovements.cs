@@ -113,8 +113,11 @@ public class PlayerMovements : MonoBehaviour
     public GameObject thunderEffect;
 
     public AudioSource dashAudio;
+    public AudioSource dashMuffedAudio;
     public AudioSource swingAudio;
+    public AudioSource swingMuffedAudio;
     public AudioSource hurtAudio;
+    public AudioSource hurtMuffedAudio;
     public AudioSource silverKeyAudio;
     public AudioSource goldKeyAudio;
     public AudioSource collectCoinAudio;
@@ -817,7 +820,15 @@ public class PlayerMovements : MonoBehaviour
                 {
                     if (TimeBtwSwings <= 0)
                     {
-                        swingAudio.Play();
+                        if(GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+                        {
+                            swingMuffedAudio.Play();
+                        }
+                        else 
+                        {
+                            swingAudio.Play();
+                        }
+                        
                         StartCoroutine(waitAttack());
                         TimeBtwSwings = 0.5f;
                     }
@@ -848,7 +859,15 @@ public class PlayerMovements : MonoBehaviour
         {
             isDashButtonDown = true;
             GameController.dashed = true;
-            dashAudio.Play();
+            if(GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+            {
+                dashMuffedAudio.Play();
+            }
+            else
+            {
+                dashAudio.Play();
+            }
+          
             Vector3 adds = new Vector3(0f, -0.5f, 0f);
             var dashSmokes = Instantiate(dashSmoke, transform.position + adds, Quaternion.identity);
             Destroy(dashSmokes, 0.5f);
@@ -1375,8 +1394,15 @@ public class PlayerMovements : MonoBehaviour
                 {
                     PlayerDamage.num = 0;
                     damagePlayer = false;
-
-                    hurtAudio.Play();
+                    if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+                    {
+                        hurtMuffedAudio.Play();
+                    }
+                    else
+                    {
+                        hurtAudio.Play();
+                    }
+                   
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
@@ -1396,7 +1422,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 0;
                     damagePlayer = false;
 
-                    hurtAudio.Play();
+                    hurtMuffedAudio.Play();
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
