@@ -31,7 +31,7 @@ public class barrelNormal : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("hitBox"))
             {
-                
+                CameraMovement.shake = true;
                 animator.SetBool("destroy", true);
                 audio.Play();
                 boxCollider.isTrigger = true;

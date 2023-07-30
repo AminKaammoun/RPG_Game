@@ -30,6 +30,7 @@ public class barrel : MonoBehaviour
         if (!destructed) { 
             if (collision.gameObject.CompareTag("hitBox"))
             {
+                CameraMovement.shake = true;
                 Instantiate(divingKit,transform.position, Quaternion.identity);
                 animator.SetBool("destroy", true);
                 audio.Play();

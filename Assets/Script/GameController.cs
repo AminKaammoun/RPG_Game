@@ -33,7 +33,8 @@ public enum PlayerMap
     shipOutside,
     ship1,
     ship2,
-    water1
+    water1,
+    water2
 
 
 }
@@ -2500,6 +2501,23 @@ public class GameController : MonoBehaviour
             {
                 TimeBtwBubbleSpawn -= Time.deltaTime;
             }
+        }else if(currentMap == PlayerMap.water2)
+        {
+            CameraMovement.minPosition = new Vector2(217.65f, 262.86f);
+            CameraMovement.maxPosition = new Vector2(236.55f, 274.42f);
+            if (TimeBtwBubbleSpawn <= 0)
+            {
+                int rand = Random.Range(0, 30);
+                int rand1 = Random.Range(0, 5);
+
+                Instantiate(bubble[rand1], bubbleSpawner[rand].transform.position, Quaternion.identity);
+                TimeBtwBubbleSpawn = StartTime;
+            }
+            else
+            {
+                TimeBtwBubbleSpawn -= Time.deltaTime;
+            }
+
         }
 
 

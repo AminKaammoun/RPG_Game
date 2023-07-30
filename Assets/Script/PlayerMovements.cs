@@ -148,6 +148,7 @@ public class PlayerMovements : MonoBehaviour
     private bool isTreantDamaged = false;
     private bool isCyclopDamaged = false;
     private bool isCrabDamaged = false;
+    private bool isLightFishDamaged = false;
     private bool damagePlayer = true;
 
     public ItemObject AutumnLeaf;
@@ -215,7 +216,7 @@ public class PlayerMovements : MonoBehaviour
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
-
+        
         health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
         healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus);
        
@@ -774,6 +775,14 @@ public class PlayerMovements : MonoBehaviour
             slashEff.transform.parent = this.gameObject.transform;
             slashEff.transform.position = transform.position;
             isCrabDamaged = false;
+            Destroy(slashEff, 0.3f);
+        }
+        if (isLightFishDamaged)
+        {
+            GameObject slashEff = Instantiate(smallSlashEffect) as GameObject;
+            slashEff.transform.parent = this.gameObject.transform;
+            slashEff.transform.position = transform.position;
+            isLightFishDamaged = false;
             Destroy(slashEff, 0.3f);
         }
 
@@ -1380,6 +1389,26 @@ public class PlayerMovements : MonoBehaviour
                     TakeDamage((int)damage);
                 }
             }
+            else if (collision.CompareTag("lightFish"))
+            {
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    damagePlayer = false;
+
+                    hurtAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    Enemy.attack = 150;
+                    isLightFishDamaged = true;
+                    GameController.ultValue += 0.5f;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 100;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
+            }
         }
         else
         {
@@ -1423,6 +1452,10 @@ public class PlayerMovements : MonoBehaviour
             {
                 hurtWithShieldAudio.Play();
             }else if (collision.CompareTag("fireBall1"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("lightFish"))
             {
                 hurtWithShieldAudio.Play();
             }
