@@ -10,7 +10,9 @@ public class crab : Enemy
     private bool faceLeft = true;
     private Rigidbody2D rb2D;
     public AudioSource hurtAudio;
+    public AudioSource MuffedHurtAudio;
     public AudioSource BowHurtAudio;
+    public AudioSource MuffedBowHurtAudio;
 
     public SpriteRenderer Crab;
     private bool isHurt;
@@ -41,7 +43,15 @@ public class crab : Enemy
         checkDirection();
         if (isHurt && PlayerMovements.currentWeapon == PlayerWeapon.sword)
         {
-            hurtAudio.Play();
+            if(GameController.currentMap == PlayerMap.water2)
+            {
+                MuffedHurtAudio.Play();
+            }
+            else
+            {
+                hurtAudio.Play();
+            }
+           
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (target.position.x > transform.position.x)

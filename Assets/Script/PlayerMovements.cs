@@ -78,6 +78,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject fireEffect;
     public GameObject plant1Effect;
     public GameObject smallSlashEffect;
+    public GameObject electricEffect;
     public GameObject xpText;
     public GameObject xpText1;
     public GameObject coinText;
@@ -152,6 +153,7 @@ public class PlayerMovements : MonoBehaviour
     private bool isCyclopDamaged = false;
     private bool isCrabDamaged = false;
     private bool isLightFishDamaged = false;
+    private bool isJellyFishDamaged = false;
     private bool damagePlayer = true;
 
     public ItemObject AutumnLeaf;
@@ -782,10 +784,18 @@ public class PlayerMovements : MonoBehaviour
         }
         if (isLightFishDamaged)
         {
-            GameObject slashEff = Instantiate(smallSlashEffect) as GameObject;
+            GameObject slashEff = Instantiate(electricEffect) as GameObject;
             slashEff.transform.parent = this.gameObject.transform;
             slashEff.transform.position = transform.position;
             isLightFishDamaged = false;
+            Destroy(slashEff, 0.3f);
+        }
+        if (isJellyFishDamaged)
+        {
+            GameObject slashEff = Instantiate(electricEffect) as GameObject;
+            slashEff.transform.parent = this.gameObject.transform;
+            slashEff.transform.position = transform.position;
+            isJellyFishDamaged = false;
             Destroy(slashEff, 0.3f);
         }
 
@@ -1428,6 +1438,26 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(returnColor());
                     Enemy.attack = 150;
                     isLightFishDamaged = true;
+                    GameController.ultValue += 0.5f;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 100;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
+            }
+            else if (collision.CompareTag("jellyFish"))
+            {
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    damagePlayer = false;
+
+                    hurtMuffedAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    Enemy.attack = 150;
+                    isJellyFishDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = 100;

@@ -20,7 +20,7 @@ public class KnockBack : MonoBehaviour
                 Vector3 force = forceDirection.normalized * thrust;
 
 
-                if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("BringerOfDeath") || collision.gameObject.CompareTag("log") || collision.gameObject.CompareTag("treant") || collision.gameObject.CompareTag("crab") || collision.gameObject.CompareTag("lightFish")) && collision.isTrigger)
+                if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("BringerOfDeath") || collision.gameObject.CompareTag("log") || collision.gameObject.CompareTag("treant") || collision.gameObject.CompareTag("crab") || collision.gameObject.CompareTag("lightFish") || collision.gameObject.CompareTag("jellyFish")) && collision.isTrigger)
                 {
 
                     CameraMovement.shake = true;
