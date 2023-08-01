@@ -130,6 +130,7 @@ public class GameController : MonoBehaviour
     public AudioClip dunMusic;
     public AudioClip beachMusic;
     public AudioClip beachAudio;
+    public AudioClip dunSound;
 
 
     public GameObject forestDoor1;
@@ -1780,7 +1781,7 @@ public class GameController : MonoBehaviour
         }
         if (returnBeachMusic)
         {
-            changeBGM(beachMusic, musicSource);
+            changeBGM(dunSound, musicSource);
             returnBeachMusic = false;
         }
         if (chest.playChestAudio)

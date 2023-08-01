@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class PlayerMovements : MonoBehaviour
     public static int BonusAgility;
     public static int BonusHp;
     public static int BonusSp;
+    private int comboState = 0;
 
     public static float attack;
     public static float defence;
@@ -141,6 +143,7 @@ public class PlayerMovements : MonoBehaviour
     public static bool changeCursor = false;
     public static bool healthIsMax = false;
     public static bool isDashButtonDown;
+    public static bool isAttackingDown=false;
     public static bool canDash = true;
     public static bool canBeDamaged = true;
     public static bool isLevelUp = false;
@@ -204,11 +207,13 @@ public class PlayerMovements : MonoBehaviour
     public GameObject stickDown;
     public GameObject stickLeft;
     public GameObject stickRight;
-
+  
 
     private bool downPressed = false;
     public static bool spawnDivingGear = false;
     public static bool firstWaterSpawn = true;
+    private float comboTimer = 1f;
+    private float timeBtwAttacks = 1f;
  
     // Start is called before the first frame update
 
@@ -231,6 +236,19 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(comboState);
+
+        if(comboState == 1)
+        {
+            timeBtwAttacks -= Time.deltaTime;
+        }
+        if(timeBtwAttacks < 0)
+        {
+            comboState = 0;
+            timeBtwAttacks = comboTimer;
+        }
+
+
         if (TimeBtwSwings > 0)
         {
             TimeBtwSwings -= Time.deltaTime;
@@ -826,24 +844,33 @@ public class PlayerMovements : MonoBehaviour
 
             if (currentWeapon == PlayerWeapon.sword)
             {
-                if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
+                if (Input.GetButtonDown("Attack") )
                 {
+                   
                     if (TimeBtwSwings <= 0)
                     {
-                        if(GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
-                        {
-                            swingMuffedAudio.Play();
-                        }
-                        else 
-                        {
-                            swingAudio.Play();
-                        }
+                           
+                            comboState++;
                         
-                        StartCoroutine(waitAttack());
-                        TimeBtwSwings = 0.5f;
+                      
+                        switch (comboState)
+                        {
+                            case 1:
+                                StartCoroutine(waitAttack());
+                                break;
+
+                            case 2:
+                                StartCoroutine(waitAttack1());
+                                break;
+                                
+                        }
+                      
+                       
+                        TimeBtwSwings = 0.15f;
                     }
                 }
             }
+            
         }
 
         checkIfPlayerIsMoving(PosX, PosY);
@@ -884,7 +911,7 @@ public class PlayerMovements : MonoBehaviour
         }
 
         //Ult
-        if (Input.GetKeyDown(KeyCode.X) && GameController.canUlt)
+        if (Input.GetKeyDown(KeyCode.X) )//&& GameController.canUlt)
         {
             GameController.ultValue = 0;
             GameController.canUlt = false;
@@ -1115,19 +1142,63 @@ public class PlayerMovements : MonoBehaviour
             StartCoroutine(waitdash());
         }
         
-       
+        if(isAttackingDown)
+        {
+            float dashAmount = 0.25f;
+            Vector3 dashPosition = transform.position + direction * dashAmount;
+
+            RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, direction, dashAmount, dashLayerMask);
+            if (raycastHit2d.collider != null)
+            {
+                dashPosition = raycastHit2d.point;
+            }
+            rb2D.MovePosition(dashPosition);
+            isAttackingDown = false;
+            tr.emitting = true;
+            StartCoroutine(waitdash());
+        }       
         
     }
 
     IEnumerator waitAttack()
     {
+
+        if(GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+         {
+             swingMuffedAudio.Play();
+         }
+         else 
+         {
+             swingAudio.Play();
+         }
+        isAttackingDown = true;
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
-        yield return null;
+        yield return new WaitForSeconds(0.3f);
         animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(0.33f);
+      
         currentState = PlayerState.walk;
-        
+       
+    }
+
+    IEnumerator waitAttack1()
+    {
+        if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+        {
+            swingMuffedAudio.Play();
+        }
+        else
+        {
+            swingAudio.Play();
+        }
+        isAttackingDown = true;
+        animator.SetBool("attacking1", true);
+        currentState = PlayerState.attack;
+      
+        yield return new WaitForSeconds(0.3f);
+        animator.SetBool("attacking1", false);
+        currentState = PlayerState.walk;
+        comboState = 0;
     }
 
     IEnumerator waitdash()
