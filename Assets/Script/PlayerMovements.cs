@@ -226,7 +226,7 @@ public class PlayerMovements : MonoBehaviour
         animator.SetFloat("moveY", -1);
         colorToTurnTo = new Color(1, 0, 0, 1);
         PosX = transform.position.x;
-        
+       
         health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
         healthbar.SetMaxHealth(100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus);
        
@@ -236,8 +236,6 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(comboState);
-
         if(comboState == 1)
         {
             timeBtwAttacks -= Time.deltaTime;
@@ -341,6 +339,18 @@ public class PlayerMovements : MonoBehaviour
             {
                 downPressed = false;
             }
+        }
+        else
+        {
+            maskLeft.SetActive(false);
+            maskRight.SetActive(false);
+            maskDown.SetActive(false);
+            maskUp.SetActive(false);
+
+            stickDown.SetActive(false);
+            stickUp.SetActive(false);
+            stickRight.SetActive(false);
+            stickLeft.SetActive(false);
         }
 
 
@@ -911,7 +921,7 @@ public class PlayerMovements : MonoBehaviour
         }
 
         //Ult
-        if (Input.GetKeyDown(KeyCode.X) )//&& GameController.canUlt)
+        if (Input.GetKeyDown(KeyCode.X) && GameController.canUlt)
         {
             GameController.ultValue = 0;
             GameController.canUlt = false;
@@ -1528,6 +1538,26 @@ public class PlayerMovements : MonoBehaviour
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
                     Enemy.attack = 150;
+                    isJellyFishDamaged = true;
+                    GameController.ultValue += 0.5f;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 100;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
+            }
+            else if (collision.CompareTag("cacodaemon"))
+            {
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 3;
+                    damagePlayer = false;
+
+                    hurtMuffedAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                    Cacodaemon.attack = 250;
                     isJellyFishDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);

@@ -34,7 +34,8 @@ public enum PlayerMap
     ship1,
     ship2,
     water1,
-    water2
+    water2,
+    water3
 
 
 }
@@ -2519,6 +2520,11 @@ public class GameController : MonoBehaviour
                 TimeBtwBubbleSpawn -= Time.deltaTime;
             }
 
+        }
+        else if (currentMap == PlayerMap.water3)
+        {
+            CameraMovement.minPosition = new Vector2(217.29f, 297.04f);
+            CameraMovement.maxPosition = new Vector2(225.56f, 299.92f);
         }
 
 

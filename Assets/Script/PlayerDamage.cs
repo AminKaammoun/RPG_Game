@@ -39,6 +39,12 @@ public class PlayerDamage : MonoBehaviour
             float damage = attack * (100 / (100 + PlayerMovements.defence));
             textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
+        else if (num == 3)
+        {
+            float attack = Cacodaemon.attack;
+            float damage = attack * (100 / (100 + PlayerMovements.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
 
     }
 
