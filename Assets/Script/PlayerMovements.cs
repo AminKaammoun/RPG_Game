@@ -30,7 +30,7 @@ public class PlayerMovements : MonoBehaviour
     public static int BonusAgility;
     public static int BonusHp;
     public static int BonusSp;
-    private int comboState = 0;
+   
 
     public static float attack;
     public static float defence;
@@ -68,7 +68,7 @@ public class PlayerMovements : MonoBehaviour
     public Camera mainCamera;
 
     public GameObject dashSmoke;
-
+    
     public GameObject Bow;
     public GameObject HealEffect;
     public GameObject SheildEffect;
@@ -207,12 +207,12 @@ public class PlayerMovements : MonoBehaviour
     public GameObject stickDown;
     public GameObject stickLeft;
     public GameObject stickRight;
-  
+    private int combo = 0; 
 
     private bool downPressed = false;
     public static bool spawnDivingGear = false;
     public static bool firstWaterSpawn = true;
-    private float comboTimer = 1f;
+    
     private float timeBtwAttacks = 1f;
  
     // Start is called before the first frame update
@@ -236,16 +236,7 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(comboState == 1)
-        {
-            timeBtwAttacks -= Time.deltaTime;
-        }
-        if(timeBtwAttacks < 0)
-        {
-            comboState = 0;
-            timeBtwAttacks = comboTimer;
-        }
-
+       
 
         if (TimeBtwSwings > 0)
         {
@@ -854,31 +845,28 @@ public class PlayerMovements : MonoBehaviour
 
             if (currentWeapon == PlayerWeapon.sword)
             {
-                if (Input.GetButtonDown("Attack") )
-                {
-                   
-                    if (TimeBtwSwings <= 0)
-                    {
-                           
-                            comboState++;
-                        
-                      
-                        switch (comboState)
-                        {
-                            case 1:
-                                StartCoroutine(waitAttack());
-                                break;
+                 if (Input.GetButtonDown("Attack") )
+                 {
 
-                            case 2:
-                                StartCoroutine(waitAttack1());
-                                break;
-                                
+                     if (TimeBtwSwings <= 0)
+                     {
+                        combo++;
+                        if(combo == 1)
+                        {
+                            StartCoroutine(waitAttack());
+                        }else if (combo == 2)
+                        {
+                            StartCoroutine(waitAttack1());
                         }
-                      
-                       
-                        TimeBtwSwings = 0.15f;
-                    }
-                }
+                         
+                                 
+
+
+                         TimeBtwSwings = 0.15f;
+                     }
+                 }
+              
+
             }
             
         }
@@ -1208,7 +1196,7 @@ public class PlayerMovements : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         animator.SetBool("attacking1", false);
         currentState = PlayerState.walk;
-        comboState = 0;
+        combo = 0;
     }
 
     IEnumerator waitdash()
