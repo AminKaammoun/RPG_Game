@@ -22,7 +22,7 @@ public enum PlayerWeapon
 
 public class PlayerMovements : MonoBehaviour
 {
-    [SerializeField] private LayerMask dashLayerMask;
+    [SerializeField] public static LayerMask dashLayerMask;
     [SerializeField] private TrailRenderer tr;
 
     public static int BonusAttack;
@@ -118,6 +118,8 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource dashAudio;
     public AudioSource dashMuffedAudio;
     public AudioSource swingAudio;
+    public AudioSource swing1Audio;
+    public AudioSource swing2Audio;
     public AudioSource swingMuffedAudio;
     public AudioSource hurtAudio;
     public AudioSource hurtMuffedAudio;
@@ -144,8 +146,10 @@ public class PlayerMovements : MonoBehaviour
     public static bool healthIsMax = false;
     public static bool isDashButtonDown;
     public static bool isAttackingDown=false;
+   
     public static bool canDash = true;
     public static bool canBeDamaged = true;
+    public static bool in3rdCombo = false;
     public static bool isLevelUp = false;
     public static bool PotionInUse = false;
 
@@ -212,6 +216,11 @@ public class PlayerMovements : MonoBehaviour
     private bool downPressed = false;
     public static bool spawnDivingGear = false;
     public static bool firstWaterSpawn = true;
+
+    private bool facingLeft = false;
+    private bool facingRight = false;
+    private bool facingUp = false;
+    private bool facingDown = true;
     
     private float timeBtwAttacks = 1f;
  
@@ -236,7 +245,42 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            facingDown = false;
+            facingUp = false;
+            facingLeft = true;
+            facingRight = false;
+          
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+
+        {
+            facingDown = false;
+            facingUp = false;
+            facingLeft = false;
+            facingRight = true;
+
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+
+            facingDown = false;
+            facingUp = true;
+            facingLeft = false;
+            facingRight = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+  
+            facingDown = true;
+            facingUp = false;
+            facingLeft = false;
+            facingRight = false;
+        }
+
+
 
         if (TimeBtwSwings > 0)
         {
@@ -266,6 +310,11 @@ public class PlayerMovements : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.A))
             {
+                facingDown = false;
+                facingUp = false;
+                facingLeft = true;
+                facingRight = false;
+
                 if (!downPressed)
 
                 {
@@ -279,11 +328,19 @@ public class PlayerMovements : MonoBehaviour
                     stickUp.SetActive(false);
                     stickRight.SetActive(false);
                     stickLeft.SetActive(true);
+
+                   
                 }
             }
             else if (Input.GetKeyDown(KeyCode.D))
 
             {
+
+                facingDown = false;
+                facingUp = false;
+                facingLeft = false;
+                facingRight = true;
+
                 if (!downPressed)
 
                 {
@@ -297,6 +354,7 @@ public class PlayerMovements : MonoBehaviour
                     stickUp.SetActive(false);
                     stickRight.SetActive(true);
                     stickLeft.SetActive(false);
+                  
                 }
 
             }
@@ -312,6 +370,11 @@ public class PlayerMovements : MonoBehaviour
                 stickUp.SetActive(true);
                 stickRight.SetActive(false);
                 stickLeft.SetActive(false);
+
+                facingDown = false;
+                facingUp = true;
+                facingLeft = false;
+                facingRight = false;
             }
             else if (Input.GetKeyDown(KeyCode.S))
             {
@@ -325,6 +388,11 @@ public class PlayerMovements : MonoBehaviour
                 stickUp.SetActive(false);
                 stickRight.SetActive(false);
                 stickLeft.SetActive(false);
+
+                facingDown = true;
+                facingUp = false;
+                facingLeft = false;
+                facingRight = false;
             }
             if (Input.GetKeyUp(KeyCode.S))
             {
@@ -858,11 +926,15 @@ public class PlayerMovements : MonoBehaviour
                         {
                             StartCoroutine(waitAttack1());
                         }
-                         
-                                 
+                        else if (combo == 3)
+                        {
+                            StartCoroutine(waitAttack2());
+                        }
 
 
-                         TimeBtwSwings = 0.15f;
+
+
+                        TimeBtwSwings = 0.15f;
                      }
                  }
               
@@ -1139,23 +1211,45 @@ public class PlayerMovements : MonoBehaviour
             tr.emitting = true;
             StartCoroutine(waitdash());
         }
-        
-        if(isAttackingDown)
-        {
-            float dashAmount = 0.25f;
-            Vector3 dashPosition = transform.position + direction * dashAmount;
 
-            RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, direction, dashAmount, dashLayerMask);
-            if (raycastHit2d.collider != null)
+
+
+        if (isAttackingDown)
+        {
+            float moveDistance = 3f;
+            Vector3 attackDirection = Vector2.zero;
+
+            if (facingRight)
             {
-                dashPosition = raycastHit2d.point;
+                attackDirection = Vector2.right;
             }
-            rb2D.MovePosition(dashPosition);
-            isAttackingDown = false;
-            tr.emitting = true;
-            StartCoroutine(waitdash());
-        }       
-        
+            else if (facingLeft)
+            {
+                attackDirection = Vector2.left;
+            }
+            else if (facingUp)
+            {
+                attackDirection = Vector2.up;
+            }
+            else if (facingDown)
+            {
+                attackDirection = Vector2.down;
+            }
+
+            Vector3 targetPosition = transform.position + attackDirection * moveDistance;
+            
+             RaycastHit2D hit = Physics2D.Raycast(transform.position, attackDirection, moveDistance, dashLayerMask);
+
+                if (hit.collider != null)
+                {
+                    targetPosition = hit.point;
+                }
+                rb2D.MovePosition(targetPosition);
+                //transform.position = Vector2.MoveTowards(transform.position, targetPosition, 10f * Time.deltaTime);
+         isAttackingDown = false;
+        }
+
+
     }
 
     IEnumerator waitAttack()
@@ -1169,7 +1263,7 @@ public class PlayerMovements : MonoBehaviour
          {
              swingAudio.Play();
          }
-        isAttackingDown = true;
+        
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
         yield return new WaitForSeconds(0.3f);
@@ -1187,17 +1281,47 @@ public class PlayerMovements : MonoBehaviour
         }
         else
         {
-            swingAudio.Play();
+            swing1Audio.Play();
         }
-        isAttackingDown = true;
+        
         animator.SetBool("attacking1", true);
         currentState = PlayerState.attack;
       
         yield return new WaitForSeconds(0.3f);
         animator.SetBool("attacking1", false);
         currentState = PlayerState.walk;
+      
+    }
+
+    IEnumerator waitAttack2()
+    {
+        if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+        {
+            swingMuffedAudio.Play();
+        }
+        else
+        {
+            swing2Audio.Play();
+        }
+      
+        animator.SetBool("attacking2", true);
+        currentState = PlayerState.attack;
+        in3rdCombo = true;
+        StartCoroutine(attackDash());
+        yield return new WaitForSeconds(0.75f);
+        animator.SetBool("attacking2", false);
+        currentState = PlayerState.walk;
+        in3rdCombo = false;
         combo = 0;
     }
+
+    IEnumerator attackDash()
+    {
+        yield return new WaitForSeconds(0.4f);
+       isAttackingDown = true;
+        
+    }
+
 
     IEnumerator waitdash()
     {
@@ -1293,7 +1417,7 @@ public class PlayerMovements : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (canBeDamaged)
+        if (canBeDamaged && !in3rdCombo)
         {
             if (collision.CompareTag("Enemy"))
             {
@@ -1555,7 +1679,7 @@ public class PlayerMovements : MonoBehaviour
                 }
             }
         }
-        else
+        else if(!canBeDamaged)
         {
             if (collision.CompareTag("Enemy"))
             {
@@ -1605,6 +1729,8 @@ public class PlayerMovements : MonoBehaviour
                 hurtWithShieldAudio.Play();
             }
         }
+     
+
         if (collision.CompareTag("xpLvl1"))
         {
             GameController.level.AddExp(5);

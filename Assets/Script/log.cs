@@ -44,7 +44,10 @@ public class log : Enemy
         checkDistance();
         if (isHurt)
         {
+          
             hurtAudio.Play();
+            
+           
             GameObject slashEffect = Instantiate(slashEff) as GameObject;
             SpriteRenderer rend = slashEffect.GetComponent<SpriteRenderer>();
             if (target.position.x > transform.position.x)
