@@ -321,9 +321,94 @@ public class PlayerMovements : MonoBehaviour
             health = 100 + (GameController.Level * 10) + BonusHp + GameController.petHpBonus;
             firstTime = false;
         }
+       
         if (spawnDivingGear)
-        {
-            if (firstWaterSpawn)
+        {  
+            if(facingLeft)
+        
+            {
+               if(change.y < 0)
+                {
+                    maskLeft.SetActive(false);
+                    maskRight.SetActive(false);
+                    maskDown.SetActive(true);
+                    maskUp.SetActive(false);
+
+                    stickDown.SetActive(true);
+                    stickUp.SetActive(false);
+                    stickRight.SetActive(false);
+                    stickLeft.SetActive(false);
+                }
+                else
+                {
+                    maskLeft.SetActive(true);
+                    maskRight.SetActive(false);
+                    maskDown.SetActive(false);
+                    maskUp.SetActive(false);
+
+                    stickDown.SetActive(false);
+                    stickUp.SetActive(false);
+                    stickRight.SetActive(false);
+                    stickLeft.SetActive(true);
+                }
+                    
+                
+            }else if (facingRight)
+            {
+                if (change.y < 0)
+                {
+                    maskLeft.SetActive(false);
+                    maskRight.SetActive(false);
+                    maskDown.SetActive(true);
+                    maskUp.SetActive(false);
+
+                    stickDown.SetActive(true);
+                    stickUp.SetActive(false);
+                    stickRight.SetActive(false);
+                    stickLeft.SetActive(false);
+                }
+                else
+                {
+                    maskLeft.SetActive(false);
+                    maskRight.SetActive(true);
+                    maskDown.SetActive(false);
+                    maskUp.SetActive(false);
+
+                    stickDown.SetActive(false);
+                    stickUp.SetActive(false);
+                    stickRight.SetActive(true);
+                    stickLeft.SetActive(false);
+
+                }
+
+            }
+            else if (facingUp)
+            {
+                maskLeft.SetActive(false);
+                maskRight.SetActive(false);
+                maskDown.SetActive(false);
+                maskUp.SetActive(true);
+
+                stickDown.SetActive(false);
+                stickUp.SetActive(true);
+                stickRight.SetActive(false);
+            }
+            else if (facingDown || (facingDown && facingLeft) || (facingDown && facingLeft))
+            {
+               
+                maskLeft.SetActive(false);
+                maskRight.SetActive(false);
+                maskDown.SetActive(true);
+                maskUp.SetActive(false);
+
+                stickDown.SetActive(true);
+                stickUp.SetActive(false);
+                stickRight.SetActive(false);
+                stickLeft.SetActive(false);
+
+            }
+           
+            /*if (firstWaterSpawn)
             {
                 maskLeft.SetActive(false);
                 maskRight.SetActive(false);
@@ -439,7 +524,9 @@ public class PlayerMovements : MonoBehaviour
             stickUp.SetActive(false);
             stickRight.SetActive(false);
             stickLeft.SetActive(false);
+        }*/
         }
+      
 
 
         if (useAbility1)
@@ -1290,7 +1377,9 @@ public class PlayerMovements : MonoBehaviour
            
                 rb2D.MovePosition(targetPosition);
                 //transform.position = Vector2.MoveTowards(transform.position, targetPosition, 10f * Time.deltaTime);
-         isAttackingDown = false;
+                isAttackingDown = false;
+            GameController.attack3rd = false;
+            CameraMovement.shake = true;
         }
 
 
@@ -1347,7 +1436,7 @@ public class PlayerMovements : MonoBehaviour
         {
             swing2Audio.Play();
         }
-      
+        GameController.attack3rd = true;
         animator.SetBool("attacking2", true);
         currentState = PlayerState.attack;
         in3rdCombo = true;

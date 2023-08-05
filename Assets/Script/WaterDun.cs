@@ -19,6 +19,8 @@ public class WaterDun : MonoBehaviour
     public GameObject crab;
     public GameObject jellyFish;
 
+    public GameObject door;
+
     private int SpawnedLogs = 0;
     private int currentWave = 0;
 
@@ -62,6 +64,7 @@ public class WaterDun : MonoBehaviour
         if (currentWave == 3 && lightFishes.Length + crabs.Length == 0)
         {
             Instantiate(goldKey, pos, Quaternion.identity);
+            door.SetActive(false);
             currentWave = 0;
         }
 

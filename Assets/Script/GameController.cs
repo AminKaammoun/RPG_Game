@@ -203,6 +203,7 @@ public class GameController : MonoBehaviour
     public static bool returnBeachMusic = false;
     public static bool enemyBeaten = false;
     public static bool ultPressed = false;
+    public static bool attack3rd = false;
     private bool openUltimate = false;
     public static float BattlePower;
     public static bool gearExist = false;
@@ -1770,6 +1771,14 @@ public class GameController : MonoBehaviour
 
             }
             StartCoroutine(backFromSlowMo());
+        }
+       
+        if (attack3rd)
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
+
+           
+
         }
 
         panel = GameObject.FindGameObjectsWithTag("panel");
