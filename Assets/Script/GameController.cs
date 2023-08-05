@@ -211,6 +211,7 @@ public class GameController : MonoBehaviour
     public static bool enterCastle = false;
     public static bool quitCastle = false;
     public static bool canUlt = false;
+  
 
     private Vector2 cursorHotspot;
 
@@ -1790,6 +1791,8 @@ public class GameController : MonoBehaviour
             chestAudio.Play();
             chest.playChestAudio = false;
         }
+
+
     }
     public void resetForestDoors()
     {
@@ -2629,5 +2632,7 @@ public class GameController : MonoBehaviour
             StartCoroutine(removeCock());
         }
     }
+
+ 
 
 }

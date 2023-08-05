@@ -211,6 +211,8 @@ public class PlayerMovements : MonoBehaviour
     public GameObject stickDown;
     public GameObject stickLeft;
     public GameObject stickRight;
+    public GameObject attackSmoke;
+    public GameObject attackSmoke1;
     private int combo = 0; 
 
     private bool downPressed = false;
@@ -279,10 +281,37 @@ public class PlayerMovements : MonoBehaviour
             facingLeft = false;
             facingRight = false;
         }
+        if(change.x < 0)
+        {
+            facingDown = false;
+            facingUp = false;
+            facingLeft = true;
+            facingRight = false;
+        }else if (change.x > 0)
+        {
+            facingDown = false;
+            facingUp = false;
+            facingLeft = false;
+            facingRight = true;
+
+        }
+        else if (change.y > 0)
+        {
+            facingDown = false;
+            facingUp = true;
+            facingLeft = false;
+            facingRight = false;
+        }
+        else if (change.y < 0)
+        {
+            facingDown = true;
+            facingUp = false;
+            facingLeft = false;
+            facingRight = false;
+        }
 
 
-
-        if (TimeBtwSwings > 0)
+            if (TimeBtwSwings > 0)
         {
             TimeBtwSwings -= Time.deltaTime;
         }
@@ -964,20 +993,23 @@ public class PlayerMovements : MonoBehaviour
         //dash
         if (Input.GetKeyDown(KeyCode.R) && canDash)
         {
-            isDashButtonDown = true;
-            GameController.dashed = true;
-            if(GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+            if (change.x != 0 || change.y != 0)
             {
-                dashMuffedAudio.Play();
+                isDashButtonDown = true;
+                GameController.dashed = true;
+                if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+                {
+                    dashMuffedAudio.Play();
+                }
+                else
+                {
+                    dashAudio.Play();
+                }
+
+                Vector3 adds = new Vector3(0f, -0.5f, 0f);
+                var dashSmokes = Instantiate(dashSmoke, transform.position + adds, Quaternion.identity);
+                Destroy(dashSmokes, 0.5f);
             }
-            else
-            {
-                dashAudio.Play();
-            }
-          
-            Vector3 adds = new Vector3(0f, -0.5f, 0f);
-            var dashSmokes = Instantiate(dashSmoke, transform.position + adds, Quaternion.identity);
-            Destroy(dashSmokes, 0.5f);
         }
 
         //Ult
@@ -1222,18 +1254,29 @@ public class PlayerMovements : MonoBehaviour
             if (facingRight)
             {
                 attackDirection = Vector2.right;
+                GameObject obg =  Instantiate(attackSmoke, transform.position, Quaternion.identity);
+                SpriteRenderer spriteRenderer = obg.GetComponent<SpriteRenderer>();
+                spriteRenderer.flipX = true;
             }
             else if (facingLeft)
             {
                 attackDirection = Vector2.left;
+               // attackSmoke.SetActive(true);
+                Instantiate(attackSmoke, transform.position,Quaternion.identity);
+                Vector3 add = new Vector3(0f, 1f,0);
+                //Instantiate(attackSmoke1, transform.position-add, Quaternion.identity);
             }
             else if (facingUp)
             {
                 attackDirection = Vector2.up;
+                Instantiate(attackSmoke1, transform.position , Quaternion.identity);
             }
             else if (facingDown)
             {
                 attackDirection = Vector2.down;
+                GameObject obg = Instantiate(attackSmoke1, transform.position , Quaternion.identity);
+                SpriteRenderer spriteRenderer = obg.GetComponent<SpriteRenderer>();
+                spriteRenderer.flipY = false;
             }
 
             Vector3 targetPosition = transform.position + attackDirection * moveDistance;
@@ -1244,6 +1287,7 @@ public class PlayerMovements : MonoBehaviour
                 {
                     targetPosition = hit.point;
                 }
+           
                 rb2D.MovePosition(targetPosition);
                 //transform.position = Vector2.MoveTowards(transform.position, targetPosition, 10f * Time.deltaTime);
          isAttackingDown = false;

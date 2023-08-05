@@ -23,6 +23,8 @@ public class time : MonoBehaviour
     private GameObject[] LightEffects;
     private GameObject[] BeachDungeonLights;
     public GameObject playerLight;
+
+    private bool changeAudio;
    
     // Start is called before the first frame update
     void Start()
@@ -59,7 +61,8 @@ public class time : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (hour)
+       
+           switch (hour)
         {
 
             case 17:
