@@ -323,9 +323,10 @@ public class GameController : MonoBehaviour
     public static string ability2;
     public static string ability3;
 
-
     public Image skill;
     public Sprite[] skills;
+
+    public static bool enemyUlt;
 
 
     public static Dictionary<int, string[]> petList = new Dictionary<int, string[]>();
@@ -1182,7 +1183,7 @@ public class GameController : MonoBehaviour
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         bubbleSpawner = GameObject.FindGameObjectsWithTag("BubbleSpawner");
-        currentMap = PlayerMap.beach;
+        currentMap = PlayerMap.water3;
 
     }
 
@@ -1801,8 +1802,24 @@ public class GameController : MonoBehaviour
             chest.playChestAudio = false;
         }
 
-
+        if (enemyUlt)
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 12, 4f * Time.deltaTime);
+           
+            StartCoroutine(backFromEnemyUlt());
+        }
+        else
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 8, 4f * Time.deltaTime);
+        }
     }
+
+    IEnumerator backFromEnemyUlt()
+    {
+        yield return new WaitForSeconds(3f);
+        enemyUlt = false;
+    }
+
     public void resetForestDoors()
     {
         if (silverKeyDoorReset)

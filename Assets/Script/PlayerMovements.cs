@@ -215,7 +215,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject attackSmoke1;
     private int combo = 0; 
 
-    private bool downPressed = false;
+   
     public static bool spawnDivingGear = false;
     public static bool firstWaterSpawn = true;
 
@@ -223,8 +223,7 @@ public class PlayerMovements : MonoBehaviour
     private bool facingRight = false;
     private bool facingUp = false;
     private bool facingDown = true;
-    
-    private float timeBtwAttacks = 1f;
+ 
  
     // Start is called before the first frame update
 
@@ -392,6 +391,7 @@ public class PlayerMovements : MonoBehaviour
                 stickDown.SetActive(false);
                 stickUp.SetActive(true);
                 stickRight.SetActive(false);
+                stickLeft.SetActive(false);
             }
             else if (facingDown || (facingDown && facingLeft) || (facingDown && facingLeft))
             {
@@ -408,123 +408,7 @@ public class PlayerMovements : MonoBehaviour
 
             }
            
-            /*if (firstWaterSpawn)
-            {
-                maskLeft.SetActive(false);
-                maskRight.SetActive(false);
-                maskDown.SetActive(false);
-                maskUp.SetActive(true);
-
-                stickDown.SetActive(false);
-                stickUp.SetActive(true);
-                stickRight.SetActive(false);
-                stickLeft.SetActive(false);
-                firstWaterSpawn = false;
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                facingDown = false;
-                facingUp = false;
-                facingLeft = true;
-                facingRight = false;
-
-                if (!downPressed)
-
-                {
-                    downPressed = false;
-                    maskLeft.SetActive(true);
-                    maskRight.SetActive(false);
-                    maskDown.SetActive(false);
-                    maskUp.SetActive(false);
-
-                    stickDown.SetActive(false);
-                    stickUp.SetActive(false);
-                    stickRight.SetActive(false);
-                    stickLeft.SetActive(true);
-
-                   
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-
-            {
-
-                facingDown = false;
-                facingUp = false;
-                facingLeft = false;
-                facingRight = true;
-
-                if (!downPressed)
-
-                {
-                    downPressed = false;
-                    maskLeft.SetActive(false);
-                    maskRight.SetActive(true);
-                    maskDown.SetActive(false);
-                    maskUp.SetActive(false);
-
-                    stickDown.SetActive(false);
-                    stickUp.SetActive(false);
-                    stickRight.SetActive(true);
-                    stickLeft.SetActive(false);
-                  
-                }
-
-            }
-            else if (Input.GetKeyDown(KeyCode.W))
-            {
-
-                maskLeft.SetActive(false);
-                maskRight.SetActive(false);
-                maskDown.SetActive(false);
-                maskUp.SetActive(true);
-
-                stickDown.SetActive(false);
-                stickUp.SetActive(true);
-                stickRight.SetActive(false);
-                stickLeft.SetActive(false);
-
-                facingDown = false;
-                facingUp = true;
-                facingLeft = false;
-                facingRight = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                downPressed = true;
-                maskLeft.SetActive(false);
-                maskRight.SetActive(false);
-                maskDown.SetActive(true);
-                maskUp.SetActive(false);
-
-                stickDown.SetActive(true);
-                stickUp.SetActive(false);
-                stickRight.SetActive(false);
-                stickLeft.SetActive(false);
-
-                facingDown = true;
-                facingUp = false;
-                facingLeft = false;
-                facingRight = false;
-            }
-            if (Input.GetKeyUp(KeyCode.S))
-            {
-                downPressed = false;
-            }
-        }
-        else
-        {
-            maskLeft.SetActive(false);
-            maskRight.SetActive(false);
-            maskDown.SetActive(false);
-            maskUp.SetActive(false);
-
-            stickDown.SetActive(false);
-            stickUp.SetActive(false);
-            stickRight.SetActive(false);
-            stickLeft.SetActive(false);
-        }*/
+           
         }
       
 
@@ -1742,11 +1626,11 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                    Enemy.attack = 80;
+                   
                     isCrabDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 100;
+                    float attack = 80;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
                 }
@@ -1762,11 +1646,11 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                    Enemy.attack = 150;
+                 
                     isLightFishDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 100;
+                    float attack = 150;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
                 }
@@ -1782,11 +1666,11 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                    Enemy.attack = 150;
+                    
                     isJellyFishDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 100;
+                    float attack = 150;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
                 }
@@ -1806,7 +1690,7 @@ public class PlayerMovements : MonoBehaviour
                     isJellyFishDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 100;
+                    float attack = 250;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
                 }

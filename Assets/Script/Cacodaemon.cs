@@ -3,94 +3,146 @@ using UnityEngine;
 
 public class Cacodaemon : MonoBehaviour
 {
-    public Transform player;
-    public float roamSpeed = 3f;
-    public float dashSpeed = 10f;
-    public float dashDistance = 3f;
-    public float dashCooldown = 2f;
-
-    private bool isDashing = false;
-    private Vector3 roamPosition;
-    private float dashTimer = 0f;
+    private float moveSpeed = 3f;
+    private float desiredDistance = 7f;
+    private Transform player;
     private bool faceLeft = true;
     public static float attack;
 
+    private bool isRoaming = true;
+    private bool isDashing = false;
+    private bool isAttacking = false;
+
+    private float timeBtwDash = 5f;
+    private Vector3 lastKnownPlayerPosition;
+    private float dashSpeed = 10f;
+    private int dashCounter = 0;
+    private Animator animator;
+    public GameObject projectile;
+    private int projectileCounter = 0;
+
+    private float timeBtwShoot = 1f;
+
+    public GameObject right;
+    public GameObject left;
+    public GameObject projectileStatic;
+
     private void Start()
     {
-        StartCoroutine(RoamAroundPlayer());
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        Debug.Log(dashCounter);
         checkDirection();
-        if (!isDashing)
+
+        if(faceLeft)
         {
-            // Roaming behavior is handled by the coroutine.
+            projectileStatic.transform.position = right.transform.position;
         }
         else
         {
-            // Dash towards the player
-            DashTowardsPlayer();
+            Vector3 add = new Vector3(2.25f, 0,0);
+             projectileStatic.transform.position = left.transform.position - add;
         }
-    }
+           
+        
+       
 
-    private IEnumerator RoamAroundPlayer()
-    {
-        while (true)
-        {
-            roamPosition = GetRandomRoamPosition();
-            while (Vector3.Distance(transform.position, roamPosition) > 0.1f)
-            {
-                // Move towards the roaming position
-                Vector3 directionToRoamPosition = (roamPosition - transform.position).normalized;
-                transform.position += directionToRoamPosition * roamSpeed * Time.deltaTime;
-                yield return null;
-            }
 
-            // Wait a bit before selecting the next roaming position
-            float waitTime = Random.Range(1f, 3f);
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
-
-    private Vector3 GetRandomRoamPosition()
-    {
-        float roamRadius = 5f; // Adjust this radius based on how far you want the enemy to roam from the player.
-        Vector2 randomOffset = Random.insideUnitCircle * roamRadius;
-        Vector3 targetPosition = player.position + new Vector3(randomOffset.x, 0f, randomOffset.y);
-        return targetPosition;
-    }
-
-    private void DashTowardsPlayer()
-    {
-        Vector3 dashDirection = (player.position - transform.position).normalized;
-        transform.position += dashDirection * dashSpeed * Time.deltaTime;
-
-        if (Vector3.Distance(transform.position, player.position) <= dashDistance)
-        {
-            isDashing = false;
-            dashTimer = dashCooldown;
-        }
-    }
-
-    public void StartDash()
-    {
-        if (dashTimer <= 0f)
+        if (timeBtwDash < 0)
         {
             isDashing = true;
-            StopCoroutine(RoamAroundPlayer()); // Stop the roaming coroutine when dashing.
+            isRoaming = false;
+            timeBtwDash = 5f; // Reset the dash timer
+            lastKnownPlayerPosition = player.position; // Store the player's position when starting to dash
         }
-    }
-
-    private void FixedUpdate()
-    {
-        if (dashTimer > 0f)
+        else
         {
-            dashTimer -= Time.deltaTime;
+            timeBtwDash -= Time.deltaTime;
+        }
+
+        Vector3 directionToPlayer = player.position - transform.position;
+
+        if (isRoaming)
+        {
+            float distanceToPlayer = directionToPlayer.magnitude;
+
+            if (distanceToPlayer > desiredDistance)
+            {
+                // Move the boss towards the player
+                transform.position += directionToPlayer.normalized * moveSpeed * Time.deltaTime;
+            }
+            else if (distanceToPlayer < desiredDistance)
+            {
+                // Move the boss away from the player
+                transform.position -= directionToPlayer.normalized * moveSpeed * Time.deltaTime;
+            }
+        }
+        else if (isDashing)
+        {
+            // Move the boss towards the last known player position during the dash
+            Vector3 directionToLastKnownPosition = lastKnownPlayerPosition - transform.position;
+            Vector3 normalizedDirectionToLastKnownPosition = directionToLastKnownPosition.normalized;
+            transform.position += normalizedDirectionToLastKnownPosition * dashSpeed * Time.deltaTime;
+
+            // If the distance between the current position and the last known position is less than a threshold, end the dash
+            if (Vector3.Distance(transform.position, lastKnownPlayerPosition) < 0.1f)
+            {
+                isDashing = false;
+                StartCoroutine(backToRoaming());
+                dashCounter++; // Increment the dash counter when a dash is completed
+            }
+        }
+
+        // If it's the 4th dash, stop moving and play the attack animation
+        if (isAttacking)
+        {
+            isDashing = false;
+            isRoaming = false;
+            animator.SetBool("attack", true);
+            projectileStatic.SetActive(true);
+            if(timeBtwShoot < 0)
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                projectileCounter++;
+
+                if (projectileCounter > 2)
+                {
+                    isAttacking = false;
+                    animator.SetBool("attack", false);
+                    projectileStatic.SetActive(false);
+                    isRoaming = true;
+                }
+                timeBtwShoot = 1f;
+            }
+            else
+            {
+                timeBtwShoot -= Time.deltaTime;
+            }
+          
         }
     }
 
-    void checkDirection()
+    IEnumerator backToRoaming()
+    {
+        yield return new WaitForSeconds(2f);
+
+        if (dashCounter >= 3)
+        {
+            isRoaming = false;
+            isAttacking = true;
+        }
+        else
+        {
+            isRoaming = true;
+            isAttacking = false;
+        }
+    }
+
+    private void checkDirection()
     {
         if (player.position.x < transform.position.x && faceLeft)
         {
@@ -98,6 +150,7 @@ public class Cacodaemon : MonoBehaviour
             theScale.x *= -1;
             transform.localScale = theScale;
             faceLeft = false;
+           
         }
         else if (player.position.x > transform.position.x && !faceLeft)
         {
@@ -105,6 +158,7 @@ public class Cacodaemon : MonoBehaviour
             theScale.x *= -1;
             transform.localScale = theScale;
             faceLeft = true;
+           
         }
     }
 }
