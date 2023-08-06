@@ -213,6 +213,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject stickRight;
     public GameObject attackSmoke;
     public GameObject attackSmoke1;
+    public GameObject attackSmoke2;
     private int combo = 0; 
 
    
@@ -1225,15 +1226,35 @@ public class PlayerMovements : MonoBehaviour
             if (facingRight)
             {
                 attackDirection = Vector2.right;
-                GameObject obg =  Instantiate(attackSmoke, transform.position, Quaternion.identity);
+                int rand = Random.Range(0, 2);
+                GameObject obg = new GameObject();
+                switch (rand)
+                {
+                    case 0:
+                         obg = Instantiate(attackSmoke, transform.position, Quaternion.identity);
+                        break;
+                        case 1:
+                         obg = Instantiate(attackSmoke2, transform.position, Quaternion.identity);
+                        break;
+                }
+               
                 SpriteRenderer spriteRenderer = obg.GetComponent<SpriteRenderer>();
                 spriteRenderer.flipX = true;
             }
             else if (facingLeft)
             {
                 attackDirection = Vector2.left;
-               // attackSmoke.SetActive(true);
-                Instantiate(attackSmoke, transform.position,Quaternion.identity);
+                // attackSmoke.SetActive(true);
+                int rand = Random.Range(0, 2);
+                switch (rand)
+                {
+                    case 0:
+                        Instantiate(attackSmoke, transform.position, Quaternion.identity);
+                        break;
+                    case 1:
+                        Instantiate(attackSmoke2, transform.position, Quaternion.identity);
+                        break;
+                }
                 Vector3 add = new Vector3(0f, 1f,0);
                 //Instantiate(attackSmoke1, transform.position-add, Quaternion.identity);
             }
