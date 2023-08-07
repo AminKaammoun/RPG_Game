@@ -17,6 +17,48 @@ public class damageText : MonoBehaviour
     }
     private void Update()
     {
+        if (num == -10)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Cacodaemon.defence));
+            damage = damage * 1.5f;
+            damage = damage + (GameController.skill5Level * 1.5f);
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+        if (num == -9)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Cacodaemon.defence));
+            damage = damage * 1.2f;
+            damage = damage + (GameController.skill4Level * 1.2f);
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+        if (num == -8)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Cacodaemon.defence));
+            damage = damage * 1.2f;
+            damage = damage + (GameController.skill3Level * 1.2f);
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+
+        if (num == -7)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Cacodaemon.defence));
+            damage = damage + (GameController.skill2Level);
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+
+        if (num == -6)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Cacodaemon.defence));
+
+            damage = damage + (GameController.skill1Level);
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+
         if (num == -5)
         {
             float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
@@ -54,6 +96,7 @@ public class damageText : MonoBehaviour
         {
             float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
             float damage = attack * (100 / (100 + Enemy.defence));
+
             damage = damage + (GameController.skill1Level);
             textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
@@ -98,6 +141,18 @@ public class damageText : MonoBehaviour
         {
             float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
             float damage = attack * (100 / (100 + lizard.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+        else if (num == 7)
+        {
+            float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
+            float damage = attack * (100 / (100 + Cacodaemon.defence));
+            textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
+        }
+        else if (num == 8)
+        {
+            float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
+            float damage = attack * (100 / (100 + Cacodaemon.defence));
             textMesh.GetComponent<TextMeshPro>().text = "-" + ((int)damage).ToString();
         }
     }

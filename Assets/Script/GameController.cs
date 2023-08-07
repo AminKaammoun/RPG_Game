@@ -1829,7 +1829,7 @@ public class GameController : MonoBehaviour
             if (Volumes.profile.TryGet<Vignette>(out var vignette))
             {
                 vignette.rounded.value = false;
-                vignette.intensity.value = 1f;
+                vignette.intensity.value = 0.5f;
                 vignette.smoothness.value = 1f;
                 vignette.center.value= new Vector2(0.5f, 0.8f);
                 vignette.color.value = new Color(14f/255, 14f/255, 14f/255);

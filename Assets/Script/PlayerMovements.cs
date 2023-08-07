@@ -161,6 +161,8 @@ public class PlayerMovements : MonoBehaviour
     private bool isCrabDamaged = false;
     private bool isLightFishDamaged = false;
     private bool isJellyFishDamaged = false;
+    private bool isCacodaemonDamaged = false;
+    private bool iselectricProjectileDamaged = false;
     private bool damagePlayer = true;
 
     public ItemObject AutumnLeaf;
@@ -886,10 +888,25 @@ public class PlayerMovements : MonoBehaviour
             isJellyFishDamaged = false;
             Destroy(slashEff, 0.3f);
         }
+        if (isCacodaemonDamaged)
+        {
+            GameObject slashEff = Instantiate(smallSlashEffect) as GameObject;
+            slashEff.transform.parent = this.gameObject.transform;
+            slashEff.transform.position = transform.position;
+            isCacodaemonDamaged = false;
+            Destroy(slashEff, 0.3f);
+        }
+        if (iselectricProjectileDamaged)
+        {
+            GameObject slashEff = Instantiate(electricEffect) as GameObject;
+            slashEff.transform.parent = this.gameObject.transform;
+            slashEff.transform.position = transform.position;
+            iselectricProjectileDamaged = false;
+            Destroy(slashEff, 0.3f);
+        }
 
 
-
-        healthbar.SetHealth(health);
+            healthbar.SetHealth(health);
         if (!invIsOpen || !GameController.wantTp)
         {
             if (Input.GetKeyDown("1") && currentWeapon != PlayerWeapon.sword)
@@ -1708,10 +1725,30 @@ public class PlayerMovements : MonoBehaviour
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
                     Cacodaemon.attack = 250;
-                    isJellyFishDamaged = true;
+                    isCacodaemonDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
                     float attack = 250;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
+            }
+            else if (collision.CompareTag("electricProjectile"))
+            {
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 4;
+                    damagePlayer = false;
+
+                    hurtMuffedAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                   
+                    iselectricProjectileDamaged = true;
+                    GameController.ultValue += 0.5f;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 100;
                     float damage = attack * (100 / (100 + PlayerMovements.defence));
                     TakeDamage((int)damage);
                 }
@@ -1763,6 +1800,14 @@ public class PlayerMovements : MonoBehaviour
                 hurtWithShieldAudio.Play();
             }
             else if (collision.CompareTag("lightFish"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("cacodeamon"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("electricProjectile"))
             {
                 hurtWithShieldAudio.Play();
             }
