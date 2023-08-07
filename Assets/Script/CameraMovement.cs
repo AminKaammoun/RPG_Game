@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
 
     public static bool shake = false;
     public static bool bigShake = false;
+    public static bool bigbigShake = false;
     public static bool longUltShake = false;
     public static bool SuperLongUltShake = false;
     public static bool longShakeEnemy = false;
@@ -35,6 +36,11 @@ public class CameraMovement : MonoBehaviour
         {
             StartCoroutine(Shake(0.25f));
             bigShake = false;
+        }
+        if (bigbigShake)
+        {
+            StartCoroutine(Shake(0.5f));
+            bigbigShake = false;
         }
         if (longUltShake)
         {

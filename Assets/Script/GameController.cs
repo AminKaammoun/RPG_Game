@@ -340,6 +340,8 @@ public class GameController : MonoBehaviour
     public GameObject[] highlight;
     public GameObject eggShopPanel;
 
+    public static bool cacodeamonUltEffect = false;
+
     // Start is called before the first frame update
 
     void Awake()
@@ -1812,6 +1814,46 @@ public class GameController : MonoBehaviour
         {
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 8, 4f * Time.deltaTime);
         }
+    
+        if(cacodeamonUltEffect)
+        {
+            var Volumes = volume.GetComponent<Volume>();
+            if (Volumes.profile.TryGet<ChromaticAberration>(out var chromaticAberration))
+            {
+                chromaticAberration.intensity.value = 1f;
+            }
+            if (Volumes.profile.TryGet<LensDistortion>(out var lensDistortions))
+            {
+                lensDistortions.intensity.value = Mathf.Lerp(lensDistortions.intensity.value, 0f, 0.5f * Time.deltaTime);
+            }
+            if (Volumes.profile.TryGet<Vignette>(out var vignette))
+            {
+                vignette.rounded.value = false;
+                vignette.intensity.value = 1f;
+                vignette.smoothness.value = 1f;
+                vignette.center.value= new Vector2(0.5f, 0.8f);
+                vignette.color.value = new Color(14f/255, 14f/255, 14f/255);
+            }
+        }
+        else
+        {
+            var Volumes = volume.GetComponent<Volume>();
+            if (Volumes.profile.TryGet<ChromaticAberration>(out var chromaticAberration))
+            {
+                chromaticAberration.intensity.value = 0f;
+            }
+            if (Volumes.profile.TryGet<LensDistortion>(out var lensDistortions))
+            {
+                lensDistortions.intensity.value = Mathf.Lerp(lensDistortions.intensity.value, 0f, 0f * Time.deltaTime);
+            }
+            if (Volumes.profile.TryGet<Vignette>(out var vignette))
+            {
+               
+                vignette.intensity.value = 0f;
+             
+            }
+        }
+    
     }
 
     IEnumerator backFromEnemyUlt()
