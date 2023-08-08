@@ -121,6 +121,8 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource swing1Audio;
     public AudioSource swing2Audio;
     public AudioSource swingMuffedAudio;
+    public AudioSource swingMuffedAudio1;
+    public AudioSource swingMuffedAudio2;
     public AudioSource hurtAudio;
     public AudioSource hurtMuffedAudio;
     public AudioSource silverKeyAudio;
@@ -410,8 +412,20 @@ public class PlayerMovements : MonoBehaviour
                 stickLeft.SetActive(false);
 
             }
-           
-           
+
+
+        }
+        else
+        {
+            maskLeft.SetActive(false);
+            maskRight.SetActive(false);
+            maskDown.SetActive(false);
+            maskUp.SetActive(false);
+
+            stickDown.SetActive(false);
+            stickUp.SetActive(false);
+            stickRight.SetActive(false);
+            stickLeft.SetActive(false);
         }
       
 
@@ -1310,7 +1324,7 @@ public class PlayerMovements : MonoBehaviour
     IEnumerator waitAttack()
     {
 
-        if(GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+        if(GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2 || GameController.currentMap == PlayerMap.water5)
          {
              swingMuffedAudio.Play();
          }
@@ -1330,9 +1344,9 @@ public class PlayerMovements : MonoBehaviour
 
     IEnumerator waitAttack1()
     {
-        if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+        if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2 || GameController.currentMap == PlayerMap.water5)
         {
-            swingMuffedAudio.Play();
+            swingMuffedAudio1.Play();
         }
         else
         {
@@ -1350,9 +1364,9 @@ public class PlayerMovements : MonoBehaviour
 
     IEnumerator waitAttack2()
     {
-        if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+        if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2 || GameController.currentMap == PlayerMap.water5)
         {
-            swingMuffedAudio.Play();
+            swingMuffedAudio2.Play();
         }
         else
         {
@@ -1651,7 +1665,9 @@ public class PlayerMovements : MonoBehaviour
                 if (damagePlayer)
                 {
                     PlayerDamage.num = 0;
+
                     damagePlayer = false;
+                    Enemy.attack = 80;
                     if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
                     {
                         hurtMuffedAudio.Play();
@@ -1677,7 +1693,9 @@ public class PlayerMovements : MonoBehaviour
             {
                 if (damagePlayer)
                 {
+                    
                     PlayerDamage.num = 0;
+                    Enemy.attack = 150;
                     damagePlayer = false;
 
                     hurtMuffedAudio.Play();
@@ -1698,6 +1716,7 @@ public class PlayerMovements : MonoBehaviour
                 if (damagePlayer)
                 {
                     PlayerDamage.num = 0;
+                    Enemy.attack = 150;
                     damagePlayer = false;
 
                     hurtMuffedAudio.Play();
@@ -1740,7 +1759,7 @@ public class PlayerMovements : MonoBehaviour
                     PlayerDamage.num = 4;
                     damagePlayer = false;
 
-                    hurtMuffedAudio.Play();
+                    hurtAudio.Play();
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
@@ -1803,7 +1822,11 @@ public class PlayerMovements : MonoBehaviour
             {
                 hurtWithShieldAudio.Play();
             }
-            else if (collision.CompareTag("cacodeamon"))
+            else if (collision.CompareTag("jellyFish"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("caco"))
             {
                 hurtWithShieldAudio.Play();
             }

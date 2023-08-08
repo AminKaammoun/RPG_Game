@@ -51,7 +51,7 @@ public class Cacodaemon : MonoBehaviour
     public GameObject smoke;
     private bool wasRaging = true;
     private bool hasPlayedEnergySound = false;
-    private float health = 10;
+    private float health = 400;
     public static float defence = 6000;
 
     public GameObject boxCollider;
@@ -66,6 +66,7 @@ public class Cacodaemon : MonoBehaviour
     public HealthBar healthBar;
     public Text healthText;
     private bool isDead = false;
+  
 
     private void Start()
     {
@@ -104,6 +105,8 @@ public class Cacodaemon : MonoBehaviour
             if (health <= 0)
 
             {
+                GameController.isCacodeamonDead = true;
+               
                 dieSound.Play();
                 animator.SetBool("dead", true);
                 CameraMovement.bigShake = true;
@@ -153,7 +156,7 @@ public class Cacodaemon : MonoBehaviour
                 if (TimeBtwGettingPosition < 0f)
                 {
                     lastKnownPlayerPosition = player.position;
-                    TimeBtwGettingPosition = 2f;
+                    TimeBtwGettingPosition = 2.5f;
                 }
                 else
                 {

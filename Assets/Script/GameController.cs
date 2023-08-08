@@ -35,7 +35,9 @@ public enum PlayerMap
     ship2,
     water1,
     water2,
-    water3
+    water3,
+    water4,
+    water5
 
 
 }
@@ -341,6 +343,9 @@ public class GameController : MonoBehaviour
     public GameObject eggShopPanel;
 
     public static bool cacodeamonUltEffect = false;
+    public static bool isCacodeamonDead = false;
+    public GameObject boxColliderIsland;
+   
 
     // Start is called before the first frame update
 
@@ -1185,7 +1190,7 @@ public class GameController : MonoBehaviour
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         bubbleSpawner = GameObject.FindGameObjectsWithTag("BubbleSpawner");
-        currentMap = PlayerMap.water3;
+        currentMap = PlayerMap.water4;
 
     }
 
@@ -1853,7 +1858,16 @@ public class GameController : MonoBehaviour
              
             }
         }
-    
+
+
+        if (isCacodeamonDead)
+        {
+            changeBGM(beachAudio, musicSource);
+            boxColliderIsland.SetActive(false);
+            currentMap = PlayerMap.water4;
+            isCacodeamonDead = false;
+        }
+
     }
 
     IEnumerator backFromEnemyUlt()
@@ -2478,6 +2492,7 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.beach)
         {
+            PlayerMovements.spawnDivingGear = false;
             CameraMovement.minPosition = new Vector2(78.23f, 100f);
             CameraMovement.maxPosition = new Vector2(175.6f, 160f);
 
@@ -2596,6 +2611,29 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(217.29f, 297.04f);
             CameraMovement.maxPosition = new Vector2(225.56f, 299.92f);
+        }
+        else if (currentMap == PlayerMap.water4)
+        {
+            CameraMovement.minPosition = new Vector2(217.29f, 278.61f);
+            CameraMovement.maxPosition = new Vector2(271.54f, 299.92f);
+        }
+        else if (currentMap == PlayerMap.water5)
+        {
+            PlayerMovements.spawnDivingGear = true;
+            CameraMovement.minPosition = new Vector2(275.28f, 250.78f);
+            CameraMovement.maxPosition = new Vector2(276.67f, 258.9f);
+            if (TimeBtwBubbleSpawn <= 0)
+            {
+                int rand = Random.Range(0, 30);
+                int rand1 = Random.Range(0, 5);
+
+                Instantiate(bubble[rand1], bubbleSpawner[rand].transform.position, Quaternion.identity);
+                TimeBtwBubbleSpawn = StartTime;
+            }
+            else
+            {
+                TimeBtwBubbleSpawn -= Time.deltaTime;
+            }
         }
 
 

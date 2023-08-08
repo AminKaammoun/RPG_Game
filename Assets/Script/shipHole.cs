@@ -15,7 +15,8 @@ public class shipHole : MonoBehaviour
     public Text loading;
     public AudioSource jumpAudio;
 
-    public AudioClip underWaterSound;
+    public AudioClip underWaterSound; 
+    public AudioClip beachSound;
     //public AudioClip beachSound;
     public AudioSource audioSource;
     public GameObject Error;
@@ -32,45 +33,68 @@ public class shipHole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange && keyPressed == false)
-        {
+      
 
-            key.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("haveDivingMask") == 1)
+     
+
+
+            if (playerInRange && keyPressed == false)
             {
-                tpPanel.SetActive(true);
-                jumpAudio.Play();
-                StartCoroutine(removeLoadingPanelToShip1());
-                //teleport from outsideShip to ship1
-                
-                if (GameController.currentMap == PlayerMap.ship2)
+
+                key.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("haveDivingMask") == 1)
                 {
-                    player.transform.position = new Vector3(214.58f, 228.41f, 0f);
+                    tpPanel.SetActive(true);
+                   
+                jumpAudio.Play();
+                    
+                StartCoroutine(removeLoadingPanelToShip1());
+                    //teleport from outsideShip to ship1
+
+                    if (GameController.currentMap == PlayerMap.ship2)
+                    {
+                        player.transform.position = new Vector3(214.58f, 228.41f, 0f);
+                        GameController.changeBGS(underWaterSound, audioSource);
+                        GameController.currentMap = PlayerMap.water1;
+                        PlayerMovements.speed /= 2;
+                    }
+
+                  else  if(GameController.currentMap == PlayerMap.water4)
+                {
+                    player.transform.position = new Vector3(277.59f, 266.1f, 0f);
                     GameController.changeBGS(underWaterSound, audioSource);
-                    GameController.currentMap = PlayerMap.water1;
+                    GameController.currentMap = PlayerMap.water5;
                     PlayerMovements.speed /= 2;
+                }else if (GameController.currentMap == PlayerMap.water5)
+                {
+                    
+                    player.transform.position = new Vector3(173.26f, 163.82f, 0f);
+                    GameController.changeBGS(beachSound, audioSource);
+                    GameController.currentMap = PlayerMap.beach;
+                    PlayerMovements.speed *= 2;
                 }
-            
 
 
-            }else if (Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("haveDivingMask") == 0)
-            {
-               Error.SetActive(true);
-                ErrorSound.Play();
+                }
+                else if (Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("haveDivingMask") == 0)
+                {
+                    Error.SetActive(true);
+                    ErrorSound.Play();
+                }
             }
-        }
-        else if (playerInRange && keyPressed == true)
-        {
-            key.SetActive(false);
-            //
+            else if (playerInRange && keyPressed == true)
+            {
+                key.SetActive(false);
+                //
 
-        }
-        else
-        {
-            key.SetActive(false);
-            //
-            keyPressed = false;
-        }
+            }
+            else
+            {
+                key.SetActive(false);
+                //
+                keyPressed = false;
+            }
+        
 
     }
 

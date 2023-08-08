@@ -111,8 +111,9 @@ public class LightFish : Enemy
             {
                 if (collision.gameObject.CompareTag("hitBox"))
                 {
-                    damageText.num = 0;
                     defence = 800;
+                    damageText.num = 0;
+                    
                     float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
                     float damage = attack * (100 / (100 + defence));
                     TakeDamage((int)damage);
@@ -120,8 +121,9 @@ public class LightFish : Enemy
                 }
                 else if (collision.gameObject.CompareTag("Arrow"))
                 {
-                    damageText.num = 0;
                     defence = 2000;
+                    damageText.num = 0;
+                    
                     float attack = PlayerMovements.attack + (PlayerMovements.agility / 2) + (PlayerMovements.Sp / 2);
                     float damage = attack * (100 / (100 + defence));
                     TakeDamage((int)damage);
@@ -129,8 +131,9 @@ public class LightFish : Enemy
                 }
                 else if (collision.gameObject.CompareTag("ultSlash"))
                 {
-                    damageText.num = -1;
                     defence = 800;
+                    damageText.num = -1;
+                    
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage + damage * (GameController.skill1Level / 100);
@@ -138,8 +141,9 @@ public class LightFish : Enemy
                 }
                 else if (collision.gameObject.CompareTag("rockUlt"))
                 {
-                    damageText.num = -2;
                     defence = 800;
+                    damageText.num = -2;
+                    
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage + damage * (GameController.skill2Level / 100);
@@ -147,9 +151,10 @@ public class LightFish : Enemy
 
                 }
                 else if (collision.gameObject.CompareTag("skull1") || collision.gameObject.CompareTag("skull2") || collision.gameObject.CompareTag("skull3") || collision.gameObject.CompareTag("skull4") || collision.gameObject.CompareTag("skull5"))
-                {
-                    damageText.num = -3;
+                { 
                     defence = 800;
+                    damageText.num = -3;
+                   
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage * 1.2f;
@@ -159,8 +164,9 @@ public class LightFish : Enemy
                 }
                 else if (collision.gameObject.CompareTag("windUlt"))
                 {
-                    damageText.num = -4;
                     defence = 800;
+                    damageText.num = -4;
+                    
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage * 1.2f;
@@ -169,8 +175,9 @@ public class LightFish : Enemy
                 }
                 else if (collision.gameObject.CompareTag("thunderStrike"))
                 {
-                    damageText.num = -5;
                     defence = 800;
+                    damageText.num = -5;
+                    
                     float attack = PlayerMovements.Sp * 5 + (PlayerMovements.agility / 2) + (PlayerMovements.attack / 2);
                     float damage = attack * (100 / (100 + defence));
                     damage = damage * 1.5f;

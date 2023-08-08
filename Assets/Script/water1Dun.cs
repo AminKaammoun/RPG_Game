@@ -11,6 +11,10 @@ public class water1Dun : MonoBehaviour
     public AudioSource musicSource;
 
     public AudioSource gettingUpFromWater;
+    public GameObject cacodaemon;
+    public AudioClip fightMusic;
+   
+    public GameObject boxColliderIsland;
 
     // Start is called before the first frame update
     void Start()
@@ -39,15 +43,23 @@ public class water1Dun : MonoBehaviour
                 player.transform.position = new Vector3(220.44f, 290.92f, 0f);
                 GameController.currentMap = PlayerMap.water3;
                 GameController.changeBGS(beachSound, audioSource);
-                
+                StartCoroutine(instantiateEnemey());
+                GameController.changeBGM(fightMusic, audioSource);
                 PlayerMovements.speed *= 2;
                 PlayerMovements.spawnDivingGear = false;
                 gettingUpFromWater.Play();
                 musicSource.Stop();
-                
+               
             }
         }
 
+    }
+
+    IEnumerator instantiateEnemey()
+    {
+        yield return new WaitForSeconds(1f);
+        Instantiate(cacodaemon, new Vector3(232.51f, 299.62f, 0), Quaternion.identity);
+        boxColliderIsland.SetActive(true);
     }
 
 }

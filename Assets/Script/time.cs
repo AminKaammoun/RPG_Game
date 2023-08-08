@@ -61,7 +61,7 @@ public class time : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /*
+       
            switch (hour)
         {
 
@@ -241,7 +241,7 @@ public class time : MonoBehaviour
         }
         globalLight.intensity = intensity;
    
-    */
+    
     }
     IEnumerator getNewIntensity()
     {
