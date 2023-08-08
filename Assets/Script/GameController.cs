@@ -90,6 +90,7 @@ public class GameController : MonoBehaviour
     public GameObject BlackSmithPanel;
     public GameObject BeachBlackSmithPanel;
     public GameObject GemCraftingPanel;
+    public GameObject beachGemCraftingPanel;
     public GameObject volume;
     public GameObject ultDirection;
     public GameObject BrownUltDirection;
@@ -1190,7 +1191,7 @@ public class GameController : MonoBehaviour
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         bubbleSpawner = GameObject.FindGameObjectsWithTag("BubbleSpawner");
-        currentMap = PlayerMap.water4;
+        currentMap = PlayerMap.beach;
 
     }
 
@@ -1985,6 +1986,16 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
+    public void closebeachGemCraftingPanel()
+    {
+        GemInv.save();
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        LapidaryLeftSide.currentgear = SelectedGear.nothing;
+        beachGemCraftingPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
 
     public void closeDun2Panel()
     {
@@ -2252,6 +2263,12 @@ public class GameController : MonoBehaviour
     public void gemCraftingPanel()
     {
         GemCraftingPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
+    }
+
+    public void BeachGemCraftingPanel()
+    {
+        beachGemCraftingPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
 

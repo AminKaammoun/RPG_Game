@@ -877,6 +877,7 @@ public class LapidaryLeftSide : MonoBehaviour
         {
             case "":
                 atkGemLevel.text = "";
+                redGems.isAtkGearRedGemPlaced = false;
                 break;
             case "lvl1RedGem (gemObject)":
                 redGems.isAtkGearRedGemPlaced = true;
@@ -897,6 +898,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5RedGem (gemObject)":
                 redGems.isAtkGearRedGemPlaced = true;
                 atkGemLevel.text = "lvl 5";
+                break;
+            default:
+                atkGemLevel.text = "";
                 break;
         }
         switch (GameController.swordBlueGem)
@@ -924,6 +928,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 blueGems.isAtkGearBlueGemPlaced = true;
                 defGemLevel.text = "lvl 5";
                 break;
+            default:
+                defGemLevel.text = "";
+                break;
         }
         switch (GameController.swordYellowGem)
         {
@@ -949,6 +956,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5YellowGem (gemObject)":
                 yellowGems.isAtkGearYellowGemPlaced = true;
                 helmetGemLevel.text = "lvl 5";
+                break;
+            default:
+                helmetGemLevel.text = "";
                 break;
         }
         switch (GameController.swordOrangeGem)
@@ -976,11 +986,15 @@ public class LapidaryLeftSide : MonoBehaviour
                 orangeGems.isAtkGearOrangeGemPlaced = true;
                 beltGemLevel.text = "lvl 5";
                 break;
+            default:
+                beltGemLevel.text = "";
+                break;
         }
         switch (GameController.swordGreenGem)
         {
             case "":
                 ringGemLevel.text = "";
+                greenGems.isAtkGearGreenGemPlaced = false;
                 break;
             case "lvl1GreenGem (gemObject)":
                 greenGems.isAtkGearGreenGemPlaced = true;
@@ -1001,6 +1015,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5GreenGem (gemObject)":
                 greenGems.isAtkGearGreenGemPlaced = true;
                 ringGemLevel.text = "lvl 5";
+                break;
+            default:
+                ringGemLevel.text = "";
                 break;
         }
     }
@@ -1049,6 +1066,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 redGems.isDefGearRedGemPlaced = true;
                 atkGemLevel.text = "lvl 5";
                 break;
+            default:
+                atkGemLevel.text = "";
+                break;
         }
         switch (GameController.shieldBlueGem)
         {
@@ -1077,6 +1097,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 blueGems.isDefGearBlueGemPlaced = true;
                 defGemLevel.text = "lvl 5";
                 break;
+            default:
+                defGemLevel.text = "";
+                break;
         }
         switch (GameController.shieldYellowGem)
         {
@@ -1104,6 +1127,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 yellowGems.isDefGearYellowGemPlaced = true;
                 helmetGemLevel.text = "lvl 5";
                 break;
+            default:
+                helmetGemLevel.text = "";
+                break;
         }
         switch (GameController.shieldOrangeGem)
         {
@@ -1130,6 +1156,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 orangeGems.isDefGearOrangeGemPlaced = true;
                 beltGemLevel.text = "lvl 5";
                 break;
+            default:
+                beltGemLevel.text = "";
+                break;
         }
         switch (GameController.shieldGreenGem)
         {
@@ -1155,6 +1184,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5GreenGem (gemObject)":
                 greenGems.isDefGearGreenGemPlaced = true;
                 ringGemLevel.text = "lvl 5";
+                break;
+            default:
+                ringGemLevel.text = "";
                 break;
         }
     }
@@ -1202,6 +1234,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 redGems.isHelmetGearRedGemPlaced = true;
                 atkGemLevel.text = "lvl 5";
                 break;
+            default:
+                atkGemLevel.text = "";
+                break;
         }
         switch (GameController.helmetBlueGem)
         {
@@ -1227,6 +1262,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5BlueGem (gemObject)":
                 blueGems.isHelmetGearBlueGemPlaced = true;
                 defGemLevel.text = "lvl 5";
+                break;
+            default:
+                defGemLevel.text = "";
                 break;
         }
         switch (GameController.helmetYellowGem)
@@ -1254,6 +1292,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 yellowGems.isHelmetGearYellowGemPlaced = true;
                 helmetGemLevel.text = "lvl 5";
                 break;
+            default:
+                helmetGemLevel.text = "";
+                break;
         }
         switch (GameController.helmetOrangeGem)
         {
@@ -1280,6 +1321,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 orangeGems.isHelmetGearOrangeGemPlaced = true;
                 beltGemLevel.text = "lvl 5";
                 break;
+            default:
+                beltGemLevel.text = "";
+                break;
         }
         switch (GameController.helmetGreenGem)
         {
@@ -1305,6 +1349,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5GreenGem (gemObject)":
                 greenGems.isHelmetGearGreenGemPlaced = true;
                 ringGemLevel.text = "lvl 5";
+                break;
+            default:
+                ringGemLevel.text = "";
                 break;
         }
     }
@@ -1351,6 +1398,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 redGems.isBeltGearRedGemPlaced = true;
                 atkGemLevel.text = "lvl 5";
                 break;
+            default:
+                atkGemLevel.text = "";
+                break;
         }
         switch (GameController.beltBlueGem)
         {
@@ -1376,6 +1426,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5BlueGem (gemObject)":
                 blueGems.isBeltGearBlueGemPlaced = true;
                 defGemLevel.text = "lvl 5";
+                break;
+            default:
+                defGemLevel.text = "";
                 break;
         }
         switch (GameController.beltYellowGem)
@@ -1403,6 +1456,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 yellowGems.isBeltGearYellowGemPlaced = true;
                 helmetGemLevel.text = "lvl 5";
                 break;
+            default:
+                helmetGemLevel.text = "";
+                break;
         }
         switch (GameController.beltOrangeGem)
         {
@@ -1428,6 +1484,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5OrangeGem (gemObject)":
                 orangeGems.isBeltGearOrangeGemPlaced = true;
                 beltGemLevel.text = "lvl 5";
+                break;
+            default:
+                beltGemLevel.text = "";
                 break;
         }
         switch (GameController.beltGreenGem)
@@ -1455,6 +1514,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 greenGems.isBeltGearGreenGemPlaced = true;
                 ringGemLevel.text = "lvl 5";
                 break;
+            default:
+                ringGemLevel.text = "";
+                break;
         }
     }
     public void ringHpGear()
@@ -1479,6 +1541,7 @@ public class LapidaryLeftSide : MonoBehaviour
         {
             case "":
                 atkGemLevel.text = "";
+                redGems.isRingGearRedGemPlaced = false;
                 break;
             case "lvl1RedGem (gemObject)":
                 redGems.isRingGearRedGemPlaced = true;
@@ -1499,6 +1562,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5RedGem (gemObject)":
                 redGems.isRingGearRedGemPlaced = true;
                 atkGemLevel.text = "lvl 5";
+                break;
+            default:
+                atkGemLevel.text = "";
                 break;
         }
         switch (GameController.ringBlueGem)
@@ -1526,6 +1592,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 blueGems.isRingGearBlueGemPlaced = true;
                 defGemLevel.text = "lvl 5";
                 break;
+            default:
+                defGemLevel.text = "";
+                break;
         }
         switch (GameController.ringYellowGem)
         {
@@ -1551,6 +1620,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5YellowGem (gemObject)":
                 yellowGems.isRingGearYellowGemPlaced = true;
                 helmetGemLevel.text = "lvl 5";
+                break;
+            default:
+                helmetGemLevel.text = "";
                 break;
         }
         switch (GameController.ringOrangeGem)
@@ -1578,6 +1650,9 @@ public class LapidaryLeftSide : MonoBehaviour
                 orangeGems.isRingGearOrangeGemPlaced = true;
                 beltGemLevel.text = "lvl 5";
                 break;
+            default:
+                beltGemLevel.text = "";
+                break;
         }
         switch (GameController.ringGreenGem)
         {
@@ -1603,6 +1678,9 @@ public class LapidaryLeftSide : MonoBehaviour
             case "lvl5GreenGem (gemObject)":
                 greenGems.isRingGearGreenGemPlaced = true;
                 ringGemLevel.text = "lvl 5";
+                break;
+            default:
+                ringGemLevel.text = "";
                 break;
         }
     }
