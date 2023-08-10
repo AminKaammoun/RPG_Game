@@ -353,7 +353,7 @@ public class GameController : MonoBehaviour
     public GameObject boxColliderIsland;
     public GameObject oxygenBarUi;
 
-    private float oxygenAmount = 100f;
+    public static float oxygenAmount = 100f;
 
     // Start is called before the first frame update
 
@@ -1875,7 +1875,16 @@ public class GameController : MonoBehaviour
             currentMap = PlayerMap.water4;
             isCacodeamonDead = false;
         }
-
+        
+        if(oxygenAmount < 25f)
+        {
+            oxyAmountText.color = Color.red;
+        }
+        else
+        {
+            oxyAmountText.color = Color.white;
+        }
+   
     }
 
     IEnumerator backFromEnemyUlt()
