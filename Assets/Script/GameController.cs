@@ -37,7 +37,8 @@ public enum PlayerMap
     water2,
     water3,
     water4,
-    water5
+    water5,
+    iceland
 
 
 }
@@ -134,6 +135,8 @@ public class GameController : MonoBehaviour
     public AudioClip dunMusic;
     public AudioClip beachMusic;
     public AudioClip beachAudio;
+    public AudioClip iceMusic;
+    public AudioClip iceAudio;
     public AudioClip dunSound;
 
 
@@ -148,6 +151,7 @@ public class GameController : MonoBehaviour
     public static LevelSystem level;
     public XpBar xpBar;
     public ultBar UltBar;
+    public oxygenBar OxygenBar;
 
     private float currentTime;
     private float startTime = 3f;
@@ -176,6 +180,7 @@ public class GameController : MonoBehaviour
     public Text Hp;
     public Text UltText;
     public Text diamondsText;
+    public Text oxyAmountText;
 
     public TextMeshProUGUI battlePowerText;
 
@@ -346,7 +351,9 @@ public class GameController : MonoBehaviour
     public static bool cacodeamonUltEffect = false;
     public static bool isCacodeamonDead = false;
     public GameObject boxColliderIsland;
-   
+    public GameObject oxygenBarUi;
+
+    private float oxygenAmount = 100f;
 
     // Start is called before the first frame update
 
@@ -2210,6 +2217,52 @@ public class GameController : MonoBehaviour
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
 
+    public void IceLandTpButton()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        changeBGM(iceMusic, musicSource);
+        changeBGS(iceAudio, audioSource);
+        musicSource.loop = false;
+        tpPanel.SetActive(false);
+        wantTp = false;
+        player.transform.position = new Vector3(224.21f, 71.54f, 0f);
+        try
+        {
+            pet = GameObject.FindGameObjectWithTag("pet");
+            pet.transform.position = new Vector3(223.21f, 71.54f, 0f);
+        }
+        catch (System.NullReferenceException)
+        {
+
+            try
+            {
+                pet = GameObject.FindGameObjectWithTag("pumpkin_Pet");
+                pet = GameObject.FindGameObjectWithTag("eye_Pet");
+                pet = GameObject.FindGameObjectWithTag("crab_Pet");
+                pet = GameObject.FindGameObjectWithTag("greenDragon_Pet");
+                pet = GameObject.FindGameObjectWithTag("dog_Pet");
+                pet = GameObject.FindGameObjectWithTag("snowDog_Pet");
+                pet = GameObject.FindGameObjectWithTag("rock_pet");
+                pet = GameObject.FindGameObjectWithTag("snake_Pet");
+                pet = GameObject.FindGameObjectWithTag("worm_Pet");
+                pet = GameObject.FindGameObjectWithTag("bee_Pet");
+                pet = GameObject.FindGameObjectWithTag("red_dragon");
+                pet.transform.position = new Vector3(223.21f, 71.54f, 0f);
+            }
+            catch (System.NullReferenceException)
+            {
+
+            }
+
+        }
+        currentMap = PlayerMap.iceland;
+        loadingPanel.SetActive(true);
+        StartCoroutine(removeLoadingPanel());
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void potionShop()
     {
         PotionShopPanel.SetActive(true);
@@ -2510,6 +2563,8 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.beach)
         {
             PlayerMovements.spawnDivingGear = false;
+            oxygenBarUi.SetActive(false);
+            oxygenAmount = 100f;
             CameraMovement.minPosition = new Vector2(78.23f, 100f);
             CameraMovement.maxPosition = new Vector2(175.6f, 160f);
 
@@ -2591,6 +2646,7 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.water1)
         {
+            oxygenBarUi.SetActive(true);
             CameraMovement.minPosition = new Vector2(213.37f, 234.14f);
             CameraMovement.maxPosition = new Vector2(223.59f, 241.92f);
             PlayerMovements.spawnDivingGear = true;
@@ -2602,10 +2658,23 @@ public class GameController : MonoBehaviour
                 Instantiate(bubble[rand1], bubbleSpawner[rand].transform.position, Quaternion.identity);
                 TimeBtwBubbleSpawn = StartTime;
             }
+
             else
             {
                 TimeBtwBubbleSpawn -= Time.deltaTime;
             }
+
+            if (oxygenAmount > 0)
+            {
+                oxygenAmount -= Time.deltaTime;
+                OxygenBar.SetOxyValue(oxygenAmount);
+                oxyAmountText.text = ((int)oxygenAmount).ToString();
+            }
+            else
+            {
+                Debug.Log("dead");
+            }
+
         }else if(currentMap == PlayerMap.water2)
         {
             CameraMovement.minPosition = new Vector2(217.65f, 262.86f);
@@ -2623,11 +2692,24 @@ public class GameController : MonoBehaviour
                 TimeBtwBubbleSpawn -= Time.deltaTime;
             }
 
+            if (oxygenAmount > 0)
+            {
+                oxygenAmount -= Time.deltaTime;
+                OxygenBar.SetOxyValue(oxygenAmount);
+                oxyAmountText.text = ((int)oxygenAmount).ToString();
+            }
+            else
+            {
+                Debug.Log("dead");
+            }
+
         }
         else if (currentMap == PlayerMap.water3)
         {
             CameraMovement.minPosition = new Vector2(217.29f, 297.04f);
             CameraMovement.maxPosition = new Vector2(225.56f, 299.92f);
+            oxygenBarUi.SetActive(false);
+            oxygenAmount = 100f;
         }
         else if (currentMap == PlayerMap.water4)
         {
@@ -2637,6 +2719,7 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.water5)
         {
             PlayerMovements.spawnDivingGear = true;
+            oxygenBarUi.SetActive(true);
             CameraMovement.minPosition = new Vector2(275.28f, 250.78f);
             CameraMovement.maxPosition = new Vector2(276.67f, 258.9f);
             if (TimeBtwBubbleSpawn <= 0)
@@ -2651,6 +2734,22 @@ public class GameController : MonoBehaviour
             {
                 TimeBtwBubbleSpawn -= Time.deltaTime;
             }
+            if (oxygenAmount > 0)
+            {
+                oxygenAmount -= Time.deltaTime;
+                OxygenBar.SetOxyValue(oxygenAmount);
+                oxyAmountText.text = ((int)oxygenAmount).ToString();
+            }
+            else
+            {
+                Debug.Log("dead");
+            }
+
+        }
+        else if (currentMap == PlayerMap.iceland)
+        {
+            CameraMovement.minPosition = new Vector2(235.27f, 65.49f);
+            CameraMovement.maxPosition = new Vector2(289.68f, 84.95f);
         }
 
 
