@@ -7,6 +7,7 @@ public class RingGears : MonoBehaviour
     public static bool isPlaced;
     public GameObject ringLevel1Gear;
     public GameObject ringLevel10Gear;
+    public GameObject ringLevel20Gear;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,11 @@ public class RingGears : MonoBehaviour
             case "lvl 10 ring (equipmentObject)":
                 var ring10gear = Instantiate(ringLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                 ring10gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
+
+                break;
+            case "lvl 20 ring (equipmentObject)":
+                var ring20gear = Instantiate(ringLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                ring20gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
 
                 break;
 
@@ -57,6 +63,15 @@ public class RingGears : MonoBehaviour
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 10;
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp + 15;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp + 250;
+                    break;
+                case "lvl 20 ring (equipmentObject)":
+                    var ring20gear = Instantiate(ringLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    ring20gear.transform.SetParent(GameObject.FindGameObjectWithTag("ringGearSlot").transform, false);
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 50;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 100;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 50;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 75;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 1250;
                     break;
                 case "":
                     break;

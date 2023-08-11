@@ -428,6 +428,15 @@ public class BeltGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
                     break;
+
+                case "lvl 20 belt (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 75;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 150;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 75;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 250;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 175;
+                    break;
             }
             GameController.beltGear = "";
             LapidaryLeftSide.refresh = true;

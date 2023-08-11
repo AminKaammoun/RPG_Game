@@ -73,6 +73,15 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
                             GameController.gearExist = true;
                             break;
+                        case "lvl 20 belt (equipmentObject)":
+
+                            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 75;
+                            PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 150;
+                            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 75;
+                            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 250;
+                            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 175;
+                            GameController.gearExist = true;
+                            break;
                     }
                 }
                 else
@@ -421,6 +430,15 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 35;
                             GameController.gearExist = true;
                             break;
+                        case "lvl 20 belt (equipmentObject)":
+
+                            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 75;
+                            PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 150;
+                            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 75;
+                            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 250;
+                            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 175;
+                            GameController.gearExist = true;
+                            break;
                     }
                 }
 
@@ -446,6 +464,14 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                     gearsInventory.AddItem(itemObject[1], 1);
                     gearsInventory.save();
                 }
+                else if (GameController.beltGear == "lvl 20 belt (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[2], 1);
+                    inventory.save();
+
+                    gearsInventory.AddItem(itemObject[2], 1);
+                    gearsInventory.save();
+                }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 belt inventory(Clone)")
                 {
                     num = 0;
@@ -453,6 +479,11 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                 else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 10 belt inventory(Clone)")
                 {
                     num = 1;
+
+                }
+                else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 20 belt inventory(Clone)")
+                {
+                    num = 2;
 
                 }
                 switch (num)
@@ -463,6 +494,9 @@ public class BeltDropArea : MonoBehaviour, IDropHandler
                     case 1:
                         GameController.beltGear = itemObject[1].ToString();
 
+                        break;
+                    case 2:
+                        GameController.beltGear = itemObject[2].ToString();
                         break;
 
                 }

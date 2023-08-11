@@ -9,8 +9,8 @@ public class AttackGears : MonoBehaviour
   
     public GameObject atkLevel1Gear;
     public GameObject atkLevel10Gear;
+    public GameObject atkLevel20Gear;
 
- 
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,12 @@ public class AttackGears : MonoBehaviour
             case "lvl 10 attack (equipmentObject)":
                 var atk10gear = Instantiate(atkLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                 atk10gear.transform.SetParent(GameObject.FindGameObjectWithTag("atkGearSlot").transform, false);
+
+                break;
+
+            case "lvl 20 attack (equipmentObject)":
+                var atk20gear = Instantiate(atkLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                atk20gear.transform.SetParent(GameObject.FindGameObjectWithTag("atkGearSlot").transform, false);
 
                 break;
 
@@ -64,6 +70,15 @@ public class AttackGears : MonoBehaviour
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 15;
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
+                    break;
+                case "lvl 20 attack (equipmentObject)":
+                    var atk20gear = Instantiate(atkLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    atk20gear.transform.SetParent(GameObject.FindGameObjectWithTag("atkGearSlot").transform, false);
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 250;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 125;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 75;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 50;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 125;
                     break;
 
             }

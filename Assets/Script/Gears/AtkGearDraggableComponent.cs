@@ -431,6 +431,15 @@ public class AtkGearDraggableComponent : MonoBehaviour, IInitializePotentialDrag
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
                     
                     break;
+
+                case "lvl 20 attack (equipmentObject)":
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 250;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 125;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 75;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 125;
+
+                    break;
             }
             GameController.attackGear = "";
             LapidaryLeftSide.refresh = true;

@@ -425,6 +425,14 @@ public class RingGearDraggableComponent : MonoBehaviour, IInitializePotentialDra
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 15;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 250;
                     break;
+                case "lvl 20 ring (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 100;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 50;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 75;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 1250;
+                    break;
             }
             //AtkLevel1.destoryItem = false;
             GameController.ringGear = "";

@@ -8,6 +8,7 @@ public class BeltGears : MonoBehaviour
     public static bool isPlaced;
     public GameObject beltLevel1Gear;
     public GameObject beltLevel10Gear;
+    public GameObject beltLevel20Gear;
     void Start()
     {
         
@@ -22,6 +23,12 @@ public class BeltGears : MonoBehaviour
             case "lvl 10 belt (equipmentObject)":
                 var belt10gear = Instantiate(beltLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                 belt10gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
+
+                break;
+
+            case "lvl 20 belt (equipmentObject)":
+                var belt20gear = Instantiate(beltLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                belt20gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
 
                 break;
 
@@ -55,6 +62,15 @@ public class BeltGears : MonoBehaviour
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 15;
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp + 50;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp + 35;
+                    break;
+                case "lvl 20 belt (equipmentObject)":
+                    var belt20gear = Instantiate(beltLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    belt20gear.transform.SetParent(GameObject.FindGameObjectWithTag("beltGearSlot").transform, false);
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 75;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 150;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 75;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 250;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 175;
                     break;
 
                 case "":

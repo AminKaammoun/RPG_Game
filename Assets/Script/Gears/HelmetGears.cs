@@ -7,6 +7,7 @@ public class HelmetGears : MonoBehaviour
     public static bool isPlaced;
     public GameObject helLevel1Gear;
     public GameObject helLevel10Gear;
+    public GameObject helLevel20Gear;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,11 @@ public class HelmetGears : MonoBehaviour
 
                 break;
 
+            case "lvl 20 helmet (equipmentObject)":
+                var hel20gear = Instantiate(helLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                hel20gear.transform.SetParent(GameObject.FindGameObjectWithTag("helGearSlot").transform, false);
+
+                break;
             case "":
                 break;
         }
@@ -57,6 +63,15 @@ public class HelmetGears : MonoBehaviour
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 50;
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp + 40;
+                    break;
+                case "lvl 20 helmet (equipmentObject)":
+                    var hel20gear = Instantiate(helLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    hel20gear.transform.SetParent(GameObject.FindGameObjectWithTag("helGearSlot").transform, false);
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 75;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 100;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 250;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 50;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 200;
                     break;
                 case "":
                     break;

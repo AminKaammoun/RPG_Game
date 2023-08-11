@@ -76,6 +76,15 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
                             GameController.gearExist = true;
                             break;
+                        case "lvl 20 helmet (equipmentObject)":
+
+                            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 75;
+                            PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 100;
+                            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 250;
+                            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 20;
+                            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 200;
+                            GameController.gearExist = true;
+                            break;
                     }
                 }
                 else
@@ -425,6 +434,15 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
                             GameController.gearExist = true;
                             break;
+                        case "lvl 20 helmet (equipmentObject)":
+
+                            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 75;
+                            PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 100;
+                            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 250;
+                            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 200;
+                            GameController.gearExist = true;
+                            break;
                     }
                    
                 }
@@ -451,6 +469,14 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                     gearsInventory.AddItem(itemObject[1], 1);
                     gearsInventory.save();
                 }
+                else if (GameController.helmetGear == "lvl 20 helmet (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[2], 1);
+                    inventory.save();
+
+                    gearsInventory.AddItem(itemObject[2], 1);
+                    gearsInventory.save();
+                }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 helmet inventory(Clone)")
                 {
                     num = 0;
@@ -458,6 +484,11 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                 else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 10 helmet inventory(Clone)")
                 {
                     num = 1;
+
+                }
+                else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 20 helmet inventory(Clone)")
+                {
+                    num = 2;
 
                 }
                 switch (num)
@@ -469,7 +500,9 @@ public class HelmetDropArea : MonoBehaviour, IDropHandler
                         GameController.helmetGear = itemObject[1].ToString();
 
                         break;
-
+                    case 2:
+                        GameController.helmetGear = itemObject[2].ToString();
+                        break;
                 }
                 
                 inventory.RemoveItem(itemObject[num]);

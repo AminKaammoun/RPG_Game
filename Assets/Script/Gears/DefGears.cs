@@ -10,6 +10,7 @@ public class DefGears : MonoBehaviour
     public GameObject defLevel1Gear;
 
     public GameObject defLevel10Gear;
+    public GameObject defLevel20Gear;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,12 @@ public class DefGears : MonoBehaviour
             case "lvl 10 def (equipmentObject)":
                 var def10gear = Instantiate(defLevel10Gear, transform.position + add, Quaternion.identity) as GameObject;
                 def10gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
+
+                break;
+
+            case "lvl 20 def (equipmentObject)":
+                var def20gear = Instantiate(defLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                def20gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
 
                 break;
             case "":
@@ -61,6 +68,15 @@ public class DefGears : MonoBehaviour
                     PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 10;
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp + 50;
+                    break;
+                case "lvl 20 def (equipmentObject)":
+                    var def20gear = Instantiate(defLevel20Gear, transform.position + add, Quaternion.identity) as GameObject;
+                    def20gear.transform.SetParent(GameObject.FindGameObjectWithTag("defGearSlot").transform, false);
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 50;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence + 250;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility + 50;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp + 50;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp + 250;
                     break;
 
                 case "":

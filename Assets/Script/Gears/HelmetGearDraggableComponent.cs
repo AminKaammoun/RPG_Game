@@ -429,6 +429,14 @@ public class HelmetGearDraggableComponent : MonoBehaviour, IInitializePotentialD
                     PlayerMovements.BonusSp = PlayerMovements.BonusSp - 10;
                     PlayerMovements.BonusHp = PlayerMovements.BonusHp - 40;
                     break;
+                case "lvl 20 helmet (equipmentObject)":
+
+                    PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 75;
+                    PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 100;
+                    PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 250;
+                    PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                    PlayerMovements.BonusHp = PlayerMovements.BonusHp - 200;
+                    break;
             }
             GameController.helmetGear = "";
             LapidaryLeftSide.refresh = true;

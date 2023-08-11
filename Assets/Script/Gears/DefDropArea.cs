@@ -76,6 +76,15 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                             GameController.gearExist = true;
 
                             break;
+                        case "lvl 20 def (equipmentObject)":
+                            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
+                            PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 250;
+                            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 50;
+                            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 250;
+                            GameController.gearExist = true;
+
+                            break;
                     }
                 }
                 else
@@ -427,6 +436,14 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                             PlayerMovements.BonusHp = PlayerMovements.BonusHp - 50;
                             GameController.gearExist = true;
                             break;
+                        case "lvl 20 def (equipmentObject)":
+                            PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 50;
+                            PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 250;
+                            PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 50;
+                            PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                            PlayerMovements.BonusHp = PlayerMovements.BonusHp - 250;
+                            GameController.gearExist = true;
+                            break;
                     }
 
                 }
@@ -454,6 +471,14 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                     gearsInventory.AddItem(itemObject[1], 1);
                     gearsInventory.save();
                 }
+                else if (GameController.defGear == "lvl 20 def (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[2], 1);
+                    inventory.save();
+
+                    gearsInventory.AddItem(itemObject[2], 1);
+                    gearsInventory.save();
+                }
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 def inventory(Clone)")
                 {
                     num = 0;
@@ -461,6 +486,11 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                 else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 10 def inventory(Clone)")
                 {
                     num = 1;
+
+                }
+                else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 20 def inventory(Clone)")
+                {
+                    num = 2;
 
                 }
                 switch (num)
@@ -472,6 +502,10 @@ public class DefDropArea : MonoBehaviour, IDropHandler
                         GameController.defGear = itemObject[1].ToString();
 
                         break;
+                    case 2:
+                        GameController.defGear = itemObject[2].ToString();
+                        break;
+
 
                 }
 

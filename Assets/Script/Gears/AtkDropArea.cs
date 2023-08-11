@@ -78,6 +78,15 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
                         GameController.gearExist = true;
                     }
+                    else if (GameController.attackGear == "lvl 20 attack (equipmentObject)")
+                    {
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 250;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 125;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 75;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 125;
+                        GameController.gearExist = true;
+                    }
                 }
                 else
                 {
@@ -426,6 +435,15 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         PlayerMovements.BonusHp = PlayerMovements.BonusHp - 25;
                         GameController.gearExist = true;
                     }
+                    else if (GameController.attackGear == "lvl 20 attack (equipmentObject)")
+                    {
+                        PlayerMovements.BonusAttack = PlayerMovements.BonusAttack - 250;
+                        PlayerMovements.BonusDefence = PlayerMovements.BonusDefence - 125;
+                        PlayerMovements.BonusAgility = PlayerMovements.BonusAgility - 75;
+                        PlayerMovements.BonusSp = PlayerMovements.BonusSp - 50;
+                        PlayerMovements.BonusHp = PlayerMovements.BonusHp - 125;
+                        GameController.gearExist = true;
+                    }
 
                 }
 
@@ -449,6 +467,13 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                     gearsInventory.AddItem(itemObject[1], 1);
                     gearsInventory.save();
                 }
+                else if (GameController.attackGear == "lvl 20 attack (equipmentObject)")
+                {
+                    inventory.AddItem(itemObject[2], 1);
+                    inventory.save();
+                    gearsInventory.AddItem(itemObject[2], 1);
+                    gearsInventory.save();
+                }
 
                 if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 1 attack inventory(Clone)")
                 {
@@ -457,6 +482,11 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                 else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 10 attack inventory(Clone)")
                 {
                     num = 1;
+
+                }
+                else if (eventData.pointerDrag.GetComponent<RectTransform>().name == "lvl 20 attack inventory(Clone)")
+                {
+                    num = 2;
 
                 }
                 switch (num)
@@ -468,7 +498,9 @@ public class AtkDropArea : MonoBehaviour, IDropHandler
                         GameController.attackGear = itemObject[1].ToString();
 
                         break;
-
+                    case 2:
+                        GameController.attackGear = itemObject[2].ToString();
+                        break;
                 }
                 LapidaryLeftSide.refresh = true;
                 inventory.RemoveItem(itemObject[num]);
