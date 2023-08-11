@@ -83,6 +83,7 @@ public class GameController : MonoBehaviour
     public GameObject MiningAreaPanel;
     public GameObject TreesAreaPanel;
     public GameObject FishingAreaPanel;
+    public GameObject BeachFishingAreaPanel;
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
@@ -111,6 +112,8 @@ public class GameController : MonoBehaviour
     public GameObject Wind;
     public GameObject WindEffect;
     public GameObject redDot;
+    public GameObject beachDun1Panel;
+    public GameObject beachDun2Panel;
 
     public Toggle swapGemsToggle;
 
@@ -2005,6 +2008,23 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
+    public void closeDun1BeachPnanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        beachDun1Panel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
+    public void closeDun2BeachPnanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        beachDun2Panel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
 
     public void closeForestBlackSmithPanel()
     {
@@ -2082,7 +2102,7 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
-
+ 
     public void closeTreesAreaPnanel()
     {
         ArrowSpawn.canShoot = true;
@@ -2097,6 +2117,7 @@ public class GameController : MonoBehaviour
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
         FishingAreaPanel.SetActive(false);
+        BeachFishingAreaPanel.SetActive(false);
         FishInv.save();
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
