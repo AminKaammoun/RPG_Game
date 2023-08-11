@@ -114,6 +114,7 @@ public class GameController : MonoBehaviour
     public GameObject redDot;
     public GameObject beachDun1Panel;
     public GameObject beachDun2Panel;
+    public GameObject snowUi;
 
     public Toggle swapGemsToggle;
 
@@ -2551,7 +2552,7 @@ public class GameController : MonoBehaviour
     {
         if (currentMap == PlayerMap.forrest)
         {
-
+            snowUi.SetActive(false);
             CameraMovement.maxPosition = new Vector2(235.72f, 20.77f);
             CameraMovement.minPosition = new Vector2(58.54f, -1.37f);
 
@@ -2604,6 +2605,7 @@ public class GameController : MonoBehaviour
 
         else if (currentMap == PlayerMap.Village)
         {
+            snowUi.SetActive(false);
             CameraMovement.maxPosition = new Vector2(10.79f, 2.2f);
             CameraMovement.minPosition = new Vector2(-48.68f, -0.12f);
 
@@ -2633,6 +2635,7 @@ public class GameController : MonoBehaviour
         }
         else if (currentMap == PlayerMap.beach)
         {
+            snowUi.SetActive(false);
             PlayerMovements.spawnDivingGear = false;
             oxygenBarUi.SetActive(false);
             oxygenAmount = 100f;
@@ -2821,6 +2824,7 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(235.27f, 65.49f);
             CameraMovement.maxPosition = new Vector2(289.68f, 84.95f);
+            snowUi.SetActive(true);
         }
 
 
