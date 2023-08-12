@@ -12,7 +12,7 @@ public class fish : MonoBehaviour
     public InventoryObject MeatInventory;
     public GameObject[] textPopUps;
     private GameObject player;
-
+   
 
     // Update is called once per frame
     void Start()
@@ -24,11 +24,13 @@ public class fish : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.position = bonner.transform.position;
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+           
             if (this.gameObject.name == "Fish1(Clone)")
             {
                 GameController.Fish1Discovered = true;
@@ -163,6 +165,76 @@ public class fish : MonoBehaviour
                 inventory.AddItem(fishs[9], 1);
                 FishInventory.AddItem(fishs[9], 1);
                 MeatInventory.AddItem(fishs[9], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish11(Clone)")
+            {
+                GameController.Fish11Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[10], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[10], 1);
+                FishInventory.AddItem(fishs[10], 1);
+                MeatInventory.AddItem(fishs[10], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish12(Clone)")
+            {
+                GameController.Fish12Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[11], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[11], 1);
+                FishInventory.AddItem(fishs[11], 1);
+                MeatInventory.AddItem(fishs[11], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish13(Clone)")
+            {
+                GameController.Fish13Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[12], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[12], 1);
+                FishInventory.AddItem(fishs[12], 1);
+                MeatInventory.AddItem(fishs[12], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish14(Clone)")
+            {
+                GameController.Fish14Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[13], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[13], 1);
+                FishInventory.AddItem(fishs[13], 1);
+                MeatInventory.AddItem(fishs[13], 1);
+                FishInventory.save();
+                inventory.save();
+                MeatInventory.save();
+                Inventory.refreshInv = true;
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.name == "Fish15(Clone)")
+            {
+                GameController.Fish15Discovered = true;
+                fishingArea.stopCollecting = true;
+                Instantiate(textPopUps[14], player.transform.position, Quaternion.identity);
+                inventory.AddItem(fishs[14], 1);
+                FishInventory.AddItem(fishs[14], 1);
+                MeatInventory.AddItem(fishs[14], 1);
                 FishInventory.save();
                 inventory.save();
                 MeatInventory.save();

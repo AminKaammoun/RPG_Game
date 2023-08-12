@@ -86,6 +86,7 @@ public class GameController : MonoBehaviour
     public GameObject TreesAreaPanel;
     public GameObject FishingAreaPanel;
     public GameObject BeachFishingAreaPanel;
+    
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
@@ -107,6 +108,7 @@ public class GameController : MonoBehaviour
     public GameObject skillPointPanel;
     public GameObject ForestfishPanel;
     public GameObject BeachFishPanel;
+    public GameObject IcelandFishPanel;
     public GameObject butcherPanel;
     public GameObject eggPanel;
     public GameObject rock;
@@ -332,6 +334,12 @@ public class GameController : MonoBehaviour
     public static bool Fish8Discovered;
     public static bool Fish9Discovered;
     public static bool Fish10Discovered;
+
+    public static bool Fish11Discovered;
+    public static bool Fish12Discovered;
+    public static bool Fish13Discovered;
+    public static bool Fish14Discovered;
+    public static bool Fish15Discovered;
 
     public static string ability1;
     public static string ability2;
@@ -1345,6 +1353,12 @@ public class GameController : MonoBehaviour
         Fish9Discovered = data7.Fish9Discovered;
         Fish10Discovered = data7.Fish10Discovered;
 
+        Fish11Discovered = data7.Fish11Discovered;
+        Fish12Discovered = data7.Fish12Discovered;
+        Fish13Discovered = data7.Fish13Discovered;
+        Fish14Discovered = data7.Fish14Discovered;
+        Fish15Discovered = data7.Fish15Discovered;
+
         eggsData data8 = saveSystem.LoadEggs();
 
         eggShop.nestLevel[0] = data8.nestLevel[0];
@@ -2108,6 +2122,7 @@ public class GameController : MonoBehaviour
         PlayerMovements.changeCursor = true;
         ForestfishPanel.SetActive(false);
         BeachFishPanel.SetActive(false);
+        IcelandFishPanel.SetActive(false);
         FishInv.save();
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
@@ -2128,6 +2143,7 @@ public class GameController : MonoBehaviour
         PlayerMovements.changeCursor = true;
         FishingAreaPanel.SetActive(false);
         BeachFishingAreaPanel.SetActive(false);
+       
         FishInv.save();
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
@@ -2837,7 +2853,7 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.iceland)
         {
             CameraMovement.minPosition = new Vector2(235.27f, 65.49f);
-            CameraMovement.maxPosition = new Vector2(289.68f, 84.95f);
+            CameraMovement.maxPosition = new Vector2(346.18f, 84.95f);
             snowUi.SetActive(true);
         }
         else if (currentMap == PlayerMap.iceDun1)

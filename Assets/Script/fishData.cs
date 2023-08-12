@@ -17,6 +17,12 @@ public class fishData
     public bool Fish9Discovered;
     public bool Fish10Discovered;
 
+    public bool Fish11Discovered;
+    public bool Fish12Discovered;
+    public bool Fish13Discovered;
+    public bool Fish14Discovered;
+    public bool Fish15Discovered;
+
     public fishData(GameController player)
     {
         Fish1Discovered = GameController.Fish1Discovered;
@@ -30,6 +36,12 @@ public class fishData
         Fish8Discovered = GameController.Fish8Discovered;
         Fish9Discovered = GameController.Fish9Discovered;
         Fish10Discovered = GameController.Fish10Discovered;
+
+        Fish11Discovered = GameController.Fish11Discovered;
+        Fish12Discovered = GameController.Fish12Discovered;
+        Fish13Discovered = GameController.Fish13Discovered;
+        Fish14Discovered = GameController.Fish14Discovered;
+        Fish15Discovered = GameController.Fish15Discovered;
     }
 
 }

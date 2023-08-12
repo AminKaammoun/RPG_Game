@@ -211,7 +211,26 @@ public class BeachFishingShop : MonoBehaviour
         {
             fishSpriteSlot[9].sprite = fishSprites[9];
         }
-
+        if (GameController.Fish11Discovered)
+        {
+            fishSpriteSlot[10].sprite = fishSprites[10];
+        }
+        if (GameController.Fish12Discovered)
+        {
+            fishSpriteSlot[11].sprite = fishSprites[11];
+        }
+        if (GameController.Fish13Discovered)
+        {
+            fishSpriteSlot[12].sprite = fishSprites[12];
+        }
+        if (GameController.Fish14Discovered)
+        {
+            fishSpriteSlot[13].sprite = fishSprites[13];
+        }
+        if (GameController.Fish15Discovered)
+        {
+            fishSpriteSlot[14].sprite = fishSprites[14];
+        }
         if (time.hour == 0)
         {
             if (reset)

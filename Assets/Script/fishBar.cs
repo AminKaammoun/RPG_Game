@@ -91,6 +91,31 @@ public class fishBar : MonoBehaviour
                     Instantiate(fishs[9], bobber.transform.position, Quaternion.identity);
                 }
             }
+            else if (GameController.currentMap == PlayerMap.iceland)
+            {
+                int rand = Random.Range(0, 100);
+
+                if (rand >= 0 && rand < 50)
+                {
+                    Instantiate(fishs[10], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 50 && rand < 70)
+                {
+                    Instantiate(fishs[11], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 70 && rand < 85)
+                {
+                    Instantiate(fishs[12], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 85 && rand < 95)
+                {
+                    Instantiate(fishs[13], bobber.transform.position, Quaternion.identity);
+                }
+                else if (rand >= 95 && rand < 100)
+                {
+                    Instantiate(fishs[14], bobber.transform.position, Quaternion.identity);
+                }
+            }
         }
 
     }
