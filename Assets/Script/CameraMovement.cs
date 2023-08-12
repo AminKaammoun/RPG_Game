@@ -11,6 +11,7 @@ public class CameraMovement : MonoBehaviour
     public static Vector2 maxPosition;
     public static Vector2 minPosition;
 
+    public static bool smallShake = false;
     public static bool shake = false;
     public static bool bigShake = false;
     public static bool bigbigShake = false;
@@ -27,6 +28,11 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (smallShake)
+        {
+            StartCoroutine(Shake(0.025f));
+            smallShake = false;
+        }
         if (shake)
         {
             StartCoroutine(Shake(0.05f));

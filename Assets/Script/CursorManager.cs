@@ -33,6 +33,12 @@ public class CursorManager : MonoBehaviour
                 Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
                 PlayerMovements.changeCursor = false;
             }
+            else if (PlayerMovements.currentWeapon == PlayerWeapon.rifle)
+            {
+                cursorHotspot = new Vector2(BowCursor.width / 2f, BowCursor.height / 2f);
+                Cursor.SetCursor(BowCursor, cursorHotspot, CursorMode.Auto);
+                PlayerMovements.changeCursor = false;
+            }
         }
     }
     public void OnMouseOver()

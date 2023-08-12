@@ -39,7 +39,8 @@ public enum PlayerMap
     water3,
     water4,
     water5,
-    iceland
+    iceland,
+    iceDun1
 
 
 }
@@ -1646,6 +1647,13 @@ public class GameController : MonoBehaviour
                 highlight[3].SetActive(false);
                 highlight[4].SetActive(false);
                 break;
+            case PlayerWeapon.rifle:
+                highlight[0].SetActive(false);
+                highlight[1].SetActive(false);
+                highlight[2].SetActive(true);
+                highlight[3].SetActive(false);
+                highlight[4].SetActive(false);
+                break;
         }
         if (ultValue >= 10)
         {
@@ -2831,6 +2839,12 @@ public class GameController : MonoBehaviour
             CameraMovement.minPosition = new Vector2(235.27f, 65.49f);
             CameraMovement.maxPosition = new Vector2(289.68f, 84.95f);
             snowUi.SetActive(true);
+        }
+        else if (currentMap == PlayerMap.iceDun1)
+        {
+            CameraMovement.minPosition = new Vector2(274.8f, 109.68f);
+            CameraMovement.maxPosition = new Vector2(279.04f, 116.27f);
+           
         }
 
 

@@ -17,7 +17,8 @@ public enum PlayerState
 public enum PlayerWeapon
 {
     sword,
-    bow
+    bow,
+    rifle
 }
 
 public class PlayerMovements : MonoBehaviour
@@ -69,7 +70,8 @@ public class PlayerMovements : MonoBehaviour
 
     public GameObject dashSmoke;
     
-    public GameObject Bow;
+    public GameObject Bow; 
+    public GameObject rifle;
     public GameObject HealEffect;
     public GameObject SheildEffect;
     public GameObject SpeedEffect;
@@ -148,7 +150,8 @@ public class PlayerMovements : MonoBehaviour
     public static bool healthIsMax = false;
     public static bool isDashButtonDown;
     public static bool isAttackingDown=false;
-   
+    public static bool isShootingBullet = false;
+
     public static bool canDash = true;
     public static bool canBeDamaged = true;
     public static bool in3rdCombo = false;
@@ -218,6 +221,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject attackSmoke;
     public GameObject attackSmoke1;
     public GameObject attackSmoke2;
+  
     private int combo = 0; 
 
    
@@ -928,6 +932,7 @@ public class PlayerMovements : MonoBehaviour
                 changeCursor = true;
                 currentWeapon = PlayerWeapon.sword;
                 Bow.SetActive(false);
+                rifle.SetActive(false);
                 weaponSwitchAudio.Play();
             }
             else if (Input.GetKeyDown("2") && currentWeapon != PlayerWeapon.bow)
@@ -935,6 +940,15 @@ public class PlayerMovements : MonoBehaviour
                 changeCursor = true;
                 currentWeapon = PlayerWeapon.bow;
                 Bow.SetActive(true);
+                rifle.SetActive(false);
+                weaponSwitchAudio.Play();
+            }
+            else if (Input.GetKeyDown("3") && currentWeapon != PlayerWeapon.rifle)
+            {
+                changeCursor = true;
+                currentWeapon = PlayerWeapon.rifle;
+                rifle.SetActive(true);
+                Bow.SetActive(false);
                 weaponSwitchAudio.Play();
             }
 
@@ -962,9 +976,6 @@ public class PlayerMovements : MonoBehaviour
                         {
                             StartCoroutine(waitAttack2());
                         }
-
-
-
 
                         TimeBtwSwings = 0.15f;
                      }
@@ -1264,7 +1275,8 @@ public class PlayerMovements : MonoBehaviour
                     case 0:
                          obg = Instantiate(attackSmoke, transform.position, Quaternion.identity);
                         break;
-                        case 1:
+                        
+                    case 1:
                          obg = Instantiate(attackSmoke2, transform.position, Quaternion.identity);
                         break;
                 }
@@ -1318,6 +1330,28 @@ public class PlayerMovements : MonoBehaviour
             CameraMovement.shake = true;
         }
 
+
+        if (isShootingBullet)
+        {
+            float moveDistance = 0.5f;
+            
+            Vector3 attackDirection = new Vector2(0,0);
+            
+            Vector3 targetPosition = transform.position + attackDirection * moveDistance;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, attackDirection, moveDistance, dashLayerMask);
+
+            if (hit.collider != null)
+            {
+                targetPosition = hit.point;
+            }
+
+            rb2D.MovePosition(targetPosition);
+            //transform.position = Vector2.MoveTowards(transform.position, targetPosition, 10f * Time.deltaTime);
+            isShootingBullet = false;
+          
+            CameraMovement.smallShake = true;
+        }
 
     }
 
