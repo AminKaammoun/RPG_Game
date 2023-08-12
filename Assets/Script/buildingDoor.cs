@@ -105,6 +105,41 @@ public class buildingDoor : MonoBehaviour
                     }
                     GameController.currentMap = PlayerMap.castle1;
                     signAudio.Play();
+                }else if(GameController.currentMap == PlayerMap.castle1)
+                {
+                    StartCoroutine(removeLoadingPanelToCastle2());
+                    player.transform.position = new Vector3(-7.03f, 117.07f, 0f);
+                    try
+                    {
+                        pet = GameObject.FindGameObjectWithTag("pet");
+                        pet.transform.position = new Vector3(-7.03f, 117.07f, 0f);
+                    }
+                    catch (System.NullReferenceException)
+                    {
+
+                        try
+                        {
+                            pet = GameObject.FindGameObjectWithTag("pumpkin_Pet");
+                            pet = GameObject.FindGameObjectWithTag("eye_Pet");
+                            pet = GameObject.FindGameObjectWithTag("crab_Pet");
+                            pet = GameObject.FindGameObjectWithTag("greenDragon_Pet");
+                            pet = GameObject.FindGameObjectWithTag("dog_Pet");
+                            pet = GameObject.FindGameObjectWithTag("snowDog_Pet");
+                            pet = GameObject.FindGameObjectWithTag("rock_pet");
+                            pet = GameObject.FindGameObjectWithTag("snake_Pet");
+                            pet = GameObject.FindGameObjectWithTag("worm_Pet");
+                            pet = GameObject.FindGameObjectWithTag("bee_Pet");
+                            pet = GameObject.FindGameObjectWithTag("red_dragon");
+                            pet.transform.position = new Vector3(-7.03f, 117.07f, 0f);
+                        }
+                        catch (System.NullReferenceException)
+                        {
+
+                        }
+
+                    }
+                    GameController.currentMap = PlayerMap.castle2;
+                    signAudio.Play();
                 }
                
             }
@@ -155,5 +190,13 @@ public class buildingDoor : MonoBehaviour
         loading.text = "LOADING";
         tpPanel.SetActive(false);
         GameController.enterCastle = true;
+    }
+
+    IEnumerator removeLoadingPanelToCastle2()
+    {
+        yield return new WaitForSeconds(1f);
+        loading.text = "LOADING";
+        tpPanel.SetActive(false);
+       
     }
 }

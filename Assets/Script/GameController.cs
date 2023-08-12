@@ -30,6 +30,7 @@ public enum PlayerMap
     beachDun4,
     Library,
     castle1,
+    castle2,
     shipOutside,
     ship1,
     ship2,
@@ -2690,7 +2691,12 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.castle1)
         {
             CameraMovement.minPosition = new Vector2(-29.7f, 80.01f);
-            CameraMovement.maxPosition = new Vector2(-24.26f, 92.89f);
+            CameraMovement.maxPosition = new Vector2(-2.52f, 102.86f);
+        }
+        else if (currentMap == PlayerMap.castle2)
+        {
+            CameraMovement.minPosition = new Vector2(-9.07f, 123.47f);
+            CameraMovement.maxPosition = new Vector2(-5.83f, 152.8f);
         }
         else if (currentMap == PlayerMap.shipOutside)
         {
