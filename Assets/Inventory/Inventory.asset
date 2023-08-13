@@ -14,5 +14,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePath: /Inventory.save
   database: {fileID: 11400000, guid: 89832b23f75f0df4d88d18477efc6e16, type: 2}
-  Container: []
+  Container:
+  - ID: 80
+    item: {fileID: 11400000, guid: aa1d219689c441f429e264a3866b44f8, type: 2}
+    amount: 2
+  - ID: 81
+    item: {fileID: 11400000, guid: 2f65db7d4c05b4845a105109408e9a54, type: 2}
+    amount: 1
+  - ID: 82
+    item: {fileID: 11400000, guid: 8fecdeb6ff9792d45aba6adaa3ab9f94, type: 2}
+    amount: 1
+  - ID: 85
+    item: {fileID: 11400000, guid: eea3b4e15ef55c94bbd869083b3904d5, type: 2}
+    amount: 1
+  - ID: 35
+    item: {fileID: 11400000, guid: 74a675b2c48350245afc8c325352e2f2, type: 2}
+    amount: 989
+  - ID: 33
+    item: {fileID: 11400000, guid: 95a0ab349ffd4b941a32489ae50c6e98, type: 2}
+    amount: 999
+  - ID: 34
+    item: {fileID: 11400000, guid: 76d607ae4097169439af07b3d1b6bcca, type: 2}
+    amount: 993
+  - ID: 32
+    item: {fileID: 11400000, guid: 85135ba9597dd064381c073d0d31c773, type: 2}
+    amount: 999
+  - ID: 31
+    item: {fileID: 11400000, guid: 9cae2f225fe7e2040924d9122aaa710c, type: 2}
+    amount: 959
+  - ID: 36
+    item: {fileID: 11400000, guid: d763566cfa6525e4a8618b83e1847d47, type: 2}
+    amount: 999
+  - ID: 37
+    item: {fileID: 11400000, guid: 431141aa92b95dd4ca2e49554318733d, type: 2}
+    amount: 999
+  - ID: 38
+    item: {fileID: 11400000, guid: 9cbd3da8fa9759c40885023ac8b13b54, type: 2}
+    amount: 999
+  - ID: 39
+    item: {fileID: 11400000, guid: 37592a563b4e66041baa9444d39c54e5, type: 2}
+    amount: 999
+  - ID: 53
+    item: {fileID: 11400000, guid: 941f49b162141714cb6884d51b206635, type: 2}
+    amount: 1
   GearsContainer: []

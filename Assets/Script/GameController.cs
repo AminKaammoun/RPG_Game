@@ -96,6 +96,7 @@ public class GameController : MonoBehaviour
     public GameObject BeachBlackSmithPanel;
     public GameObject GemCraftingPanel;
     public GameObject beachGemCraftingPanel;
+    public GameObject icelandGemCraftingPanel;
     public GameObject volume;
     public GameObject ultDirection;
     public GameObject BrownUltDirection;
@@ -2084,6 +2085,7 @@ public class GameController : MonoBehaviour
         PlayerMovements.changeCursor = true;
         LapidaryLeftSide.currentgear = SelectedGear.nothing;
         GemCraftingPanel.SetActive(false);
+        icelandGemCraftingPanel.SetActive(false);
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
@@ -2395,6 +2397,13 @@ public class GameController : MonoBehaviour
         ArrowSpawn.canShoot = false;
     }
 
+    public void icelandfishPanel()
+    {
+        IcelandFishPanel.SetActive(true);
+        icelandFishingArea.refreshInv = true;
+        ArrowSpawn.canShoot = false;
+    }
+
     public void ButcherPanel()
     {
         butcherPanel.SetActive(true);
@@ -2419,6 +2428,12 @@ public class GameController : MonoBehaviour
     public void BeachGemCraftingPanel()
     {
         beachGemCraftingPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
+    }
+
+    public void IcelandGemCraftingPanel()
+    {
+        icelandGemCraftingPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
 
