@@ -85,8 +85,10 @@ public class PlayerMovements : MonoBehaviour
     public GameObject electricEffect;
     public GameObject xpText;
     public GameObject xpText1;
+    public GameObject xpText2;
     public GameObject coinText;
     public GameObject coinText1;
+    public GameObject coinText2;
     public GameObject damageText;
     public GameObject stoneText;
     public GameObject IronStoneText;
@@ -1887,6 +1889,14 @@ public class PlayerMovements : MonoBehaviour
             collectXpAudio.Play();
             Destroy(collision.gameObject);
         }
+        if (collision.CompareTag("xpLvl3"))
+        {
+            GameController.level.AddExp(15);
+
+            var xpTxt = Instantiate(xpText2, transform.position, Quaternion.identity);
+            collectXpAudio.Play();
+            Destroy(collision.gameObject);
+        }
         if (collision.CompareTag("coin"))
         {
             collectCoinAudio.Play();
@@ -1899,6 +1909,13 @@ public class PlayerMovements : MonoBehaviour
             collectCoinAudio.Play();
             GameController.coins += 16000;
             var coinTxt = Instantiate(coinText1, transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("coin2"))
+        {
+            collectCoinAudio.Play();
+            GameController.coins += 24000;
+            var coinTxt = Instantiate(coinText2, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
         }
 

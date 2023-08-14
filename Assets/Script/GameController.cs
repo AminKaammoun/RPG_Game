@@ -94,6 +94,7 @@ public class GameController : MonoBehaviour
     public GameObject cockAudio;
     public GameObject BlackSmithPanel;
     public GameObject BeachBlackSmithPanel;
+    public GameObject IcelandBlackSmithPanel;
     public GameObject GemCraftingPanel;
     public GameObject beachGemCraftingPanel;
     public GameObject icelandGemCraftingPanel;
@@ -2065,6 +2066,7 @@ public class GameController : MonoBehaviour
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
         BeachBlackSmithPanel.SetActive(false);
+        IcelandBlackSmithPanel.SetActive(false);
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
@@ -2378,6 +2380,12 @@ public class GameController : MonoBehaviour
         BeachBlackSmithPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
+    public void icelandBlackSmithPanel()
+    {
+        IcelandBlackSmithPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
+    }
+
     public void SkillPointsPanel()
     {
         skillPointPanel.SetActive(true);
