@@ -12,7 +12,7 @@ public class WaterDun : MonoBehaviour
 
     Vector3 pos;
 
-    public GameObject goldKey;
+  
     public GameObject[] waves;
   
     public GameObject lightFish;
@@ -63,7 +63,7 @@ public class WaterDun : MonoBehaviour
 
         if (currentWave == 3 && lightFishes.Length + crabs.Length == 0)
         {
-            Instantiate(goldKey, pos, Quaternion.identity);
+           
             door.SetActive(false);
             currentWave = 0;
         }

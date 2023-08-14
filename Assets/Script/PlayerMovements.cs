@@ -1808,6 +1808,27 @@ public class PlayerMovements : MonoBehaviour
                     TakeDamage((int)damage);
                 }
             }
+            else if (collision.CompareTag("shardsoul"))
+            {
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    Enemy.attack = 200;
+                    damagePlayer = false;
+
+                    hurtAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+                   
+                    iselectricProjectileDamaged = true;
+                    GameController.ultValue += 0.5f;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 200;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
+            }
         }
         else if(!canBeDamaged)
         {

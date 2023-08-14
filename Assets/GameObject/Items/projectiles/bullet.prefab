@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3093159082623073293}
   - component: {fileID: 5942109703055718688}
   - component: {fileID: 8351903211734530350}
+  - component: {fileID: -2997395736680685680}
   m_Layer: 0
   m_Name: bullet
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,3 +288,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.08, y: 6.28}
   m_EdgeRadius: 0
+--- !u!114 &-2997395736680685680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575799802615927914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
+  knockTime: 0.25
+  otherTag: shard

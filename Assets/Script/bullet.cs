@@ -21,5 +21,14 @@ public class bullet : MonoBehaviour
         rb.transform.Translate(Vector2.right * bulletForce * Time.deltaTime);
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("shard"))
+        {
+            Destroy(gameObject);
+        }
+           
+    }
+
 }
  
