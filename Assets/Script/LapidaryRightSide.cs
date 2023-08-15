@@ -119,8 +119,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/20";
-                    if (inventory.Container[i].amount > 19)
+                    item3.text = inventory.Container[i].amount.ToString() + "/6";
+                    if (inventory.Container[i].amount > 5)
                     {
 
                         item3.color = Color.green;
@@ -146,7 +146,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/20";
+            item3.text = "0/6";
         }
 
         item1Found = false;
@@ -192,8 +192,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/40";
-                    if (inventory.Container[i].amount > 39)
+                    item3.text = inventory.Container[i].amount.ToString() + "/12";
+                    if (inventory.Container[i].amount > 11)
                     {
 
                         item3.color = Color.green;
@@ -219,7 +219,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/40";
+                item3.text = "0/12";
             }
 
             item1Found = false;
@@ -266,8 +266,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/80";
-                    if (inventory.Container[i].amount > 79)
+                    item3.text = inventory.Container[i].amount.ToString() + "/24";
+                    if (inventory.Container[i].amount > 23)
                     {
 
                         item3.color = Color.green;
@@ -293,7 +293,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/80";
+                item3.text = "0/24";
             }
 
             item1Found = false;
@@ -356,8 +356,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/20";
-                    if (inventory.Container[i].amount > 19)
+                    item3.text = inventory.Container[i].amount.ToString() + "/6";
+                    if (inventory.Container[i].amount > 5)
                     {
 
                         item3.color = Color.green;
@@ -382,7 +382,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/20";
+                item3.text = "0/6";
             }
 
             item1Found = false;
@@ -425,8 +425,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/40";
-                    if (inventory.Container[i].amount > 39)
+                    item3.text = inventory.Container[i].amount.ToString() + "/12";
+                    if (inventory.Container[i].amount > 11)
                     {
 
                         item3.color = Color.green;
@@ -451,7 +451,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/40";
+                item3.text = "0/12";
             }
 
             item1Found = false;
@@ -495,8 +495,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/80";
-                    if (inventory.Container[i].amount > 79)
+                    item3.text = inventory.Container[i].amount.ToString() + "/24";
+                    if (inventory.Container[i].amount > 23)
                     {
 
                         item3.color = Color.green;
@@ -521,7 +521,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/80";
+                item3.text = "0/24";
             }
 
             item1Found = false;
@@ -581,8 +581,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/20";
-                    if (inventory.Container[i].amount > 19)
+                    item3.text = inventory.Container[i].amount.ToString() + "/6";
+                    if (inventory.Container[i].amount > 5)
                     {
 
                         item3.color = Color.green;
@@ -608,7 +608,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/20";
+                item3.text = "0/6";
             }
 
             item1Found = false;
@@ -651,8 +651,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/40";
-                    if (inventory.Container[i].amount > 39)
+                    item3.text = inventory.Container[i].amount.ToString() + "/12";
+                    if (inventory.Container[i].amount > 11)
                     {
 
                         item3.color = Color.green;
@@ -678,7 +678,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/40";
+                item3.text = "0/12";
             }
 
             item1Found = false;
@@ -722,8 +722,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/80";
-                    if (inventory.Container[i].amount > 79)
+                    item3.text = inventory.Container[i].amount.ToString() + "/24";
+                    if (inventory.Container[i].amount > 23)
                     {
 
                         item3.color = Color.green;
@@ -749,7 +749,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/80";
+                item3.text = "0/24";
             }
 
             item1Found = false;
@@ -810,8 +810,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/20";
-                    if (inventory.Container[i].amount > 19)
+                    item3.text = inventory.Container[i].amount.ToString() + "/6";
+                    if (inventory.Container[i].amount > 5)
                     {
 
                         item3.color = Color.green;
@@ -837,7 +837,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/20";
+                item3.text = "0/6";
             }
 
             item1Found = false;
@@ -880,8 +880,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/40";
-                    if (inventory.Container[i].amount > 39)
+                    item3.text = inventory.Container[i].amount.ToString() + "/12";
+                    if (inventory.Container[i].amount > 11)
                     {
 
                         item3.color = Color.green;
@@ -907,7 +907,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/40";
+                item3.text = "0/12";
             }
 
             item1Found = false;
@@ -951,8 +951,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/80";
-                    if (inventory.Container[i].amount > 79)
+                    item3.text = inventory.Container[i].amount.ToString() + "/24";
+                    if (inventory.Container[i].amount > 23)
                     {
 
                         item3.color = Color.green;
@@ -978,7 +978,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/80";
+                item3.text = "0/24";
             }
 
             item1Found = false;
@@ -1040,8 +1040,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/20";
-                    if (inventory.Container[i].amount > 19)
+                    item3.text = inventory.Container[i].amount.ToString() + "/6";
+                    if (inventory.Container[i].amount > 5)
                     {
 
                         item3.color = Color.green;
@@ -1067,7 +1067,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/20";
+                item3.text = "0/6";
             }
 
             item1Found = false;
@@ -1111,8 +1111,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/40";
-                    if (inventory.Container[i].amount > 39)
+                    item3.text = inventory.Container[i].amount.ToString() + "/12";
+                    if (inventory.Container[i].amount > 11)
                     {
 
                         item3.color = Color.green;
@@ -1138,7 +1138,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/40";
+                item3.text = "0/12";
             }
 
             item1Found = false;
@@ -1183,8 +1183,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/80";
-                    if (inventory.Container[i].amount > 79)
+                    item3.text = inventory.Container[i].amount.ToString() + "/24";
+                    if (inventory.Container[i].amount > 23)
                     {
 
                         item3.color = Color.green;
@@ -1210,7 +1210,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/80";
+                item3.text = "0/24";
             }
 
             item1Found = false;
@@ -1269,8 +1269,8 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/20";
-                    if (inventory.Container[i].amount > 19)
+                    item3.text = inventory.Container[i].amount.ToString() + "/6";
+                    if (inventory.Container[i].amount > 5)
                     {
 
                         item3.color = Color.green;
@@ -1296,7 +1296,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/20";
+                item3.text = "0/6";
             }
 
 
@@ -1340,7 +1340,7 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/40";
+                    item3.text = inventory.Container[i].amount.ToString() + "/12";
                     if (inventory.Container[i].amount > 39)
                     {
 
@@ -1367,7 +1367,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/40";
+                item3.text = "0/12";
             }
 
 
@@ -1412,7 +1412,7 @@ public class LapidaryRightSide : MonoBehaviour
                 if (inventory.Container[i].item.name == "Wood")
                 {
                     item3Found = true;
-                    item3.text = inventory.Container[i].amount.ToString() + "/80";
+                    item3.text = inventory.Container[i].amount.ToString() + "/24";
                     if (inventory.Container[i].amount > 79)
                     {
 
@@ -1439,7 +1439,7 @@ public class LapidaryRightSide : MonoBehaviour
             if (!item3Found)
             {
                 item3.color = Color.white;
-                item3.text = "0/80";
+                item3.text = "0/24";
             }
 
 
@@ -1491,7 +1491,7 @@ public class LapidaryRightSide : MonoBehaviour
                 {
 
 
-                    if (inventory.Container[i].amount > 19)
+                    if (inventory.Container[i].amount > 5)
                     {
                         item3Found = true;
                         item3.color = Color.green;
@@ -1520,7 +1520,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 6; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -1593,8 +1593,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/20";
-                if (inventory.Container[i].amount > 19)
+                item3.text = inventory.Container[i].amount.ToString() + "/6";
+                if (inventory.Container[i].amount > 5)
                 {
 
                     item3.color = Color.green;
@@ -1620,7 +1620,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/20";
+            item3.text = "0/6";
         }
     }
 
@@ -1667,7 +1667,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 39)
+                if (inventory.Container[i].amount > 11)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -1696,7 +1696,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 12; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -1769,8 +1769,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/40";
-                if (inventory.Container[i].amount > 39)
+                item3.text = inventory.Container[i].amount.ToString() + "/12";
+                if (inventory.Container[i].amount > 11)
                 {
 
                     item3.color = Color.green;
@@ -1796,7 +1796,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/40";
+            item3.text = "0/12";
         }
     }
 
@@ -1842,7 +1842,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 79)
+                if (inventory.Container[i].amount > 23)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -1871,7 +1871,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 24; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -1944,8 +1944,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/80";
-                if (inventory.Container[i].amount > 79)
+                item3.text = inventory.Container[i].amount.ToString() + "/24";
+                if (inventory.Container[i].amount > 23)
                 {
 
                     item3.color = Color.green;
@@ -1971,7 +1971,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/80";
+            item3.text = "0/24";
         }
     }
 
@@ -2018,7 +2018,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 19)
+                if (inventory.Container[i].amount > 5)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -2047,7 +2047,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 6; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -2120,8 +2120,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/20";
-                if (inventory.Container[i].amount > 19)
+                item3.text = inventory.Container[i].amount.ToString() + "/6";
+                if (inventory.Container[i].amount > 5)
                 {
 
                     item3.color = Color.green;
@@ -2147,7 +2147,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/20";
+            item3.text = "0/6";
         }
     }
 
@@ -2194,7 +2194,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 39)
+                if (inventory.Container[i].amount > 11)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -2223,7 +2223,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 12; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -2296,8 +2296,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/40";
-                if (inventory.Container[i].amount > 39)
+                item3.text = inventory.Container[i].amount.ToString() + "/12";
+                if (inventory.Container[i].amount > 11)
                 {
 
                     item3.color = Color.green;
@@ -2323,7 +2323,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/40";
+            item3.text = "0/12";
         }
     }
 
@@ -2369,7 +2369,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 79)
+                if (inventory.Container[i].amount > 23)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -2398,7 +2398,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 24; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -2471,8 +2471,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/80";
-                if (inventory.Container[i].amount > 79)
+                item3.text = inventory.Container[i].amount.ToString() + "/24";
+                if (inventory.Container[i].amount > 23)
                 {
 
                     item3.color = Color.green;
@@ -2498,7 +2498,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/80";
+            item3.text = "0/24";
         }
     }
 
@@ -2545,7 +2545,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 19)
+                if (inventory.Container[i].amount > 5)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -2574,7 +2574,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 6; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -2647,8 +2647,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/20";
-                if (inventory.Container[i].amount > 19)
+                item3.text = inventory.Container[i].amount.ToString() + "/6";
+                if (inventory.Container[i].amount > 5)
                 {
 
                     item3.color = Color.green;
@@ -2674,7 +2674,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/20";
+            item3.text = "0/6";
         }
     }
 
@@ -2720,7 +2720,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 39)
+                if (inventory.Container[i].amount > 11)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -2749,7 +2749,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 12; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -2822,8 +2822,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/40";
-                if (inventory.Container[i].amount > 39)
+                item3.text = inventory.Container[i].amount.ToString() + "/12";
+                if (inventory.Container[i].amount > 11)
                 {
 
                     item3.color = Color.green;
@@ -2849,7 +2849,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/40";
+            item3.text = "0/12";
         }
     }
 
@@ -2895,7 +2895,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 79)
+                if (inventory.Container[i].amount > 23)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -2924,7 +2924,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 24; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -2997,8 +2997,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/80";
-                if (inventory.Container[i].amount > 79)
+                item3.text = inventory.Container[i].amount.ToString() + "/24";
+                if (inventory.Container[i].amount > 23)
                 {
 
                     item3.color = Color.green;
@@ -3024,7 +3024,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/80";
+            item3.text = "0/24";
         }
     }
 
@@ -3070,7 +3070,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 19)
+                if (inventory.Container[i].amount > 5)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -3099,7 +3099,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 6; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -3172,8 +3172,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/20";
-                if (inventory.Container[i].amount > 19)
+                item3.text = inventory.Container[i].amount.ToString() + "/6";
+                if (inventory.Container[i].amount > 5)
                 {
 
                     item3.color = Color.green;
@@ -3199,7 +3199,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/20";
+            item3.text = "0/6";
         }
     }
 
@@ -3245,7 +3245,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 39)
+                if (inventory.Container[i].amount > 11)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -3274,7 +3274,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 12; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -3347,8 +3347,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/40";
-                if (inventory.Container[i].amount > 39)
+                item3.text = inventory.Container[i].amount.ToString() + "/12";
+                if (inventory.Container[i].amount > 11)
                 {
 
                     item3.color = Color.green;
@@ -3374,7 +3374,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/40";
+            item3.text = "0/12";
         }
     }
 
@@ -3420,7 +3420,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 79)
+                if (inventory.Container[i].amount > 23)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -3449,7 +3449,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 24; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -3522,8 +3522,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/80";
-                if (inventory.Container[i].amount > 79)
+                item3.text = inventory.Container[i].amount.ToString() + "/24";
+                if (inventory.Container[i].amount > 23)
                 {
 
                     item3.color = Color.green;
@@ -3549,7 +3549,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/80";
+            item3.text = "0/24";
         }
     }
 
@@ -3595,7 +3595,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 19)
+                if (inventory.Container[i].amount > 5)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -3624,7 +3624,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 6; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -3697,8 +3697,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/20";
-                if (inventory.Container[i].amount > 19)
+                item3.text = inventory.Container[i].amount.ToString() + "/6";
+                if (inventory.Container[i].amount > 5)
                 {
 
                     item3.color = Color.green;
@@ -3724,7 +3724,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/20";
+            item3.text = "0/6";
         }
     }
 
@@ -3770,7 +3770,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 39)
+                if (inventory.Container[i].amount > 11)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -3799,7 +3799,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 12; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -3872,8 +3872,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/40";
-                if (inventory.Container[i].amount > 39)
+                item3.text = inventory.Container[i].amount.ToString() + "/12";
+                if (inventory.Container[i].amount > 11)
                 {
 
                     item3.color = Color.green;
@@ -3899,7 +3899,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/40";
+            item3.text = "0/12";
         }
     }
 
@@ -3945,7 +3945,7 @@ public class LapidaryRightSide : MonoBehaviour
             {
 
 
-                if (inventory.Container[i].amount > 79)
+                if (inventory.Container[i].amount > 23)
                 {
                     item3Found = true;
                     item3.color = Color.green;
@@ -3974,7 +3974,7 @@ public class LapidaryRightSide : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(forged, 1.15f);
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 24; i++)
             {
 
                 inventory.RemoveItem(Wood);
@@ -4047,8 +4047,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/80";
-                if (inventory.Container[i].amount > 79)
+                item3.text = inventory.Container[i].amount.ToString() + "/24";
+                if (inventory.Container[i].amount > 23)
                 {
 
                     item3.color = Color.green;
@@ -4074,7 +4074,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/80";
+            item3.text = "0/24";
         }
     }
 
@@ -4131,8 +4131,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/20";
-                if (inventory.Container[i].amount > 19)
+                item3.text = inventory.Container[i].amount.ToString() + "/6";
+                if (inventory.Container[i].amount > 5)
                 {
 
                     item3.color = Color.green;
@@ -4157,7 +4157,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/20";
+            item3.text = "0/6";
         }
 
         item1Found = false;
@@ -4218,8 +4218,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/40";
-                if (inventory.Container[i].amount > 39)
+                item3.text = inventory.Container[i].amount.ToString() + "/12";
+                if (inventory.Container[i].amount > 11)
                 {
 
                     item3.color = Color.green;
@@ -4244,7 +4244,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/40";
+            item3.text = "0/12";
         }
 
         item1Found = false;
@@ -4305,8 +4305,8 @@ public class LapidaryRightSide : MonoBehaviour
             if (inventory.Container[i].item.name == "Wood")
             {
                 item3Found = true;
-                item3.text = inventory.Container[i].amount.ToString() + "/80";
-                if (inventory.Container[i].amount > 79)
+                item3.text = inventory.Container[i].amount.ToString() + "/24";
+                if (inventory.Container[i].amount > 23)
                 {
 
                     item3.color = Color.green;
@@ -4331,7 +4331,7 @@ public class LapidaryRightSide : MonoBehaviour
         if (!item3Found)
         {
             item3.color = Color.white;
-            item3.text = "0/80";
+            item3.text = "0/24";
         }
 
         item1Found = false;

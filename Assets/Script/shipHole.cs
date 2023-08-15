@@ -49,31 +49,46 @@ public class shipHole : MonoBehaviour
                 jumpAudio.Play();
                     
                 StartCoroutine(removeLoadingPanelToShip1());
-                    //teleport from outsideShip to ship1
+                //teleport from outsideShip to ship1
 
-                    if (GameController.currentMap == PlayerMap.ship2)
-                    {
-                        player.transform.position = new Vector3(214.58f, 228.41f, 0f);
-                        GameController.changeBGS(underWaterSound, audioSource);
-                        GameController.currentMap = PlayerMap.water1;
-                        PlayerMovements.speed /= 2;
-                    }
+                if (GameController.currentMap == PlayerMap.ship2)
+                {
+                    player.transform.position = new Vector3(214.58f, 228.41f, 0f);
+                    GameController.changeBGS(underWaterSound, audioSource);
+                    GameController.currentMap = PlayerMap.water1;
+                    PlayerMovements.speed /= 2;
+                }
 
-                  else  if(GameController.currentMap == PlayerMap.water4)
+                else if (GameController.currentMap == PlayerMap.water4)
                 {
                     player.transform.position = new Vector3(277.59f, 266.1f, 0f);
                     GameController.changeBGS(underWaterSound, audioSource);
                     GameController.currentMap = PlayerMap.water5;
                     PlayerMovements.speed /= 2;
-                }else if (GameController.currentMap == PlayerMap.water5)
+                }
+                else if (GameController.currentMap == PlayerMap.water5)
                 {
-                    
+
                     player.transform.position = new Vector3(173.26f, 163.82f, 0f);
                     GameController.changeBGS(beachSound, audioSource);
                     GameController.currentMap = PlayerMap.beach;
                     PlayerMovements.speed *= 2;
                 }
+                else if (GameController.currentMap == PlayerMap.beach)
+                {
+                    player.transform.position = new Vector3(124.92f, 299.92f, 0f);
+                    GameController.changeBGS(underWaterSound, audioSource);
+                    GameController.currentMap = PlayerMap.beachGatherArea;
+                    PlayerMovements.speed /= 2;
+                }
+                else if (GameController.currentMap == PlayerMap.beachGatherArea)
+                {
 
+                    player.transform.position = new Vector3(110.51f, 115.45f, 0f);
+                    GameController.changeBGS(beachSound, audioSource);
+                    GameController.currentMap = PlayerMap.beach;
+                    PlayerMovements.speed *= 2;
+                }
 
                 }
                 else if (Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("haveDivingMask") == 0)

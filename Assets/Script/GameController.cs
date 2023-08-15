@@ -28,6 +28,7 @@ public enum PlayerMap
     beachDun2,
     beachDun3,
     beachDun4,
+    beachGatherArea,
     Library,
     castle1,
     castle2,
@@ -2896,10 +2897,40 @@ public class GameController : MonoBehaviour
         else if (currentMap == PlayerMap.iceDun2)
         {
             CameraMovement.minPosition = new Vector2(263.04f, 134.73f);
-            CameraMovement.maxPosition = new Vector2(273.96f, 143.18f);
+            CameraMovement.maxPosition = new Vector2(273.96f, 145.14f);
 
         }
+        else if (currentMap == PlayerMap.beachGatherArea)
+        {
+            CameraMovement.minPosition = new Vector2(99.54f, 290.13f);
+            CameraMovement.maxPosition = new Vector2(146.74f, 295.9f);
+            PlayerMovements.spawnDivingGear = true;
+            if (TimeBtwBubbleSpawn <= 0)
+            {
+                int rand = Random.Range(0, 30);
+                int rand1 = Random.Range(0, 5);
+
+                Instantiate(bubble[rand1], bubbleSpawner[rand].transform.position, Quaternion.identity);
+                TimeBtwBubbleSpawn = StartTime;
+            }
+            else
+            {
+                TimeBtwBubbleSpawn -= Time.deltaTime;
+            }
+            if (oxygenAmount > 0)
+            {
+                oxygenAmount -= Time.deltaTime;
+                OxygenBar.SetOxyValue(oxygenAmount);
+                oxyAmountText.text = ((int)oxygenAmount).ToString();
+            }
+            else
+            {
+                Debug.Log("dead");
+            }
         }
+
+
+    }
     public static void changeBGS(AudioClip music, AudioSource source)
     {
         source.Stop();
