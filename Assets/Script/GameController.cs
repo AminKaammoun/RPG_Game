@@ -40,7 +40,8 @@ public enum PlayerMap
     water4,
     water5,
     iceland,
-    iceDun1
+    iceDun1,
+    iceDun2
 
 
 }
@@ -91,6 +92,7 @@ public class GameController : MonoBehaviour
     public GameObject theVillage;
     public GameObject theForrest;
     public GameObject theBeach;
+    public GameObject iceland;
     public GameObject cockAudio;
     public GameObject BlackSmithPanel;
     public GameObject BeachBlackSmithPanel;
@@ -2477,6 +2479,11 @@ public class GameController : MonoBehaviour
             theBeach.SetActive(true);
             StartCoroutine(removeText());
         }
+        else if (currentMap == PlayerMap.iceland)
+        {
+            iceland.SetActive(true);
+            StartCoroutine(removeText());
+        }
     }
     IEnumerator removeText()
     {
@@ -2780,7 +2787,7 @@ public class GameController : MonoBehaviour
             if (TimeBtwBubbleSpawn <= 0)
             {
                 int rand = Random.Range(0, 30);
-                int rand1 = Random.Range(0,5);
+                int rand1 = Random.Range(0, 5);
 
                 Instantiate(bubble[rand1], bubbleSpawner[rand].transform.position, Quaternion.identity);
                 TimeBtwBubbleSpawn = StartTime;
@@ -2802,7 +2809,8 @@ public class GameController : MonoBehaviour
                 Debug.Log("dead");
             }
 
-        }else if(currentMap == PlayerMap.water2)
+        }
+        else if (currentMap == PlayerMap.water2)
         {
             CameraMovement.minPosition = new Vector2(217.65f, 262.86f);
             CameraMovement.maxPosition = new Vector2(236.55f, 274.42f);
@@ -2883,11 +2891,15 @@ public class GameController : MonoBehaviour
         {
             CameraMovement.minPosition = new Vector2(274.8f, 109.68f);
             CameraMovement.maxPosition = new Vector2(279.04f, 116.27f);
-           
+
         }
+        else if (currentMap == PlayerMap.iceDun2)
+        {
+            CameraMovement.minPosition = new Vector2(263.04f, 134.73f);
+            CameraMovement.maxPosition = new Vector2(273.96f, 143.18f);
 
-
-    }
+        }
+        }
     public static void changeBGS(AudioClip music, AudioSource source)
     {
         source.Stop();

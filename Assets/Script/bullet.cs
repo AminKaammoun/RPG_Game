@@ -23,12 +23,16 @@ public class bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("shard"))
+        if (collision.CompareTag("shard") || collision.CompareTag("golem"))
         {
+            var smok = Instantiate(smoke,transform.position,Quaternion.identity);
+            Destroy(smok, 1f);
             Destroy(gameObject);
         }
            
     }
+
+    
 
 }
  
