@@ -83,6 +83,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject plant1Effect;
     public GameObject smallSlashEffect;
     public GameObject electricEffect;
+    public GameObject redElectricEffect;
     public GameObject scratchEffect;
     public GameObject xpText;
     public GameObject xpText1;
@@ -172,6 +173,7 @@ public class PlayerMovements : MonoBehaviour
     private bool isCacodaemonDamaged = false;
     private bool iselectricProjectileDamaged = false; 
     private bool isShardsoulDamaged = false;
+    private bool isSkullBulletDamaged = false;
     private bool damagePlayer = true;
 
     public ItemObject AutumnLeaf;
@@ -932,6 +934,14 @@ public class PlayerMovements : MonoBehaviour
             slashEff.transform.parent = this.gameObject.transform;
             slashEff.transform.position = transform.position;
             isShardsoulDamaged = false;
+            Destroy(slashEff, 0.3f);
+        }
+        if (isSkullBulletDamaged)
+        {
+            GameObject slashEff = Instantiate(redElectricEffect) as GameObject;
+            slashEff.transform.parent = this.gameObject.transform;
+            slashEff.transform.position = transform.position;
+            isSkullBulletDamaged = false;
             Destroy(slashEff, 0.3f);
         }
 
@@ -1721,11 +1731,11 @@ public class PlayerMovements : MonoBehaviour
                     {
                         hurtAudio.Play();
                     }
-                   
+
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                   
+
                     isCrabDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -1738,7 +1748,7 @@ public class PlayerMovements : MonoBehaviour
             {
                 if (damagePlayer)
                 {
-                    
+
                     PlayerDamage.num = 0;
                     Enemy.attack = 150;
                     damagePlayer = false;
@@ -1747,7 +1757,7 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                 
+
                     isLightFishDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -1768,7 +1778,7 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                    
+
                     isJellyFishDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -1808,7 +1818,7 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                   
+
                     iselectricProjectileDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -1829,7 +1839,7 @@ public class PlayerMovements : MonoBehaviour
                     StartCoroutine(backAfterHit());
                     rend.color = colorToTurnTo;
                     StartCoroutine(returnColor());
-                   
+
                     isShardsoulDamaged = true;
                     GameController.ultValue += 0.5f;
                     var ins = Instantiate(damageText, transform.position, Quaternion.identity);
@@ -1838,6 +1848,28 @@ public class PlayerMovements : MonoBehaviour
                     TakeDamage((int)damage);
                 }
             }
+            else if (collision.CompareTag("skullBullet"))
+            {
+                if (damagePlayer)
+                {
+                    PlayerDamage.num = 0;
+                    Enemy.attack = 150;
+                    damagePlayer = false;
+
+                    hurtAudio.Play();
+                    StartCoroutine(backAfterHit());
+                    rend.color = colorToTurnTo;
+                    StartCoroutine(returnColor());
+
+                    isSkullBulletDamaged = true;
+                    GameController.ultValue += 0.5f;
+                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                    float attack = 150;
+                    float damage = attack * (100 / (100 + PlayerMovements.defence));
+                    TakeDamage((int)damage);
+                }
+            }
+            
         }
         else if(!canBeDamaged)
         {
@@ -1901,6 +1933,10 @@ public class PlayerMovements : MonoBehaviour
                 hurtWithShieldAudio.Play();
             }
             else if (collision.CompareTag("shardsoul"))
+            {
+                hurtWithShieldAudio.Play();
+            }
+            else if (collision.CompareTag("skullBullet"))
             {
                 hurtWithShieldAudio.Play();
             }

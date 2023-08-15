@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 6198266951167721987}
   - component: {fileID: 1612509743988434887}
   - component: {fileID: 668119073914771433}
+  - component: {fileID: -3326477796233306862}
+  - component: {fileID: -8164217296270355064}
   m_Layer: 0
   m_Name: Rock
   m_TagString: rockUlt
@@ -255,9 +257,6 @@ MonoBehaviour:
   thrust: 20
   knockTime: 0.25
   otherTag: log
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &-7959239792281156085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,9 +272,6 @@ MonoBehaviour:
   thrust: 20
   knockTime: 0.25
   otherTag: treant
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &-3161859193755580642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,9 +347,6 @@ MonoBehaviour:
   thrust: 20
   knockTime: 0.25
   otherTag: lightFish
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &6198266951167721987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,9 +362,6 @@ MonoBehaviour:
   thrust: 20
   knockTime: 0.25
   otherTag: jellyFish
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &1612509743988434887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,9 +377,6 @@ MonoBehaviour:
   thrust: 20
   knockTime: 0.25
   otherTag: Enemy
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &668119073914771433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +392,33 @@ MonoBehaviour:
   thrust: 20
   knockTime: 0.25
   otherTag: crab
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
+--- !u!114 &-3326477796233306862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100404796711449207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 20
+  knockTime: 0.25
+  otherTag: shard
+--- !u!114 &-8164217296270355064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100404796711449207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6258899759376dd41b64f3405b0d0855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 20
+  knockTime: 0.25
+  otherTag: golem

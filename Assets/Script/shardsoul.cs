@@ -22,6 +22,7 @@ public class shardsoul : Enemy
 
     public AudioSource hurtAudio;
     public AudioSource BowHurtAudio;
+    public AudioSource RifleHurtAudio;
 
     private bool isHurt = false;
     private bool canBeDamaged = true;
@@ -56,6 +57,12 @@ public class shardsoul : Enemy
         else if (isHurt && PlayerMovements.currentWeapon == PlayerWeapon.bow)
         {
             BowHurtAudio.Play();
+            isHurt = false;
+
+        }
+        else if (isHurt && PlayerMovements.currentWeapon == PlayerWeapon.rifle)
+        {
+            RifleHurtAudio.Play();
             isHurt = false;
 
         }

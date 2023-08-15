@@ -9,7 +9,7 @@ public class bullet1 : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        Destroy(gameObject,5f);
+        Destroy(gameObject,10f);
     }
 
     // Update is called once per frame
@@ -41,6 +41,14 @@ public class bullet1 : MonoBehaviour
             theScale.x *= -1;
             transform.localScale = theScale;
             faceLeft = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ultSlash"))
+        {
+            Destroy(gameObject);
         }
     }
 }
