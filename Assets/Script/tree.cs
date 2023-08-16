@@ -130,6 +130,17 @@ public class tree : MonoBehaviour
                     break;
 
             }
+            int rand3 = Random.Range(0, 2);
+            switch (rand3)
+            {
+                case 0:
+                    GameController.harvestingLevel.AddExp(1);
+                    break; 
+                case 1:
+                    GameController.harvestingLevel.AddExp(2);
+                    break;
+            }
+            
         }
     }
     IEnumerator backFromTreeShake()

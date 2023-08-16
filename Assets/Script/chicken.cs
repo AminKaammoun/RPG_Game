@@ -74,7 +74,7 @@ public class chicken : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("hitBox") || collision.gameObject.CompareTag("Arrow"))
         {
-
+            GameController.huntingLevel.AddExp(1);
             chickenSound.Play();
             hurtAudio.Play();
             Instantiate(chickenThigh, transform.position, Quaternion.identity);

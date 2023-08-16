@@ -156,6 +156,7 @@ public class rockBlue : MonoBehaviour
                     break;
 
             }
+            GameController.miningLevel.AddExp(2);
         }
     }
 }

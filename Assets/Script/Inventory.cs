@@ -56,6 +56,8 @@ public class Inventory : MonoBehaviour
 
     public GameObject toolsMenu;
     public GameObject gearsMenu;
+    public GameObject levelsMenu;
+
     public GameObject divingKit;
 
     // Start is called before the first frame update
@@ -510,11 +512,20 @@ public class Inventory : MonoBehaviour
     {
         toolsMenu.SetActive(false);
         gearsMenu.SetActive(true); 
+        levelsMenu.SetActive(false);
     }
 
     public void showTools()
     {
         toolsMenu.SetActive(true);
         gearsMenu.SetActive(false);
+        levelsMenu.SetActive(false);
+    }
+
+    public void showLevels()
+    {
+        toolsMenu.SetActive(false);
+        gearsMenu.SetActive(false);
+        levelsMenu.SetActive(true);
     }
 }

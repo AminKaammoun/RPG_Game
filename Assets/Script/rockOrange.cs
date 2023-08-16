@@ -156,6 +156,7 @@ public class rockOrange : MonoBehaviour
                     break;
 
             }
+            GameController.miningLevel.AddExp(2);
         }
     }
 }

@@ -11,6 +11,14 @@ public class playerData
     public int diamonds;
     public int level;
     public int xp;
+    public int miningLevel;
+    public int miningXp;
+    public int harvastLevel;
+    public int harvastXp;
+    public int huntingLevel;
+    public int huntingXp;
+    public int fishingLevel;
+    public int fishingXp;
     public int skill1Level;
     public int skill2Level;
     public int skill3Level;
@@ -30,10 +38,51 @@ public class playerData
         
         diamonds = GameController.diamonds;
         health = PlayerMovements.health;
+       
         level = GameController.level.currentLevel;
         xp = GameController.level.experience;
         //level = 1;
         //xp = 0;
+        if(level == 0)
+        {
+            level = 1;
+        }
+
+        miningLevel = GameController.miningLevel.currentLevel;
+        miningXp = GameController.miningLevel.experience;
+        //miningLevel = 1;
+        //miningXp = 0;
+        if(miningLevel == 0)
+        {
+            miningLevel = 1;
+        }
+
+        harvastLevel = GameController.harvestingLevel.currentLevel;
+        harvastXp = GameController.harvestingLevel.experience;
+        //harvastLevel = 1;
+        //harvastXp = 0;
+        if (harvastLevel == 0)
+        {
+            harvastLevel = 1;
+        }
+
+        huntingLevel = GameController.huntingLevel.currentLevel;
+        huntingXp = GameController.huntingLevel.experience;
+        //huntingLevel = 1;
+        //huntingXp = 0;
+        if(huntingLevel == 0)
+        {
+            huntingLevel = 1;
+        }
+
+        fishingLevel = GameController.fishingLevel.currentLevel;
+        fishingXp = GameController.fishingLevel.experience;
+        //fishingLevel = 1;
+        //fishingXp = 0;
+        if(fishingLevel == 0)
+        {
+            fishingLevel = 1;
+        }
 
         skill1Level = GameController.skill1Level;
         skill2Level = GameController.skill2Level;

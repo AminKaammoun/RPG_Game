@@ -165,6 +165,7 @@ public class rock : MonoBehaviour
                     break;
 
             }
+            GameController.miningLevel.AddExp(1);
         }
     }
 }

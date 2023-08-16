@@ -94,6 +94,7 @@ public class GameController : MonoBehaviour
     public GameObject theForrest;
     public GameObject theBeach;
     public GameObject iceland;
+    public GameObject levelUpPanel;
     public GameObject cockAudio;
     public GameObject BlackSmithPanel;
     public GameObject BeachBlackSmithPanel;
@@ -162,7 +163,15 @@ public class GameController : MonoBehaviour
     public static bool swapGems = false;
 
     public static LevelSystem level;
+    public static LevelSystem miningLevel;
+    public static LevelSystem harvestingLevel;
+    public static LevelSystem huntingLevel;
+    public static LevelSystem fishingLevel;
     public XpBar xpBar;
+    public XpBar miningXpBar;
+    public XpBar harvestXpBar;
+    public XpBar huntingXpBar;
+    public XpBar fishingXpBar;
     public ultBar UltBar;
     public oxygenBar OxygenBar;
 
@@ -173,8 +182,22 @@ public class GameController : MonoBehaviour
 
     public Text dashTimer;
     public Text loading;
+
     public Text lvl;
     public Text XP;
+
+    public Text miningLvl;
+    public Text miningXP;
+
+    public Text harvestLvl;
+    public Text harvestXP;
+
+    public Text huntingLvl;
+    public Text huntingXP;
+
+    public Text fishinglvl;
+    public Text fishingXP;
+
     public Text coinText;
     public Text coinTextPotionShop;
     public Text coinsToolTipText;
@@ -208,7 +231,15 @@ public class GameController : MonoBehaviour
     public static int coins;
     public static int diamonds;
     public static int xp;
-    public static int Level;
+    public static int MiningXp;
+    public static int HarvestXp; 
+    public static int HuntingXp;
+    public static int FishingXp;
+    public static int Level = 1;
+    public static int MiningLevel = 1;
+    public static int HarvestLevel = 1;
+    public static int HuntingLevel = 1;
+    public static int FishingLevel = 1;
     public static int skillPoint;
     public static int skill1Level;
     public static int skill2Level;
@@ -374,6 +405,11 @@ public class GameController : MonoBehaviour
 
     public static float oxygenAmount = 100f;
 
+    public Image levelTypeSlot;
+    public Sprite[] levelSprites;
+    public TextMeshProUGUI levelTxt;
+
+    public AudioSource levelUpTools;
     // Start is called before the first frame update
 
     void Awake()
@@ -1252,6 +1288,20 @@ public class GameController : MonoBehaviour
 
         level = new LevelSystem(Level, OnLevelUp);
         level.experience = xp;
+
+        miningLevel = new LevelSystem(MiningLevel, OnMiningLevelUp);
+        miningLevel.experience = MiningXp;
+
+        harvestingLevel = new LevelSystem(HarvestLevel, OnHarvestLevelUp);
+        harvestingLevel.experience = HarvestXp;
+
+        huntingLevel = new LevelSystem(HuntingLevel, OnHuntingLevelUp);
+        huntingLevel.experience = HuntingXp;
+
+        fishingLevel = new LevelSystem(FishingLevel, OnFishingLevelUp);
+        fishingLevel.experience = FishingXp;
+               
+
         BattlePower = PlayerPrefs.GetInt("BattlePower");
         currentTime = startTime;
         TimeBtwCrows = startCrowTime;
@@ -1285,6 +1335,19 @@ public class GameController : MonoBehaviour
         PlayerMovements.health = data.health;
         xp = data.xp;
         Level = data.level;
+        
+        MiningXp = data.miningXp;
+        MiningLevel = data.miningLevel;
+
+        HarvestXp = data.harvastXp;
+        HarvestLevel = data.harvastLevel;
+
+        HuntingXp = data.huntingXp;
+        HuntingLevel = data.huntingLevel;
+
+        FishingXp = data.fishingXp;
+        FishingLevel = data.fishingLevel;
+
         skill1Level = data.skill1Level;
         skill2Level = data.skill2Level;
         skill3Level = data.skill3Level;
@@ -1416,13 +1479,14 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+       
 
     }
 
-    void Update()
+        void Update()
+    
     {
-
+       
         switch (eggShop.usedPetList.Count)
         {
             case 0:
@@ -2459,6 +2523,38 @@ public class GameController : MonoBehaviour
     {
         PlayerMovements.isLevelUp = true;
     }
+    public void OnMiningLevelUp()
+    {
+        levelUpTools.Play();
+        levelUpPanel.SetActive(true);
+        levelTypeSlot.sprite = levelSprites[0];
+        levelTxt.text = "Level " + miningLevel.currentLevel;
+        StartCoroutine(removeLevelUpPanel());
+    }
+    public void OnHarvestLevelUp()
+    {
+        levelUpTools.Play();
+        levelUpPanel.SetActive(true);
+        levelTypeSlot.sprite = levelSprites[1];
+        levelTxt.text = "Level " + harvestingLevel.currentLevel;
+        StartCoroutine(removeLevelUpPanel());
+    }
+    public void OnHuntingLevelUp()
+    {
+        levelUpTools.Play();
+        levelUpPanel.SetActive(true);
+        levelTypeSlot.sprite = levelSprites[2];
+        levelTxt.text = "Level " + huntingLevel.currentLevel;
+        StartCoroutine(removeLevelUpPanel());
+    }
+    public void OnFishingLevelUp()
+    {
+        levelUpTools.Play();
+        levelUpPanel.SetActive(true);
+        levelTypeSlot.sprite = levelSprites[3];
+        levelTxt.text = "Level " + fishingLevel.currentLevel;
+        StartCoroutine(removeLevelUpPanel());
+    }
     IEnumerator removeLoadingPanel()
     {
         yield return new WaitForSeconds(1f);
@@ -2492,6 +2588,14 @@ public class GameController : MonoBehaviour
         theVillage.SetActive(false);
         theForrest.SetActive(false);
         theBeach.SetActive(false);
+       
+    }
+
+    IEnumerator removeLevelUpPanel()
+    {
+        yield return new WaitForSeconds(7f);
+        
+        levelUpPanel.SetActive(false);
     }
 
     IEnumerator backFromSlowMo()
@@ -2539,6 +2643,34 @@ public class GameController : MonoBehaviour
         xpBar.SetXp(levelFinishPercentage);
         XP.text = currentXp + "/" + xpToNextLevel + "(" + (int)(levelFinishPercentage * 100) + "%)";
 
+        miningLvl.text = "lv. " + miningLevel.currentLevel;
+        int miningCurrentXp = miningLevel.experience - miningLevel.GetXPforLevel(miningLevel.currentLevel);
+        int miningXpToNextLevel = (miningLevel.GetXPforLevel(miningLevel.currentLevel + 1) - miningLevel.GetXPforLevel(miningLevel.currentLevel));
+        float miningLevelFinishPercentage = (float)miningCurrentXp / miningXpToNextLevel;
+        miningXpBar.SetXp(miningLevelFinishPercentage);
+        miningXP.text = miningCurrentXp + "/" + miningXpToNextLevel + "(" + (int)(miningLevelFinishPercentage * 100) + "%)";
+
+        harvestLvl.text = "lv. " + harvestingLevel.currentLevel;
+        int harvestCurrentXp = harvestingLevel.experience - harvestingLevel.GetXPforLevel(harvestingLevel.currentLevel);
+        int harvestXpToNextLevel = (harvestingLevel.GetXPforLevel(harvestingLevel.currentLevel + 1) - harvestingLevel.GetXPforLevel(harvestingLevel.currentLevel));
+        float harvestLevelFinishPercentage = (float)harvestCurrentXp / harvestXpToNextLevel;
+        harvestXpBar.SetXp(harvestLevelFinishPercentage);
+        harvestXP.text = harvestCurrentXp + "/" + harvestXpToNextLevel + "(" + (int)(harvestLevelFinishPercentage * 100) + "%)";
+
+        huntingLvl.text = "lv. " + huntingLevel.currentLevel;
+        int huntingCurrentXp = huntingLevel.experience - huntingLevel.GetXPforLevel(huntingLevel.currentLevel);
+        int huntingXpToNextLevel = (huntingLevel.GetXPforLevel(huntingLevel.currentLevel + 1) - huntingLevel.GetXPforLevel(huntingLevel.currentLevel));
+        float huntingLevelFinishPercentage = (float)huntingCurrentXp / huntingXpToNextLevel;
+        huntingXpBar.SetXp(huntingLevelFinishPercentage);
+        huntingXP.text = huntingCurrentXp + "/" + huntingXpToNextLevel + "(" + (int)(huntingLevelFinishPercentage * 100) + "%)";
+
+        fishinglvl.text = "lv. " + fishingLevel.currentLevel;
+        int fishingCurrentXp = fishingLevel.experience - fishingLevel.GetXPforLevel(fishingLevel.currentLevel);
+        int fishingXpToNextLevel = (fishingLevel.GetXPforLevel(fishingLevel.currentLevel + 1) - fishingLevel.GetXPforLevel(fishingLevel.currentLevel));
+        float fishingLevelFinishPercentage = (float)fishingCurrentXp / fishingXpToNextLevel;
+        fishingXpBar.SetXp(fishingLevelFinishPercentage);
+        fishingXP.text = fishingCurrentXp + "/" + fishingXpToNextLevel + "(" + (int)(fishingLevelFinishPercentage * 100) + "%)";
+       
     }
     public void checkIfCanDash()
     {

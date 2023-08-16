@@ -104,6 +104,7 @@ public class goat : MonoBehaviour
                     goatSound.clip = clips[3];
                     break;
             }
+            GameController.huntingLevel.AddExp(2);
             goatSound.Play();
             hurtAudio.Play();
             animator.SetBool("run", true);

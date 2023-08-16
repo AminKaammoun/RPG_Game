@@ -3,7 +3,7 @@ guid: f8f58c26366c6194e9d46daa47d6b194
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -616,7 +619,7 @@ TextureImporter:
         width: 92
         height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -624,6 +627,27 @@ TextureImporter:
       bones: []
       spriteID: 6271596d584bc7c40b5617b7d78e8cae
       internalID: 691750654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25b16278f32d0ffd4f3b093777ef8950 1_25
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 188
+        width: 72
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb4324a200442b749966faba46b6fd88
+      internalID: -451176667
       vertices: []
       indices: 
       edges: []
@@ -639,34 +663,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      25b16278f32d0ffd4f3b093777ef8950 1_11: 681694512
-      25b16278f32d0ffd4f3b093777ef8950 1_22: -1869346143
-      25b16278f32d0ffd4f3b093777ef8950 1_18: 127291698
-      25b16278f32d0ffd4f3b093777ef8950 1_17: -765835147
-      25b16278f32d0ffd4f3b093777ef8950 1_19: 471066066
-      25b16278f32d0ffd4f3b093777ef8950 1_8: 1779803909
-      25b16278f32d0ffd4f3b093777ef8950 1_2: 432691350
-      25b16278f32d0ffd4f3b093777ef8950 1_7: -1991919745
-      25b16278f32d0ffd4f3b093777ef8950 1_3: 1095903455
-      25b16278f32d0ffd4f3b093777ef8950 1_6: -1023562095
-      25b16278f32d0ffd4f3b093777ef8950 1_16: 1276939294
-      25b16278f32d0ffd4f3b093777ef8950 1_5: -1253988869
-      25b16278f32d0ffd4f3b093777ef8950 1_21: 485930229
-      25b16278f32d0ffd4f3b093777ef8950 1_24: 691750654
-      25b16278f32d0ffd4f3b093777ef8950 1_10: -1826607734
-      25b16278f32d0ffd4f3b093777ef8950 1_1: 161468537
-      25b16278f32d0ffd4f3b093777ef8950 1_15: -631518545
       25b16278f32d0ffd4f3b093777ef8950 1_0: 1451510907
-      25b16278f32d0ffd4f3b093777ef8950 1_9: 1848456522
+      25b16278f32d0ffd4f3b093777ef8950 1_1: 161468537
+      25b16278f32d0ffd4f3b093777ef8950 1_10: -1826607734
+      25b16278f32d0ffd4f3b093777ef8950 1_11: 681694512
       25b16278f32d0ffd4f3b093777ef8950 1_12: 612692787
-      25b16278f32d0ffd4f3b093777ef8950 1_14: -1231013609
       25b16278f32d0ffd4f3b093777ef8950 1_13: -982397448
-      25b16278f32d0ffd4f3b093777ef8950 1_23: -2069895957
+      25b16278f32d0ffd4f3b093777ef8950 1_14: -1231013609
+      25b16278f32d0ffd4f3b093777ef8950 1_15: -631518545
+      25b16278f32d0ffd4f3b093777ef8950 1_16: 1276939294
+      25b16278f32d0ffd4f3b093777ef8950 1_17: -765835147
+      25b16278f32d0ffd4f3b093777ef8950 1_18: 127291698
+      25b16278f32d0ffd4f3b093777ef8950 1_19: 471066066
+      25b16278f32d0ffd4f3b093777ef8950 1_2: 432691350
       25b16278f32d0ffd4f3b093777ef8950 1_20: -134587844
+      25b16278f32d0ffd4f3b093777ef8950 1_21: 485930229
+      25b16278f32d0ffd4f3b093777ef8950 1_22: -1869346143
+      25b16278f32d0ffd4f3b093777ef8950 1_23: -2069895957
+      25b16278f32d0ffd4f3b093777ef8950 1_24: 691750654
+      25b16278f32d0ffd4f3b093777ef8950 1_25: -451176667
+      25b16278f32d0ffd4f3b093777ef8950 1_3: 1095903455
       25b16278f32d0ffd4f3b093777ef8950 1_4: -1993036839
-  spritePackingTag: 
+      25b16278f32d0ffd4f3b093777ef8950 1_5: -1253988869
+      25b16278f32d0ffd4f3b093777ef8950 1_6: -1023562095
+      25b16278f32d0ffd4f3b093777ef8950 1_7: -1991919745
+      25b16278f32d0ffd4f3b093777ef8950 1_8: 1779803909
+      25b16278f32d0ffd4f3b093777ef8950 1_9: 1848456522
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

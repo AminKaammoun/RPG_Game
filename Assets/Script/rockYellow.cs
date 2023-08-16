@@ -156,6 +156,7 @@ public class rockYellow : MonoBehaviour
                     break;
 
             }
+            GameController.miningLevel.AddExp(2);
         }
     }
 }
