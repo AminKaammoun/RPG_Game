@@ -96,6 +96,7 @@ public class PlayerMovements : MonoBehaviour
     public GameObject IronStoneText;
     public GameObject CoalStoneText;
     public GameObject WoodText;
+    public GameObject plantText;
     public GameObject BlueGemStoneText;
     public GameObject RedGemStoneText;
     public GameObject YellowGemStoneText;
@@ -141,6 +142,7 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource collectStoneAudio;
     public AudioSource collectWoodAudio;
     public AudioSource fishCollect;
+    public AudioSource collectPlantAudio;
 
     public static bool invIsOpen = false;
 
@@ -190,6 +192,7 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject IronStone;
     public ItemObject CoalStone;
     public ItemObject Wood;
+    public ItemObject Plant;
     public ItemObject BlueGemStone;
     public ItemObject RedGemStone;
     public ItemObject YellowGemStone;
@@ -2129,6 +2132,16 @@ public class PlayerMovements : MonoBehaviour
                 MaterialsInventory.AddItem(Wood, 1);
                 MaterialsInventory.save();
                 var stoneTxt = Instantiate(WoodText, transform.position, Quaternion.identity);
+
+            }
+            if (collision.gameObject.name == "plant(Clone)")
+            {
+                collectPlantAudio.Play();
+                inventory.AddItem(Plant, 1);
+                inventory.save();
+                MaterialsInventory.AddItem(Plant, 1);
+                MaterialsInventory.save();
+                var stoneTxt = Instantiate(plantText, transform.position, Quaternion.identity);
 
             }
 

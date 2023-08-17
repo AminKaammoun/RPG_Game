@@ -7,6 +7,7 @@ using TMPro;
 using System;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public enum PlayerMap
 {
@@ -410,6 +411,10 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI levelTxt;
 
     public AudioSource levelUpTools;
+
+    public static bool playHarvestSound = false;
+    public AudioSource harvestAudio;
+
     // Start is called before the first frame update
 
     void Awake()
@@ -1483,10 +1488,15 @@ public class GameController : MonoBehaviour
 
     }
 
-        void Update()
+    
+    void Update()
     
     {
-       
+        if (playHarvestSound)
+        {
+            harvestAudio.Play();
+            playHarvestSound = false;
+        }
         switch (eggShop.usedPetList.Count)
         {
             case 0:
@@ -1840,7 +1850,7 @@ public class GameController : MonoBehaviour
             coinText.text = coins.ToString();
             coinTextPotionShop.text = coins.ToString();
         }
-
+        coinsToolTipText.text = coins.ToString("N0");
         diamondsText.text = diamonds.ToString();
 
         updateLevelStats();

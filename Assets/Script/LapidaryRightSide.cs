@@ -1341,7 +1341,7 @@ public class LapidaryRightSide : MonoBehaviour
                 {
                     item3Found = true;
                     item3.text = inventory.Container[i].amount.ToString() + "/12";
-                    if (inventory.Container[i].amount > 39)
+                    if (inventory.Container[i].amount > 11)
                     {
 
                         item3.color = Color.green;
@@ -1413,7 +1413,7 @@ public class LapidaryRightSide : MonoBehaviour
                 {
                     item3Found = true;
                     item3.text = inventory.Container[i].amount.ToString() + "/24";
-                    if (inventory.Container[i].amount > 79)
+                    if (inventory.Container[i].amount > 23)
                     {
 
                         item3.color = Color.green;
