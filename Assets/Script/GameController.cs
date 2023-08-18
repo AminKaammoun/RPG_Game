@@ -90,7 +90,8 @@ public class GameController : MonoBehaviour
     public GameObject TreesAreaPanel;
     public GameObject FishingAreaPanel;
     public GameObject BeachFishingAreaPanel;
-    
+    public GameObject seedsPanel;
+
     public GameObject PotionShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
@@ -415,6 +416,8 @@ public class GameController : MonoBehaviour
 
     public static bool playHarvestSound = false;
     public AudioSource harvestAudio;
+
+    public static bool resetCursor = false;
 
     // Start is called before the first frame update
 
@@ -1493,6 +1496,17 @@ public class GameController : MonoBehaviour
     void Update()
     
     {
+
+        if (resetCursor)
+        {
+            ArrowSpawn.canShoot = true;
+            PlayerMovements.changeCursor = true;
+            
+            cursorHotspot = new Vector2(0, -1);
+            Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+            resetCursor = false;
+        }
+
         if (playHarvestSound)
         {
             harvestAudio.Play();
@@ -2112,6 +2126,15 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
+    public void closeSeedsPanel()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        seedsPanel.SetActive(false);
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void closeDun1BeachPnanel()
     {
         ArrowSpawn.canShoot = true;

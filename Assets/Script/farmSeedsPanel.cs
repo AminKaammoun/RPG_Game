@@ -19,9 +19,4 @@ public class farmSeedsPanel : MonoBehaviour
     }
 
    
-
-    public void close()
-    {
-        this.gameObject.SetActive(false);
-    }
 }
