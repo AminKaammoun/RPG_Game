@@ -31,6 +31,7 @@ public enum PlayerMap
     beachDun4,
     beachGatherArea,
     Library,
+    farm,
     castle1,
     castle2,
     shipOutside,
@@ -1313,7 +1314,7 @@ public class GameController : MonoBehaviour
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         bubbleSpawner = GameObject.FindGameObjectsWithTag("BubbleSpawner");
-        currentMap = PlayerMap.beach;
+        currentMap = PlayerMap.farm;
 
     }
 
@@ -2876,13 +2877,17 @@ public class GameController : MonoBehaviour
             CameraMovement.minPosition = new Vector2(73.44f, 239f);
             CameraMovement.maxPosition = new Vector2(97.34f, 240.53f);
 
-
         }
         else if (currentMap == PlayerMap.Library)
         {
             CameraMovement.minPosition = new Vector2(-60.58f, -26.29f);
             CameraMovement.maxPosition = new Vector2(-25.45f, -20.38f);
 
+        }
+        else if (currentMap == PlayerMap.farm)
+        {
+            CameraMovement.minPosition = new Vector2(22.33f, 181.04f);
+            CameraMovement.maxPosition = new Vector2(35.62f, 195.89f);
 
         }
         else if (currentMap == PlayerMap.castle1)
