@@ -7,11 +7,13 @@ public class pumpkin : MonoBehaviour
     private float timeToGrow = 60f;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
+    public GameObject sign;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[0];
+        sign.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,7 +22,8 @@ public class pumpkin : MonoBehaviour
 
         if (timeToGrow < 0)
         {
-            spriteRenderer.sprite = sprites[4];
+            spriteRenderer.sprite = sprites[4]; 
+            sign.SetActive(true);
         }
         else
         {

@@ -7,11 +7,13 @@ public class strawberry : MonoBehaviour
     private float timeToGrow = 90f;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
+    public GameObject sign;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[0];
+        sign.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class strawberry : MonoBehaviour
         if (timeToGrow < 0)
         {
             spriteRenderer.sprite = sprites[4];
+            sign.SetActive(true);
         }
         else
         {

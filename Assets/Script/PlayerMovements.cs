@@ -241,8 +241,9 @@ public class PlayerMovements : MonoBehaviour
     private bool facingRight = false;
     private bool facingUp = false;
     private bool facingDown = true;
- 
- 
+    public static bool isDigging = false;
+    public static bool isWatering = false;
+
     // Start is called before the first frame update
 
     void Start()
@@ -264,7 +265,18 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isDigging)
+        {
+            animator.SetBool("diging",true);
+            StartCoroutine(stopDigging());
+            isDigging = false;
+        }
+        if (isWatering)
+        {
+            animator.SetBool("watering", true);
+            StartCoroutine(stopWatering());
+            isWatering = false;
+        }
         if (Input.GetKeyDown(KeyCode.A))
         {
             facingDown = false;
@@ -1536,6 +1548,17 @@ public class PlayerMovements : MonoBehaviour
         damagePlayer = true;
     }
 
+    IEnumerator stopDigging()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("diging", false);
+    }
+
+    IEnumerator stopWatering()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("watering", false);
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
