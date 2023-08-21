@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour
     public GameObject TreesAreaPanel;
     public GameObject FishingAreaPanel;
     public GameObject BeachFishingAreaPanel;
-    public GameObject seedsPanel;
+    public GameObject[] seedsPanels;
 
     public GameObject PotionShopPanel;
     public GameObject theVillage;
@@ -2139,7 +2139,10 @@ public class GameController : MonoBehaviour
     {
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
-        seedsPanel.SetActive(false);
+        for(int i =0; i < 24; i++)
+        {
+            seedsPanels[i].SetActive(false);
+        }
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }

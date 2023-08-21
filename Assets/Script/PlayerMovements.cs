@@ -1045,11 +1045,13 @@ public class PlayerMovements : MonoBehaviour
                 weaponSwitchAudio.Play();
             }
 
-            change = Vector3.zero;
-            change.x = Input.GetAxisRaw("Horizontal");
-            change.y = Input.GetAxisRaw("Vertical");
-
-
+            if (!animator.GetBool("harvesting"))
+            {
+                change = Vector3.zero;
+                change.x = Input.GetAxisRaw("Horizontal");
+                change.y = Input.GetAxisRaw("Vertical");
+            }
+         
             if (currentWeapon == PlayerWeapon.sword)
             {
                  if (Input.GetButtonDown("Attack") )
@@ -1330,10 +1332,14 @@ public class PlayerMovements : MonoBehaviour
 
 
     void FixedUpdate()
-    {
+    { 
+        
         Vector3 direction = change.normalized;
-        rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
-
+        if (!animator.GetBool("harvesting"))
+        {
+            rb2D.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
+        }
+       
 
         if (isDashButtonDown)
         {
