@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour
     public InventoryObject potionInv;
     public InventoryObject materialInv;
     public InventoryObject gearsInv;
+    public InventoryObject fruitInv;
+
 
     public float TimeBtwLeafSpawn;
     public float TimeBtwBubbleSpawn;
@@ -1482,7 +1484,13 @@ public class GameController : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveData();
-
+        Inv.save();
+        materialInv.save();
+        potionInv.save();
+        GemInv.save();
+        gearsInv.save();
+        meatInv.save();
+        fruitInv.save();
     }
 
 
@@ -2082,6 +2090,7 @@ public class GameController : MonoBehaviour
         GemInv.save();
         gearsInv.save();
         meatInv.save();
+        fruitInv.save();
         PlayerMovements.invIsOpen = false;
         foreach (GameObject r in panel)
         {

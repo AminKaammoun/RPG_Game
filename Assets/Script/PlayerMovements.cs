@@ -51,6 +51,7 @@ public class PlayerMovements : MonoBehaviour
     public InventoryObject MaterialsInventory;
     public InventoryObject potionsInventory;
     public InventoryObject meatInventory;
+    public InventoryObject plantFruitInventory;
 
     public ItemObject[] potions;
 
@@ -107,6 +108,28 @@ public class PlayerMovements : MonoBehaviour
     public GameObject MeatText;
     public GameObject ChickenText;
     public GameObject EggText;
+    public GameObject blueBerryText;
+    public GameObject cabbageText;
+    public GameObject carrotText;
+    public GameObject caulflowerText;
+    public GameObject cherryText;
+    public GameObject cornText;
+    public GameObject eggplantText;
+    public GameObject greenGrapeText;
+    public GameObject kiwiText;
+    public GameObject melonText;
+    public GameObject orangePepperText;
+    public GameObject pineappleText;
+    public GameObject potatoText;
+    public GameObject pumpkinText;
+    public GameObject purpleGrapeText;
+    public GameObject redPepperText;
+    public GameObject strawberryText;
+    public GameObject tomatoText;
+    public GameObject turnipText;
+    public GameObject waterMelonText;
+    public GameObject yellowPepperText;
+
 
     public GameObject volume;
     public GameObject teleport_hit;
@@ -143,6 +166,9 @@ public class PlayerMovements : MonoBehaviour
     public AudioSource collectWoodAudio;
     public AudioSource fishCollect;
     public AudioSource collectPlantAudio;
+    public AudioSource wateringAudio;
+    public AudioSource harvestingAudio;
+
 
     public static bool invIsOpen = false;
 
@@ -201,6 +227,27 @@ public class PlayerMovements : MonoBehaviour
     public ItemObject RawGoatMeat;
     public ItemObject RawChickenThigh;
     public ItemObject RawEgg;
+    public ItemObject BlueBerry;
+    public ItemObject Cabbage;
+    public ItemObject Carrot;
+    public ItemObject Caulflower;
+    public ItemObject Cherry;
+    public ItemObject Corn;
+    public ItemObject Eggplant;
+    public ItemObject greenGrape;
+    public ItemObject kiwi;
+    public ItemObject melon;
+    public ItemObject orangePepper;
+    public ItemObject pineapple;
+    public ItemObject potato;
+    public ItemObject pumpkin;
+    public ItemObject purpleGrape;
+    public ItemObject redPepper;
+    public ItemObject strawberry;
+    public ItemObject tomato;
+    public ItemObject turnip;
+    public ItemObject waterMelon;
+    public ItemObject yellowPepper;
 
     public GameObject panelAbility1;
     public GameObject panelAbility2;
@@ -243,6 +290,7 @@ public class PlayerMovements : MonoBehaviour
     private bool facingDown = true;
     public static bool isDigging = false;
     public static bool isWatering = false;
+    public static bool isHarvesting = false;
 
     // Start is called before the first frame update
 
@@ -276,7 +324,16 @@ public class PlayerMovements : MonoBehaviour
             animator.SetBool("watering", true);
             StartCoroutine(stopWatering());
             isWatering = false;
+            wateringAudio.Play();
         }
+        if(isHarvesting)
+        {
+            animator.SetBool("harvesting", true);
+            StartCoroutine(stopHarvesting());
+            isHarvesting = false;
+            harvestingAudio.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             facingDown = false;
@@ -1559,6 +1616,11 @@ public class PlayerMovements : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("watering", false);
     }
+    IEnumerator stopHarvesting()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("harvesting", false);
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -1567,703 +1629,921 @@ public class PlayerMovements : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (canBeDamaged && !in3rdCombo)
+        if (this.gameObject.GetComponent<BoxCollider2D>().isTrigger)
         {
-            if (collision.CompareTag("Enemy"))
+            if (canBeDamaged && !in3rdCombo)
             {
-                if (damagePlayer)
+                if (collision.CompareTag("Enemy"))
                 {
-                    PlayerDamage.num = 0;
-                    damagePlayer = false;
-
-                    hurtAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-                    Enemy.attack = 100;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 100;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                }
-            }
-            else if (collision.CompareTag("BringerOfDeath"))
-            {
-                hurtAudio.Play();
-                TakeDamage(20);
-            }
-            else if (collision.CompareTag("log"))
-            {
-                if (damagePlayer)
-                {
-                    PlayerDamage.num = 0;
-                    Enemy.attack = 30;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    damagePlayer = false;
-                    GameController.ultValue += 0.5f;
-                    hurtAudio.Play();
-                    islogDamaged = true;
-                    float attack = Enemy.attack;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(backAfterHit());
-                    StartCoroutine(returnColor());
-
-                }
-            }
-            else if (collision.CompareTag("fireBall"))
-            {
-                if (damagePlayer)
-                {
-                    damagePlayer = false;
-                    PlayerDamage.num = 1;
-                    hurtAudio.Play();
-                    isFireBallDamaged = true;
-
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = Worm.attack;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(backAfterHit());
-                    StartCoroutine(returnColor());
-                }
-            }
-            else if (collision.CompareTag("fireBall1"))
-            {
-                if (damagePlayer)
-                {
-
-                    damagePlayer = false;
-                    PlayerDamage.num = 0;
-                    hurtAudio.Play();
-                    isFireBallDamaged = true;
-                    Enemy.attack = 40;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = Enemy.attack;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(backAfterHit());
-                    StartCoroutine(returnColor());
-                }
-            }
-            else if (collision.CompareTag("treant"))
-            {
-                if (damagePlayer)
-                {
-                    PlayerDamage.num = 0;
-                    Enemy.attack = 60;
-                    damagePlayer = false;
-                    GameController.ultValue += 0.5f;
-                    hurtAudio.Play();
-                    isTreantDamaged = true;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = Enemy.attack;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(backAfterHit());
-                    StartCoroutine(returnColor());
-                }
-            }
-            else if (collision.CompareTag("cyclopProjectile"))
-            {
-                if (damagePlayer)
-                {
-                    PlayerDamage.num = 2;
-                    hurtAudio.Play();
-                    isCyclopDamaged = true;
-
-                    damagePlayer = false;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = Cyclop.attack;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(backAfterHit());
-                    StartCoroutine(returnColor());
-                }
-            }
-            else if (collision.CompareTag("babyCyclop"))
-            {
-                if (damagePlayer)
-                {
-                    damagePlayer = false;
-
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-                    PlayerDamage.num = 0;
-                    Enemy.attack = 30;
-                    hurtAudio.Play();
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = Cyclop.attack;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                }
-            }
-            else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
-            {
-                if (damagePlayer)
-                {
-                    damagePlayer = false;
-
-                    hurtAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-                    Enemy.attack = 50;
-
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 50;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                }
-            }
-            else if (collision.CompareTag("pusher"))
-            {
-                if (damagePlayer)
-                {
-                    damagePlayer = false;
-
-                    hurtAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-                    Enemy.attack = 100;
-
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 100;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                }
-            }
-            else if (collision.CompareTag("crab"))
-            {
-                if (damagePlayer)
-                {
-                    PlayerDamage.num = 0;
-
-                    damagePlayer = false;
-                    Enemy.attack = 80;
-                    if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+                    if (damagePlayer)
                     {
-                        hurtMuffedAudio.Play();
-                    }
-                    else
-                    {
+                        PlayerDamage.num = 0;
+                        damagePlayer = false;
+
                         hurtAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+                        Enemy.attack = 100;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 100;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
                     }
-
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-
-                    isCrabDamaged = true;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 80;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
                 }
-            }
-            else if (collision.CompareTag("lightFish"))
-            {
-                if (damagePlayer)
+                else if (collision.CompareTag("BringerOfDeath"))
                 {
-
-                    PlayerDamage.num = 0;
-                    Enemy.attack = 150;
-                    damagePlayer = false;
-
-                    hurtMuffedAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-
-                    isLightFishDamaged = true;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 150;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                }
-            }
-            else if (collision.CompareTag("jellyFish"))
-            {
-                if (damagePlayer)
-                {
-                    PlayerDamage.num = 0;
-                    Enemy.attack = 150;
-                    damagePlayer = false;
-
-                    hurtMuffedAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-
-                    isJellyFishDamaged = true;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 150;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                }
-            }
-            else if (collision.CompareTag("cacodaemon"))
-            {
-                if (damagePlayer)
-                {
-                    PlayerDamage.num = 3;
-                    damagePlayer = false;
-
-                    hurtMuffedAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-                    Cacodaemon.attack = 250;
-                    isCacodaemonDamaged = true;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 250;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
-                }
-            }
-            else if (collision.CompareTag("electricProjectile"))
-            {
-                if (damagePlayer)
-                {
-                    PlayerDamage.num = 4;
-                    damagePlayer = false;
-
                     hurtAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-
-                    iselectricProjectileDamaged = true;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 100;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
+                    TakeDamage(20);
                 }
-            }
-            else if (collision.CompareTag("shardsoul"))
-            {
-                if (damagePlayer)
+                else if (collision.CompareTag("log"))
                 {
-                    PlayerDamage.num = 0;
-                    Enemy.attack = 200;
-                    damagePlayer = false;
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 0;
+                        Enemy.attack = 30;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        damagePlayer = false;
+                        GameController.ultValue += 0.5f;
+                        hurtAudio.Play();
+                        islogDamaged = true;
+                        float attack = Enemy.attack;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(backAfterHit());
+                        StartCoroutine(returnColor());
 
-                    hurtAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
-
-                    isShardsoulDamaged = true;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 200;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
+                    }
                 }
-            }
-            else if (collision.CompareTag("skullBullet"))
-            {
-                if (damagePlayer)
+                else if (collision.CompareTag("fireBall"))
                 {
-                    PlayerDamage.num = 0;
-                    Enemy.attack = 150;
-                    damagePlayer = false;
+                    if (damagePlayer)
+                    {
+                        damagePlayer = false;
+                        PlayerDamage.num = 1;
+                        hurtAudio.Play();
+                        isFireBallDamaged = true;
 
-                    hurtAudio.Play();
-                    StartCoroutine(backAfterHit());
-                    rend.color = colorToTurnTo;
-                    StartCoroutine(returnColor());
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = Worm.attack;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(backAfterHit());
+                        StartCoroutine(returnColor());
+                    }
+                }
+                else if (collision.CompareTag("fireBall1"))
+                {
+                    if (damagePlayer)
+                    {
 
-                    isSkullBulletDamaged = true;
-                    GameController.ultValue += 0.5f;
-                    var ins = Instantiate(damageText, transform.position, Quaternion.identity);
-                    float attack = 150;
-                    float damage = attack * (100 / (100 + PlayerMovements.defence));
-                    TakeDamage((int)damage);
+                        damagePlayer = false;
+                        PlayerDamage.num = 0;
+                        hurtAudio.Play();
+                        isFireBallDamaged = true;
+                        Enemy.attack = 40;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = Enemy.attack;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(backAfterHit());
+                        StartCoroutine(returnColor());
+                    }
+                }
+                else if (collision.CompareTag("treant"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 0;
+                        Enemy.attack = 60;
+                        damagePlayer = false;
+                        GameController.ultValue += 0.5f;
+                        hurtAudio.Play();
+                        isTreantDamaged = true;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = Enemy.attack;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(backAfterHit());
+                        StartCoroutine(returnColor());
+                    }
+                }
+                else if (collision.CompareTag("cyclopProjectile"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 2;
+                        hurtAudio.Play();
+                        isCyclopDamaged = true;
+
+                        damagePlayer = false;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = Cyclop.attack;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(backAfterHit());
+                        StartCoroutine(returnColor());
+                    }
+                }
+                else if (collision.CompareTag("babyCyclop"))
+                {
+                    if (damagePlayer)
+                    {
+                        damagePlayer = false;
+
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+                        PlayerDamage.num = 0;
+                        Enemy.attack = 30;
+                        hurtAudio.Play();
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = Cyclop.attack;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
+                {
+                    if (damagePlayer)
+                    {
+                        damagePlayer = false;
+
+                        hurtAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+                        Enemy.attack = 50;
+
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 50;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("pusher"))
+                {
+                    if (damagePlayer)
+                    {
+                        damagePlayer = false;
+
+                        hurtAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+                        Enemy.attack = 100;
+
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 100;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("crab"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 0;
+
+                        damagePlayer = false;
+                        Enemy.attack = 80;
+                        if (GameController.currentMap == PlayerMap.water1 || GameController.currentMap == PlayerMap.water2)
+                        {
+                            hurtMuffedAudio.Play();
+                        }
+                        else
+                        {
+                            hurtAudio.Play();
+                        }
+
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+
+                        isCrabDamaged = true;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 80;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("lightFish"))
+                {
+                    if (damagePlayer)
+                    {
+
+                        PlayerDamage.num = 0;
+                        Enemy.attack = 150;
+                        damagePlayer = false;
+
+                        hurtMuffedAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+
+                        isLightFishDamaged = true;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 150;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("jellyFish"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 0;
+                        Enemy.attack = 150;
+                        damagePlayer = false;
+
+                        hurtMuffedAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+
+                        isJellyFishDamaged = true;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 150;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("cacodaemon"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 3;
+                        damagePlayer = false;
+
+                        hurtMuffedAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+                        Cacodaemon.attack = 250;
+                        isCacodaemonDamaged = true;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 250;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("electricProjectile"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 4;
+                        damagePlayer = false;
+
+                        hurtAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+
+                        iselectricProjectileDamaged = true;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 100;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("shardsoul"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 0;
+                        Enemy.attack = 200;
+                        damagePlayer = false;
+
+                        hurtAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+
+                        isShardsoulDamaged = true;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 200;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+                else if (collision.CompareTag("skullBullet"))
+                {
+                    if (damagePlayer)
+                    {
+                        PlayerDamage.num = 0;
+                        Enemy.attack = 150;
+                        damagePlayer = false;
+
+                        hurtAudio.Play();
+                        StartCoroutine(backAfterHit());
+                        rend.color = colorToTurnTo;
+                        StartCoroutine(returnColor());
+
+                        isSkullBulletDamaged = true;
+                        GameController.ultValue += 0.5f;
+                        var ins = Instantiate(damageText, transform.position, Quaternion.identity);
+                        float attack = 150;
+                        float damage = attack * (100 / (100 + PlayerMovements.defence));
+                        TakeDamage((int)damage);
+                    }
+                }
+
+            }
+            else if (!canBeDamaged)
+            {
+                if (collision.CompareTag("Enemy"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("BringerOfDeath"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("log"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("fireBall"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("treant"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("cyclopProjectile"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("babyCyclop"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("pusher"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("crab"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("fireBall1"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("lightFish"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("jellyFish"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("caco"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("electricProjectile"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("shardsoul"))
+                {
+                    hurtWithShieldAudio.Play();
+                }
+                else if (collision.CompareTag("skullBullet"))
+                {
+                    hurtWithShieldAudio.Play();
                 }
             }
-            
-        }
-        else if(!canBeDamaged)
-        {
-            if (collision.CompareTag("Enemy"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("BringerOfDeath"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("log"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("fireBall"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("treant"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("cyclopProjectile"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("babyCyclop"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("spikeRight") || collision.CompareTag("spikeLeft"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("pusher"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("crab"))
-            {
-                hurtWithShieldAudio.Play();
-            }else if (collision.CompareTag("fireBall1"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("lightFish"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("jellyFish"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("caco"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("electricProjectile"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("shardsoul"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-            else if (collision.CompareTag("skullBullet"))
-            {
-                hurtWithShieldAudio.Play();
-            }
-        }
-     
 
-        if (collision.CompareTag("xpLvl1"))
-        {
-            GameController.level.AddExp(5);
 
-            var xpTxt = Instantiate(xpText, transform.position, Quaternion.identity);
-            collectXpAudio.Play();
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("xpLvl2"))
-        {
-            GameController.level.AddExp(10);
+            if (collision.CompareTag("xpLvl1"))
+            {
+                GameController.level.AddExp(5);
 
-            var xpTxt = Instantiate(xpText1, transform.position, Quaternion.identity);
-            collectXpAudio.Play();
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("xpLvl3"))
-        {
-            GameController.level.AddExp(15);
+                var xpTxt = Instantiate(xpText, transform.position, Quaternion.identity);
+                collectXpAudio.Play();
+                Destroy(collision.gameObject);
+            }
+            if (collision.CompareTag("xpLvl2"))
+            {
+                GameController.level.AddExp(10);
 
-            var xpTxt = Instantiate(xpText2, transform.position, Quaternion.identity);
-            collectXpAudio.Play();
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("coin"))
-        {
-            collectCoinAudio.Play();
-            GameController.coins += 8000;
-            var coinTxt = Instantiate(coinText, transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("coin1"))
-        {
-            collectCoinAudio.Play();
-            GameController.coins += 16000;
-            var coinTxt = Instantiate(coinText1, transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("coin2"))
-        {
-            collectCoinAudio.Play();
-            GameController.coins += 24000;
-            var coinTxt = Instantiate(coinText2, transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
-        }
+                var xpTxt = Instantiate(xpText1, transform.position, Quaternion.identity);
+                collectXpAudio.Play();
+                Destroy(collision.gameObject);
+            }
+            if (collision.CompareTag("xpLvl3"))
+            {
+                GameController.level.AddExp(15);
 
-        if (collision.CompareTag("teleporter"))
-        {
-            GameController.wantTp = true;
-        }
+                var xpTxt = Instantiate(xpText2, transform.position, Quaternion.identity);
+                collectXpAudio.Play();
+                Destroy(collision.gameObject);
+            }
+            if (collision.CompareTag("coin"))
+            {
+                collectCoinAudio.Play();
+                GameController.coins += 8000;
+                var coinTxt = Instantiate(coinText, transform.position, Quaternion.identity);
+                Destroy(collision.gameObject);
+            }
+            if (collision.CompareTag("coin1"))
+            {
+                collectCoinAudio.Play();
+                GameController.coins += 16000;
+                var coinTxt = Instantiate(coinText1, transform.position, Quaternion.identity);
+                Destroy(collision.gameObject);
+            }
+            if (collision.CompareTag("coin2"))
+            {
+                collectCoinAudio.Play();
+                GameController.coins += 24000;
+                var coinTxt = Instantiate(coinText2, transform.position, Quaternion.identity);
+                Destroy(collision.gameObject);
+            }
 
-        if (collision.CompareTag("silverKey"))
-        {
-            silverKeyCanvas.SetActive(true);
-            Destroy(GameObject.FindGameObjectWithTag("silverKey"));
-            //Door1.silverKeyObtained = true;
-            silverKeyAudio.Play();
-        }
-        if (collision.CompareTag("goldKey"))
-        {
-            goldKeyAudio.Play();
-            goldKeyCanvas.SetActive(true);
-            Destroy(GameObject.FindGameObjectWithTag("goldKey"));
-            Door2.goldKeyObtained = true;
-        }
-        if (collision.CompareTag("Leaf"))
-        {
-            if (collision.gameObject.name == "AutumnLeaf(Clone)")
+            if (collision.CompareTag("teleporter"))
             {
-                inventory.AddItem(AutumnLeaf, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(AutumnLeaf, 1);
-                MaterialsInventory.save();
+                GameController.wantTp = true;
             }
-            if (collision.gameObject.name == "IceLeaf(Clone)")
+
+            if (collision.CompareTag("silverKey"))
             {
-                inventory.AddItem(IceLeaf, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(IceLeaf, 1);
-                MaterialsInventory.save();
+                silverKeyCanvas.SetActive(true);
+                Destroy(GameObject.FindGameObjectWithTag("silverKey"));
+                //Door1.silverKeyObtained = true;
+                silverKeyAudio.Play();
             }
-            if (collision.gameObject.name == "FireLeaf(Clone)")
+            if (collision.CompareTag("goldKey"))
             {
-                inventory.AddItem(FireLeaf, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(FireLeaf, 1);
-                MaterialsInventory.save();
+                goldKeyAudio.Play();
+                goldKeyCanvas.SetActive(true);
+                Destroy(GameObject.FindGameObjectWithTag("goldKey"));
+                Door2.goldKeyObtained = true;
             }
-            if (collision.gameObject.name == "PlantLeaf(Clone)")
+            if (collision.CompareTag("Leaf"))
             {
-                inventory.AddItem(PlantLeaf, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(PlantLeaf, 1);
-                MaterialsInventory.save();
+                if (collision.gameObject.name == "AutumnLeaf(Clone)")
+                {
+                    inventory.AddItem(AutumnLeaf, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(AutumnLeaf, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "IceLeaf(Clone)")
+                {
+                    inventory.AddItem(IceLeaf, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(IceLeaf, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "FireLeaf(Clone)")
+                {
+                    inventory.AddItem(FireLeaf, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(FireLeaf, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "PlantLeaf(Clone)")
+                {
+                    inventory.AddItem(PlantLeaf, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(PlantLeaf, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "SakuraLeaf(Clone)")
+                {
+                    inventory.AddItem(SakuraLeaf, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(SakuraLeaf, 1);
+                    MaterialsInventory.save();
+                }
+                Destroy(collision.gameObject);
             }
-            if (collision.gameObject.name == "SakuraLeaf(Clone)")
+            if (collision.CompareTag("Shell"))
             {
-                inventory.AddItem(SakuraLeaf, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(SakuraLeaf, 1);
-                MaterialsInventory.save();
+                if (collision.gameObject.name == "AutumnShell(Clone)")
+                {
+                    inventory.AddItem(AutumnShell, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(AutumnShell, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "IceShell(Clone)")
+                {
+                    inventory.AddItem(IceShell, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(IceShell, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "FireShell(Clone)")
+                {
+                    inventory.AddItem(FireShell, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(FireShell, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "PlantShell(Clone)")
+                {
+                    inventory.AddItem(PlantShell, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(PlantShell, 1);
+                    MaterialsInventory.save();
+                }
+                if (collision.gameObject.name == "SakuraShell(Clone)")
+                {
+                    inventory.AddItem(SakuraShell, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(SakuraShell, 1);
+                    MaterialsInventory.save();
+                }
+                Destroy(collision.gameObject);
             }
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("Shell"))
-        {
-            if (collision.gameObject.name == "AutumnShell(Clone)")
-            {
-                inventory.AddItem(AutumnShell, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(AutumnShell, 1);
-                MaterialsInventory.save();
-            }
-            if (collision.gameObject.name == "IceShell(Clone)")
-            {
-                inventory.AddItem(IceShell, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(IceShell, 1);
-                MaterialsInventory.save();
-            }
-            if (collision.gameObject.name == "FireShell(Clone)")
-            {
-                inventory.AddItem(FireShell, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(FireShell, 1);
-                MaterialsInventory.save();
-            }
-            if (collision.gameObject.name == "PlantShell(Clone)")
-            {
-                inventory.AddItem(PlantShell, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(PlantShell, 1);
-                MaterialsInventory.save();
-            }
-            if (collision.gameObject.name == "SakuraShell(Clone)")
-            {
-                inventory.AddItem(SakuraShell, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(SakuraShell, 1);
-                MaterialsInventory.save();
-            }
-            Destroy(collision.gameObject);
-        }
             if (collision.CompareTag("minerals"))
-        {
-            if (collision.gameObject.name == "Stone(Clone)")
             {
-                collectStoneAudio.Play();
-                inventory.AddItem(Stone, 1);
-                MaterialsInventory.AddItem(Stone, 1);
-                MaterialsInventory.save();
-                inventory.save();
-                var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
+                if (collision.gameObject.name == "Stone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(Stone, 1);
+                    MaterialsInventory.AddItem(Stone, 1);
+                    MaterialsInventory.save();
+                    inventory.save();
+                    var stoneTxt = Instantiate(stoneText, transform.position, Quaternion.identity);
 
+                }
+
+                if (collision.gameObject.name == "IronStone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(IronStone, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(IronStone, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(IronStoneText, transform.position, Quaternion.identity);
+
+                }
+
+                if (collision.gameObject.name == "CoalStone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(CoalStone, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(CoalStone, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(CoalStoneText, transform.position, Quaternion.identity);
+
+                }
+
+                if (collision.gameObject.name == "Wood(Clone)")
+                {
+                    collectWoodAudio.Play();
+                    inventory.AddItem(Wood, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(Wood, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(WoodText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "plant(Clone)")
+                {
+                    collectPlantAudio.Play();
+                    inventory.AddItem(Plant, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(Plant, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(plantText, transform.position, Quaternion.identity);
+
+                }
+
+                if (collision.gameObject.name == "BlueGemStone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(BlueGemStone, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(BlueGemStone, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(BlueGemStoneText, transform.position, Quaternion.identity);
+
+                }
+
+                if (collision.gameObject.name == "GreenGemStone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(GreenGemStone, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(GreenGemStone, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(GreenGemStoneText, transform.position, Quaternion.identity);
+
+                }
+
+                if (collision.gameObject.name == "RedGemStone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(RedGemStone, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(RedGemStone, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(RedGemStoneText, transform.position, Quaternion.identity);
+
+                }
+
+                if (collision.gameObject.name == "YellowGemStone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(YellowGemStone, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(YellowGemStone, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(YellowGemStoneText, transform.position, Quaternion.identity);
+
+                }
+
+                if (collision.gameObject.name == "OrangeGemStone(Clone)")
+                {
+                    collectStoneAudio.Play();
+                    inventory.AddItem(OrangeGemStone, 1);
+                    inventory.save();
+                    MaterialsInventory.AddItem(OrangeGemStone, 1);
+                    MaterialsInventory.save();
+                    var stoneTxt = Instantiate(OrangeGemStoneText, transform.position, Quaternion.identity);
+
+                }
+                Destroy(collision.gameObject);
             }
-
-            if (collision.gameObject.name == "IronStone(Clone)")
-            {
-                collectStoneAudio.Play();
-                inventory.AddItem(IronStone, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(IronStone, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(IronStoneText, transform.position, Quaternion.identity);
-
-            }
-
-            if (collision.gameObject.name == "CoalStone(Clone)")
-            {
-                collectStoneAudio.Play();
-                inventory.AddItem(CoalStone, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(CoalStone, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(CoalStoneText, transform.position, Quaternion.identity);
-
-            }
-
-            if (collision.gameObject.name == "Wood(Clone)")
-            {
-                collectWoodAudio.Play();
-                inventory.AddItem(Wood, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(Wood, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(WoodText, transform.position, Quaternion.identity);
-
-            }
-            if (collision.gameObject.name == "plant(Clone)")
-            {
-                collectPlantAudio.Play();
-                inventory.AddItem(Plant, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(Plant, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(plantText, transform.position, Quaternion.identity);
-
-            }
-
-            if (collision.gameObject.name == "BlueGemStone(Clone)")
-            {
-                collectStoneAudio.Play();
-                inventory.AddItem(BlueGemStone, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(BlueGemStone, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(BlueGemStoneText, transform.position, Quaternion.identity);
-
-            }
-
-            if (collision.gameObject.name == "GreenGemStone(Clone)")
-            {
-                collectStoneAudio.Play();
-                inventory.AddItem(GreenGemStone, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(GreenGemStone, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(GreenGemStoneText, transform.position, Quaternion.identity);
-
-            }
-
-            if (collision.gameObject.name == "RedGemStone(Clone)")
-            {
-                collectStoneAudio.Play();
-                inventory.AddItem(RedGemStone, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(RedGemStone, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(RedGemStoneText, transform.position, Quaternion.identity);
-
-            }
-
-            if (collision.gameObject.name == "YellowGemStone(Clone)")
-            {
-                collectStoneAudio.Play();
-                inventory.AddItem(YellowGemStone, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(YellowGemStone, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(YellowGemStoneText, transform.position, Quaternion.identity);
-
-            }
-
-            if (collision.gameObject.name == "OrangeGemStone(Clone)")
-            {
-                collectStoneAudio.Play();
-                inventory.AddItem(OrangeGemStone, 1);
-                inventory.save();
-                MaterialsInventory.AddItem(OrangeGemStone, 1);
-                MaterialsInventory.save();
-                var stoneTxt = Instantiate(OrangeGemStoneText, transform.position, Quaternion.identity);
-
-            }
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("fish"))
-        {
-            fishCollect.Play();
-        }
-        if (collision.CompareTag("meat"))
-        {
-            if (collision.gameObject.name == "meat(Clone)")
+            if (collision.CompareTag("fish"))
             {
                 fishCollect.Play();
-                inventory.AddItem(RawGoatMeat, 1);
-                inventory.save();
-                meatInventory.AddItem(RawGoatMeat, 1);
-                meatInventory.save();
-                var stoneTxt = Instantiate(MeatText, transform.position, Quaternion.identity);
             }
-            if (collision.gameObject.name == "egg(Clone)")
+            if (collision.CompareTag("meat"))
             {
-                fishCollect.Play();
-                inventory.AddItem(RawEgg, 1);
-                inventory.save();
-                meatInventory.AddItem(RawEgg, 1);
-                meatInventory.save();
-                var stoneTxt = Instantiate(EggText, transform.position, Quaternion.identity);
-            }
-            if (collision.gameObject.name == "chickenThigh(Clone)")
-            {
-                fishCollect.Play();
-                inventory.AddItem(RawChickenThigh, 1);
-                inventory.save();
-                meatInventory.AddItem(RawChickenThigh, 1);
-                meatInventory.save();
-                var stoneTxt = Instantiate(ChickenText, transform.position, Quaternion.identity);
-            }
+                if (collision.gameObject.name == "meat(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(RawGoatMeat, 1);
+                    inventory.save();
+                    meatInventory.AddItem(RawGoatMeat, 1);
+                    meatInventory.save();
+                    var stoneTxt = Instantiate(MeatText, transform.position, Quaternion.identity);
+                }
+                if (collision.gameObject.name == "egg(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(RawEgg, 1);
+                    inventory.save();
+                    meatInventory.AddItem(RawEgg, 1);
+                    meatInventory.save();
+                    var stoneTxt = Instantiate(EggText, transform.position, Quaternion.identity);
+                }
+                if (collision.gameObject.name == "chickenThigh(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(RawChickenThigh, 1);
+                    inventory.save();
+                    meatInventory.AddItem(RawChickenThigh, 1);
+                    meatInventory.save();
+                    var stoneTxt = Instantiate(ChickenText, transform.position, Quaternion.identity);
+                }
 
-            Destroy(collision.gameObject);
-        }
-        if(collision.CompareTag("divingKit"))
-        {
-            PlayerPrefs.SetInt("haveDivingMask", 1);
-            Destroy(collision.gameObject);
+                Destroy(collision.gameObject);
+            }
+            if (collision.CompareTag("divingKit"))
+            {
+                PlayerPrefs.SetInt("haveDivingMask", 1);
+                Destroy(collision.gameObject);
+            }
+            if (collision.CompareTag("vegetables"))
+            {
+                if (collision.gameObject.name == "blueBerry(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(BlueBerry, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(BlueBerry, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(blueBerryText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "cabbage(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(Cabbage, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(Cabbage, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(cabbageText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "carrot(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(Carrot, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(Carrot, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(carrotText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "caulflower(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(Caulflower, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(Caulflower, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(caulflowerText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "cherry(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(Cherry, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(Cherry, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(cherryText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "corn(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(Corn, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(Corn, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(cornText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "eggplant(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(Eggplant, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(Eggplant, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(eggplantText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "greenGrape(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(greenGrape, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(greenGrape, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(greenGrapeText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "kiwi(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(kiwi, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(kiwi, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(kiwiText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "melon(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(melon, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(melon, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(melonText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "orangePepper(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(orangePepper, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(orangePepper, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(orangePepperText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "pineapple(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(pineapple, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(pineapple, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(pineappleText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "potato(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(potato, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(potato, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(potatoText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "pumpkin(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(pumpkin, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(pumpkin, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(pumpkinText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "purpleGrape(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(purpleGrape, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(purpleGrape, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(purpleGrapeText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "redPepper(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(redPepper, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(redPepper, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(redPepperText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "strawberry(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(strawberry, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(strawberry, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(strawberryText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "tomato(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(tomato, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(tomato, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(tomatoText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "turnip(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(turnip, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(turnip, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(turnipText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "waterMelon(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(waterMelon, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(waterMelon, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(waterMelonText, transform.position, Quaternion.identity);
+
+                }
+                if (collision.gameObject.name == "yellowPepper(Clone)")
+                {
+                    fishCollect.Play();
+                    inventory.AddItem(yellowPepper, 1);
+                    inventory.save();
+                    plantFruitInventory.AddItem(yellowPepper, 1);
+                    plantFruitInventory.save();
+                    var stoneTxt = Instantiate(yellowPepperText, transform.position, Quaternion.identity);
+
+                }
+                Destroy(collision.gameObject);
+            }
         }
     }
     void checkIfPlayerIsMoving(float PosX, float PosY)

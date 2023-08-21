@@ -11,6 +11,7 @@ public enum showInv
     potions,
     materials,
     gems,
+    plants,
     meats
 }
 
@@ -22,6 +23,7 @@ public class Inventory : MonoBehaviour
     public InventoryObject gearsInventory;
     public InventoryObject materialsInventory;
     public InventoryObject potionsInventory;
+    public InventoryObject plantFruitInventory;
 
     private InventoryObject inv;
 
@@ -53,6 +55,8 @@ public class Inventory : MonoBehaviour
     public GameObject materialInventory;
     public GameObject potionInventory;
     public GameObject meatsInventory;
+    public GameObject plantFruitIventory;
+
 
     public GameObject toolsMenu;
     public GameObject gearsMenu;
@@ -71,6 +75,7 @@ public class Inventory : MonoBehaviour
         gemInventory.SetActive(false);
         meatsInventory.SetActive(false);
         potionInventory.SetActive(false);
+        plantFruitIventory.SetActive(false);
     }
 
     // Update is called once per frame
@@ -92,12 +97,13 @@ public class Inventory : MonoBehaviour
             Ability3Potion.isPlaced = true;
 
             itemsDisplayed.Clear();
-            GameObject[] potions = GameObject.FindGameObjectsWithTag("potionIcon");
+            GameObject[] potions = GameObject.FindGameObjectsWithTag("potionIcon"); 
             GameObject[] equipments = GameObject.FindGameObjectsWithTag("equipIcon");
             GameObject[] materials = GameObject.FindGameObjectsWithTag("materialIcon");
             GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
             GameObject[] fishes = GameObject.FindGameObjectsWithTag("fishIcons");
             GameObject[] foods = GameObject.FindGameObjectsWithTag("foodIcon");
+            GameObject[] plants = GameObject.FindGameObjectsWithTag("plant&fruitIcon");
 
             foreach (GameObject potion in potions)
             {
@@ -123,6 +129,10 @@ public class Inventory : MonoBehaviour
             {
                 Destroy(food);
             }
+            foreach (GameObject plant in plants)
+            {
+                Destroy(plant);
+            }
 
             CreateDisplay();
             refreshInv = false;
@@ -141,7 +151,7 @@ public class Inventory : MonoBehaviour
 
                 if (itemsDisplayed.ContainsKey(inventory.Container[i]))
                 {
-                    if ((inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || inventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg) && inventory.Container[i] != null)
+                    if ((inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || inventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg || inventory.Container[i].item.type == ItemType.plant) && inventory.Container[i] != null)
                     {
                         itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
                     }
@@ -319,6 +329,40 @@ public class Inventory : MonoBehaviour
             }
 
         }
+        else if (currentInv == showInv.plants)
+        {
+
+            for (int i = 0; i < plantFruitInventory.Container.Count; i++)
+            {
+
+                if (itemsDisplayed.ContainsKey(plantFruitInventory.Container[i]))
+                {
+                    if ((plantFruitInventory.Container[i].item.type == ItemType.plant) && plantFruitInventory.Container[i] != null)
+                    {
+                        itemsDisplayed[plantFruitInventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + plantFruitInventory.Container[i].amount.ToString("n0");
+                    }
+                }
+
+                else
+                {
+                    if (plantFruitInventory.Container[i].item.type == ItemType.plant)
+                    {
+                        var obj = Instantiate(plantFruitInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                        obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
+
+                        obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                        if (plantFruitInventory.Container[i].item.type == ItemType.plant)
+                        {
+                            obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + plantFruitInventory.Container[i].amount.ToString("n0");
+                        }
+                        itemsDisplayed.Add(plantFruitInventory.Container[i], obj);
+
+                    }
+                }
+
+            }
+
+        }
 
     }
 
@@ -419,6 +463,21 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+        else if (currentInv == showInv.plants)
+        {
+
+            for (int i = 0; i < plantFruitInventory.Container.Count; i++)
+            {
+                if (plantFruitInventory.Container[i].item.type == ItemType.plant)
+                {
+                    var obj = Instantiate(plantFruitInventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform) as GameObject;
+                    obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
+                    obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                    itemsDisplayed.Add(plantFruitInventory.Container[i], obj);
+
+                }
+            }
+        }
     }
 
 
@@ -437,7 +496,7 @@ public class Inventory : MonoBehaviour
         gemInventory.SetActive(false);
         meatsInventory.SetActive(false);
         potionInventory.SetActive(false);
-
+        plantFruitIventory.SetActive(false);
         refreshInv = true;
     }
     public void ShowAll()
@@ -450,6 +509,7 @@ public class Inventory : MonoBehaviour
         gemInventory.SetActive(false);
         meatsInventory.SetActive(false);
         potionInventory.SetActive(false);
+        plantFruitIventory.SetActive(false);
 
         refreshInv = true;
     }
@@ -463,6 +523,7 @@ public class Inventory : MonoBehaviour
         gemInventory.SetActive(false);
         meatsInventory.SetActive(false);
         potionInventory.SetActive(true);
+        plantFruitIventory.SetActive(false);
 
         refreshInv = true;
     }
@@ -476,6 +537,7 @@ public class Inventory : MonoBehaviour
         gemInventory.SetActive(false);
         meatsInventory.SetActive(false);
         potionInventory.SetActive(false);
+        plantFruitIventory.SetActive(false);
 
         refreshInv = true;
     }
@@ -490,6 +552,7 @@ public class Inventory : MonoBehaviour
         gemInventory.SetActive(true);
         meatsInventory.SetActive(false);
         potionInventory.SetActive(false);
+        plantFruitIventory.SetActive(false);
 
         refreshInv = true;
     }
@@ -504,6 +567,22 @@ public class Inventory : MonoBehaviour
         gemInventory.SetActive(false);
         meatsInventory.SetActive(true);
         potionInventory.SetActive(false);
+        plantFruitIventory.SetActive(false);
+
+        refreshInv = true;
+    }
+
+    public void ShowPlantFruits()
+    {
+        currentInv = showInv.plants;
+
+        fullInventory.SetActive(false);
+        gearInventory.SetActive(false);
+        materialInventory.SetActive(false);
+        gemInventory.SetActive(false);
+        meatsInventory.SetActive(false);
+        potionInventory.SetActive(false);
+        plantFruitIventory.SetActive(true);
 
         refreshInv = true;
     }

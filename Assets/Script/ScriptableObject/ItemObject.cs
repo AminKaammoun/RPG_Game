@@ -12,6 +12,7 @@ public enum ItemType
     Gem,
     fish,
     egg,
+    plant,
     Default
 }
 public abstract class ItemObject : ScriptableObject

@@ -43,6 +43,7 @@ public class hole : MonoBehaviour
     public GameObject Pumpkin;
     public GameObject Melon;
     public GameObject WaterMelon;
+    public static bool isEmpty = true;
 
     // Start is called before the first frame update
     void Start()
@@ -64,8 +65,16 @@ public class hole : MonoBehaviour
                  
                     seedsPanel.SetActive(true);
                 }
+                
             }
+          
         }
+      /* if (isEmpty)
+            {
+                isDigged = false;
+                normalSoil.SetActive(true);
+                holeSoil.SetActive(false);
+            }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,6 +86,13 @@ public class hole : MonoBehaviour
                 Ekey.SetActive(true);
                 playerInRange = true;
             }
+        }
+
+        if (collision.CompareTag("hoe"))
+        {
+            isDigged = false;
+            normalSoil.SetActive(true);
+            holeSoil.SetActive(false);
         }
     }
 
@@ -93,8 +109,15 @@ public class hole : MonoBehaviour
         }
     }
 
+    public void resetHole()
+    {
+        isDigged = false;
+        normalSoil.SetActive(true);
+        holeSoil.SetActive(false);
+    }
     public void cornSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -105,11 +128,12 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Corn,transform.position -vec, Quaternion.identity);
         GameController.resetCursor = true;
-     
+       
     }
 
     public void strawberrySeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -124,6 +148,7 @@ public class hole : MonoBehaviour
 
     public void carrotSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -138,6 +163,7 @@ public class hole : MonoBehaviour
 
     public void eggplantySeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -151,6 +177,7 @@ public class hole : MonoBehaviour
     }
     public void tomatoSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -164,7 +191,7 @@ public class hole : MonoBehaviour
     }
     public void pepperSeed()
     {
-
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -178,6 +205,7 @@ public class hole : MonoBehaviour
     }
     public void grapeSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -192,6 +220,7 @@ public class hole : MonoBehaviour
 
     public void potatoSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -206,6 +235,7 @@ public class hole : MonoBehaviour
 
     public void greenGrapeSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -220,8 +250,8 @@ public class hole : MonoBehaviour
 
     public void turnipSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
-
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
         Ekey.SetActive(false);
@@ -235,6 +265,8 @@ public class hole : MonoBehaviour
 
     public void brockleySeed()
     {
+        isEmpty = false;
+
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -247,7 +279,9 @@ public class hole : MonoBehaviour
         GameController.resetCursor = true;
     }
     public void cabbageSeed()
+   
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -262,6 +296,7 @@ public class hole : MonoBehaviour
 
     public void blueberrySeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -276,6 +311,7 @@ public class hole : MonoBehaviour
 
     public void cherrySeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -290,6 +326,7 @@ public class hole : MonoBehaviour
 
     public void kiwiSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -304,6 +341,7 @@ public class hole : MonoBehaviour
 
     public void orangePepperSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -318,6 +356,7 @@ public class hole : MonoBehaviour
 
     public void yellowPepperSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -332,6 +371,7 @@ public class hole : MonoBehaviour
 
     public void pineAppleSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -346,6 +386,7 @@ public class hole : MonoBehaviour
 
     public void pumpkinSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -360,6 +401,7 @@ public class hole : MonoBehaviour
 
     public void melonSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
@@ -374,7 +416,9 @@ public class hole : MonoBehaviour
 
     public void waterMelonSeed()
     {
+        isEmpty = false;
         PlayerMovements.isDigging = true;
+     
         normalSoil.SetActive(false);
         holeSoil.SetActive(true);
         Ekey.SetActive(false);
@@ -386,4 +430,10 @@ public class hole : MonoBehaviour
         GameController.resetCursor = true;
     }
 
+    IEnumerator waitForCornPlant()
+    {
+        yield return new WaitForSeconds(10f);
+        normalSoil.SetActive(true);
+        holeSoil.SetActive(false);
+    }
 }
