@@ -44,6 +44,11 @@ public class hole : MonoBehaviour
     public GameObject Melon;
     public GameObject WaterMelon;
     public static bool isEmpty = true;
+    
+    public InventoryObject invenotry;
+    public InventoryObject fruitInventory;
+
+    public ItemObject[] seeds; 
 
     // Start is called before the first frame update
     void Start()
@@ -128,7 +133,11 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Corn,transform.position -vec, Quaternion.identity);
         GameController.resetCursor = true;
-       
+        invenotry.RemoveItem(seeds[5]);
+        fruitInventory.RemoveItem(seeds[5]);
+        invenotry.save();
+        fruitInventory.save();
+
     }
 
     public void strawberrySeed()
@@ -144,6 +153,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Strawberry, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[16]);
+        fruitInventory.RemoveItem(seeds[16]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void carrotSeed()
@@ -159,6 +172,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Carrot, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[2]);
+        fruitInventory.RemoveItem(seeds[2]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void eggplantySeed()
@@ -174,6 +191,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Eggplant, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[6]);
+        fruitInventory.RemoveItem(seeds[6]);
+        invenotry.save();
+        fruitInventory.save();
     }
     public void tomatoSeed()
     {
@@ -188,6 +209,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Tomato, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[17]);
+        fruitInventory.RemoveItem(seeds[17]);
+        invenotry.save();
+        fruitInventory.save();
     }
     public void pepperSeed()
     {
@@ -202,6 +227,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Pepper, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[15]);
+        fruitInventory.RemoveItem(seeds[15]);
+        invenotry.save();
+        fruitInventory.save();
     }
     public void grapeSeed()
     {
@@ -216,6 +245,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Grape, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[7]);
+        fruitInventory.RemoveItem(seeds[7]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void potatoSeed()
@@ -231,6 +264,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Potato, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[13]);
+        fruitInventory.RemoveItem(seeds[13]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void greenGrapeSeed()
@@ -246,6 +283,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(GreenGrape, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[8]);
+        fruitInventory.RemoveItem(seeds[8]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void turnipSeed()
@@ -261,6 +302,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Turnip, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[18]);
+        fruitInventory.RemoveItem(seeds[18]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void brockleySeed()
@@ -277,6 +322,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Brockley, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[3]);
+        fruitInventory.RemoveItem(seeds[3]);
+        invenotry.save();
+        fruitInventory.save();
     }
     public void cabbageSeed()
    
@@ -292,6 +341,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Cabbage, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[1]);
+        fruitInventory.RemoveItem(seeds[1]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void blueberrySeed()
@@ -307,6 +360,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(BlueBerry, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[0]);
+        fruitInventory.RemoveItem(seeds[0]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void cherrySeed()
@@ -322,6 +379,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Cherry, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[4]);
+        fruitInventory.RemoveItem(seeds[4]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void kiwiSeed()
@@ -337,6 +398,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Kiwi, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[9]);
+        fruitInventory.RemoveItem(seeds[9]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void orangePepperSeed()
@@ -352,6 +417,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(OrangePepper, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[11]);
+        fruitInventory.RemoveItem(seeds[11]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void yellowPepperSeed()
@@ -367,6 +436,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(YellowPepper, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[20]);
+        fruitInventory.RemoveItem(seeds[20]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void pineAppleSeed()
@@ -382,6 +455,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Pineapple, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[12]);
+        fruitInventory.RemoveItem(seeds[12]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void pumpkinSeed()
@@ -397,6 +474,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Pumpkin, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[14]);
+        fruitInventory.RemoveItem(seeds[14]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void melonSeed()
@@ -412,6 +493,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(Melon, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[10]);
+        fruitInventory.RemoveItem(seeds[10]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     public void waterMelonSeed()
@@ -428,6 +513,10 @@ public class hole : MonoBehaviour
         Vector3 vec = new Vector3(17.2166f, -175.15f, 0);
         Instantiate(WaterMelon, transform.position - vec, Quaternion.identity);
         GameController.resetCursor = true;
+        invenotry.RemoveItem(seeds[19]);
+        fruitInventory.RemoveItem(seeds[19]);
+        invenotry.save();
+        fruitInventory.save();
     }
 
     IEnumerator waitForCornPlant()

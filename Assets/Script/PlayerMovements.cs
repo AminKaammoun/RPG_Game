@@ -2338,6 +2338,7 @@ public class PlayerMovements : MonoBehaviour
             }
             if (collision.CompareTag("vegetables"))
             {
+                GameController.farmingLevel.AddExp(2);
                 if (collision.gameObject.name == "blueBerry(Clone)")
                 {
                     fishCollect.Play();
@@ -2346,7 +2347,7 @@ public class PlayerMovements : MonoBehaviour
                     plantFruitInventory.AddItem(BlueBerry, 1);
                     plantFruitInventory.save();
                     var stoneTxt = Instantiate(blueBerryText, transform.position, Quaternion.identity);
-
+                   
                 }
                 if (collision.gameObject.name == "cabbage(Clone)")
                 {

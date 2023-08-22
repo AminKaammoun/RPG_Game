@@ -19,6 +19,8 @@ public class playerData
     public int huntingXp;
     public int fishingLevel;
     public int fishingXp;
+    public int farmingLevel;
+    public int farmingXp;
     public int skill1Level;
     public int skill2Level;
     public int skill3Level;
@@ -82,6 +84,15 @@ public class playerData
         if(fishingLevel == 0)
         {
             fishingLevel = 1;
+        }
+
+        farmingLevel = GameController.farmingLevel.currentLevel;
+        farmingXp = GameController.farmingLevel.experience;
+        //fishingLevel = 1;
+        //fishingXp = 0;
+        if (farmingLevel == 0)
+        {
+            farmingLevel = 1;
         }
 
         skill1Level = GameController.skill1Level;
