@@ -27,11 +27,11 @@ public class Inventory : MonoBehaviour
 
     private InventoryObject inv;
 
-    public int Xstart;
-    public int Ystart;
-    public float XspaceBtwItem;
-    public int NumberOfColumns;
-    public float YspaceBtwItems;
+    private int Xstart = -98;
+    public static int Ystart = 723;
+    private float XspaceBtwItem = 49.3f;
+    private int NumberOfColumns = 5;
+    private float YspaceBtwItems = 45.3f;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     public static string description;
     public GameObject ability1;
@@ -69,6 +69,7 @@ public class Inventory : MonoBehaviour
     {
         CreateDisplay();
         currentInv = showInv.full;
+        Ystart = 723;
         fullInventory.SetActive(true);
         gearInventory.SetActive(false);
         materialInventory.SetActive(false);
@@ -81,7 +82,16 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerPrefs.GetInt("haveDivingMask") == 1)
+        if (currentInv == showInv.full)
+        {
+            Ystart = 723;
+        }
+        else
+        {
+            Ystart = 181;
+        }
+
+        if (PlayerPrefs.GetInt("haveDivingMask") == 1)
         {
             divingKit.SetActive(true);
         }
@@ -97,7 +107,7 @@ public class Inventory : MonoBehaviour
             Ability3Potion.isPlaced = true;
 
             itemsDisplayed.Clear();
-            GameObject[] potions = GameObject.FindGameObjectsWithTag("potionIcon"); 
+            GameObject[] potions = GameObject.FindGameObjectsWithTag("potionIcon");
             GameObject[] equipments = GameObject.FindGameObjectsWithTag("equipIcon");
             GameObject[] materials = GameObject.FindGameObjectsWithTag("materialIcon");
             GameObject[] gems = GameObject.FindGameObjectsWithTag("gemIcon");
@@ -145,7 +155,7 @@ public class Inventory : MonoBehaviour
     {
         if (currentInv == showInv.full)
         {
-          
+
             for (int i = 0; i < inventory.Container.Count; i++)
             {
 
@@ -163,10 +173,10 @@ public class Inventory : MonoBehaviour
                     obj.transform.SetParent(GameObject.FindGameObjectWithTag("inventoryScrollerSlots").transform, false);
 
                     obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                   /* if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || meatInventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg)
-                    {
-                        obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
-                    }*/
+                    /* if (inventory.Container[i].item.type == ItemType.Potion || inventory.Container[i].item.type == ItemType.Materiel || inventory.Container[i].item.type == ItemType.Gem || inventory.Container[i].item.type == ItemType.fish || meatInventory.Container[i].item.type == ItemType.Food || inventory.Container[i].item.type == ItemType.egg)
+                     {
+                         obj.GetComponentInChildren<TextMeshProUGUI>().text = "X" + inventory.Container[i].amount.ToString("n0");
+                     }*/
                     itemsDisplayed.Add(inventory.Container[i], obj);
 
                 }
@@ -303,7 +313,7 @@ public class Inventory : MonoBehaviour
 
                 if (itemsDisplayed.ContainsKey(meatInventory.Container[i]))
                 {
-                    if ((meatInventory.Container[i].item.type == ItemType.fish  || meatInventory.Container[i].item.type == ItemType.Food) && meatInventory.Container[i] != null)
+                    if ((meatInventory.Container[i].item.type == ItemType.fish || meatInventory.Container[i].item.type == ItemType.Food) && meatInventory.Container[i] != null)
                     {
                         itemsDisplayed[meatInventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = "X" + meatInventory.Container[i].amount.ToString("n0");
                     }
@@ -368,7 +378,7 @@ public class Inventory : MonoBehaviour
 
     public void CreateDisplay()
     {
-       
+
         if (currentInv == showInv.full)
         {
 
@@ -590,7 +600,7 @@ public class Inventory : MonoBehaviour
     public void showgears()
     {
         toolsMenu.SetActive(false);
-        gearsMenu.SetActive(true); 
+        gearsMenu.SetActive(true);
         levelsMenu.SetActive(false);
     }
 

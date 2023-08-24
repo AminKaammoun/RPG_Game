@@ -95,6 +95,7 @@ public class GameController : MonoBehaviour
     public GameObject[] seedsPanels;
 
     public GameObject PotionShopPanel;
+    public GameObject SeedShopPanel;
     public GameObject theVillage;
     public GameObject theForrest;
     public GameObject theBeach;
@@ -210,6 +211,7 @@ public class GameController : MonoBehaviour
 
     public Text coinText;
     public Text coinTextPotionShop;
+    public Text coinTextSeedShop;
     public Text coinsToolTipText;
 
     public Text attackValue;
@@ -242,7 +244,7 @@ public class GameController : MonoBehaviour
     public static int diamonds;
     public static int xp;
     public static int MiningXp;
-    public static int HarvestXp; 
+    public static int HarvestXp;
     public static int HuntingXp;
     public static int FishingXp;
     public static int FarmingXp;
@@ -276,7 +278,7 @@ public class GameController : MonoBehaviour
     public static bool enterCastle = false;
     public static bool quitCastle = false;
     public static bool canUlt = false;
-  
+
 
     private Vector2 cursorHotspot;
 
@@ -435,7 +437,7 @@ public class GameController : MonoBehaviour
         LoadData();
         //PlayerPrefs.SetInt("CacoShowed", 0);
         //PlayerPrefs.SetInt("haveDivingMask", 0);
-       
+
         //pets 
         if (eggShop.savedUsedPetList[1][0] != null && eggShop.savedUsedPetList[2][0] == null && eggShop.savedUsedPetList[3][0] == null)
         {
@@ -481,7 +483,7 @@ public class GameController : MonoBehaviour
                 PlayerMovements.BonusSp = PlayerMovements.BonusSp + 10;
                 PlayerMovements.BonusHp = PlayerMovements.BonusHp + 25;
                 break;
-            
+
             case "lvl 20 attack (equipmentObject)":
 
                 PlayerMovements.BonusAttack = PlayerMovements.BonusAttack + 250;
@@ -1329,7 +1331,7 @@ public class GameController : MonoBehaviour
         leafSpawner = GameObject.FindGameObjectsWithTag("LeafSpawner");
         crowSpawner = GameObject.FindGameObjectsWithTag("crowSpawner");
         bubbleSpawner = GameObject.FindGameObjectsWithTag("BubbleSpawner");
-        currentMap = PlayerMap.farm;
+        currentMap = PlayerMap.forrest;
 
     }
 
@@ -1356,7 +1358,7 @@ public class GameController : MonoBehaviour
         PlayerMovements.health = data.health;
         xp = data.xp;
         Level = data.level;
-        
+
         MiningXp = data.miningXp;
         MiningLevel = data.miningLevel;
 
@@ -1467,33 +1469,33 @@ public class GameController : MonoBehaviour
 
         petsData data9 = saveSystem.LoadPets();
 
-       
-            switch (data9.usedPetName.Length)
-            {
 
-                case 1:
-                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
-                    break;
-                case 2:
-                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
-                    eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1] });
-                    break;
-                case 3:
-                    eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
-                    eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1], data9.usedElement[1] });
-                    eggShop.savedUsedPetList.Add(3, new string[] { data9.usedPetName[2], data9.usedPetLevel[2], data9.usedXp[2], data9.usedMaxXp[2], data9.usedStars[2], data9.usedBaseAtk[2], data9.usedBaseDef[2], data9.usedBaseSp[2], data9.usedBaseAgi[2], data9.usedBaseHp[2], data9.usedStatsPoint[2], data9.usedBonusAtk[2], data9.usedBonusDef[2], data9.usedBonusSp[2], data9.usedBonusAgi[2], data9.usedBonusHp[2], data9.usedElement[2] });
-                    break;
-            }
-       
-
-        for (int i = 1; i<= data9.length; i++)
+        switch (data9.usedPetName.Length)
         {
-            petList.Add(i, new string[] { data9.petName[i-1], data9.petLevel[i-1], data9.xp[i - 1], data9.maxXp[i - 1], data9.stars[i - 1], data9.BaseAtk[i - 1], data9.BaseDef[i - 1], data9.BaseSp[i - 1], data9.BaseAgi[i - 1], data9.BaseHp[i - 1], data9.statsPoint[i - 1], data9.BonusAtk[i - 1], data9.BonusDef[i - 1], data9.BonusSp[i - 1], data9.BonusAgi[i - 1], data9.BonusHp[i - 1], data9.Element[i -1] });
+
+            case 1:
+                eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
+                break;
+            case 2:
+                eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
+                eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1] });
+                break;
+            case 3:
+                eggShop.savedUsedPetList.Add(1, new string[] { data9.usedPetName[0], data9.usedPetLevel[0], data9.usedXp[0], data9.usedMaxXp[0], data9.usedStars[0], data9.usedBaseAtk[0], data9.usedBaseDef[0], data9.usedBaseSp[0], data9.usedBaseAgi[0], data9.usedBaseHp[0], data9.usedStatsPoint[0], data9.usedBonusAtk[0], data9.usedBonusDef[0], data9.usedBonusSp[0], data9.usedBonusAgi[0], data9.usedBonusHp[0], data9.usedElement[0] });
+                eggShop.savedUsedPetList.Add(2, new string[] { data9.usedPetName[1], data9.usedPetLevel[1], data9.usedXp[1], data9.usedMaxXp[1], data9.usedStars[1], data9.usedBaseAtk[1], data9.usedBaseDef[1], data9.usedBaseSp[1], data9.usedBaseAgi[1], data9.usedBaseHp[1], data9.usedStatsPoint[1], data9.usedBonusAtk[1], data9.usedBonusDef[1], data9.usedBonusSp[1], data9.usedBonusAgi[1], data9.usedBonusHp[1], data9.usedElement[1] });
+                eggShop.savedUsedPetList.Add(3, new string[] { data9.usedPetName[2], data9.usedPetLevel[2], data9.usedXp[2], data9.usedMaxXp[2], data9.usedStars[2], data9.usedBaseAtk[2], data9.usedBaseDef[2], data9.usedBaseSp[2], data9.usedBaseAgi[2], data9.usedBaseHp[2], data9.usedStatsPoint[2], data9.usedBonusAtk[2], data9.usedBonusDef[2], data9.usedBonusSp[2], data9.usedBonusAgi[2], data9.usedBonusHp[2], data9.usedElement[2] });
+                break;
         }
 
+
+        for (int i = 1; i <= data9.length; i++)
+        {
+            petList.Add(i, new string[] { data9.petName[i - 1], data9.petLevel[i - 1], data9.xp[i - 1], data9.maxXp[i - 1], data9.stars[i - 1], data9.BaseAtk[i - 1], data9.BaseDef[i - 1], data9.BaseSp[i - 1], data9.BaseAgi[i - 1], data9.BaseHp[i - 1], data9.statsPoint[i - 1], data9.BonusAtk[i - 1], data9.BonusDef[i - 1], data9.BonusSp[i - 1], data9.BonusAgi[i - 1], data9.BonusHp[i - 1], data9.Element[i - 1] });
         }
-    
-    
+
+    }
+
+
     private void OnApplicationQuit()
     {
         SaveData();
@@ -1509,20 +1511,20 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-       
+
 
     }
 
-    
+
     void Update()
-    
+
     {
 
         if (resetCursor)
         {
             ArrowSpawn.canShoot = true;
             PlayerMovements.changeCursor = true;
-            
+
             cursorHotspot = new Vector2(0, -1);
             Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
             resetCursor = false;
@@ -1864,6 +1866,7 @@ public class GameController : MonoBehaviour
             value = coins / 1000;
             coinText.text = value.ToString() + "K";
             coinTextPotionShop.text = value.ToString() + "K";
+            coinTextSeedShop.text = value.ToString() + "K";
         }
         else if (coins >= 1000000)
         {
@@ -1874,17 +1877,20 @@ public class GameController : MonoBehaviour
             {
                 coinText.text = value.ToString() + "." + "0" + restInK + "M";
                 coinTextPotionShop.text = value.ToString() + "." + "0" + restInK + "M";
+                coinTextSeedShop.text = value.ToString() + "." + "0" + restInK + "M";
             }
             else
             {
                 coinText.text = value.ToString() + "." + restInK + "M";
                 coinTextPotionShop.text = value.ToString() + "." + restInK + "M";
+                coinTextSeedShop.text = value.ToString() + "." + restInK + "M";
             }
         }
         else
         {
             coinText.text = coins.ToString();
             coinTextPotionShop.text = coins.ToString();
+            coinTextSeedShop.text = coins.ToString();
         }
         coinsToolTipText.text = coins.ToString("N0");
         diamondsText.text = diamonds.ToString();
@@ -1971,12 +1977,12 @@ public class GameController : MonoBehaviour
             }
             StartCoroutine(backFromSlowMo());
         }
-       
+
         if (attack3rd)
         {
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 4f * Time.deltaTime);
 
-           
+
 
         }
 
@@ -2003,15 +2009,15 @@ public class GameController : MonoBehaviour
         if (enemyUlt)
         {
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 12, 4f * Time.deltaTime);
-           
+
             StartCoroutine(backFromEnemyUlt());
         }
         else
         {
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 8, 4f * Time.deltaTime);
         }
-    
-        if(cacodeamonUltEffect)
+
+        if (cacodeamonUltEffect)
         {
             var Volumes = volume.GetComponent<Volume>();
             if (Volumes.profile.TryGet<ChromaticAberration>(out var chromaticAberration))
@@ -2027,8 +2033,8 @@ public class GameController : MonoBehaviour
                 vignette.rounded.value = false;
                 vignette.intensity.value = 0.5f;
                 vignette.smoothness.value = 1f;
-                vignette.center.value= new Vector2(0.5f, 0.8f);
-                vignette.color.value = new Color(14f/255, 14f/255, 14f/255);
+                vignette.center.value = new Vector2(0.5f, 0.8f);
+                vignette.color.value = new Color(14f / 255, 14f / 255, 14f / 255);
             }
         }
         else
@@ -2044,9 +2050,9 @@ public class GameController : MonoBehaviour
             }
             if (Volumes.profile.TryGet<Vignette>(out var vignette))
             {
-               
+
                 vignette.intensity.value = 0f;
-             
+
             }
         }
 
@@ -2058,8 +2064,8 @@ public class GameController : MonoBehaviour
             currentMap = PlayerMap.water4;
             isCacodeamonDead = false;
         }
-        
-        if(oxygenAmount < 25f)
+
+        if (oxygenAmount < 25f)
         {
             oxyAmountText.color = Color.red;
         }
@@ -2067,7 +2073,7 @@ public class GameController : MonoBehaviour
         {
             oxyAmountText.color = Color.white;
         }
-   
+
     }
 
     IEnumerator backFromEnemyUlt()
@@ -2152,7 +2158,7 @@ public class GameController : MonoBehaviour
     {
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
-        for(int i =0; i < 24; i++)
+        for (int i = 0; i < 24; i++)
         {
             seedsPanels[i].SetActive(false);
         }
@@ -2257,7 +2263,7 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
- 
+
     public void closeTreesAreaPnanel()
     {
         ArrowSpawn.canShoot = true;
@@ -2273,7 +2279,7 @@ public class GameController : MonoBehaviour
         PlayerMovements.changeCursor = true;
         FishingAreaPanel.SetActive(false);
         BeachFishingAreaPanel.SetActive(false);
-       
+
         FishInv.save();
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
@@ -2495,6 +2501,11 @@ public class GameController : MonoBehaviour
         PotionShopPanel.SetActive(true);
         ArrowSpawn.canShoot = false;
     }
+    public void seedShop()
+    {
+        SeedShopPanel.SetActive(true);
+        ArrowSpawn.canShoot = false;
+    }
     public void ForestBlackSmithPanel()
     {
         BlackSmithPanel.SetActive(true);
@@ -2576,7 +2587,7 @@ public class GameController : MonoBehaviour
         ArrowSpawn.canShoot = true;
         PlayerMovements.changeCursor = true;
         PotionShopPanel.SetActive(false);
-
+        SeedShopPanel.SetActive(false);
     }
     public void OnLevelUp()
     {
@@ -2656,13 +2667,13 @@ public class GameController : MonoBehaviour
         theVillage.SetActive(false);
         theForrest.SetActive(false);
         theBeach.SetActive(false);
-       
+
     }
 
     IEnumerator removeLevelUpPanel()
     {
         yield return new WaitForSeconds(7f);
-        
+
         levelUpPanel.SetActive(false);
     }
 
@@ -2796,7 +2807,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-
+            Inventory.Ystart = 723;
             ArrowSpawn.canShoot = false;
             inventory.SetActive(true);
             Inv.load();
@@ -3243,6 +3254,6 @@ public class GameController : MonoBehaviour
         }
     }
 
- 
+
 
 }
