@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pineapple : MonoBehaviour
 {
-    private float timeToGrow = 60f;
+    private float timeToGrow = 300f;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     public GameObject waterSign;
@@ -77,15 +77,15 @@ public class pineapple : MonoBehaviour
             {
                 timeToGrow -= Time.deltaTime;
             }
-            if (timeToGrow < 45 && timeToGrow >= 30)
+            if (timeToGrow < 225 && timeToGrow >= 150)
             {
                 spriteRenderer.sprite = sprites[1];
             }
-            else if (timeToGrow < 30 && timeToGrow >= 15)
+            else if (timeToGrow < 150 && timeToGrow >= 75)
             {
                 spriteRenderer.sprite = sprites[2];
             }
-            else if (timeToGrow < 15 && timeToGrow > 0)
+            else if (timeToGrow < 75 && timeToGrow > 0)
             {
                 spriteRenderer.sprite = sprites[3];
             }

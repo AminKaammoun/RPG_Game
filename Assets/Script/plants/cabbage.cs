@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cabbage : MonoBehaviour
 {
-    private float timeToGrow = 60f;
+    private float timeToGrow = 2700f;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     public GameObject waterSign;
@@ -77,15 +77,15 @@ public class cabbage : MonoBehaviour
             {
                 timeToGrow -= Time.deltaTime;
             }
-            if (timeToGrow < 45 && timeToGrow >= 30)
+            if (timeToGrow < 202.5 && timeToGrow >= 135)
             {
                 spriteRenderer.sprite = sprites[1];
             }
-            else if (timeToGrow < 30 && timeToGrow >= 15)
+            else if (timeToGrow < 135 && timeToGrow >= 67.5)
             {
                 spriteRenderer.sprite = sprites[2];
             }
-            else if (timeToGrow < 15 && timeToGrow > 0)
+            else if (timeToGrow < 67.5 && timeToGrow > 0)
             {
                 spriteRenderer.sprite = sprites[3];
             }

@@ -205,13 +205,13 @@ public class seedShop : MonoBehaviour
             {
                 case 1:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 10000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[0], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 10000;
                             SeedsInventory.AddItem(seeds[0], 1);
                             SeedsInventory.save();
                         }
@@ -227,13 +227,13 @@ public class seedShop : MonoBehaviour
                     break;
                 case 2:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 12000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[1], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 12000;
                             SeedsInventory.AddItem(seeds[1], 1);
                             SeedsInventory.save();
                         }
@@ -249,13 +249,13 @@ public class seedShop : MonoBehaviour
 
                 case 3:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 14000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[2], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 14000;
                             SeedsInventory.AddItem(seeds[2], 1);
                             SeedsInventory.save();
                         }
@@ -271,13 +271,13 @@ public class seedShop : MonoBehaviour
 
                 case 4:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 16000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[3], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 16000;
                             SeedsInventory.AddItem(seeds[3], 1);
                             SeedsInventory.save();
                         }
@@ -293,13 +293,13 @@ public class seedShop : MonoBehaviour
 
                 case 5:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 18000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[4], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 18000;
                             SeedsInventory.AddItem(seeds[4], 1);
                             SeedsInventory.save();
                         }
@@ -315,13 +315,13 @@ public class seedShop : MonoBehaviour
 
                 case 6:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 21000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[5], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 21000;
                             SeedsInventory.AddItem(seeds[5], 1);
                             SeedsInventory.save();
                         }
@@ -337,13 +337,13 @@ public class seedShop : MonoBehaviour
                 
                 case 7:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 24000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[6], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 24000;
                             SeedsInventory.AddItem(seeds[6], 1);
                             SeedsInventory.save();
                         }
@@ -359,13 +359,13 @@ public class seedShop : MonoBehaviour
 
                 case 8:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 27000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[7], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 27000;
                             SeedsInventory.AddItem(seeds[7], 1);
                             SeedsInventory.save();
                         }
@@ -381,13 +381,13 @@ public class seedShop : MonoBehaviour
 
                 case 9:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 30000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[8], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 30000;
                             SeedsInventory.AddItem(seeds[8], 1);
                             SeedsInventory.save();
                         }
@@ -403,13 +403,13 @@ public class seedShop : MonoBehaviour
 
                 case 10:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 34000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[9], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 34000;
                             SeedsInventory.AddItem(seeds[9], 1);
                             SeedsInventory.save();
                         }
@@ -425,13 +425,13 @@ public class seedShop : MonoBehaviour
 
                 case 11:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 38000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[10], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 38000;
                             SeedsInventory.AddItem(seeds[10], 1);
                             SeedsInventory.save();
                         }
@@ -447,13 +447,13 @@ public class seedShop : MonoBehaviour
 
                 case 12:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 42000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[11], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 42000;
                             SeedsInventory.AddItem(seeds[11], 1);
                             SeedsInventory.save();
                         }
@@ -469,13 +469,13 @@ public class seedShop : MonoBehaviour
 
                 case 13:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 46000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[12], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 46000;
                             SeedsInventory.AddItem(seeds[12], 1);
                             SeedsInventory.save();
                         }
@@ -491,13 +491,13 @@ public class seedShop : MonoBehaviour
 
                 case 14:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 51000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[13], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 51000;
                             SeedsInventory.AddItem(seeds[13], 1);
                             SeedsInventory.save();
                         }
@@ -513,13 +513,13 @@ public class seedShop : MonoBehaviour
 
                 case 15:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 56000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[14], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 56000;
                             SeedsInventory.AddItem(seeds[14], 1);
                             SeedsInventory.save();
                         }
@@ -535,13 +535,13 @@ public class seedShop : MonoBehaviour
 
                 case 16:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 62000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[15], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 62000;
                             SeedsInventory.AddItem(seeds[15], 1);
                             SeedsInventory.save();
                         }
@@ -557,13 +557,13 @@ public class seedShop : MonoBehaviour
 
                 case 17:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 68000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[16], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 68000;
                             SeedsInventory.AddItem(seeds[16], 1);
                             SeedsInventory.save();
                         }
@@ -578,13 +578,13 @@ public class seedShop : MonoBehaviour
                     break;
                 case 18:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 75000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[17], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 75000;
                             SeedsInventory.AddItem(seeds[17], 1);
                             SeedsInventory.save();
                         }
@@ -599,13 +599,13 @@ public class seedShop : MonoBehaviour
                     break;
                 case 19:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 85000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[18], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 85000;
                             SeedsInventory.AddItem(seeds[18], 1);
                             SeedsInventory.save();
                         }
@@ -620,13 +620,13 @@ public class seedShop : MonoBehaviour
                     break;
                 case 20:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 95000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[19], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 95000;
                             SeedsInventory.AddItem(seeds[19], 1);
                             SeedsInventory.save();
                         }
@@ -641,13 +641,13 @@ public class seedShop : MonoBehaviour
                     break;
                 case 21:
                     alert.SetActive(false);
-                    if (GameController.coins >= Int32.Parse(value.text) * 1000)
+                    if (GameController.coins >= Int32.Parse(value.text) * 105000)
                     {
                         for (int i = 0; i < Int32.Parse(value.text); i++)
                         {
                             inventory.AddItem(seeds[20], 1);
                             inventory.save();
-                            GameController.coins -= 1000;
+                            GameController.coins -= 105000;
                             SeedsInventory.AddItem(seeds[20], 1);
                             SeedsInventory.save();
                         }
@@ -669,87 +669,21 @@ public class seedShop : MonoBehaviour
     {
         try
         {
-            switch (currentPotion)
+            int[] multipliers = { 10, 12, 14, 16, 18, 21, 24, 27, 30, 34, 38, 42, 46 ,51, 56 , 62, 68, 75, 85 ,95,105};
+
+            int num = Int32.Parse(value.text);
+            int multiplier = multipliers[currentPotion - 1]; // Array index is 0-based
+
+            int multipliedValue = num * multiplier;
+
+            if (multipliedValue > 999)
             {
-                case 1:
-                    int num = Int32.Parse(value.text);
-
-                    if (num > 19)
-                    {
-                        cost.text = num * 0.05 + "M";
-                    }
-                    else
-                    {
-                        cost.text = num * 50 + "K";
-                    }
-                    break;
-
-                case 2:
-                    int num1 = Int32.Parse(value.text);
-                    if (num1 > 9)
-                    {
-                        cost.text = num1 * 0.1 + "M";
-                    }
-                    else
-                    {
-                        cost.text = num1 * 100 + "K";
-                    }
-                    break;
-
-                case 3:
-                    int num2 = Int32.Parse(value.text);
-
-                    if (num2 > 19)
-                    {
-                        cost.text = num2 * 0.05 + "M";
-                    }
-                    else
-                    {
-                        cost.text = num2 * 50 + "K";
-                    }
-                    break;
-
-                case 4:
-                    int num3 = Int32.Parse(value.text);
-
-                    if (num3 > 9)
-                    {
-                        cost.text = num3 * 0.1 + "M";
-                    }
-                    else
-                    {
-                        cost.text = num3 * 100 + "K";
-                    }
-                    break;
-
-                case 5:
-                    int num4 = Int32.Parse(value.text);
-
-                    if (num4 > 19)
-                    {
-                        cost.text = num4 * 0.05 + "M";
-                    }
-                    else
-                    {
-                        cost.text = num4 * 50 + "K";
-                    }
-                    break;
-
-                case 6:
-                    int num5 = Int32.Parse(value.text);
-
-                    if (num5 > 9)
-                    {
-                        cost.text = num5 * 0.1 + "M";
-                    }
-                    else
-                    {
-                        cost.text = num5 * 100 + "K";
-                    }
-
-                    break;
+                cost.text = (multipliedValue * 0.001).ToString("F2") + "M";
             }
-
+            else
+            {
+                cost.text = multipliedValue + "K";
+            }
         }
         catch
         {

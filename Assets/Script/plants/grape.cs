@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class grape : MonoBehaviour
 {
-    private float timeToGrow = 60f;
+    private float timeToGrow = 75f;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     public GameObject waterSign;
@@ -77,15 +77,15 @@ public class grape : MonoBehaviour
             {
                 timeToGrow -= Time.deltaTime;
             }
-            if (timeToGrow < 45 && timeToGrow >= 30)
+            if (timeToGrow < 56.25 && timeToGrow >= 37.5)
             {
                 spriteRenderer.sprite = sprites[1];
             }
-            else if (timeToGrow < 30 && timeToGrow >= 15)
+            else if (timeToGrow < 37.5 && timeToGrow >= 18.75)
             {
                 spriteRenderer.sprite = sprites[2];
             }
-            else if (timeToGrow < 15 && timeToGrow > 0)
+            else if (timeToGrow < 18.75 && timeToGrow > 0)
             {
                 spriteRenderer.sprite = sprites[3];
             }

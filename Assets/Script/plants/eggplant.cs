@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class eggplant : MonoBehaviour
 {
-    private float timeToGrow = 60f;
+    private float timeToGrow = 165f;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     public GameObject waterSign;
@@ -77,15 +77,15 @@ public class eggplant : MonoBehaviour
             {
                 timeToGrow -= Time.deltaTime;
             }
-            if (timeToGrow < 45 && timeToGrow >= 30)
+            if (timeToGrow < 123.75 && timeToGrow >= 82.5)
             {
                 spriteRenderer.sprite = sprites[1];
             }
-            else if (timeToGrow < 30 && timeToGrow >= 15)
+            else if (timeToGrow < 82.5 && timeToGrow >= 41.25)
             {
                 spriteRenderer.sprite = sprites[2];
             }
-            else if (timeToGrow < 15 && timeToGrow > 0)
+            else if (timeToGrow < 41.25 && timeToGrow > 0)
             {
                 spriteRenderer.sprite = sprites[3];
             }

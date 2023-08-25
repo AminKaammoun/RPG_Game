@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class melon : MonoBehaviour
 {
-    private float timeToGrow = 60f;
+    private float timeToGrow = 420f;
     public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     public GameObject waterSign;
@@ -77,15 +77,15 @@ public class melon : MonoBehaviour
             {
                 timeToGrow -= Time.deltaTime;
             }
-            if (timeToGrow < 45 && timeToGrow >= 30)
+            if (timeToGrow < 315 && timeToGrow >= 210)
             {
                 spriteRenderer.sprite = sprites[1];
             }
-            else if (timeToGrow < 30 && timeToGrow >= 15)
+            else if (timeToGrow < 210 && timeToGrow >= 105)
             {
                 spriteRenderer.sprite = sprites[2];
             }
-            else if (timeToGrow < 15 && timeToGrow > 0)
+            else if (timeToGrow < 105 && timeToGrow > 0)
             {
                 spriteRenderer.sprite = sprites[3];
             }
