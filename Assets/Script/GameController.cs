@@ -148,6 +148,7 @@ public class GameController : MonoBehaviour
     public AudioClip forestAudio;
     public AudioClip forestNightAudio;
     public AudioClip villageSound;
+    public AudioClip farmSound;
     public AudioClip villageMusic;
     public AudioClip LibraryMusic;
     public AudioClip CaslteMusic;
@@ -2350,6 +2351,53 @@ public class GameController : MonoBehaviour
         cursorHotspot = new Vector2(0, -1);
         Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
     }
+    public void FarmTpButton()
+    {
+        ArrowSpawn.canShoot = true;
+        PlayerMovements.changeCursor = true;
+        changeBGM(forestMusic, musicSource);
+        changeBGS(farmSound, audioSource);
+        musicSource.loop = true;
+        tpPanel.SetActive(false);
+        wantTp = false;
+        player.transform.position = new Vector3(34.11f, 174.01f, 0f);
+        try
+        {
+            pet = GameObject.FindGameObjectWithTag("pet");
+            pet.transform.position = new Vector3(34.11f, 174.01f, 0f);
+        }
+        catch (System.NullReferenceException)
+        {
+
+            try
+            {
+                pet = GameObject.FindGameObjectWithTag("pumpkin_Pet");
+                pet = GameObject.FindGameObjectWithTag("eye_Pet");
+                pet = GameObject.FindGameObjectWithTag("crab_Pet");
+                pet = GameObject.FindGameObjectWithTag("greenDragon_Pet");
+                pet = GameObject.FindGameObjectWithTag("dog_Pet");
+                pet = GameObject.FindGameObjectWithTag("snowDog_Pet");
+                pet = GameObject.FindGameObjectWithTag("rock_pet");
+                pet = GameObject.FindGameObjectWithTag("snake_Pet");
+                pet = GameObject.FindGameObjectWithTag("worm_Pet");
+                pet = GameObject.FindGameObjectWithTag("bee_Pet");
+                pet = GameObject.FindGameObjectWithTag("red_dragon");
+                pet.transform.position = new Vector3(34.11f, 174.01f, 0f);
+            }
+            catch (System.NullReferenceException)
+            {
+
+            }
+
+        }
+
+        currentMap = PlayerMap.farm;
+        loadingPanel.SetActive(true);
+        StartCoroutine(removeLoadingPanel());
+        cursorHotspot = new Vector2(0, -1);
+        Cursor.SetCursor(NormalCursor, cursorHotspot, CursorMode.Auto);
+    }
+
     public void ForrestTpButton()
     {
         ArrowSpawn.canShoot = true;

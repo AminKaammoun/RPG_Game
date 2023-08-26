@@ -31,7 +31,7 @@ public class plant : MonoBehaviour
             Ekey.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                PlayerMovements.animator.SetBool("mineTree", true);
+                PlayerMovements.animator.SetBool("harvesting", true);
                 
             }
         }
@@ -46,7 +46,7 @@ public class plant : MonoBehaviour
         {
             if (isDone)
             {
-                PlayerMovements.animator.SetBool("mineTree", false);
+                PlayerMovements.animator.SetBool("harvesting", false);
                 isDone = false;
             }
         }
@@ -54,11 +54,12 @@ public class plant : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("pickAxe"))
+        if (collision.CompareTag("hoe"))
         {
             Instantiate(Plant,transform.position, Quaternion.identity);
             Destroy(gameObject);
-            PlayerMovements.animator.SetBool("mineTree", false);
+          
+            PlayerMovements.animator.SetBool("harvesting", false);
             GameController.playHarvestSound = true;
           
             int rand3 = Random.Range(0, 2);
@@ -73,6 +74,12 @@ public class plant : MonoBehaviour
             }
 
         }
+    }
+
+    IEnumerator backFromHarvesting()
+    {
+        yield return new WaitForSeconds(1f);
+      
     }
  
 }
