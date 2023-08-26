@@ -1863,14 +1863,14 @@ public class GameController : MonoBehaviour
 
         if (coins < 1000000 && coins >= 1000)
         {
-            value = coins / 1000;
+            value = (coins / 1000);
             coinText.text = value.ToString() + "K";
             coinTextPotionShop.text = value.ToString() + "K";
             coinTextSeedShop.text = value.ToString() + "K";
         }
         else if (coins >= 1000000)
         {
-            value = coins / 1000000;
+            value =coins / 1000000;
             int rest = coins - 1000000 * value;
             int restInK = rest / 10000;
             if (restInK < 10)
@@ -1892,7 +1892,7 @@ public class GameController : MonoBehaviour
             coinTextPotionShop.text = coins.ToString();
             coinTextSeedShop.text = coins.ToString();
         }
-        coinsToolTipText.text = coins.ToString("N0");
+        coinsToolTipText.text = coins.ToString();
         diamondsText.text = diamonds.ToString();
 
         updateLevelStats();
