@@ -25,6 +25,9 @@ public class seedShop : MonoBehaviour
     public AudioSource coinSound;
     public GameObject notEnoughMoneyText;
     public GameObject SeedShop;
+
+    public GameObject buyPanel;
+    public GameObject sellPanel;
    
 
     // Start is called before the first frame update
@@ -689,5 +692,17 @@ public class seedShop : MonoBehaviour
         {
             cost.text = "0";
         }
+    }
+
+    public void buyButton()
+    {
+        buyPanel.SetActive(true);
+        sellPanel.SetActive(false);
+    }
+
+    public void sellButton()
+    {
+        buyPanel.SetActive(false);
+        sellPanel.SetActive(true);
     }
 }
