@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 30071
+  controlID: 587
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 30072
+  controlID: 588
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 30073
+  controlID: 589
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 30144
+  controlID: 645
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimationWindow
+  m_Name: GridPaintPaletteWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -297,14 +297,14 @@ MonoBehaviour:
     y: 0
     width: 813
     height: 210
-  m_MinSize: {x: 102, y: 121}
+  m_MinSize: {x: 242, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 22}
   - {fileID: 23}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -472,7 +472,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b0bffeffe8faffffe2010100b6030100d4090100200f01007e1c010042260100c427010028280100ca2b0100002f01000c2f01006a5801008c590100865b0100145f01009c7001004a7d0100d67e0100ca830100b4870100c2870100e292010032950100ae970100ca9f01001ea101003ea40100b4a40100eca401002aa5010012a60100f8b00100b4b6010002bc0100ecc30100e2e4010046e50100e0e501003ae90100eceb01006eee01002ef901006a040200b40702002a1202008c1c0200b41c02008c210200c2220200
+      m_ExpandedIDs: e8faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -3482,9 +3482,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 177.72281, y: 131.68007, z: -1.8464496}
+    m_Target: {x: 28.09504, y: 176.18805, z: 2.2620263}
     speed: 2
-    m_Value: {x: 177.72281, y: 131.68007, z: -1.8464496}
+    m_Value: {x: 28.09504, y: 176.18805, z: 2.2620263}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -3534,9 +3534,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 196.23734
+    m_Target: 16.561403
     speed: 2
-    m_Value: 196.23734
+    m_Value: 16.561403
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -4649,9 +4649,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 659}
-    m_SelectedIDs: 2a350300
-    m_LastClickedID: 210218
-    m_ExpandedIDs: 0000000088e002008ae002008ce002008ee0020090e0020092e0020094e0020096e0020098e002009ae002009ce002009ee00200a0e00200a2e00200a4e00200a6e00200a8e00200aae0020000ca9a3bffffff7f
+    m_SelectedIDs: ce350300
+    m_LastClickedID: 210382
+    m_ExpandedIDs: 000000003ce102003ee1020040e1020042e1020044e1020046e1020048e102004ae102004ce102004ee1020050e1020052e1020054e1020056e1020058e102005ae102005ce102005ee1020000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -4679,7 +4679,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000088e002008ae002008ce002008ee0020090e0020092e0020094e0020096e0020098e002009ae002009ce002009ee00200a0e00200a2e00200a4e00200a6e00200a8e00200aae0020000ca9a3bffffff7f
+    m_ExpandedIDs: 000000003ce102003ee1020040e1020042e1020044e1020046e1020048e102004ae102004ce102004ee1020050e1020052e1020054e1020056e1020058e102005ae102005ce102005ee1020000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -4831,9 +4831,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "UnityEditor.Tilemaps.GridPaintPaletteWindow\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 799
+    x: 786
     y: 810
-    width: 815
+    width: 811
     height: 189
   m_SerializedDataModeController:
     m_DataMode: 0
